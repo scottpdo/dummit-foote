@@ -25,6 +25,25 @@ Let $G$ be a group. Determine which of the following binary operations are assoc
     \item The operation $\star$ on $\mathbb{Q}$ defined by $a \star b = \frac{a + b}{5}$:\newline
           Not associative. $0 \star (1 \star 1) = 0 + 2/5 = 2/5$ but $(0 \star 1) \star 1 = 1/5 \star 1 = 6/5 * 1/5 = 6/25$.
     \item The operation $\star$ on $\mathbb{Z} \times \mathbb{Z}$ defined by $(a, b) \star (c, d) = (ad + bc, bd):$\newline
+          Associative.
+          \begin{multline*}
+            ((a,b)\star(c,d))\star(e,f) = (ad + bc, bd)\star(e,f) = \\
+            (adf + bcf + bde, bdf) = (a,b)\star(cf + de, df) = (a,b)\star((c,d)\star(e,f)).
+          \end{multline*}
+    \item The operation $\star$ on $\mathbb{Q} - \{0\}$ defined by $a \star b = a / b:$\newline
+          Not associative. $(1 \star 2) \star 3 = 1/6$ but $1 \star (2 \star 3) = 3/2$.
+\end{enumerate}
+
+\section*{2. (11/14/22)}
+
+Decide which of the binary operations in the preceding exercise are commutative.
+
+\begin{enumerate}[label=\alph*)]
+    \item Not commutative. $1 - 2 = -1$ but $2 - 1 = 1$.
+    \item Commutative. $a \star b = a + b + ab = b + a + ba = b \star a$.
+    \item Commutative. $a \star b = \frac{a + b}{5} = \frac{b + a}{5} = b \star a$.
+    \item Commutative. $(a,b)\star(c,d) = (ad + bc, bd) = (cb + da, db) = (c,d)\star(a,b)$.
+    \item Not commutative. $1 / 2 = 1/2$ but $2 / 1 = 2$.
 \end{enumerate}
 
 \end{document}
