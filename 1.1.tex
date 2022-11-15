@@ -46,4 +46,24 @@ Decide which of the binary operations in the preceding exercise are commutative.
     \item Not commutative. $1 / 2 = 1/2$ but $2 / 1 = 2$.
 \end{enumerate}
 
+\section*{3. (11/15/22)}
+
+Prove that addition of residue classes in $\mathbb{Z}/n\mathbb{Z}$ is associative.
+
+\begin{proof}
+      Let $\bar{a}, \bar{b}, \bar{c} \in \mathbb{Z}/n\mathbb{Z}$. Suppose that $(\bar{a} + \bar{b}) + \bar{c} = \bar{d}$ and $\bar{a} + (\bar{b} + \bar{c}) = \bar{e}$. Then:
+
+      \begin{equation*}
+            \bar{d} - \bar{c} = \bar{a} + \bar{b} \Rightarrow \bar{a} = (\bar{d} - \bar{c}) - \bar{b}
+      \end{equation*}
+
+      And:
+
+      \begin{equation*}
+            \bar{e} - \bar{a} = \bar{b} + \bar{c} \Rightarrow \bar{e} = ((\bar{d} - \bar{c}) - \bar{b}) + \bar{b} + \bar{c} = \bar{d} - \bar{c} + \bar{c} = \bar{d} 
+      \end{equation*}
+
+      Therefore $\bar{d} = \bar{e}$, so $(\bar{a} + \bar{b}) + \bar{c} = \bar{a} + (\bar{b} + \bar{c})$.
+\end{proof}
+
 \end{document}
