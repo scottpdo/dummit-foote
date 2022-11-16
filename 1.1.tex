@@ -18,10 +18,10 @@ Let $G$ be a group. Determine which of the following binary operations are assoc
           Not associative. $3 \star (2 \star 1) = 3 - 1 = 2$ but $(3 \star 2) \star 1 = 3 - 2 = 1$.
     \item The operation $\star$ on $\mathbb{R}$ defined by $a \star b = a + b + ab:$\newline
           Associative. 
-          \begin{multline*}
-            a \star (b \star c) = a \star (b + c + bc) = a + b + c + bc + ab + ac + abc = \\
+          \begin{equation*}
+            a \star (b \star c) = a \star (b + c + bc) = a + b + c + bc + ab + ac + abc =
             (a + b + ab) \star c = (a \star b) \star c
-          \end{multline*}
+          \end{equation*}
     \item The operation $\star$ on $\mathbb{Q}$ defined by $a \star b = \frac{a + b}{5}$:\newline
           Not associative. $0 \star (1 \star 1) = 0 + 2/5 = 2/5$ but $(0 \star 1) \star 1 = 1/5 \star 1 = 6/5 * 1/5 = 6/25$.
     \item The operation $\star$ on $\mathbb{Z} \times \mathbb{Z}$ defined by $(a, b) \star (c, d) = (ad + bc, bd):$\newline
@@ -46,12 +46,15 @@ Decide which of the binary operations in the preceding exercise are commutative.
     \item Not commutative. $1 / 2 = 1/2$ but $2 / 1 = 2$.
 \end{enumerate}
 
-\section*{3. (11/15/22)}
+\section*{3. (11/16/22)}
 
 Prove that addition of residue classes in $\mathbb{Z}/n\mathbb{Z}$ is associative.
 
 \begin{proof}
-      Let $\bar{a}, \bar{b}, \bar{c} \in \mathbb{Z}/n\mathbb{Z}$. Suppose that $(\bar{a} + \bar{b}) + \bar{c} = \bar{d}$ and $\bar{a} + (\bar{b} + \bar{c}) = \bar{e}$. Then:
+
+      First, we will show that subtraction in $\mathbb{Z}/n\mathbb{Z}$ is well-defined. Given a representative element $\bar{a}$, $1 \leq \bar{a} \leq n - 1$, the element $n - \bar{a}$ is $\bar{a}$'s inverse. $1 \leq n - \bar{a} \leq n - 1$, so $n - \bar{a}$ is also a representative element. Also, $\bar{a} + (n - \bar{a}) = n \sim 0$. Thus, subtracting an element $\bar{a}$ from $\bar{b}$ is the same as adding $n - \bar{a}$ to $\bar{b}$, and so subtraction is well-defined.
+
+      Now, to show that addition is associative, let $\bar{a}, \bar{b}, \bar{c} \in \mathbb{Z}/n\mathbb{Z}$. Suppose that $(\bar{a} + \bar{b}) + \bar{c} = \bar{d}$ and $\bar{a} + (\bar{b} + \bar{c}) = \bar{e}$. Then:
 
       \begin{equation*}
             \bar{d} - \bar{c} = \bar{a} + \bar{b} \Rightarrow \bar{a} = (\bar{d} - \bar{c}) - \bar{b}
@@ -64,6 +67,26 @@ Prove that addition of residue classes in $\mathbb{Z}/n\mathbb{Z}$ is associativ
       \end{equation*}
 
       Therefore $\bar{d} = \bar{e}$, so $(\bar{a} + \bar{b}) + \bar{c} = \bar{a} + (\bar{b} + \bar{c})$.
+\end{proof}
+
+\section*{4. (11/16/22)}
+
+Prove that multiplication of residue classes in $\mathbb{Z}/n\mathbb{Z}$ is associative.
+
+\begin{proof}
+      Let $\bar{a}, \bar{b}, \bar{c} \in \mathbb{Z}/n\mathbb{Z}$. Then:
+
+      \begin{equation*}
+            \overline{a}(\overline{b}\overline{c}) = \overline{a}(\overline{bc}) = \overline{a(bc)}
+      \end{equation*}
+
+      Since the latter expression involves arbitrary integers $a, b, c$ whose representative elements in $\mathbb{Z}/n\mathbb{Z}$ are $\overline{a}, \overline{b}, \overline{c}$, we can use the associative property of standard multiplication:
+
+      \begin{equation*}
+            \overline{a(bc)} = \overline{(ab)c} = (\overline{ab})\overline{c} = (\overline{a}\overline{b})\overline{c} 
+      \end{equation*}
+
+      Therefore multiplication of residue classes is associative.
 \end{proof}
 
 \end{document}
