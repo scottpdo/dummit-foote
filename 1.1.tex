@@ -129,7 +129,7 @@ Determine which of the following are sets are groups under addition:
 
 \section*{7. (11/18/22)}
 
-Let $G = \{x \in \mathbb{R} \mid 0 \leq x < 1\}$ and for $x, y \in G$ let $x \star y$ be the fractional part of $x + y$. Prove that $\star$ is a well-defined binary operation on $G$ and that $G$ is an abelian group under $\star$.
+Let $G = \{x \in \mathbb{R} \mid 0 \leq x < 1\}$ and for $x, y \in G$ let $x \star y$ be the fractional part of $x + y$. Prove that $\star$ is a well-defined binary operation on $G$ and that $G$ is an abelian group under $\star$ (called the \emph{real numbers mod 1}).
 
 \begin{proof}
       $\star$ is a well-defined binary operation on $G$. Let $x, y \in G$. Then $x, y \in [0, 1)$. Suppose that $x + y = z \in \mathbb{R}$. By definition, $x \star y$ is the fractional part of $z$, which is unique. Therefore $\star$ is well-defined, and commutative, since $+$ is commutative.
@@ -141,6 +141,18 @@ Let $G = \{x \in \mathbb{R} \mid 0 \leq x < 1\}$ and for $x, y \in G$ let $x \st
       Finally, $\star$ is associative. Let $a, b, c \in G$. $(a \star b) \star c$ is equal to the fractional part of $(a \star b) + c$. And, $a \star b$ is equal to the fractional part of $a + b$. Now, taking the fractional part of a number is an idempotent operation; that is, performing it more than once yields the same value. So the fractional part of $(a \star b) + c$, that is, the fractional part of the fractional part of $(a + b) + c$ is just the fractional part of $(a + b) + c = a + b + c$. Similarly, $a \star (b \star c)$ is equal to the fractional part of $a + b + c$, and so $\star$ is associative.
 
       Thus $G$ is an abelian group under $\star$.
+\end{proof}
+
+\section*{8. (11/18/22)}
+
+Let $G = \{z \in \mathbb{C} \mid z^n = 1$ for some $n \in \mathbb{Z}^+\}$. Prove that $G$ is a group under multiplication (called the \emph{roots of unity}) but not under addition.
+
+\begin{proof}
+      $1$ is the identity element of $G$. $1^1 = 1$, so $1 \in G$, and by definition $1 \cdot z = z$ for all $z \in \mathbb{C}$. Multiplication is by definition associative, so it remains to be shown that $G$ is closed under multiplication.
+
+      Let $a, b \in G$. It follows that $a^n = 1$ and $b^m = 1$ for some $n, m \in \mathbb{Z}^+$. Then $1 = a^n b^m = (ab)^{nm}$. The product of $ab$ raised to the $nm$ power is $1$, so it is an element of $G$, and thus $G$ is closed under addition.
+
+      $G$ is not a group under addition. Both $1$ and the imaginary number $i$ are elements of $G$, but their sum $1 + i$ is not. Consider the modulus of a complex number $z = x + iy$, $\sqrt{x^2 + y^2}$. The modulus of $1 + i$ is $\sqrt{2}$. The modulus of the product of two complex numbers is equal to the product of the modulus of each number (proof omitted). The modulus of $(1 + i)^2$ is $\sqrt{2} \cdot \sqrt{2} = 2$. The modulus of $(1 + i)^3$ is then $2\sqrt{2}$. For each successive $n$, then, the modulus of $(1 + i)^n$ is strictly increasing. However, the modulus of $1 \in \mathbb{C}$ is $1$, so $(1 + i)^n$ is never $1$, and therefore $1 + i$ is not in $G$.
 \end{proof}
 
 \end{document}
