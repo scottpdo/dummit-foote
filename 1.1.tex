@@ -182,4 +182,16 @@ Let $G = \{a + b\sqrt{2} \in \mathbb{R} \mid a, b \in \mathbb{Q} \}$. Prove that
 
 \end{proof}
 
+\section*{10. (11/20/22)}
+
+Prove that a finite group is abelian if and only if its group table is a symmetric matrix.
+
+\begin{proof}
+      Let $G$ be a finite group with elements $\{g_1, g_2, ... , g_n\}, g_1 = 1$ and let $A$ be its group table, a matrix with the $i,j$-th entry equal to $g_i g_j$.
+
+      First, suppose that $G$ is an abelian group. So for all $g_i, g_j \in G$, $g_i g_j = g_j g_i$. Then the $i,j$-th entry, $g_i g_j$, is equal to the $j,i$-th entry, $g_j g_i$. Thus $A$ is symmetric.
+
+      Next, suppose that $A$ is a symmetric matrix. Then the $i,j$-th entry is equal to the $j,i$-th entry, that is, $g_i g_j = g_j g_i$. Since all possible combinations of elements of $G$ commute with each other, $G$ is thus an abelian group.
+\end{proof}
+
 \end{document}
