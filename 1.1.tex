@@ -238,4 +238,25 @@ Find the orders of the following elements of the additive group $\mathbb{Z}/36\m
       \item $\overline{-18}$: $2$.
 \end{enumerate}
 
+\section*{14. (11/30/22)}
+
+Find the orders of the following elements of the multiplicative group $\bigl(\mathbb{Z}/36\mathbb{Z}\bigr)^\times$.
+
+\begin{enumerate}[label=$\ast$]
+      \item $\overline{1}$: $1$.
+      \item $\overline{-1}$: $2$.
+      \item $\overline{5}$: $6$.
+      \item $\overline{13}$: $3$.
+      \item $\overline{-13}$: $6$.
+      \item $\overline{17}$: $2$.
+\end{enumerate}
+
+\section*{15. (11/30/22)}
+
+Prove that $(a_1 a_2 ... a_n)^{-1} = a_n^{-1} a_{n-1}^{-1} ... a_1^{-1}$ for all $a_1, a_2, ... , a_n \in G$.
+
+\begin{proof}
+      Let $a_1 a_2 ... a_n = b$. Then $a_1 a_2 ... a_{n - 1} = b a_n^{-1}$. We can continue multiplying by the inverse of each right-most element until $1 = b a_n^{-1} a_{n - 1}^{-1} ... a_2^{-1} a_1^{-1}$. Then $b^{-1} = a_n^{-1} a_{n - 1}^{-1} ... a_2^{-1} a_1^{-1}$, and so $(a_1 a_2 ... a_n)^{-1} = a_n^{-1} a_{n-1}^{-1} ... a_1^{-1}$.
+\end{proof}
+
 \end{document}
