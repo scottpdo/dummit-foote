@@ -259,4 +259,14 @@ Prove that $(a_1 a_2 ... a_n)^{-1} = a_n^{-1} a_{n-1}^{-1} ... a_1^{-1}$ for all
       Let $a_1 a_2 ... a_n = b$. Then $a_1 a_2 ... a_{n - 1} = b a_n^{-1}$. We can continue multiplying by the inverse of each right-most element until $1 = b a_n^{-1} a_{n - 1}^{-1} ... a_2^{-1} a_1^{-1}$. Then $b^{-1} = a_n^{-1} a_{n - 1}^{-1} ... a_2^{-1} a_1^{-1}$, and so $(a_1 a_2 ... a_n)^{-1} = a_n^{-1} a_{n-1}^{-1} ... a_1^{-1}$.
 \end{proof}
 
+\section*{16. (12/19/22)}
+
+Let $x \in G$ with $|x| = n$, $n \in \mathbb{Z}^+$. Prove that $x^{-1} = x^{n - 1}$.
+
+\begin{proof}
+      Let $x \in G$ with $|x| = n$. So $x^n = 1$.
+
+      Multiply both sides by $x^{-1}$ to obtain $x^n x^{-1} = x^{-1}$. Thus $x^{n - 1} = x^{-1}$.
+\end{proof}
+
 \end{document}
