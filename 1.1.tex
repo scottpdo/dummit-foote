@@ -259,7 +259,17 @@ Prove that $(a_1 a_2 ... a_n)^{-1} = a_n^{-1} a_{n-1}^{-1} ... a_1^{-1}$ for all
       Let $a_1 a_2 ... a_n = b$. Then $a_1 a_2 ... a_{n - 1} = b a_n^{-1}$. We can continue multiplying by the inverse of each right-most element until $1 = b a_n^{-1} a_{n - 1}^{-1} ... a_2^{-1} a_1^{-1}$. Then $b^{-1} = a_n^{-1} a_{n - 1}^{-1} ... a_2^{-1} a_1^{-1}$, and so $(a_1 a_2 ... a_n)^{-1} = a_n^{-1} a_{n-1}^{-1} ... a_1^{-1}$.
 \end{proof}
 
-\section*{16. (12/19/22)}
+\section*{16. (12/20/22)}
+
+Let $x$ be an element of $G$. Prove that $x^2 = 1$ if and only if $|x|$ is either $1$ or $2$.
+
+\begin{proof}
+      First, suppose that $|x|$ is $1$. Then $x = 1$, so $x^2 = 1 \cdot 1 = 1$. If $|x|$ is $2$, then by definition $x^2 = 1$. So if $|x|$ is either $1$ or $2$, then $x^2 = 1$.
+
+      Next, suppose that $x^2 = 1$. By definition, the order of $x$ cannot be greater than $2$, so it must be either $1$ or $2$.
+\end{proof}
+
+\section*{17. (12/19/22)}
 
 Let $x \in G$ with $|x| = n$, $n \in \mathbb{Z}^+$. Prove that $x^{-1} = x^{n - 1}$.
 
@@ -269,7 +279,7 @@ Let $x \in G$ with $|x| = n$, $n \in \mathbb{Z}^+$. Prove that $x^{-1} = x^{n - 
       Multiply both sides by $x^{-1}$ to obtain $x^n x^{-1} = x^{-1}$. Thus $x^{n - 1} = x^{-1}$.
 \end{proof}
 
-\section*{17. (12/20/22)}
+\section*{18. (12/20/22)}
 
 Prove that $xy = yx$ if and only if $y^{-1} xy = x$ if and only if $x^{-1} y^{-1} xy = 1$.
 
