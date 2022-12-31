@@ -330,4 +330,31 @@ Let $G$ be a finite group and let $x$ be an element of $G$ of order $n$. Prove t
       Let $x \in G$ with $|x| = 2k - 1$ for some $k \in \mathbb{N}$. Then $x^{2k - 1} = 1$, which implies that $x^{2k} x^{-1} = 1$. Right-multiplying both sides of the equation by $x$, we have $x^{2k} = x$, so $x = (x^2)^k$, as desired.
 \end{proof}
 
+\section*{22. (12/31/22)}
+
+If $x$ and $g$ are elements of the group $G$, prove that $|x| = |g^{-1}xg|$. Deduce that $|ab| = |ba|$ for all $a, b \in G$.
+
+\begin{proof}
+      First, we will prove a useful lemma, that $(g^{-1}xg)^n = g^{-1}x^ng$.
+      \begin{multline*}
+            (g^{-1}xg)^n = \underbrace{(g^{-1}xg)...(g^{-1}xg)}_\text{$n$ times} = g^{-1}\underbrace{(xgg^{-1})...(xgg^{-1})}_\text{$n - 1$ times}xg = g^{-1}x^{n - 1}xg = \\g^{-1} x^n g.
+      \end{multline*}
+
+      Now if $|x|$ is infinite, then there is no $n \in \mathbb{Z}^+$ such that $x^n = 1$. Suppose toward contradiction that $|g^{-1}xg| = n$. Then we have $(g^{-1}xg)^n = 1 \Rightarrow g^{-1}x^n g = 1$. We can left-multiply by $g$ and then right-multiply by $g^{-1}$ to obtain $x^n = gg^{-1} = 1$, contradicting $x$ having infinite order. Therefore $|g^{-1}xg|$ is also infinite.
+
+      Suppose then that $|x| = n$, $n \in \mathbb{Z}^+$. So $x^n = 1$. Left-multiply by $g^{-1}$ and then right-multiply by $g$ to obtain $g^{-1}x^n g = g^{-1}g = 1$. From the above lemma, then, we have $(g^{-1}xg)^n = 1$. So the order of $g^{-1}xg$ must be less than or equal to $n$. Suppose that the order is $m$, $m < n$. Then $(g^{-1}xg)^m = 1 \Rightarrow g^{-1}x^m g = 1 \Rightarrow x^m = 1$, contradicting the order of $x$ being $n$. Thus the order of $g^{-1}xg$ is the same as the order of $x$.
+
+      Suppose for some $a, b \in G$ that $|ab| = n$. Then $(ab)^n = 1 \Rightarrow \underbrace{ab \cdot ... \cdot ab}_\text{$n$ times} \Rightarrow a(ba)^{n - 1}b = 1$. Now we can left-multiply both sides of this equation by $b$ and then right-multiply by $b^{-1}$ to obtain $ba(ba)^{n - 1}bb^{-1} = bb^{-1} \Rightarrow (ba)^n = 1$. By similar logic to above, the order of $ba$ must be at most $n$, and can in fact be no less than it, and is thus equal to the order of $ab$. 
+\end{proof}
+
+\section*{23. (12/31/22)}
+
+Suppose $x \in G$ and $|x| = n < \infty$. If $n = st$ for some positive integers $s$ and $t$, prove that $|x^s| = t$.
+
+\begin{proof}
+      The order of $x$ is $n$, so $x^n = 1$. Then $x^{st} = 1$. From 19., $(x^s)^t = 1$. So the order of $x^s$ is at most $t$.
+
+      Suppose that the order of $x^s$ is $r < t$. Then $(x^s)^r = 1 \Rightarrow x^{sr} = 1$, and so the order of $x$ is at most $sr < st = n$, a contradiction. Therefore the order of $x^s$ is exactly $t$. 
+\end{proof}
+
 \end{document}
