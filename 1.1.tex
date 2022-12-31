@@ -291,4 +291,35 @@ Prove that $xy = yx$ if and only if $y^{-1} xy = x$ if and only if $x^{-1} y^{-1
       Finally, to prove that $x^{-1} y^{-1} xy = 1$ implies that $xy = yx$, let $x^{-1} y^{-1} xy = 1$ and left-multiply both sides by $x$, then $y$. Then $xy = yx$.
 \end{proof}
 
+\section*{19. (12/29/22)}
+
+Let $x \in G$ and let $a, b \in \mathbb{Z}^+$. 
+
+\begin{enumerate}[label=\alph*)]
+      \item Prove that $x^a x^b = x^{a + b}$ and $(x^a)^b = x^{ab}$.\newline
+            $x^a x^b = \underbrace{x \cdot ... \cdot x}_{\text{$a$ times}} \cdot \underbrace{x \cdot ... \cdot x}_{\text{$b$ times}} = \underbrace{x \cdot ... \cdot x}_{\text{$a + b$ times}} = x^{a + b}$.\newline
+            Similarly, $(x^a)^b = \underbrace{x^a \cdot ... \cdot x^a}_{\text{$b$ times}} = \underbrace{\underbrace{x \cdot ... \cdot x}_{\text{$a$ times}} \cdot ... \cdot \underbrace{x \cdot ... \cdot x}_{\text{$a$ times}}}_{\text{$b$ times}} = \underbrace{x \cdot ... \cdot x}_{\text{$ab$ times}} = x^{ab}$.
+      \item Prove that $(x^a)^{-1} = x^{-a}$.\newline
+            Let $x^a = b$. Right-multiply this equation by $x^{-1}$ to obtain $x^a x^{-1} = x^{a - 1} = b x^{-1}$. Continue doing this until we obtain $1 = b \underbrace{x^{-1} \cdot ... \cdot x^{-1}}_{\text{$a$ times}}$, that is, $1 = b x^{-a}$. Then, left-multiply by $b^{-1}$ to obtain $b^{-1} = x^{-a}$. Since $b = x^a$, $(x^{a})^{-1} = x^{-a}$.
+      \item Establish part a) for arbitrary integers $a$ and $b$.\newline
+            In the case where either $a$ or $b$ is $0$, the equalities hold because for any $x \in G$, by definition $x^0 = 1$, and so $x^a x^0 = x^a \cdot 1 = x^a = x^{a + 0}$ and $(x^a)^0 = 1 = x^0 = x^{a \cdot 0}$ (also, $(x^0)^a = 1 = x^0 = x^{0 \cdot a}$).
+            
+            Next, consider $x^a x^b$ with both exponents negative, written differently, $x^{-a} x^{-b}$. From part b), this is equal to $(x^a)^{-1} (x^b)^{-1} = (x^b x^a)^{-1} = (x^{a + b})^{-1} = x^{-a - b}$, as desired. If $a$ and $b$ have different signs, that is, $x^a x^{-b}$, we have $x^a (x^{-1})^b = \underbrace{x \cdot ... \cdot x}_{\text{$a$ times}} \cdot \underbrace{x^{-1} \cdot ... \cdot x^{-1}}_{\text{$b$ times}}$. Each pair of $x \cdot x^{-1}$ reduces to the identity, leaving us with (in the case where $a > -b$) $x^{a - b}$, or (if $a < -b$), $(x^{-1})^{b - a} = x^{a - b}$, as desired.
+
+            Finally, consider $(x^a)^{-b}$. From part b), this is equal to $((x^a)^b)^{-1} = (x^{ab})^{-1} = x^{-ab}$. Similarly, $(x^{-a})^b = ((x^{-1})^a)^b = (x^{-1})^{ab} = x^{-ab}$. And, if both $a$ and $b$ are negative, then:
+            
+            \begin{equation*}
+                  (x^{-a})^{-b} = (((x^a)^{-1})^b)^{-1} = ((x^a)^{-b})^{-1} = (x^{-ab})^{-1} = x^{ab}.
+            \end{equation*}
+\end{enumerate}
+
+\section*{20. (12/29/22)}
+
+For an element $x \in G$, show that $x$ and $x^{-1}$ have the same order.
+
+\begin{proof}
+      Let $x \in G$. Suppose that $|x| = n$. Then $x^n = 1$. Multiply both sides of this equation by $x^{-n}$ to obtain $x^n x^{-n} = x^{n - n} = x^0 = 1$ on the left, and $x^{-n} = (x^{-1})^n$ on the right. Thus the order of $x^{-1}$ is at most $n$. However, if its order were any natural number $m$ less than $n$, then we would have\newline
+      $(x^{-1})^m = 1 \Rightarrow 1 = x^m$, contradicting $|x| = n$. The same logic shows that if $x$ has infinite order, $x^{-1}$ cannot have finite order and vice-versa. Thus $x$ and $x^{-1}$ must have the same order.
+\end{proof}
+
 \end{document}
