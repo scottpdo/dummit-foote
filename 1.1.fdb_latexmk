@@ -1,6 +1,6 @@
 # Fdb version 3
-["pdflatex"] 1672511344 "/Users/scottdon/local/dummit-foote/1.1.tex" "1.1.pdf" "1.1" 1672511345
-  "/Users/scottdon/local/dummit-foote/1.1.tex" 1672511344 22444 1a4023843d502d3db26dbcfb05ebffa3 ""
+["pdflatex"] 1673554937 "/Users/scottdon/local/dummit-foote/1.1.tex" "1.1.pdf" "1.1" 1673554937
+  "/Users/scottdon/local/dummit-foote/1.1.tex" 1673554936 26099 8154738f3f5ddae702a9a1a613729b01 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -52,8 +52,8 @@
   "/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1647878959 4410336 7d30a02e9fa9a16d7d1f8d037ba69641 ""
   "/usr/local/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt" 1671483617 2826436 a08b220c9cd0321ec020a6a7b2809fca ""
   "/usr/local/texlive/2022/texmf.cnf" 1647878952 577 209b46be99c9075fd74d4c0369380e8c ""
-  "1.1.aux" 1672511345 33 06c322e1d88c4778ac780ba5e7d05c77 "pdflatex"
-  "1.1.tex" 1672511344 22444 1a4023843d502d3db26dbcfb05ebffa3 ""
+  "1.1.aux" 1673554937 33 cd8a9e253be16178be412705367a589a "pdflatex"
+  "1.1.tex" 1673554936 26099 8154738f3f5ddae702a9a1a613729b01 ""
   (generated)
   "1.1.aux"
   "1.1.log"
