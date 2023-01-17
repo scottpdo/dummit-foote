@@ -426,4 +426,39 @@ Let $(A, \star)$ and $(B, \diamond)$ be groups and let $A \times B$ be their dir
       $A \times B$ satisfies the three group axioms of associativity, identity, and inverses, and is thus a group itself.
 \end{proof}
 
+\section*{29. (1/17/23)}
+
+Prove that $A \times B$ is an abelian group if and only if $A$ and $B$ are both abelian.
+
+\begin{proof}
+      First, we will show that if $A$ and $B$ are abelian groups under their respective operations $\star$ and $\diamond$, then $A \times B$ is as well. We see that $(a_1, b_1)(a_2, b_2) = (a_1 \star a_2, b_1 \diamond b_2)$. Since elements of $A$ and $B$ commute, this is equal to $(a_2 \star a_1, b_2 \diamond b_1)$, which, by definition of $A \times B$, is equal to $(a_2, b_2)(a_1, b_1)$. Thus $A \times B$ is an abelian group.
+
+      Next, let $A \times B$ be an abelian group. So we have $(a_2 \star a_1, b_2 \diamond b_1) = (a_1 \star a_2, b_1 \diamond b_2)$. Therefore we have $a_2 \star a_1 = a_1 \star a_2$ and $b_2 \diamond b_1 = b_1 \diamond b_2$, so $A$ and $B$ must both be abelian groups.
+\end{proof}
+
+\section*{30. (1/17/23)}
+
+Prove that the elements $(a, 1)$ and $(1, b)$ of $A \times B$ commute and deduce that the order of $(a, b)$ is the least common multiple of $|a|$ and $|b|$.
+
+\begin{proof}
+      To show that $(a, 1)$ and $(1, b)$ commute, we note that:
+      \begin{equation*}
+            (a, 1)(1, b) = (a \star 1, 1 \diamond b) = (a, b) = (1 \star a, b \diamond 1) = (1, b)(a, 1).
+      \end{equation*}
+
+      Suppose that $|a| = n, |b| = m$, with $n$ and $m$ both positive integers (if one is infinite then the element $(a, b)$ of $A \times b$ obviously has infinite order). If we let $k$ be the least common multiple of $n$ and $m$, then $(a, b)^k = (a^k, b^k) = (1, 1)$, the identity element of $A \times B$ (since $k$ is a multiple of both $n$ and $m$). Further, $(a, b)^j = (a^j, b^j) \neq (1,1)$ for any $j < k$: If $a^j = 1$, then $b^j \neq 1$ (and vice- versa), or else $j$ would be the least common multiple of $n$ and $m$.
+\end{proof}
+
+\section*{31. (1/17/22)}
+
+Prove that any finite group $G$ of even order contains an element of order $2$.
+
+\begin{proof}
+      Let $t(G) = \{g \in G\hspace{0.5ex}|\hspace{0.5ex}g \neq g^{-1}\}$. For all $x \in t(G)$, $x \neq x^{-1} \Rightarrow x^2 \neq 1$, that is, $t(G)$ is a subset of $G$ consisting of elements of order not equal to $2$. Also, $1 \notin t(G)$ (since $1 = 1^{-1}$), so $|G| > |t(G)|$.
+      
+      Let $x \in t(G)$. Then $x \neq x^{-1}$. Since $x = (x^{-1})^{-1}$, we also have $x^{-1} \neq (x^{-1})^{-1}$, and so $x^{-1} \in t(G)$. For every element in $t(G)$, its inverse must also be in $t(G)$. Because (from above), $t(G)$ cannot contain the identity element, its order must be even. The order of $G$ is even, and since the difference of two even numbers is also even, the order of $G - t(G)$ is even as well.
+
+      Now since the order of $t(G)$ is both even and strictly less than that of $G$, we know that $G$ contains (at least) $2$ elements not in $t(G)$, namely, the identity and some other element whose order is $2$. Thus any finite group $G$ of even order contains an element of order $2$.
+\end{proof}
+
 \end{document}
