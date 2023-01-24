@@ -36,4 +36,16 @@ Compute the order of each of the elements in the following groups:
     
 \end{enumerate}
 
+\section*{2. (1/23/23)}
+
+Use the generators and relations of $D_{2n} = \langle r, s\hspace{0.5ex}|\hspace{0.5ex} r^n = s^2 = 1, rs = sr^{-1} \rangle$ to show that if $x$ is any element of $D_{2n}$ which is not a power of $r$, then $rx = xr^{-1}$. 
+
+\begin{proof}
+    Let $x \in D_{2n}$ such that $x \neq r^k$ for all $k \in \mathbb{Z}$. Then, since all elements of $D_{2n}$ can be written as a product of generators $s$ and $r$, we must have $x = sr^k$ for some $k \in \{ 1, 2, ..., n - 1 \}$. Therefore:
+    \begin{equation*}
+        rx = rsr^k = sr^{-1} r^k = sr^{k - 1} = sr^k r^{-1} = x r^{-1},
+    \end{equation*}
+    as desired.
+\end{proof}
+
 \end{document}
