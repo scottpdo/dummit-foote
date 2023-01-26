@@ -84,4 +84,27 @@ If $n = 2k$ is even and $n \geq 4$, show that $z = r^k$ is an element of order 2
 
 \end{proof}
 
+\section*{5. (1/26/23)}
+
+If $n$ is odd and $n \geq 3$, show that the identity is the only element of $D_{2n}$ which commutes with all elements of $D_{2n}$.
+
+\begin{proof}
+    This proof is nearly identical to that of Exercise 4. above, only with $n$ odd instead of even. The proof that elements of the form $sr^m$ is the same as above. To show that elements of the form $r^m$ do not commute, we again consider $r^m sr^p$ and $sr^p r^m$ and see that we must have $m = -m$ (in $\mathbb{Z}/n\mathbb{Z}$). Adding $m$ to both sides, we must have $2m = 0 \Rightarrow 2m = n$. However, because $n$ is odd, this does not occur, and so there are no nonidentity elements of $D_{2n}$ which commute with all elements of $D_{2n}$.
+\end{proof}
+
+\section*{6. (1/26/23)}
+
+Let $x, y$ be elements of order 2 in any group $G$. Prove that if $t = xy$ then $tx = xt^{-1}$ (so that if $n = |xy| < \infty$ then $x, t$ satisfy the same relations in $G$ as $s, r$ do in $D_{2n}$).
+
+\begin{proof}
+    Let $x, y \in G, |x| = |y| = 2$ and let $t = xy$. From $x^2 = y^2 = 1$, we have $x = x^{-1}$ and $y = y^{-1}$. Then:
+
+    \begin{equation*}
+        t = xy \Rightarrow tx = xyx = x(y^{-1} x^{-1}) = x(xy)^{-1} = xt^{-1},
+    \end{equation*}
+    as desired.
+
+    If $|xy| = |t| = n < \infty$, then we have $t^n = x^2 = 1, tx = xt^{-1}$. These are the same relations in $G$ for $x, t$ as $s, r$ do in $D_{2n}$.
+\end{proof}
+
 \end{document}
