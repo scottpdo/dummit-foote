@@ -2,7 +2,7 @@
 
 \title{Dummit \& Foote Ch. 1.2: Dihedral Groups}
 \author{Scott Donaldson}
-\date{Jan. 2023}
+\date{Jan. - Feb. 2023}
 \usepackage{amsmath, amsthm, amsfonts, enumitem}
 
 \begin{document}
@@ -222,5 +222,27 @@ Let $X_{2n} = \langle x, y \hspace{0.5ex}|\hspace{0.5ex} x^n = y^2 = 1, xy = yx^
             Assuming that $y$ is distinct from $1$, the group reduces to $\{1, y\}$.
           \end{proof}
 \end{enumerate}
+
+\section*{18. (2/12/23)}
+
+Let $Y = \langle u, v \hspace{0.5ex}|\hspace{0.5ex} u^4 = v^3 = 1, uv = v^2 u^2 \rangle$.
+
+\begin{enumerate}[label=(\alph*)]
+    \item Show that $v^2 = v^{-1}$.
+          $v^3 = 1$. Multiplying both sides by $v^{-1}$, we obtain $v^2 = v^{-1}$.
+    \item Show that $v$ commutes with $u^3$.
+          \begin{equation*}
+            v^2 u^3 v = (v^2 u^2) uv = (v^2 u^2)(v^2 u^2) = uv(v^2 u^2) = uv^3 u^2 = u^3.
+          \end{equation*}
+          From part a), $v^2$ = $v^{-1}$, so $v^2 u^3 v = v^{-1} u^3 v$. And, from above, this equals $u^3$, so we left-multiply by $v$ to obtain $u^3 v = v u^3$.
+    \item Show that $v$ commutes with $u$.
+          From the given relation $u^4 = 1$, we obtain $u^8 = 1$, and $u^9 = u$. Now $uv = u^9 v = u^3 u^3 u^3 v$. Since $v$ commutes with $u^3$, we can rewrite this as $v u^3 u^3 u^3 = v u^9 = vu$. Since $uv = vu$, they are commuting elements.
+    \item Show that $uv = 1$.
+          From the relation $uv = v^2 u^2$ and the fact that $u$ and $v$ commute, we see that $vu = v^2 u^2$. Left-multiplying by $v^{-1}$, $u = v u^2 = u^2 v$. Now left-multiply by $u^{-1}$ to obtain $1 = uv$.
+    \item Show that $u = 1$ and $v = 1$.
+          Finally, from $u^4 = 1$ and $v^3 = 1$, $u^4 v^3 = 1$. Since $u$ and $v$ commute, we can rewrite this as $u(uv)^3 = 1$. From part d), $uv = 1$, so $u = 1$. And because the identity is its own inverse, we also have $v = 1$.
+\end{enumerate}
+
+Thus the group $Y$ degenerates to the trivial group of order 1.
 
 \end{document}
