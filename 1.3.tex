@@ -107,4 +107,18 @@ Write out the cycle decomposition of each element of order 2 in $S_4$.
     \item $(1, 4)(2, 3)$
 \end{itemize}
 
+\section*{8. (2/22/23)}
+
+Prove that if $\Omega = \{1, 2, 3... \}$ then $S_\Omega$ is an infinite group.
+
+\begin{proof}
+
+    Let $\Omega = \{1, 2, 3... \}$. Consider the subset $T$ consisting of all elements whose cycle decomposition is a single 2-cycle permuting $1 \in \Omega$, for example $(1, 2), (1, 10)$ but not $(2, 3)$.
+
+    There is a bijection $f: \mathbb{Z}^+ \rightarrow T$ defined by $f(n) = (1, n + 1)$. Because there is a bijection between these two sets, they have the same cardinality; that is, like $\mathbb{Z}^+$, $T$ is infinite.
+
+    Because $\Omega$ contains a proper subset of infinite size, $\Omega$ has infinite elements and is therefore an infinite group.
+
+\end{proof}
+
 \end{document}
