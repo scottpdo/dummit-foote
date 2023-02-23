@@ -146,4 +146,17 @@ Prove that if $\Omega = \{1, 2, 3... \}$ then $S_\Omega$ is an infinite group.
         \end{itemize}
 \end{enumerate}
 
+\section*{10. (2/23/23)}
+
+Prove that if $\sigma$ is the $m$-cycle $(a_1, a_2, ..., a_m)$, then for all $i \in \{1, 2, 3, ..., m \},\\
+\sigma^i(a_k) = a_{k + i}$, where $k + i$ is replaced by its least residue mod $m$ when $k + i > m$. Deduce that $|\sigma| = m$.
+
+\begin{proof}
+    We will prove this by induction on $i$. For the base case, $i = 1$, we have, by definition, $\sigma^1 = \sigma$ and $\sigma(a_k) = a_{k + 1}$ for $k < m$. For $m$, $\sigma(a_m) = a_1$, and since $1 = (m + 1)$ mod $m$, this holds for all $i \in \{1, 2, 3, ..., m \}$.
+
+    For the induction case, suppose that for some $n \in \{1, 2, 3, ..., m \}$, $\sigma^n(a_k) = a_{k + n}$ (where $k + n$ is assumed mod $m$) for all valid $k$. Consider $\sigma^{n + 1} = \sigma^n \sigma^1 = \sigma^n \sigma$. For an arbitrary element $a_k$, then, $\sigma^{n + 1}(a_k) = \sigma^n(\sigma(a_k)) = \sigma^n(a_{k + 1})$ (by the base case), which equals $a_{k + n + 1}$ (by the induction hypothesis). Therefore, $\sigma^{n + 1}(a_k) = a_{k + (n + 1)}$.
+
+    Thus, by induction, $\sigma^i(a_k) = a_{k + i}$ for all $i \in \{1, 2, 3, ..., m \}$. It follows that $\sigma^m(a_k) = a_{k + m} = a_{k}$ for all $k$, so $\sigma^m = 1$. Therefore, $|\sigma| = m$.
+\end{proof}
+
 \end{document}
