@@ -190,4 +190,16 @@ Let $\sigma$ be the $m$-cycle $(1, 2, ..., m)$. Show that $\sigma^i$ is also an 
           From 11., we know that if $\sigma$ is a 5-cycle, then $\sigma^k$ must be another 5-cycle (because 5 is prime). And, if $\sigma$ is an $n$-cycle with $n > 5$, then its cycle decomposition contains disjoint cycles of equal length. Because $\tau = (1, 2)(3, 4, 5)$ is the product of a 2-cycle and a 3-cycle, there are no $n$-cycles $\sigma$ with $n > 5$ and $\tau = \sigma^k$.
 \end{enumerate}
 
+\section*{13. (3/12/23)}
+
+Show that an element has order 2 in $S_n$ if and only if its cycle decomposition is a product of commuting 2-cycles.
+
+\begin{proof}
+    Let $\sigma \in S_n$. First, we will prove that if $\sigma$'s cycle decomposition is a product of commuting 2-cycles, then $\sigma$ has order 2. Suppose $\sigma$'s cycle decomposition can be written $(a_1, a_2)(a_3, a_4)...(a_k, a_{k + 1})$ (with $k$ even). 
+    
+    Consider $\sigma^2(a_j)$ for $a_j \in \{a_1, a_2, ..., a_k, a_{k + 1}\}$. Generally, $\sigma(a_j) = a_{j + 1}$ if $j$ is odd, and $a_{j - 1}$ if $j$ is even. Then, if $j$ is odd, $\sigma^2(a_j) = \sigma(\sigma(a_j)) = \sigma(a_{j + 1}) = a_j$ (because $j + 1$ is even). And, if $j$ is even, $\sigma^2(a_j) = \sigma(\sigma(a_j)) = \sigma(a_{j - 1}) = a_j$ (because $j - 1$ is odd). $\sigma^2$ assigns every $a_j \in \{a_1, a_2, ..., a_k, a_{k + 1}\}$ to itself, and every element outside to itself, and is therefore the identity permutation. Thus $|\sigma| = 2$.
+
+    Next, let $|\sigma| = 2$, so $\sigma^2$ is the identity permutation. Let $(a_1, a_2, ..., a_k)$ be a cycle in $\sigma$'s cycle decomposition. If $k > 2$, then $\sigma^2(a_1) = \sigma(\sigma(a_1)) = \sigma(a_2) = a_3$. However, this implies that $\sigma^2$ is not the identity, a contradiction. Therefore we must have $k \leq 2$. But if $k = 1$, then $\sigma$ is itself the identity. Thus $\sigma$'s cycle decomposition is a product of commuting 2-cycles.
+\end{proof}
+
 \end{document}
