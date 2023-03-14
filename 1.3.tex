@@ -202,4 +202,28 @@ Show that an element has order 2 in $S_n$ if and only if its cycle decomposition
     Next, let $|\sigma| = 2$, so $\sigma^2$ is the identity permutation. Let $(a_1, a_2, ..., a_k)$ be a cycle in $\sigma$'s cycle decomposition. If $k > 2$, then $\sigma^2(a_1) = \sigma(\sigma(a_1)) = \sigma(a_2) = a_3$. However, this implies that $\sigma^2$ is not the identity, a contradiction. Therefore we must have $k \leq 2$. But if $k = 1$, then $\sigma$ is itself the identity. Thus $\sigma$'s cycle decomposition is a product of commuting 2-cycles.
 \end{proof}
 
+\section*{14. (3/12/23)}
+
+Let $p$ be prime. Show that an element has order $p$ in $S_n$ if and only if its cycle decomposition is a product of commuting $p$-cycles. Show by an explicit example that this need not be the case if $p$ is not prime.
+
+\begin{proof}
+    First, to show that if an element in $S_n$ has order $p$, it is the product of commuting $p$-cycles, let $\sigma \in S_n$ with $|sigma| = p$. Let $(a_1, a_2, ..., a_k)$ be a cycle in $\sigma$'s cycle decomposition. From 10., $\sigma^p(a_i) = a_{i + p}$ (with $i + p$ mod $k$). Since $\sigma^p = 1$, we must have $i + p$ mod $k$ = $i$, so $p$ mod $k = 0$. That is, $k$ divides $p$. Now since $p$ is prime, $k$ must be either 1 or $p$ itself. If $k = 1$, then $\sigma$ is the identity, which has order $1$. Therefore we must have $k = p$. Since an arbitrary cycle of $\sigma$ is a $p$-cycle, $\sigma$ must be a product of commuting $p$-cycles.
+
+    Next, let $\sigma \in S_n$ have a cycle decomposition which is a product of commuting $p$-cycles. Consider an arbitrary cycle $(a_1, a_2, ..., a_p)$. From 10., this cycle has order $p$. So every such cycle in $\sigma$ has order $p$. Thus $\sigma^p$ is the product of 1-cycles, and so is the identity permutation. Therefore $|\sigma| = p$.
+\end{proof}
+
+\section*{15. (3/14/23)}
+
+Prove that the order of an element in $S_n$ equals the least common multiple of the lengths of the cycles in its cycle decomposition.
+
+\begin{proof}
+    Consider a permutation $\sigma \in S_n$. $\sigma$ can be written as the product of commuting cycles. If $\sigma$ consists of $m > 1$ commuting cycles, then it can be written $\sigma = \sigma_a \sigma_b$, where $\sigma_a$ consists of $m - 1$ commuting cycles and $\sigma_b$ a single cycle. From 10., $\sigma_b$'s order is its length.
+
+    i) In the case where $\sigma_a$ and $\sigma_b$ both are single cycles of length $a$ and $b$, respectively, then $\sigma_a^a = \sigma_b^b = 1$. Let $c$ be the least common multiple of $a$ and $b$. Then $\sigma_a^c = 1$ and $\sigma_b^c = 1$, so $(\sigma_a \sigma_b)^c = 1$. Further, $c$ is the smallest positive integer for which $(\sigma_a \sigma_b)^c = 1$, because it is the smallest for which both $\sigma_a^c = 1$ and $\sigma_b^c = 1$. Thus the order of $\sigma$ is the least common multiple of the length of its cycles.
+    
+    ii) Now suppose that $\sigma_a$ is an arbitrary element of $S_n$ with order $a$, $\sigma_b$ is a single cycle with order $b$, and $\sigma_a \sigma_b$ has order $c$. From Ch. 1, exercise 24., if $a$ and $b$ are commuting group elements, then $(ab)^k = a^k b^k$. Then $(\sigma_a \sigma_b)^c = \sigma_a^c \sigma_b^c$. Since the product has order $c$, raised to the power of $c$, it equals 1, so $\sigma_a^c \sigma_b^c = 1$. Because $\sigma_a$ and $\sigma_b$ commute, they have disjoint cycle decompositions, and therefore cannot be each other's inverses. Then we must have $\sigma_a^c = 1$ and $\sigma_b^c = 1$. From $|\sigma_a| = a$ and $|\sigma_b| = b$, we know that both $a$ and $b$ divide $c$. By definition, then, $c$ is the least common multiple of $a$ and $b$. Thus the order of $\sigma_a \sigma_b$ is the least common multiple of the orders of $\sigma_a$ and $\sigma_b$.
+
+    Finally, for any given permutation $\sigma$ in $S_n$, to find its order, proceed like this: Take the first two single cycles of $\sigma$. As shown above in i), the order of their product is the least common multiple of their lengths. Next take the first three cycles. We now know the order of the product of the first two, and from above in ii), we know that the order of the product of the three is least common multiple of the third's cycle length together with the order of the first two (that is, the least common multiple of their cycle lengths). So the order of first three cycles is the least common multiple of their cycle lengths. One can proceed thusly to show that, for any positive $m$, the order of the product of the first $m$ cycles is the least common multiple of their cycle lengths. Thus the order of $\sigma$ is the least common multiple of the cycle lengths of its cycle decomposition.
+\end{proof}
+
 \end{document}
