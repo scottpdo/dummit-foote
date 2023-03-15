@@ -226,4 +226,18 @@ Prove that the order of an element in $S_n$ equals the least common multiple of 
     Finally, for any given permutation $\sigma$ in $S_n$, to find its order, proceed like this: Take the first two single cycles of $\sigma$. As shown above in i), the order of their product is the least common multiple of their lengths. Next take the first three cycles. We now know the order of the product of the first two, and from above in ii), we know that the order of the product of the three is least common multiple of the third's cycle length together with the order of the first two (that is, the least common multiple of their cycle lengths). So the order of first three cycles is the least common multiple of their cycle lengths. One can proceed thusly to show that, for any positive $m$, the order of the product of the first $m$ cycles is the least common multiple of their cycle lengths. Thus the order of $\sigma$ is the least common multiple of the cycle lengths of its cycle decomposition.
 \end{proof}
 
+\section*{16. (3/15/23)}
+
+Show that if $n \geq m$ then the number of $m$-cycles in $S_n$ is given by
+
+\begin{equation*}
+    \frac{n(n - 1)(n - 2)...(n - m + 1)}{m}.
+\end{equation*}
+    
+\begin{proof}
+    Let $\Omega = \{1, 2, 3, ..., n\}$, let $S_n$ be the symmetric group on $\Omega$, and let $\sigma \in S_n$ be a permutation on elements of $\Omega$ with a cycle decomposition that is a single $m$-cycle with $m \leq n$. To count the ways of forming $\sigma$, first consider all $m$-cycles. There are $n$ choices for the first element, $n - 1$ for the second, $n - 2$ for the third, and so on, so that there are $n(n - 1)(n - 2)...(n - m + 1)$ ways to form an $m$-cycle in general.
+
+    However, this ignore the fact that many $m$-cycles represent the same $\sigma$, for example $(1, 2, 3) = (2, 3, 1)$. Let $\sigma = (a_1, a_2, ..., a_m)$ be an $m$-cycle. The cycles $(a_2, a_3, ..., a_m, a_1), (a_3, a_4, ..., a_m, a_1, a_2), ..., (a_m, a_1, ..., a_{m - 1})$ all represent the same permutation as $\sigma$. That is, there are $m$ possible ways of representing an arbitrary $m$-cycle, and therefore the number of unique $m$-cycles in $S_n$ is $n(n - 1)(n - 2)...(n - m + 1)/m$.
+\end{proof}
+
 \end{document}
