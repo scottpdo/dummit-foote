@@ -1,0 +1,51 @@
+\documentclass{article}
+
+\title{Dummit \& Foote Ch. 1.4: Matrix Groups}
+\author{Scott Donaldson}
+\date{Mar. 2023}
+\usepackage{amsmath, amsthm, amsfonts, enumitem}
+
+\begin{document}
+
+\maketitle
+
+\section*{1. (3/16/23)}
+
+Prove that $|GL_2(\mathbb{F}_2)| = 6$.
+
+\begin{proof}
+    Matrices in $GL_2(\mathbb{F}_2)$ have the form 
+    $\begin{pmatrix}a & b\\c & d\end{pmatrix}$, 
+    where $a, b, c, d \in \{0, 1\}$. There are 16 possible matrices of this form (2 options for each entry over 4 entries, $2^4 = 16$).
+    
+    From the definition of $GL_2$, we discount matrices with determinant 0. A $2 \times 2$ matrix has determinant 0 when $ad - bc = 0$, that is, $ad = bc$. This happens only when $ad = bc = 1$ or $ad = bc = 0$. There is only one matrix where $ad = bc = 1, \begin{pmatrix}1 & 1\\1 & 1\end{pmatrix}$. Matrices with determinant 0 have one of $a, d$ and $b, c$ equal to 0. They are the matrices with all zero entries (1), with three zero entries (4), and with two zero entries ($a$ and $b$, or $a$ and $c$, or $b$ and $d$, or $c$ and $d$) (4).
+
+    This leaves us with $16 - 1 - 1 - 4 - 4 = 6$ matrices with nonzero determinants, so the order of $GL_2(\mathbb{F}_2) = 6$.
+\end{proof}
+
+\section*{2. (3/16/23)}
+
+Write out all the elements of $GL_2(\mathbb{F}_2)$ and compute the order of each element.
+
+\begin{itemize}
+    \item $\begin{pmatrix}1 & 0\\0 & 1\end{pmatrix}$: 1 (identity)
+    \item $\begin{pmatrix}1 & 1\\0 & 1\end{pmatrix}$: 2
+    \item $\begin{pmatrix}1 & 0\\1 & 1\end{pmatrix}$: 2
+    \item $\begin{pmatrix}0 & 1\\1 & 1\end{pmatrix}$: 3
+    \item $\begin{pmatrix}1 & 1\\1 & 0\end{pmatrix}$: 3
+    \item $\begin{pmatrix}0 & 1\\1 & 0\end{pmatrix}$: 2
+\end{itemize}
+
+\section*{3. (3/16/23)}
+
+Show that $GL_2(\mathbb{F}_2)$ is non-abelian.
+
+\begin{proof}
+    To prove that $GL_2(\mathbb{F}_2)$ is non-abelian, we need only show that it contains two non-commuting elements.
+
+    $\begin{pmatrix}0 & 1\\1 & 1\end{pmatrix} \times \begin{pmatrix}0 & 1\\1 & 0\end{pmatrix} = \begin{pmatrix}1 & 0\\1 & 1\end{pmatrix}$.
+
+    However, $\begin{pmatrix}0 & 1\\1 & 0\end{pmatrix} \times \begin{pmatrix}0 & 1\\1 & 1\end{pmatrix} = \begin{pmatrix}1 & 1\\0 & 1\end{pmatrix}$. These products are not equal, so $GL_2(\mathbb{F}_2)$ is non-abelian.
+\end{proof}
+
+\end{document}
