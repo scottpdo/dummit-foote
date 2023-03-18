@@ -48,4 +48,26 @@ Show that $GL_2(\mathbb{F}_2)$ is non-abelian.
     However, $\begin{pmatrix}0 & 1\\1 & 0\end{pmatrix} \times \begin{pmatrix}0 & 1\\1 & 1\end{pmatrix} = \begin{pmatrix}1 & 1\\0 & 1\end{pmatrix}$. These products are not equal, so $GL_2(\mathbb{F}_2)$ is non-abelian.
 \end{proof}
 
+\section*{4. (3/18/23)}
+
+Show that if $n$ is not prime then $\mathbb{Z}/n\mathbb{Z}$ is not a field.
+
+\begin{proof}
+    Let $n$ be a composite positive integer and let $a$ divide $n$ with $a > 1$. We will show that $a$ does not have a multiplicative inverse in $\mathbb{Z}/n\mathbb{Z}$, and therefore $\mathbb{Z}/n\mathbb{Z}$ is not a field.
+
+    We will show that there is no integer $c$ such that $ac = 1$ mod $n$. Since $a$ divides $n$, let $ab = n = 0$ mod $n$. So $a(b + 1) = ab + a = n + a = a$ mod $n$. That is, for the pair of consecutive integers $b$ and $b + 1$, we have $ab = 0 < 1$ and $a(b + 1) = a > 1$. Then there is no integer $c$ strictly between $b$ and $b + 1$ such that $ac = 1$ mod $n$. For any larger integers, we note that $abk = nk = 0$ mod $n$, and $a(bk + 1) = abk + a = nk + a = a$ mod $n$, and therefore there is no integer $c$ among all of $\mathbb{Z}^+$ with $ac = 1$. Therefore, since $a$ has no multiplicative inverse, $\mathbb{Z}/n\mathbb{Z}$ is not a field.
+\end{proof}
+
+\section*{5. (3/18/23)}
+
+Show that $GL_n(F)$ is a finite group if and only if $F$ has a finite number of elements.
+
+\begin{proof}
+    Let $F$ be a field with $m < \infty$ elements and, for some $n > 1$, let $GL_n(F)$ be the general linear group of degree $n$ on $F$. The total possible number of $n \times n$ matrices with entries from $F$ is $m^{n^2}$. Since the number of elements in $GL_n(F)$ is strictly less than this value, it is a finite group.
+
+    To prove the converse, we will show that, if $F$ is an infinite field, then $GL_n(F)$ must not be a finite group. Let $F$ be an infinite field. For every $x \in F$ (excluding $x = 0$), we can construct an $n \times n$ matrix whose diagonal entries are $x$ and all other entries are 0. By definition, the determinant of such a matrix is the product of the diagonal entries, $x^n \neq 0$. Therefore such a matrix belongs to $GL_n(F)$. This is a bijection between $F$ and $GL_n(F)$, and so they have the same cardinality, that is, $GL_n(F)$ must not be a finite group.
+
+    Thus, $GL_n(F)$ is a finite group if and only if $F$ has a finite number of elements.
+\end{proof}
+
 \end{document}
