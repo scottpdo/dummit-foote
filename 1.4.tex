@@ -63,11 +63,19 @@ Show that if $n$ is not prime then $\mathbb{Z}/n\mathbb{Z}$ is not a field.
 Show that $GL_n(F)$ is a finite group if and only if $F$ has a finite number of elements.
 
 \begin{proof}
-    Let $F$ be a field with $m < \infty$ elements and, for some $n > 1$, let $GL_n(F)$ be the general linear group of degree $n$ on $F$. The total possible number of $n \times n$ matrices with entries from $F$ is $m^{n^2}$. Since the number of elements in $GL_n(F)$ is strictly less than this value, it is a finite group.
+    Let $F$ be a field with $m < \infty$ elements and, for some $n > 1$, let $GL_n(F)$ be the general linear group of degree $n$ on $F$. The total possible number of $n \times n$ matrices with entries from $F$ is $m^{n^2}$. Since the number of elements in $GL_n(F)$ is at most this value, it is a finite group (in 6. we will show that it is strictly less than).
 
     To prove the converse, we will show that, if $F$ is an infinite field, then $GL_n(F)$ must not be a finite group. Let $F$ be an infinite field. For every $x \in F$ (excluding $x = 0$), we can construct an $n \times n$ matrix whose diagonal entries are $x$ and all other entries are 0. By definition, the determinant of such a matrix is the product of the diagonal entries, $x^n \neq 0$. Therefore such a matrix belongs to $GL_n(F)$. This is a bijection between $F$ and $GL_n(F)$, and so they have the same cardinality, that is, $GL_n(F)$ must not be a finite group.
 
     Thus, $GL_n(F)$ is a finite group if and only if $F$ has a finite number of elements.
+\end{proof}
+
+\section*{6. (3/19/23)}
+
+If $|F| = q$ is finite prove that $|GL_n(F)| < q^{n^2}$.
+
+\begin{proof}
+    An element of $GL_n(F)$ is an invertible $n \times n$ matrix whose entries come from $F$. For each entry, there are $q$ possibilities, and there are $n^2$ total entries, so there are $q^{n^2}$ possible such matrices (before discounting those with determinant = 0). It is guaranteed that some number of $n \times n$ matrices have determinant 0; for example, the matrix whose entries are all 0 obviously has determinant 0. So the number of elements of $GL_n(F)$ is always strictly less than $q^{n^2}$.
 \end{proof}
 
 \end{document}
