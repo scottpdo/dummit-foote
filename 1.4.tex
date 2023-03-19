@@ -78,4 +78,32 @@ If $|F| = q$ is finite prove that $|GL_n(F)| < q^{n^2}$.
     An element of $GL_n(F)$ is an invertible $n \times n$ matrix whose entries come from $F$. For each entry, there are $q$ possibilities, and there are $n^2$ total entries, so there are $q^{n^2}$ possible such matrices (before discounting those with determinant = 0). It is guaranteed that some number of $n \times n$ matrices have determinant 0; for example, the matrix whose entries are all 0 obviously has determinant 0. So the number of elements of $GL_n(F)$ is always strictly less than $q^{n^2}$.
 \end{proof}
 
+\section*{7. (3/19/23)}
+
+Let $p$ be a prime. Prove that the order of $GL_2(F_p)$ is $p^4 - p^3 - p^2 + p$.
+
+\begin{proof}
+    From 5. and 6., there are $p^{2^2} = p^4$ possible $2 \times 2$ matrices, and the order of $GL_2(F_p)$ is strictly less than this number. Let us count the ways in which an element of $GL_2(F_p)$ might have a determinant equal to 0.
+
+    A $2 \times 2$ matrix in $GL_2(F_p)$ has the form $\begin{pmatrix}a & b\\c & d\end{pmatrix}$, with $a, b, c, d \in F_p$. The determinant of a $2 \times 2$ matrix is $ad - bc$. First, consider the cases in which $a, b, c, d \neq 0$. Setting the determinant equal to 0, we can see that $d$ must equal $bc / a$. So there are $p - 1$ choices for $a, b, c$, and $d$ is fixed based on the other entries. Then there are $(p - 1)^3$ matrices with 4 nonzero entries with determinant equal to 0.
+
+    Next, consider $2 \times 2$ matrices with one entry equal to 0, for example, $\begin{pmatrix}a & b\\c & 0\end{pmatrix}$. The determinant of this matrix is $a \cdot 0 - bc = bc$. In order for this to equal 0, at least one of either $b$ or $c$ must equal zero. Then there are no matrices with exactly 1 zero entry with determinant equal to 0.
+
+    Now consider $2 \times 2$ matrices with two entries equal to 0. Such matrices have the form $\begin{pmatrix}a & b\\0 & 0\end{pmatrix}, \begin{pmatrix}a & 0\\c & 0\end{pmatrix}, \begin{pmatrix}0 & 0\\c & d\end{pmatrix},$ or $\begin{pmatrix}0 & b\\0 & d\end{pmatrix}$. There are $p - 1$ possible choices for both of the nonzero entries, so there are $4(p - 1)^2$ matrices with exactly 2 nonzero entries with determinant equal to 0.
+
+    Matrices with three entries equal to 0 have the form $\begin{pmatrix}a & 0\\0 & 0\end{pmatrix}, \begin{pmatrix}0 & b\\0 & 0\end{pmatrix},\newline \begin{pmatrix}0 & 0\\c & 0\end{pmatrix},$ or $\begin{pmatrix}0 & 0\\0 & d\end{pmatrix}$. There are $4(p - 1)$ such matrices.
+
+    Finally, there is the single matrix with all 0 entries, $\begin{pmatrix}0 & 0\\0 & 0\end{pmatrix}$.
+
+    So, the total number of elements of $GL_2(F_p)$ is:
+    \begin{multline*}
+        p^4 - (p - 1)^3 - 4(p - 1)^2 - 4(p - 1) - 1 = \\
+        p^4 - (p^3 - 3p^2 + 3p - 1) - (4p^2 - 8p + 4) - (4p - 4) - 1 = \\
+        p^4 - p^3 + 3p^2 - 3p + 1 - 4p^2 + 8p - 4 - 4p + 4 - 1 = \\
+        p^4 - p^3 + (3 - 4)p^2 + (-3 + 8 - 4)p + (1 - 4 + 4 - 1) = \\
+        p^4 - p^3 - p^2 + p
+    \end{multline*}
+    as desired.
+\end{proof}
+
 \end{document}
