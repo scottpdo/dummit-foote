@@ -160,4 +160,38 @@ Prove that the binary operation of multiplication of $2 \times 2$ matrices is as
     \end{multline*}
 \end{proof}
 
+\section*{10. (3/22/23)}
+
+Let $G = \{ \begin{pmatrix}a & b \\ 0 & c\end{pmatrix} \mid a, b, c \in \mathbb{R}, a \neq 0, c \neq 0 \}$.
+
+\begin{enumerate}[label=(\alph*)]
+    \item Compute the product of $\begin{pmatrix}a_1 & b_1 \\ 0 & c_1\end{pmatrix}$ and $\begin{pmatrix}a_2 & b_2 \\ 0 & c_2\end{pmatrix}$ to show that $G$ is closed under matrix multiplication.
+    
+          $\begin{pmatrix}a_1 & b_1 \\ 0 & c_1\end{pmatrix}\begin{pmatrix}a_2 & b_2 \\ 0 & c_2\end{pmatrix} = \begin{pmatrix}a_1 a_2 & a_1 b_2 + b_1 c_2 \\ 0 & c_1 c_2\end{pmatrix}$. $\mathbb{R}$ is closed under addition and multiplication, so the entries of the matrix product are all in $\mathbb{R}$, and so the product is an element of $G$.
+
+    \item Find the matrix inverse of $\begin{pmatrix}a & b \\ 0 & c\end{pmatrix}$ and deduce that $G$ is closed under inverses.
+
+          The inverse of $\begin{pmatrix}a & b \\ 0 & c\end{pmatrix}$ is the $2 \times 2$ matrix $\begin{pmatrix}d & e \\ f & g\end{pmatrix}$ such that \newline $\begin{pmatrix}a & b \\ 0 & c\end{pmatrix}\begin{pmatrix}d & e \\ f & g\end{pmatrix} = \begin{pmatrix}1 & 0 \\ 0 & 1\end{pmatrix}$.
+
+          Looking at lower-left entry first, we have $0 \cdot d + cf = 0$. We know that $c$ is nonzero, so $f = 0$.
+
+          Next, looking at the upper-left entry, we have $ad + b \cdot 0 = 1 \Rightarrow ad = 1$. So $d = 1/a$. Similarly for the lower-right entry, $cg = 1 \Rightarrow g = 1/c$.
+
+          Finally, looking at the upper-right entry, we have $ae + bg = ae + b/c = 0$. So $e = -b/ac$. Therefore the inverse matrix is $\begin{pmatrix}1/a & -b/ac \\ 0 & 1/c\end{pmatrix}$.
+
+    \item Deduce that $G$ is a subgroup of $GL_2(\mathbb{R})$.
+
+          From 9., matrix multiplication is associative for $2 \times 2$ matrices. As shown in a), $G$ is closed under the operation of matrix multiplication, and in b), inverses of elements in $G$ are also in $G$. Thus $G$ is a subgroup of $GL_2(\mathbb{R})$.
+
+    \item Prove that the set of elements of $G$ whose diagonal entries are equal (i.e. $a = c$) is also a subgroup of $GL_2(\mathbb{R})$.
+
+          Now let $H$ be the set of elements of $G$ whose diagonal entries are equal; that is, matrices of the form $\begin{pmatrix}a & b \\ 0 & a\end{pmatrix}, a \neq 0$.
+
+          $H$ is closed under matrix multiplication: \newline $\begin{pmatrix}a & b \\ 0 & a\end{pmatrix}\begin{pmatrix}c & d \\ 0 & c\end{pmatrix} = \begin{pmatrix}ac & ad + bc \\ 0 & ac\end{pmatrix}$.
+
+          From b), the inverse of $\begin{pmatrix}a & b \\ 0 & a\end{pmatrix}$ is $\begin{pmatrix}1/a & -b/a^2 \\ 0 & 1/a\end{pmatrix}$, which is also in $H$.
+
+          Thus this set is also a subgroup of $GL_2(\mathbb{R})$.
+\end{enumerate}
+
 \end{document}
