@@ -194,4 +194,104 @@ Let $G = \{ \begin{pmatrix}a & b \\ 0 & c\end{pmatrix} \mid a, b, c \in \mathbb{
           Thus this set is also a subgroup of $GL_2(\mathbb{R})$.
 \end{enumerate}
 
+\section*{11. (3/23/23)}
+
+Let $H(F) = \Bigl\{ \begin{pmatrix}1 & a & b \\ 0 & 1 & c \\ 0 & 0 & 1\end{pmatrix} \mid a, b, c \in F \Bigr\}$ — called the \emph{Heisenberg group} over $F$. Let $X = \begin{pmatrix}1 & a & b \\ 0 & 1 & c \\ 0 & 0 & 1\end{pmatrix}$ and $Y = \begin{pmatrix}1 & d & e \\ 0 & 1 & f \\ 0 & 0 & 1\end{pmatrix}$ be elements of $H(F)$.
+
+\begin{enumerate}[label=(\alph*)]
+    \item Compute the matrix product $XY$ and deduce that $H(F)$ is closed under matrix multiplication. Exhibit explicit matrices such that $XY \neq YX$ (so that $H(F)$ is always non-abelian).
+
+          $XY = \begin{pmatrix}1 & a & b \\ 0 & 1 & c \\ 0 & 0 & 1\end{pmatrix}\begin{pmatrix}1 & d & e \\ 0 & 1 & f \\ 0 & 0 & 1\end{pmatrix} = \begin{pmatrix}1 & a + d & b + e + af \\ 0 & 1 & c + f \\ 0 & 0 & 1\end{pmatrix}$.
+
+          Given this product, the only entry that has a different value when the order of multiplication is reversed is the upper-right, which is $b + e + af$ for $XY$ and $b + e + cd$ for $YX$. So we need to find $af \neq cd$. Let $a = f = 1$ and $c = d = 0$.
+
+          Then:\newline
+          $XY = \begin{pmatrix}1 & 1 & b \\ 0 & 1 & 0 \\ 0 & 0 & 1\end{pmatrix}\begin{pmatrix}1 & 0 & e \\ 0 & 1 & 1 \\ 0 & 0 & 1\end{pmatrix} = \begin{pmatrix}1 & 1 & b + e + 1 \\ 0 & 1 & 1 \\ 0 & 0 & 1\end{pmatrix}$ and \newline
+          $YX = \begin{pmatrix}1 & 0 & e \\ 0 & 1 & 1 \\ 0 & 0 & 1\end{pmatrix}\begin{pmatrix}1 & 1 & b \\ 0 & 1 & 0 \\ 0 & 0 & 1\end{pmatrix} = \begin{pmatrix}1 & 1 & b + e \\ 0 & 1 & 1 \\ 0 & 0 & 1\end{pmatrix}$.
+
+          For no $b, e \in F$ is it possible for $b + e$ to equal $b + e + 1$. Thus $H(F)$ is non-abelian.
+
+    \item Find an explicit formula for the matrix inverse $X^{-1}$ and deduce that $H(F)$ is closed under inverses.
+
+          Suppose $D = \begin{pmatrix}d_{11} & d_{12} & d_{13} \\ d_{21} & d_{22} & d_{23} \\ d_{31} & d_{32} & d_{33}\end{pmatrix}$ such that $XD = I_3$. Carrying out the multiplication, we obtain the following set of equations:
+          
+          \begin{itemize}
+            \item $d_{11} + ad_{21} + bd_{31} = 1$
+            \item $d_{12} + ad_{22} + bd_{32} = 0$
+            \item $d_{13} + ad_{23} + bd_{33} = 0$
+            \item $d_{21} + cd_{31} = 0$
+            \item $d_{22} + cd_{32} = 1$
+            \item $d_{23} + cd_{33} = 1$
+            \item $d_{31} = 0$
+            \item $d_{32} = 0$
+            \item $d_{33} = 1$
+          \end{itemize}
+
+          Substituting $d_{31} = d_{32} = 0, d_{33} = 1$ into the first equations, we obtain the following:
+
+          \begin{itemize}
+            \item $d_{11} + ad_{21} = 1$
+            \item $d_{12} + ad_{22} = 0$
+            \item $d_{13} + ad_{23} + b = 0$
+            \item $d_{21} = 0$
+            \item $d_{22} = 1$
+            \item $d_{23} + c = 1$
+          \end{itemize}
+
+          So we have $d_{23} = -c$, and substituting that, as well as $d_{21} = 0, d_{22} = 1$ into the above, we obtain:
+
+          \begin{itemize}
+            \item $d_{11} = 1$
+            \item $d_{12} + a = 0$
+            \item $d_{13} - ac + b = 0$
+          \end{itemize}
+
+          Then $D = \begin{pmatrix}1 & -a & ac - b \\ 0 & 1 & -c \\ 0 & 0 & 1\end{pmatrix}$. Since $XD = I_3, D = X^{-1}$, and we see that $H(F)$ is closed under inverses.
+    
+    \item Prove the associative law for $H(F)$ and deduce that $H(F)$ is a group of order $|F|^3$.
+
+          Since $H(F)$ is closed under matrix multiplication, we can ignore all but the upper-triangular entries (upper-middle, upper-right, and middle-right), since they will always be either 0 or 1.
+          
+          From a), the upper-middle and middle-right entries of $XY$ are $a + d$ and $c + f$, respectively. If we multiply their product by a third matrix, these entries will be the sum of the respective entries of the three entries, which is associative.
+
+          The upper-right entry of $XY$ is $b + e + af$. Let $Z$ be a matrix with upper-triangular entries $g, h, i$. Then $(XY)Z$ has the upper-right entry $(b + e + af) + h + (a + d)i = b + e + h + af + ai + di$. The upper-right entry of $X(YZ)$ is $(e + h + di) + b + a(f + i) = b + e + h + af + ai + di$. Thus, $(XY)Z = X(YZ)$, and so $H(F)$ is associative.
+
+          Since $H(F)$ is closed under matrix multiplication, inverses, and is associative, it is a group. In choosing elements of $H(F)$, we can freely choose from three elements $a, b, c \in F$. Therefore $|H(F)| = |F|^3$.
+
+    \item Find the order of each element of the finite group $H(\mathbb{Z}/2\mathbb{Z})$.
+
+          \begin{itemize}
+            \item $\begin{pmatrix}1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1\end{pmatrix}$: 1
+            \item $\begin{pmatrix}1 & 1 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1\end{pmatrix}$: 2
+            \item $\begin{pmatrix}1 & 0 & 1 \\ 0 & 1 & 0 \\ 0 & 0 & 1\end{pmatrix}$: 2
+            \item $\begin{pmatrix}1 & 0 & 0 \\ 0 & 1 & 1 \\ 0 & 0 & 1\end{pmatrix}$: 2
+            \item $\begin{pmatrix}1 & 1 & 1 \\ 0 & 1 & 0 \\ 0 & 0 & 1\end{pmatrix}$: 2
+            \item $\begin{pmatrix}1 & 1 & 0 \\ 0 & 1 & 1 \\ 0 & 0 & 1\end{pmatrix}$: 3
+            \item $\begin{pmatrix}1 & 0 & 1 \\ 0 & 1 & 1 \\ 0 & 0 & 1\end{pmatrix}$: 2
+            \item $\begin{pmatrix}1 & 1 & 1 \\ 0 & 1 & 1 \\ 0 & 0 & 1\end{pmatrix}$: 3
+          \end{itemize}
+
+    \item Prove that every nonidentity element of the group $H(\mathbb{R})$ has infinite order.
+
+          \begin{proof}
+            Let $X = \begin{pmatrix}1 & a & b \\ 0 & 1 & c \\ 0 & 0 & 1\end{pmatrix} \in H(\mathbb{R})$. We will show by induction that the upper-middle, upper-right, and middle-right entries of $X^n$ are $na, \newline (n(n - 1)/2)ac + nb$, and $nc$, respectively.
+
+            For the base case, $X^1 = X$ has the upper-middle, upper-right, and middle-right entries $a = 1 \cdot a, b = 0 \cdot ac + 1 \cdot b, c = 1 \cdot c$.
+
+            For the induction step, suppose for $X^n$, the relevant entries are $na, (n(n - 1)/2)ac + nb$, and $nc$. Then
+            
+            $X^{n + 1} = X^n X = \begin{pmatrix}1 & na & (n(n - 1)/2)ac + nb \\ 0 & 1 & nc \\ 0 & 0 & 1\end{pmatrix}\begin{pmatrix}1 & a & b \\ 0 & 1 & c \\ 0 & 0 & 1\end{pmatrix} = \\ \begin{pmatrix}1 & (n + 1)a & b + nac + (n(n - 1)/2)ac + nb \\ 0 & 1 & (n + 1)c \\ 0 & 0 & 1\end{pmatrix}$. The upper-middle and middle-right entries satisfy the induction hypothesis, and the upper-right entry is:
+            \begin{multline*}
+                b + nac + (n(n - 1)/2)ac + nb = (n + n(n - 1)/2)ac + (n + 1)b = \\
+                ((2n + n^2 - n)/2)ac + (n + 1)b = ((n^2 + n)/2)ac + (n + 1)b = \\
+                (n(n + 1)/2)ac + (n + 1)b.
+            \end{multline*}
+            Thus, $X^{n + 1}$ satisfies the induction hypothesis.
+
+            Now if $|X| < \infty$, then for some $n$, $X^n = I_3$. So we need:
+            
+            $na = (n(n - 1)/2)ac + nb = nc = 0$. For $na$ and $nc$, since $n > 0$, we need $a = c = 0$. Then $nb = 0$, so $b = 0$. Therefore the identity matrix is the only element of $H(\mathbb{R})$ with finite order.
+          \end{proof}
+\end{enumerate}
+
 \end{document}
