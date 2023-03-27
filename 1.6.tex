@@ -31,4 +31,30 @@ Let $\varphi: G \rightarrow H$ be a homomorphism.
           
 \end{enumerate}
 
+\section*{2. (3/26/23)}
+
+If $\varphi: G \rightarrow H$ is an isomorphism, prove that $|\varphi(x)| = |x|$ for all $x \in G$. Deduce that any two isomorphic groups have the same number of elements of order $n$ for each $n \in \mathbb{Z}^+$.
+
+\begin{proof}
+    Let $\varphi: G \rightarrow H$ be an isomorphism and let $x \in G$. If $|x|$ is finite, then (from 1.a) $\varphi(x^n) = \varphi(x)^n$ and (from 1.b) $\varphi(1) = \varphi(x^n) = \varphi(x)^n = 1 \in H$. The order of the element $\varphi(x)^n \in H$ is therefore at most $n$. Because $\varphi$ is an isomorphism, there is only one element whose image is 1, and that is $\varphi(1) = 1$. Therefore for no $m < n$ do we have $\varphi(x)^m = 1$, and so the $|\varphi(x) = n$.
+
+    Next, suppose that $x$ has infinite order in $G$. Then $x^n \neq 1$ for all $n > 0$. Because $\varphi$ is an isomorphism, we know that only $\varphi(1) = 1 \in H$. Therefore $\varphi(x^n) = \varphi(x)^n \neq 1$ for all $n > 0$. Therefore $|\varphi(x)| = \infty$.
+
+    This result is not necessarily true if $\varphi$ is a homomorphism. For example, $\varphi$ could send every element of $G$ to the identity in $H$. (This is a homomorphism: $\varphi(x)\varphi(y) = 1 \cdot 1 = 1$ and $\varphi(x)\varphi(y) = \varphi(xy) = 1$.) Then for all $x \in G$, $|\varphi(x)| = 1$, regardless of the order of $x$.
+\end{proof}
+
+\section*{3. (3/27/23)}
+
+If $\varphi: G \rightarrow H$ is an isomorphism, prove that $G$ is abelian if and only if $H$ is abelian. If $\varphi$ is a homomorphism, what additional conditions on $\varphi$ (if any) are sufficient to ensure that if $G$ is abelian, then so is $H$?
+
+\begin{proof}
+    First, let $G$ be an abelian group and $\varphi: G \rightarrow H$ be an isomorphism. Given arbitrary distinct elements of $H$, because $\varphi$ is surjective, there are two distinct elements in $G$ whose images are these elements in $H$. Let $\varphi(x), \varphi(y) \in H$ be distinct elements and $x, y \in G$. Then $\varphi(xy) = \varphi(x)\varphi(y)$. Also, because $x$ and $y$ commute, $\varphi(xy) = \varphi(yx) = \varphi(y)\varphi(x)$. Therefore $\varphi(x)\varphi(y) = \varphi(y)\varphi(x)$, so $H$ is an abelian group.
+
+    Next, let $H$ be an abelian group. Again let $\varphi(x), \varphi(y) \in H$ and $x, y \in G$. Then $\varphi(x)\varphi(y) = \varphi(xy)$. Also, $\varphi(x)\varphi(y) = \varphi(y)\varphi(x) = \varphi(yx)$. So $\varphi(xy) = \varphi(yx)$. Because $\varphi$ is one-to-one, this implies that $xy = yx$, and so $G$ is an abelian group.
+
+    If $\varphi$ is a homomorphism, then $G$ being an abelian group does not imply that $H$ is abelian. For example, $H$ could be a non-abelian group and $\varphi$ could send every element of $G$ to the identity in $H$.
+
+    A sufficient condition for a homomorphism $\varphi: G \rightarrow H$ to ensure that if $G$ is abelian, then so is $H$, is that $\varphi$ is surjective. Then for all $h \in H$, $h = \varphi(x)$ for some $x \in G$ (possibly more than one $x$). Let $h_1, h_2 \in H$ with $h_1 = \varphi(x_1) = \varphi(x_2) = ...$ and $h_2 = \varphi(y_1) = \varphi(y_2) = ...$ and with $x_i, y_j \in G$. $\varphi$ is a homomorphism, so for any $i, j$, $\varphi(x_i y_j) = \varphi(x_i) \varphi(y_j) = h_1 h_2$. Also, because $G$ is abelian, $\varphi(x_i y_j) = \varphi(y_j x_i) = \varphi(y_j) \varphi(x_i) = h_2 h_1$. Therefore $h_1 h_2 = h_2 h_1$, so $H$ is abelian.
+\end{proof}
+
 \end{document}
