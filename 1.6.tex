@@ -57,4 +57,14 @@ If $\varphi: G \rightarrow H$ is an isomorphism, prove that $G$ is abelian if an
     A sufficient condition for a homomorphism $\varphi: G \rightarrow H$ to ensure that if $G$ is abelian, then so is $H$, is that $\varphi$ is surjective. Then for all $h \in H$, $h = \varphi(x)$ for some $x \in G$ (possibly more than one $x$). Let $h_1, h_2 \in H$ with $h_1 = \varphi(x_1) = \varphi(x_2) = ...$ and $h_2 = \varphi(y_1) = \varphi(y_2) = ...$ and with $x_i, y_j \in G$. $\varphi$ is a homomorphism, so for any $i, j$, $\varphi(x_i y_j) = \varphi(x_i) \varphi(y_j) = h_1 h_2$. Also, because $G$ is abelian, $\varphi(x_i y_j) = \varphi(y_j x_i) = \varphi(y_j) \varphi(x_i) = h_2 h_1$. Therefore $h_1 h_2 = h_2 h_1$, so $H$ is abelian.
 \end{proof}
 
+\section*{4. (3/27/23)}
+
+Prove that the multiplicative groups $\mathbb{R} - \{0\}$ and $\mathbb{C} - \{0\}$ are not isomorphic.
+
+\begin{proof}
+    For any $x \in \mathbb{R} - \{0\}$, $x \neq \pm{1}$, $x$ has infinite order. The proof of this is as follows: Let $x \in \mathbb{R} - \{0, \pm{1}\}$. If the absolute value of $x$ is greater than 1, then the absolute value of $x^n$ is greater than 1 for all $n$, and by induction $x$ has infinite order. If the absolute value of $x$ is less than 1, then the absolute value of $x^n$ is less than 1 for all $n$, and by induction $x$ has infinite order. So $1$ and $-1$ are the only elements of $\mathbb{R} - \{0\}$ with finite order.
+
+    In $\mathbb{C} - \{0\}$, $i$ and $-i$ have order 4. From 2., isomorphic groups have the same number of elements of order $n$ for each $n \in \mathbb{Z}^+$. However, $\mathbb{R} - \{0\}$ has no elements of order 4, and $\mathbb{C} - \{0\}$ has at least 2. Therefore they are not isomorphic.
+\end{proof}
+
 \end{document}
