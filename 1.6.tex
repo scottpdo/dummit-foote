@@ -67,4 +67,27 @@ Prove that the multiplicative groups $\mathbb{R} - \{0\}$ and $\mathbb{C} - \{0\
     In $\mathbb{C} - \{0\}$, $i$ and $-i$ have order 4. From 2., isomorphic groups have the same number of elements of order $n$ for each $n \in \mathbb{Z}^+$. However, $\mathbb{R} - \{0\}$ has no elements of order 4, and $\mathbb{C} - \{0\}$ has at least 2. Therefore they are not isomorphic.
 \end{proof}
 
+\section*{5. (3/27/23)}
+
+Prove that the additive groups $\mathbb{R}$ and $\mathbb{Q}$ are not isomorphic.
+
+\begin{proof}
+    Given that $\mathbb{R}$ and $\mathbb{Q}$ do not have the same cardinality ($\mathbb{R}$ is uncountable while $\mathbb{Q}$ is countably infinite), there is no map $\varphi: \mathbb{Q} \rightarrow \mathbb{R}$ that is surjective. An isomorphism is a bijection that is necessarily surjective, and so the two groups are not isomorphic.
+
+    Alternatively, consider the homomorphism $\varphi: \mathbb{Q} \rightarrow \mathbb{R}$ defined by $\varphi(q) = q$. Such a map is injective but not surjective: There is no $q \in \mathbb{Q}$ with $\varphi(q) = \sqrt{2} \in \mathbb{R}$. If we attempt to make $\varphi$ surjective by assigning $\varphi(q_1) = \sqrt{2}$ for some $q_1$, then $q_1$ now has no preimage in $\mathbb{Q}$, and so we must find a $q_2$ and assign $\varphi(q_2) = q_1$. However, now $q_2$ has no preimage. This process continues \emph{ad infinitum}, and $\varphi$ is forever not surjective. Therefore $\mathbb{R}$ and $\mathbb{Q}$ are not isomorphic.
+\end{proof}
+
+\section*{6. (3/27/23)}
+
+Prove that the additive groups $\mathbb{Z}$ and $\mathbb{Q}$ are not isomorphic.
+
+\begin{proof}
+    Consider a homomorphism $\varphi: \mathbb{Z} \rightarrow \mathbb{Q}$. For all $n \in \mathbb{Z}$, $\varphi(0) = \newline
+    \varphi(n + (-n)) = \varphi(n) + \varphi(-n)$. From 1.b), $\varphi(0) = 0$, so $\varphi$ preserves inverses: $\varphi(-n) = -\varphi(n)$. That is, $\varphi(n) = q$ implies that $\varphi(-n) = -q$.
+
+    We also claim that, if $\varphi(1) = k$, then $\varphi$ assigns all integers to their product with $k$ in $\mathbb{Q}$. Since $\varphi$ preserves inverses, we only have to show this for $n \in \mathbb{Z}^+$, by induction (base case given): Suppose that $\varphi(n) = kn$ for some $n \in \mathbb{Q}^+$. Then $\varphi(n + 1) = \varphi(n) + \varphi(1) = kn + k = k(n + 1)$, as desired. Therefore $\varphi$ assigns all integers to their product with $k$ in $\mathbb{Q}$.
+
+    But now it is impossible for $\varphi$ to be surjective, because only integer multiples of $k$ have preimages in $\mathbb{Z}$. For example, $k / 2 \in \mathbb{Q}$ has no preimage. Therefore $\mathbb{Z}$ and $\mathbb{Q}$ are not isomorphic.
+\end{proof}
+
 \end{document}
