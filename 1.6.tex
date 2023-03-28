@@ -90,4 +90,36 @@ Prove that the additive groups $\mathbb{Z}$ and $\mathbb{Q}$ are not isomorphic.
     But now it is impossible for $\varphi$ to be surjective, because only integer multiples of $k$ have preimages in $\mathbb{Z}$. For example, $k / 2 \in \mathbb{Q}$ has no preimage. Therefore $\mathbb{Z}$ and $\mathbb{Q}$ are not isomorphic.
 \end{proof}
 
+\section*{7. (3/27/23)}
+
+Prove that $D_8$ and $Q_8$ are not isomorphic.
+
+\begin{proof}
+    $s, sr, sr^2, sr^3 \in D_8$ all have order 2. However, in $Q_8$, only $-1$ has order 2. From 2., isomorphic groups must have the same number of elements of each order. Therefore $D_8$ and $Q_8$ are not isomorphic.
+\end{proof}
+
+\section*{8. (3/28/23)}
+
+Prove that if $n \neq m$, $S_n$ and $S_m$ are not isomorphic.
+
+\begin{proof}
+    Without loss of generality, let $n > m$. From Chapter 1.3, the order of a symmetric group $S_n$ is $n!$. Then $S_n$ contains $n!$ elements, and $S_m$ contains $m!$ elements. It is trivial to show that $n > m \Rightarrow n! > m!$. Since the two groups do not have the same cardinality, there is no bijection between them. Thus $S_n$ and $S_m$ are not isomorphic.
+\end{proof}
+
+\section*{9. (3/28/23)}
+
+Prove that $D_{24}$ and $S_4$ are not isomorphic.
+
+\begin{proof}
+    $D_{24}$ has 24 elements, and $S_4$ has 24 elements. They are both non-abelian. In order to prove that they are not isomorphic, then, let us consider the orders of each group's respective elements.
+
+    $D_{24}$ has 13 elements of order 2: $\{ sr^i \mid i \in \{0, ..., 11\} \}$ and $r^6$.
+
+    The elements of order 2 in $S_4$ are those permutations with cycle decompositions that are disjoint 2-cycles: \newline
+    $\{ (1,2), (1,3), (1,4), (2,3), (2,4), (3,4), (1,2)(3,4), (1,3)(2,4), (1,4)(2,3) \}$. So \newline
+    there are 9 elements of order 2 in $S_4$.
+
+    Since $D_{24}$ and $S_4$ do not have the same number of elements of order 2, they are not isomorphic.
+\end{proof}
+
 \end{document}
