@@ -122,4 +122,56 @@ Prove that $D_{24}$ and $S_4$ are not isomorphic.
     Since $D_{24}$ and $S_4$ do not have the same number of elements of order 2, they are not isomorphic.
 \end{proof}
 
+\section*{10. (3/31/23)}
+
+Fill in the details of the proof that the symmetric groups $S_\Delta$ and $S_\Omega$ are isomorphic if $|\Delta| = |\Omega|$ as follows: Let $\theta: \Delta \rightarrow \Omega$ be a bijection. Define
+\begin{equation*}
+    \varphi: S_\Delta \rightarrow S_\Omega \text{ by } \varphi(\sigma) = \theta \circ \sigma \circ \theta^{-1} \text{ for all } \sigma \in S_\Delta
+\end{equation*}
+and prove the following:
+
+\begin{enumerate}[label=(\alph*)]
+    \item $\varphi$ is well-defined, that is, if $\sigma$ is a permutation of $\Delta$ then $\theta \circ \sigma \circ \theta^{-1}$ is a permutation of $\Omega$.
+
+        To show that $\varphi$ is well-defined, we need to show that it assigns a given permutation of $\Delta$ to a unique permutation of $\Omega$.
+
+        An arbitrary permutation $\sigma$ is a bijection from $\Delta$ to itself. It is represented with a cycle decomposition that shows how it assigns a given element of $\Delta$ to another element. For $\sigma$ and a given element $s_1$, we can say that $\sigma$ assigns $s_1$ to $s_2 \in \Delta$.
+        
+        Since $\Delta$ and $\Omega$ have the same cardinality, there exists a bijection $\theta$ between them, and we can say that $\theta$ assigns distinct $s_1, s_2 \in \Delta$ to distinct $t_1, t_2 \in \Omega$, respectively.
+
+        Now let us consider what happens when we apply $\varphi$ to $\sigma$. By definition, $\varphi(\sigma) = \theta \circ \sigma \circ \theta^{-1}$. $\theta^{-1}$ is a bijection: $\Omega \rightarrow \Delta$, $\sigma$ is a bijection: $\Delta \rightarrow \Delta$, and $\theta$ is a bijection: $\Delta \rightarrow \Omega$. Applying the compositions, we see that $\varphi(\sigma)$ is a map from $\Omega \rightarrow \Omega$ (not yet proven to be a bijection).
+        
+        $t_1$ is an arbitrary element of $\Omega$ with preimage $s_1 \in \Delta$. Then:
+        \begin{equation*}
+            \varphi(\sigma)(t_1) = \theta (\sigma (\theta^{-1}(t_1))) = \theta (\sigma(s_1)) = \theta(s_2) = t_2,
+        \end{equation*}
+        that is, $\varphi(\sigma)$ is a permutation of $\Omega$ that uniquely assigns $t_1$ to $t_2$. Therefore $\varphi$ is well-defined.
+    
+    \item $\varphi$ is a bijection from $S_\Delta$ onto $S_\Omega$.
+        
+        We have shown that $\varphi$ is a well-defined map from $S_\Delta$ onto $S_\Omega$. However, it remains to be shown that $\varphi$ is a bijection.
+
+        To show that $\varphi$ is invertible, define a map $\gamma: S_\Omega \rightarrow S_\Delta$, with $\gamma(\tau) = \theta^{-1} \circ \tau \circ \theta$ for $\tau \in \Omega$. The proof above suffices to show that $\gamma$ is well-defined.
+
+        Consider what happens when we take $\gamma(\varphi(\sigma))$:
+        \begin{equation*}
+            \gamma(\varphi(\sigma)) = \gamma(\theta \circ \sigma \circ \theta^{-1}) = \theta^{-1} \circ (\theta \circ \sigma \circ \theta^{-1}) \circ \theta = (\theta^{-1} \theta) \circ \sigma \circ (\theta^{-1} \theta) = \sigma.
+        \end{equation*}
+
+        That is, $\gamma(\varphi(\sigma)) = \sigma$ for all $\sigma \in S_\Delta$. Therefore $\gamma = \varphi^{-1}$. Since $\varphi$ has a well-defined inverse, it is a bijection from $S_\Delta$ onto $S_\Omega$.
+
+    \item $\varphi$ is a homomorphism, that is, $\varphi(\sigma \circ \tau) = \varphi(\sigma) \circ \varphi(\tau)$.
+
+        We apply the function compositions: 
+        
+        \begin{multline*}
+            \varphi(\sigma \circ \tau) = \\
+            (\theta \circ \sigma \circ \theta^{-1}) \circ (\theta \circ \tau \circ \theta^{-1}) =
+            \theta \circ \sigma \circ (\theta^{-1} \circ \theta) \circ \tau \circ \theta^{-1} = \\
+            \theta \circ \sigma \circ \tau \circ \theta^{-1} = \varphi(\sigma) \circ \varphi(\tau).
+        \end{multline*}
+
+        Thus $\varphi$ is a homomorphism, and since it is also a bijection, the groups $S_\Delta$ and $S_\Omega$ are isomorphic.
+\end{enumerate}
+
 \end{document}
