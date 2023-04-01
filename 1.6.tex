@@ -2,7 +2,7 @@
 
 \title{Dummit \& Foote Ch. 1.6: Homomorphisms and Isomorphisms}
 \author{Scott Donaldson}
-\date{Mar. 2023}
+\date{Mar. - Apr. 2023}
 \usepackage{amsmath, amsthm, amsfonts, enumitem}
 
 \begin{document}
@@ -173,5 +173,21 @@ and prove the following:
 
         Thus $\varphi$ is a homomorphism, and since it is also a bijection, the groups $S_\Delta$ and $S_\Omega$ are isomorphic.
 \end{enumerate}
+
+\section*{11. (4/1/23)}
+
+Let $A$ and $B$ be groups. Prove that $A \times B \cong B \times A$.
+
+\begin{proof}
+    Consider the map $\varphi: A \times B \rightarrow B \times A$ defined by $\varphi(a, b) = (b, a)$. $\varphi$ is injective, since $\varphi(a_1, b_1) = \varphi(a_2, b_2) \Rightarrow (b_1, a_1) = (b_2, a_2) \Rightarrow a_1 = a_2$ and $b_1 = b_2$. $\varphi$ is surjective, since for every $(b, a) \in B \times A$, there exists by definition $(a, b) \in A$ with $\varphi(a, b) = (b, a)$. Therefore $\varphi$ is a bijection from $A \times B \rightarrow B \times A$.
+
+    $\varphi$ is also a homomorphism: Let $(a_1, b_1), (a_2, b_2) \in A \times B$. Then:
+    \begin{multline*}
+        \varphi((a_1, b_1)(a_2, b_2)) = \varphi(a_1 a_2, b_1 b_2) = \\ 
+        (b_1 b_2, a_1 a_2) = (b_1, a_1)(b_2, a_2) = \varphi(a_1, b_1) \varphi(a_2, b_2).
+    \end{multline*}
+
+    Since $\varphi$ is a bijective homomorphism, it is an isomorphism, and so $A \times B \cong B \times A$.
+\end{proof}
 
 \end{document}
