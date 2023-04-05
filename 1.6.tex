@@ -190,4 +190,24 @@ Let $A$ and $B$ be groups. Prove that $A \times B \cong B \times A$.
     Since $\varphi$ is a bijective homomorphism, it is an isomorphism, and so $A \times B \cong B \times A$.
 \end{proof}
 
+\section*{12. (4/5/23)}
+
+Let $A, B$, and $C$ be groups and let $G = A \times B$ and $H = B \times C$. Prove that $G \times C \cong A \times H$.
+
+\begin{proof}
+    Let $\varphi: G \times C \rightarrow A \times H$ defined by $\varphi \circ ((a, b), c) = (a, (b, c))$. We will show that $\varphi$ is a bijective homomorphism, that is, an isomorphism, and thus that $G \times C \cong A \times H$.
+
+    To show that $\varphi$ is injective, let $((a_1, b_1), c_1)$ and $((a_2, b_2), c_2) \in G \times C$, and suppose that applying $\varphi$ to both gives the same element $(a, (b, c)) \in A \times H$. Then, by definition of $\varphi$, $a_1 = a$ and $a_2 = a$, so $a_1 = a_2$. The same logic shows that $b_1 = b_2$ and $c_1 = c_2$. Thus the two elements in $G$ are in fact the same element, and therefore $\varphi$ is injective.
+
+    To show that $\varphi$ is surjective, let $(a, (b, c)) \in A \times H$. Then, by definition of $\varphi$, there exists $a, b, c \in A, B, C$, respectively, such that for $((a, b), c) \in G \times C$, $\varphi \circ ((a, b), c) = (a, (b, c))$. Therefore $\varphi$ is surjective, and so it is a bijection.
+
+    Finally, let $((a_1, b_1), c_1)$ and $((a_2, b_2), c_2) \in G \times C$. Then:
+    \begin{multline*}
+        \varphi \circ (((a_1, b_1), c_1)((a_2, b_2), c_2)) = \varphi \circ ((a_1 a_2, b_1 b_2), c_1 c_2) = (a_1 a_2, (b_1 b_2, c_1 c_2)) = \\
+        (a_1, (b_1, c_1))(a_2, (b_2, c_2)) = \varphi \circ ((a_1, b_1), c_1) \varphi \circ ((a_2, b_2), c_2).
+    \end{multline*}
+
+    Thus $\varphi$ is an isomorphism from $G \times C \rightarrow A \times H$, and so $G \times C \cong A \times H$.
+\end{proof}
+
 \end{document}
