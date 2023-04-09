@@ -210,4 +210,46 @@ Let $A, B$, and $C$ be groups and let $G = A \times B$ and $H = B \times C$. Pro
     Thus $\varphi$ is an isomorphism from $G \times C \rightarrow A \times H$, and so $G \times C \cong A \times H$.
 \end{proof}
 
+\section*{13. (4/5/23)}
+
+Let $G$ and $H$ be groups and let $\varphi: G \rightarrow H$ be a homomorphism. Prove that the image of $\varphi, \varphi(G)$, is a subgroup of $H$. Prove that if $\varphi$ is injective then $G \cong \varphi(G)$.
+
+\begin{proof}
+    To prove that $\varphi(G)$ is a subgroup of $H$, we must show that it is closed under the binary operation of $H$ and that it is closed under inverses (the other group properties follow from these). By definition, for $a, b \in G$, $\varphi(a), \varphi(b) \in H$. Since $\varphi$ is a homomorphism, their product, $\varphi(a) \varphi(b) = \varphi(ab)$, is also an element of $H$. Thus $\varphi(G)$ is closed under the binary operation of $H$.
+
+    To show that $\varphi(G)$ is closed under inverses, let $a \in G$. From 1.b), $\varphi(1) = 1$. Also, $\varphi(1) = \varphi(a a^{-1}) = \varphi(a) \varphi(a^{-1})$. Therefore $\varphi(a^{-1}) = \varphi(a)^{-1}$, and so $\varphi(G)$ is closed under inverses. Thus it is a subgroup of $H$.
+
+    Now suppose that $\varphi$ is injective. To prove that $G$ is then isomorphic to $\varphi(G)$, we must show that $\varphi$ is an isomorphism, that is, that it is also surjective onto $\varphi(G)$. By definition, since $\varphi(G) = \{h \in H \mid h = \varphi(g) \text{ for some } g \in G\}$, $\varphi$ is surjective onto $\varphi(G)$. Thus $\varphi$ is an isomorphism, and so $G \cong \varphi(G)$.
+\end{proof}
+
+\section*{14. (4/9/23)}
+
+Let $G$ and $H$ be groups and let $\varphi: G \rightarrow H$ be a homomorphism. Define the \emph{kernel} of $\varphi$ to be $\{ g \in G \mid \varphi(g) = 1_H \}$ (so the kernel is the set of elements in $G$ which map to the identity in $H$, i.e., is the fiber over the identity of $H$). Prove that the kernel of $\varphi$ is a subgroup of $G$. Prove that $\varphi$ is injective if and only if the kernel of $\varphi$ is the identity subgroup of $G$.
+
+\begin{proof}
+    To show that the kernel of $\varphi$ is a subgroup of $G$, we need to show that it is closed under the binary operation of $G$ and that it is closed under inverses.
+
+    Let $g_1, g_2$ be in the kernel of $\varphi$. Then $\varphi(g_1) = \varphi(g_2) = 1_H$. Since $\varphi$ is a homomorphism, $1_H = \varphi(g_1) \varphi(g_2) = \varphi(g_1 g_2).$ So the product $g_1 g_2$ of arbitrary elements in the kernel of $G$ is also in the kernel of $G$. Thus the kernel of $\varphi$ is closed under the binary operation of $G$.
+
+    From 1.b), $\varphi(1) = 1_H$. Also, $1_H = \varphi(1) = \varphi(g g^{-1}) = \varphi(g) \varphi(g^{-1}) = 1_H \cdot \varphi(g^{-1})$, which implies that $\varphi(g^{-1}) = 1_H$, so $g^{-1}$ is also in the kernel of $\varphi$. The kernel of $\varphi$ is closed under inverses, and thus it is a subgroup of $G$.
+
+    Now we will show that $\varphi$ is injective if and only if the kernel of $\varphi$ is $\{ 1_G \}$.
+
+    First, let $\varphi$ be an injective homomorphism from $G$ to $H$. So for any $g_1, g_2 \in G$, $\varphi(g_1) = \varphi(g_2)$ implies that $g_1 = g_2$. Let $g$ be in the kernel of $\varphi$, so $\varphi(g) = 1_H$. Also, $\varphi(1_G) = 1_H$, which implies that $g = 1_G$, so the only unique element in the kernel of $\varphi$ is $1_G$.
+
+    Next, suppose the kernel of $\varphi$ is $\{ 1_G \}$. So $g \in G, g \neq 1_G$ implies that $\varphi(g) \neq 1_H$. Suppose that $g_1, g_2 \in G, g_1, g_2 \neq 1_G$ such that $\varphi(g_1) = \varphi(g_2) = h \in H$. From 1.b), $\varphi(g_2) = h$ implies that $\varphi(g_2)^{-1} = \varphi(g_2^{-1}) = h^{-1}$. So $\varphi(g_1) \varphi(g_2^{-1}) = h h^{-1} = 1_H$. Because $\varphi$ is a homomorphism, $\varphi(g_1 g_2^{-1}) = 1_H$. Because the only element in the kernel of $\varphi$ is $1_G$, we must have $g_1 g_2^{-1} = 1_G$, which implies that $g_1 = g_2$. Therefore $\varphi$ is an injective map from $G$ to $H$.
+    
+    This completes the proof that $\varphi$ is injective if and only if the kernel of $\varphi$ is $\{ 1_G \}$.
+\end{proof}
+
+\section*{15. (4/9/23)}
+
+Define a map $\pi: \mathbb{R}^2 \rightarrow \mathbb{R}$ by $\pi((x, y)) = x$. Prove that $\pi$ is a homomorphism and find the kernel of $\pi$.
+
+\begin{proof}
+    To show that $\pi$ is a homomorphism, let $(x_1, y_1), (x_2, y_2) \in \mathbb{R}^2$. Then $\pi((x_1, y_1)(x_2, y_2)) = \pi((x_1 x_2, y_1 y_2)) = x_1 x_2$. Also, $\pi((x_1, y_1)) \cdot \pi((x_2, y_2)) = x_1 x_2$. Thus $\pi$ is a homomorphism.
+
+    By definition, the kernel of $\pi$ is the set $\{ (x, y) \in \mathbb{R}^2 \mid \pi(x, y) = 1 \}$. Now $\pi((x, y)) = 1$ if and only if $x = 1$. Note that $x = 1 \Rightarrow \pi((1, y)) = 1$ and $\pi((x, y)) = 1 \Rightarrow x = 1$. So the kernel of $\pi$ is $\{ (1, y) \in \mathbb{R}^2 \mid y \in \mathbb{R} \}$.
+\end{proof}
+
 \end{document}
