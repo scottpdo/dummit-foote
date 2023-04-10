@@ -252,4 +252,15 @@ Define a map $\pi: \mathbb{R}^2 \rightarrow \mathbb{R}$ by $\pi((x, y)) = x$. Pr
     By definition, the kernel of $\pi$ is the set $\{ (x, y) \in \mathbb{R}^2 \mid \pi(x, y) = 1 \}$. Now $\pi((x, y)) = 1$ if and only if $x = 1$. Note that $x = 1 \Rightarrow \pi((1, y)) = 1$ and $\pi((x, y)) = 1 \Rightarrow x = 1$. So the kernel of $\pi$ is $\{ (1, y) \in \mathbb{R}^2 \mid y \in \mathbb{R} \}$.
 \end{proof}
 
+\section*{16. (4/10/23)}
+
+Let $A$ and $B$ be groups and let $G$ be their direct product, $A \times B$. Prove that the maps $\pi_1: G \rightarrow A$ and $\pi_2: G \rightarrow B$ defined by $\pi_1((a, b)) = a$ and $\pi_2((a, b)) = b$ are homomorphisms and find their kernels.
+
+\begin{proof}
+    To show that $\pi_1$ and $\pi_2$ are homomorphisms, let $(a_1, b_1), (a_2, b_2) \in G$. Then $\pi_1((a_1, b_1)(a_2, b_2)) = \pi_1((a_1 a_2, b_1, b_2)) = a_1 a_2$ and $\pi_1((a_1, b_1)) \cdot \pi_1((a_2, b_2)) \newline 
+    = a_1 a_2$, so $\pi_1$ is a homomorphism. Similarly, $\pi_2((a_1, b_1)(a_2, b_2)) = b_1 b_2 = \pi_2((a_1, b_1)) \cdot \pi_2((a_2, b_2))$, so it is also a homomorphism.
+
+    Now by identical proof to 15., the kernel of $\pi_1$ is $\{ (1, b) \in G \mid b \in B \}$ and the kernel of $\pi_2$ is $\{ (a, 1) \in G \mid a \in A \}$.
+\end{proof}
+
 \end{document}
