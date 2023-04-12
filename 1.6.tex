@@ -263,4 +263,16 @@ Let $A$ and $B$ be groups and let $G$ be their direct product, $A \times B$. Pro
     Now by identical proof to 15., the kernel of $\pi_1$ is $\{ (1, b) \in G \mid b \in B \}$ and the kernel of $\pi_2$ is $\{ (a, 1) \in G \mid a \in A \}$.
 \end{proof}
 
+\section*{17. (4/11/23)}
+
+Let $G$ be any group. Prove that the map from $G$ to itself defined by $g \mapsto g^{-1}$ is a homomorphism if and only if $G$ is abelian.
+
+\begin{proof}
+    First, let $\varphi: G \rightarrow G$ be defined by $\varphi(g) = g^{-1}$, and let $G$ be abelian. Then for $g, h \in G$, $\varphi(gh) = (gh)^{-1}$. If we let $x = (gh)^{-1}$, then $ghx = 1 \Rightarrow hx = g^{-1} \Rightarrow x = h^{-1}g^{-1}$, so $\varphi(gh) = h^{-1}g^{-1}$. Also, $\varphi(g) \varphi(h) = g^{-1}h^{-1} = h^{-1}g^{-1}$ (since any elements of $G$ commute), and thus $\varphi$ is a homomorphism.
+
+    Next, let $\varphi$ be the map $G \rightarrow G$ defined by $\varphi(g) = g^{-1}$. As above, $\varphi(g) \varphi(h) = g^{-1} h^{-1}$ and $\varphi(gh) = (gh)^{-1} = h^{-1}g^{-1}$. If $\varphi$ is a homomorphism, then we must have $\varphi(g) \varphi(h) = \varphi(gh)$, that is, $g^{-1} h^{-1} = h^{-1} g^{-1}$. This implies that $(hg)^{-1} g = h^{-1} \Rightarrow (hg)^{-1} gh = 1 \Rightarrow gh = hg$, and so $G$ is abelian.
+
+    Therefore the map from $G$ to itself defined by $g \mapsto g^{-1}$ is a homomorphism if and only if $G$ is abelian.
+\end{proof}
+
 \end{document}
