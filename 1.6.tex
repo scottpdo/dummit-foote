@@ -275,4 +275,20 @@ Let $G$ be any group. Prove that the map from $G$ to itself defined by $g \mapst
     Therefore the map from $G$ to itself defined by $g \mapsto g^{-1}$ is a homomorphism if and only if $G$ is abelian.
 \end{proof}
 
+\section*{18. (4/14/23)}
+
+Let $G$ be any group. Prove that the map from $G$ to itself defined by $g \mapsto g^2$ is a homomorphism if and only if $G$ is abelian.
+
+\begin{proof}
+    First, let $\varphi: G \rightarrow G$ be defined by $\varphi(g) = g^{-1}$, and let $G$ be abelian. Then for $g, h \in G$, $\varphi(gh) = (gh)^2 = ghgh = gghh = g^2 h^2 = \varphi(g) \varphi(h)$, so $\varphi$ is a homomorphism.
+
+    Next, $\varphi$ be the map from $G$ to $G$ defined by $\varphi(g) = g^2$, and suppose that $\varphi$ is a homomorphism. Then $\varphi(g) \varphi(h) = \varphi(gh) \Rightarrow g^2 h^2 = (gh)^2$. Then:
+    \begin{equation*}
+        gghh = ghgh \Rightarrow ghh = hgh \Rightarrow gh = hg,
+    \end{equation*}
+    so $G$ is abelian.
+
+    Therefore the map from $G$ to itself defined by $g \mapsto g^2$ is a homomorphism if and only if $G$ is abelian.
+\end{proof}
+
 \end{document}
