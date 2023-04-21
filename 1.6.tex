@@ -38,7 +38,7 @@ Let $\varphi: G \rightarrow H$ be a homomorphism.
 If $\varphi: G \rightarrow H$ is an isomorphism, prove that $|\varphi(x)| = |x|$ for all $x \in G$. Deduce that any two isomorphic groups have the same number of elements of order $n$ for each $n \in \mathbb{Z}^+$.
 
 \begin{proof}
-    Let $\varphi: G \rightarrow H$ be an isomorphism and let $x \in G$. If $|x|$ is finite, then (from 1.a) $\varphi(x^n) = \varphi(x)^n$ and (from 1.b) $\varphi(1) = \varphi(x^n) = \varphi(x)^n = 1 \in H$. The order of the element $\varphi(x)^n \in H$ is therefore at most $n$. Because $\varphi$ is an isomorphism, there is only one element whose image is 1, and that is $\varphi(1) = 1$. Therefore for no $m < n$ do we have $\varphi(x)^m = 1$, and so the $|\varphi(x) = n$.
+    Let $\varphi: G \rightarrow H$ be an isomorphism and let $x \in G$. If $|x|$ is finite, then, from 1.a), $\varphi(x^n) = \varphi(x)^n$ and (from 1.b) $\varphi(1) = \varphi(x^n) = \varphi(x)^n = 1 \in H$. The order of the element $\varphi(x)^n \in H$ is therefore at most $n$. Because $\varphi$ is an isomorphism, there is only one element whose image is 1, and that is $\varphi(1) = 1$. Therefore for no $m < n$ do we have $\varphi(x)^m = 1$, and so the order of $\varphi(x)$ is $n$.
 
     Next, suppose that $x$ has infinite order in $G$. Then $x^n \neq 1$ for all $n > 0$. Because $\varphi$ is an isomorphism, we know that only $\varphi(1) = 1 \in H$. Therefore $\varphi(x^n) = \varphi(x)^n \neq 1$ for all $n > 0$. Therefore $|\varphi(x)| = \infty$.
 
@@ -329,6 +329,48 @@ Let $G$ be a group and let Aut($G$) be the set of all isomorphisms from $G$ onto
     Finally, to show that Aut($G$) is closed under inverses, we simply note that, if $f \in$ Aut($G$), then $f$ is a bijective map from $G$ onto $G$, so it has a well-defined inverse $f^{-1}$ that is also an isomorphism.
 
     Thus Aut($G$) is a group under function composition.
+\end{proof}
+
+\section*{21. (4/21/23)}
+
+Prove that for each fixed nonzero $k \in \mathbb{Q}$ the map from $\mathbb{Q}$ to itself defined by $q \mapsto kq$ is an automorphism of $\mathbb{Q}$.
+
+\begin{proof}
+    Let $\varphi: \mathbb{Q} \rightarrow \mathbb{Q}$ be defined by $\varphi(q) = kq, k \in \mathbb{Q}, k \neq 0$. We will show that $\varphi$ is a homomorphism and is both injective and surjective, thus an automorphism of $\mathbb{Q}$.
+
+    Let $r \in \mathbb{Q}$ and let $s = r / k$. Since $\mathbb{Q}$ is closed under division and $k \neq 0$, $s \in \mathbb{Q}$. Also, $\varphi(s) = ks = r$. Therefore $\varphi$ is surjective.
+
+    Next, to show that $\varphi$ is injective, let $r \in \mathbb{Q}$ with $\varphi(s_1) = \varphi(s_2) = r$. Then $k s_1 = k s_2 = r$. It follows that $r / k = s_1 = s_2$. Therefore $\varphi$ is injective.
+
+    Finally, to show that $\varphi$ is a homomorphism, let $s_1, s_2 \in \mathbb{Q}$. We note that $\varphi(s_1 + s_2) = k (s_1 + s_2) = k s_1 + k s_2 = \varphi(s_1) + \varphi(s_2)$. Therefore $\varphi$ is a homomorphism.
+
+    This concludes the proof that $\varphi$ is an automomorphism of $\mathbb{Q}$.
+\end{proof}
+
+\section*{22. (4/21/23)}
+
+Let $A$ be an abelian group and fix some $k \in \mathbb{Q}$. Prove that the map $a \mapsto a^k$ is a homomorphism from $A$ to itself. If $k = -1$ prove that this homomorphism is an automorphism of $A$.
+
+\begin{proof}
+    Let $\varphi: A \rightarrow A$ be defined by $\varphi(a) = a^k, k \in \mathbb{Z}$. Let $a, b \in A$. Then $\varphi(a b) = (ab)^k = a^k b^k$ (from Ch. 1.1, exercise 24.), which equals $\varphi(a) \varphi(b)$. Therefore $\varphi$ is a homomorphism from $A$ to itself.
+
+    Now let us consider the case where $k = -1$. We will show that $\varphi$ is now both injective and surjective, that is, an automorphism of $A$.
+
+    Let $a \in A$. Given that $A$ is a group, $a$ has an inverse $a^{-1}$, and $(a^{-1})^{-1} = a$, so $\varphi(a^{-1}) = a$. Thus $\varphi$ is surjective. Also, from the uniqueness of inverses, $a^{-1}$ is the only element in $A$ for which $\varphi(a^{-1}) = (a^{-1})^{-1} = a$, so $\varphi$ is injective.
+
+    Since $\varphi$ is a bijective homomorphism, it is an automorphism of $A$.
+\end{proof}
+
+\section*{23. (4/21/23)}
+
+Let $G$ be a finite group which possesses an automorphism $\sigma$ such that $\sigma(g) = g$ if and only if $g = 1$. If $\sigma^2$ is the identity map from $G$ to $G$, prove that $G$ is abelian (such a $\sigma$ is called \emph{fixed point free} of order 2).
+
+\begin{proof}
+    Let $g \in G, g \neq 1$, and let $\sigma$ be an automorphism of $G$ with $\sigma^2(g) = g$. Applying the inverse of $\sigma$ to $\sigma(\sigma(g)) = g$ implies that $\sigma(g) = \sigma^{-1}(g)$.
+
+    Next, we see that $1 = \sigma(1) = \sigma(g g^{-1}) = \sigma(g) \sigma(g^{-1})$. Therefore $\sigma(g)^{-1} = \sigma(g^{-1})$. From above, then, we have $\sigma(g)^{-1} = \sigma(g)$. From 1.a), $\sigma(g)^{-1} = \sigma(g^{-1})$, so we have $\sigma(g^{-1}) = \sigma(g)$, and since $\sigma$ is injective, this implies that $g = g^{-1}$.
+
+    Now let $g, h \in G$. $gh = g^{-1}h^{-1} = (hg)^{-1} = hg$, so $G$ is an abelian group.
 \end{proof}
 
 \end{document}
