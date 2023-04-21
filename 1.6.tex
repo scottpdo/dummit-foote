@@ -5,6 +5,8 @@
 \date{Mar. - Apr. 2023}
 \usepackage{amsmath, amsthm, amsfonts, enumitem}
 
+\DeclareMathOperator\cis{cis}
+
 \begin{document}
 
 \maketitle
@@ -289,6 +291,44 @@ Let $G$ be any group. Prove that the map from $G$ to itself defined by $g \mapst
     so $G$ is abelian.
 
     Therefore the map from $G$ to itself defined by $g \mapsto g^2$ is a homomorphism if and only if $G$ is abelian.
+\end{proof}
+
+\section*{19. (4/14/23)}
+
+Let $G = \{z \in \mathbb{C} \mid z^n = 1$ for some $n \in \mathbb{Z}^+ \}$. Prove that for any fixed integer $k > 1$ the map from $G$ to itself defined by $z \mapsto z^k$ is a surjective homomorphism but is not an isomorphism.
+
+\begin{proof}
+    Using de Moivre's formula, we can rewrite any element $z \in G$ as $z = \cos{\frac{2\pi m}{n}} + i \sin{\frac{2\pi m}{n}}$ for a unique $m \in \{0, ..., n - 1\}$. For conciseness, let us write $z = \cis{\frac{2 \pi m}{n}}$.
+
+    The proof that the map is a homomorphism follows naturally from the fact that multiplication in $\mathbb{C}$ is commutative. Let $\varphi_k$ be the map defined by $\varphi_k(z) = z^k$, then $\varphi_k(yz) = (yz)^k = y^k z^k = \varphi_k(y) \varphi_k(z)$.
+
+    To prove that the map is surjective, let $z \in G = \cis{\frac{2 \pi m}{n}}$. Now de Moivre's formula states that, for a complex number $\cis{x}$, $(\cis{x})^m = \cis{mx}$. So there exists a complex number $y = \cis{\frac{2 \pi m}{nk}}$ with $y^k = (\cis{\frac{2 \pi m}{nk}})^k = \cis{k \frac{2 \pi m}{nk}} = \cis{\frac{2 \pi m}{n}} = z$. And, we have $y \in G$, because $z^n = (y^k)^n = y^{kn} = 1$.
+
+    However, this map is not an isomorphism because it is not one-to-one. Since it is surjective, let $z \in G$ and let $y^k = z$. Now let $z = \cis{\frac{2 \pi m}{n}}$ for a unique $m \in \{0, ..., n - 1\}$. Then $y$ is a complex number such that $y^k = \cis{\frac{2 \pi m}{n}}$. From de Moivre's formula, $y$ has the form $\cis{\frac{2 \pi m}{nk}}$. Such a $y$ is not uniquely defined. Consider $\cis{\frac{2 \pi m}{nk}}$ and $\cis{\frac{2 \pi (m + n)}{nk}}$ (the latter is distinct from the former whenever $n < k$, and we can always choose such a positive $n$ for $k > 1$). It follows that, raised to the power $k$, they are $\cis{\frac{2 \pi m}{n}}$ and $\cis{\frac{2 \pi (m + n)}{n}} = \cis{(\frac{2 \pi m}{n} + 2 \pi)} = \cis{\frac{2 \pi m}{n}}$, since sine and cosine have period $2 \pi$. That is, they are equal to each other. Thus, the map is not one-to-one, and is therefore not an isomorphism.
+\end{proof}
+
+\section*{20. (4/21/23)}
+
+Let $G$ be a group and let Aut($G$) be the set of all isomorphisms from $G$ onto $G$. Prove that Aut($G$) is a group under function composition (called the \emph{automorphism group} of $G$ and the elements of Aut($G$) are called \emph{automorphisms} of $G$).
+
+\begin{proof}
+    In order to prove that Aut($G$) is a group, we must show that it is associative and closed under the binary operation of function composition, that it contains an identity element, and that each element has a unique inverse. Associativity is given by the definition of the operation of function composition.
+
+    Aut($G$) contains an identity element: Let $e: G \rightarrow G$ such that $e(g) = g$ for all $g \in G$. $e$ is a bijection and a homomorphism, thus an isomorphism, and so belongs to Aut($G$). For any other isomorphism $f \in$ Aut($G$), note that $(e \circ f)(g) = f(g) = f(e(g)) = (f \circ e)(g)$. Thus $e$ is the identity element of Aut($G$).
+
+    Next, Aut($G$) is closed under function composition. Let $f, h \in$ Aut($G$) (to show that $f \circ h \in$ Aut($G$)). We will show that $f \circ h$ is an isomorphism, and thus belongs to Aut($G$). Let $g_1, g_2 \in G$. Then:
+    \begin{multline*}
+        (f \circ h)(g_1 g_2) = f(h(g_1 g_2)) = f(h(g_1) h(g_2)) = f(h(g_1)) f(h(g_2)) = \\ (f \circ h)(g_1) (f \circ h)(g_2),
+    \end{multline*}
+    so $f \circ h$ is a homomorphism. We will next show that $f \circ h$ is both injective and surjective.
+
+    Injective: Let $g_1, g_2 \in G, g_1 \neq g_2$. Because $h$ is injective, $h(g_1) \neq h(g_2)$. Because $f$ is injective, $f(h(g_1)) \neq f(h(g_2)) \Rightarrow (f \circ h)(g_1) \neq (f \circ h)(g_2)$. Thus, $f \circ h$ is injective.
+
+    Surjective: Let $g_3 \in G$. Because $f$ is surjective, there exists a $g_2 \in G$ such that $f(g_2) = g_3$. Because $h$ is surjective, there exists a $g_1 \in G$ such that $h(g_1) = g_2$. Thus, $g_3 = f(g_2) = f(h(g_1)) = (f \circ h)(g_1)$. Therefore $f \circ h$ is surjective, and so it is an isomorphism and belongs to Aut($G$).
+
+    Finally, to show that Aut($G$) is closed under inverses, we simply note that, if $f \in$ Aut($G$), then $f$ is a bijective map from $G$ onto $G$, so it has a well-defined inverse $f^{-1}$ that is also an isomorphism.
+
+    Thus Aut($G$) is a group under function composition.
 \end{proof}
 
 \end{document}
