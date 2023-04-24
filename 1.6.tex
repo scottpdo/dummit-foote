@@ -373,4 +373,65 @@ Let $G$ be a finite group which possesses an automorphism $\sigma$ such that $\s
     Now let $g, h \in G$. $gh = g^{-1}h^{-1} = (hg)^{-1} = hg$, so $G$ is an abelian group.
 \end{proof}
 
+\section*{24. (4/23/23)}
+
+Let $G$ be a finite group and let $x$ and $y$ be distinct elements of order 2 in $G$ that generate $G$. Prove that $G \cong D_{2n}$, where $n = |xy|$.
+
+\begin{proof}
+    Given that $x$ and $y$ generate $G$ and each have order 2 (that is, $x = x^{-1}$ and $y = y^{-1}$), we must have $xy$ as a third distinct element, because $x \neq y \Rightarrow x \neq y^{-1} \Rightarrow xy \neq 1$. For brevity, let $z = xy$. Then $x$ and $z$ also generate $G$, because $y$ can be written as $y = x^2y = x(xy) = xz$.
+
+    Also, note that $xz = xxy = y = yxx = y^{-1}x^{-1}x = (xy)^{-1}x = z^{-1}x$.
+
+    Now we can rewrite the given generators and relations $\langle x, y \mid x^2 = y^2 = 1 \rangle$ with $\langle x, z \mid x^2 = z^n = 1, xz = z^{-1}x \rangle$.
+
+    Consider a map $\varphi: G \rightarrow D_{2n}$ defined on the new generators $x$ and $z$ by $\varphi(x) = s$ and $\varphi(z) = r$. The new generators and relations under $\varphi$ become $\langle s, r \mid s^2 = r^n = 1, sr = r^{-1}s \rangle$, that is, the generators and relations that defined $D_{2n}$ in Ch. 1.2. Given that the generators and relations are identical, the two groups are isomorphic.
+\end{proof}
+
+\section*{25. (4/23/23)}
+
+Let $n \in \mathbb{Z}^+$, let $r$ and $s$ be the generators of $D_{2n}$ and let $\theta = 2\pi / n$.
+
+\begin{enumerate}[label=(\alph*)]
+    \item Prove that the matrix $\begin{pmatrix}\cos \theta & -\sin \theta\\\sin \theta & \cos \theta\end{pmatrix}$ is the matrix of linear transformation which rotates the $x, y$ plane about the origin in a counterclockwise direction by $\theta$ radians.
+          \begin{proof}
+            Given that the unit vector in the $x$ direction, $\begin{pmatrix}1 \\ 0\end{pmatrix}$, rotated counterclockwise by $\theta$ radians is $\begin{pmatrix}\cos \theta \\ \sin \theta\end{pmatrix}$, and the unit vector in the $y$ direction $\begin{pmatrix}0 \\ 1\end{pmatrix}$, rotated is $\begin{pmatrix}-\sin \theta \\ \cos \theta\end{pmatrix}$, consider the given $2 \times 2$ matrix applied to each of these basis vectors:
+            \begin{equation*}
+                \begin{pmatrix}\cos \theta & -\sin \theta\\\sin \theta & \cos \theta\end{pmatrix}\begin{pmatrix}1 \\ 0\end{pmatrix} = \begin{pmatrix}\cos \theta \\ \sin \theta\end{pmatrix} \text{ and } \begin{pmatrix}\cos \theta & -\sin \theta\\\sin \theta & \cos \theta\end{pmatrix}\begin{pmatrix}0 \\ 1\end{pmatrix} = \begin{pmatrix}-\sin \theta \\ \cos \theta\end{pmatrix}
+            \end{equation*}
+            This proves that the given matrix rotates the $x, y$ plane counterclockwise about the origin by $\theta$ radians.
+          \end{proof}
+    \item Prove that the map $\varphi: D_{2n} \rightarrow GL_2(\mathbb{R})$ defined on generators by 
+          \begin{equation*}
+            \varphi(r) = \begin{pmatrix}\cos \theta & -\sin \theta \\ \sin \theta & \cos \theta\end{pmatrix} \text{ and } \varphi(s) = \begin{pmatrix}0 & 1 \\ 1 & 0\end{pmatrix}
+          \end{equation*}
+          extends to a homomorphism of $D_{2n}$ into $GL_2(\mathbb{R})$.
+          \begin{proof}
+            In order to show that $\varphi$ is a homomorphism, it suffices to show that $\varphi$ applied to the relations of $D_{2n}$ hold in $GL_2(\mathbb{R})$. That is, given that $s^2 = r^n = 1$ and $sr = r^{-1}s$ in $D_{2n}$, we must show that $\varphi(s)^2 = \varphi(r)^n = \begin{pmatrix}1 & 0 \\ 0 & 1\end{pmatrix}$ and $\varphi(s)\varphi(r) = \varphi(r)^{-1}\varphi(s)$ in $GL_2(\mathbb{R})$.
+
+            $\varphi(s)^2 = \begin{pmatrix}0 & 1 \\ 1 & 0\end{pmatrix}\begin{pmatrix}0 & 1 \\ 1 & 0\end{pmatrix} = \begin{pmatrix}1 & 0 \\ 0 & 1\end{pmatrix}$, the identity matrix in $GL_2(\mathbb{R})$.
+
+            We will next show that $\varphi(r)^n$ is also the identity matrix. We will first show that $\varphi(r)^k, k \in \{0, ..., n - 1 \}$, is the matrix $\begin{pmatrix}\cos k \theta & -\sin k \theta \\ \sin k \theta & \cos k \theta\end{pmatrix}$ by induction. The base case is obvious.
+
+            For some $k \in \{0, ..., n - 1 \}$, suppose that $\varphi(r)^k = \begin{pmatrix}\cos k \theta & -\sin k \theta \\ \sin k \theta & \cos k \theta\end{pmatrix}$. Then:
+            \begin{multline*}
+                \varphi(r)^{k + 1} = \varphi(r)^k \varphi(r) = \begin{pmatrix}\cos k \theta & -\sin k \theta \\ \sin k \theta & \cos k \theta\end{pmatrix}\begin{pmatrix}\cos \theta & -\sin \theta \\ \sin \theta & \cos \theta\end{pmatrix} = \\
+                \begin{pmatrix}\cos k \theta \cos \theta - \sin k \theta \sin \theta & -\cos k \theta \sin \theta - \cos \theta \sin k \theta \\ \cos k \theta \sin \theta + \cos \theta \sin k \theta & \cos k \theta \cos \theta - \sin k \theta \sin \theta\end{pmatrix}.
+            \end{multline*}
+
+            From the trigonometric addition formulae, $\sin(\alpha + \beta) = \sin \alpha \cos \beta + \cos \alpha \sin \beta$ and $\cos(\alpha + \beta) = \cos \alpha \cos \beta - \sin \alpha \sin \beta$, the above is equal to $\begin{pmatrix}\cos (k + 1) \theta & -\sin (k + 1) \theta \\ \sin (k + 1) \theta & \cos (k + 1) \theta\end{pmatrix}$, which completes the proof by induction.
+
+            Then $\varphi(r)^n = \begin{pmatrix}\cos n \theta & -\sin n \theta \\ \sin n \theta & \cos n \theta\end{pmatrix} = \begin{pmatrix}\cos 2 \pi & -\sin 2 \pi \\ \sin 2 \pi & \cos 2 \pi\end{pmatrix} = \begin{pmatrix}1 & 0 \\ 0 & 1\end{pmatrix}$.
+
+            Finally, we show that the relation $\varphi(s)\varphi(r) = \varphi(r)^{-1}\varphi(s)$ holds.
+
+            We can find the inverse of a $2 \times 2$ matrix $\begin{pmatrix}a & b \\ c & d\end{pmatrix}$ by the formula \newline $\dfrac{1}{ad - bc}\begin{pmatrix}d & -b \\ -c & a\end{pmatrix}$. The inverse $\varphi(r)^{-1}$, then, is: \newline $\dfrac{1}{\sin^2{\theta} + \cos^2{\theta}}\begin{pmatrix}\cos \theta & \sin \theta \\ -\sin \theta & \cos \theta\end{pmatrix} = \begin{pmatrix}\cos \theta & \sin \theta \\ -\sin \theta & \cos \theta\end{pmatrix}$.
+            Then:
+            \begin{multline*}
+                \varphi(s)\varphi(r) = \begin{pmatrix}0 & 1 \\ 1 & 0\end{pmatrix}\begin{pmatrix}\cos \theta & -\sin \theta \\ \sin \theta & \cos \theta\end{pmatrix} = \begin{pmatrix}\sin \theta & \cos \theta \\ \cos \theta & -\sin \theta\end{pmatrix} = \\
+                \begin{pmatrix}\cos \theta & \sin \theta \\ -\sin \theta & \cos \theta\end{pmatrix}\begin{pmatrix}0 & 1 \\ 1 & 0\end{pmatrix} = \varphi(r)^{-1} \varphi(s),
+            \end{multline*}
+            as desired. Since the generators and relations of $D_{2n}$ hold under $\varphi$ into $GL_2(\mathbb{R})$, $\varphi$ is a homomorphism of $D_{2n}$ into $GL_2(\mathbb{R})$.
+          \end{proof}
+\end{enumerate}
+
 \end{document}
