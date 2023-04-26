@@ -387,7 +387,7 @@ Let $G$ be a finite group and let $x$ and $y$ be distinct elements of order 2 in
     Consider a map $\varphi: G \rightarrow D_{2n}$ defined on the new generators $x$ and $z$ by $\varphi(x) = s$ and $\varphi(z) = r$. The new generators and relations under $\varphi$ become $\langle s, r \mid s^2 = r^n = 1, sr = r^{-1}s \rangle$, that is, the generators and relations that defined $D_{2n}$ in Ch. 1.2. Given that the generators and relations are identical, the two groups are isomorphic.
 \end{proof}
 
-\section*{25. (4/23/23)}
+\section*{25. (4/26/23)}
 
 Let $n \in \mathbb{Z}^+$, let $r$ and $s$ be the generators of $D_{2n}$ and let $\theta = 2\pi / n$.
 
@@ -431,6 +431,22 @@ Let $n \in \mathbb{Z}^+$, let $r$ and $s$ be the generators of $D_{2n}$ and let 
                 \begin{pmatrix}\cos \theta & \sin \theta \\ -\sin \theta & \cos \theta\end{pmatrix}\begin{pmatrix}0 & 1 \\ 1 & 0\end{pmatrix} = \varphi(r)^{-1} \varphi(s),
             \end{multline*}
             as desired. Since the generators and relations of $D_{2n}$ hold under $\varphi$ into $GL_2(\mathbb{R})$, $\varphi$ is a homomorphism of $D_{2n}$ into $GL_2(\mathbb{R})$.
+          \end{proof}
+    \item Prove that the homomorphism $\varphi$ in part (b) is injective.
+          \begin{proof}
+            In order to prove that $\varphi: D_{2n} \rightarrow GL_2(\mathbb{R})$ is injective, we must show that $\varphi(a) = \varphi(b) \Rightarrow a = b$ for all $a, b \in D_{2n}$. We will considerately three cases separately.
+
+            First, let $a = r^k$ and $b = r^m$ for $k, m \in \{0, ..., n - 1\}$. Then:
+            \begin{multline*}
+                \varphi(r^k) = \varphi(r^m) \Rightarrow \begin{pmatrix}\cos k \theta & \sin k \theta \\ -\sin k \theta & \cos k \theta\end{pmatrix} = \begin{pmatrix}\cos m \theta & \sin m \theta \\ -\sin m \theta & \cos m \theta\end{pmatrix} \Rightarrow \\ \cos k \theta = \cos m \theta \text{ and } \sin k \theta = \sin m \theta.
+            \end{multline*}
+            This implies that $k = m$, and so $a = b$.
+
+            Similarly, if $a = sr^k$ and $b = sr^m$, then we again have $\sin k \theta = \sin m \theta \Rightarrow k = m \Rightarrow a = b$.
+
+            For the third case (without loss of generality), let $a = sr^k$ and $b = r^m$. Then we have $\begin{pmatrix}\sin k \theta & \cos k \theta \\ \cos k \theta & -\sin k \theta\end{pmatrix} = \begin{pmatrix}\cos m \theta & \sin m \theta \\ -\sin m \theta & \cos m \theta\end{pmatrix}$. Then $\sin k \theta = -\sin k \theta$, which happens when $k \theta = 0, \pi$. Also, $\cos k \theta = -\cos k \theta$, which happens when $k \theta = \pi / 2, 3\pi / 2$. Therefore there are no $k, m$ (and thus $a, b$) where this equality holds.
+
+            Therefore, in the only cases where we have $\varphi(a) = \varphi(b)$, it implies that $a = b$, and so $\varphi$ is injective.
           \end{proof}
 \end{enumerate}
 
