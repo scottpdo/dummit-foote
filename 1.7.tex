@@ -58,4 +58,26 @@ Let $G$ be a group acting on a set $A$ and fix some $a \in A$. Show that the fol
           \end{proof}
 \end{enumerate}
 
+\section*{5. (4/28/23)}
+
+Prove that the kernel of an action of the group $G$ on the set $A$ is the same as the kernel of the corresponding permutation representation $G \rightarrow S_A$.
+
+\begin{proof}
+    Let $\varphi$ be the permutation representation $G \rightarrow S_A$ corresponding to $G$ acting on $A$. Let $g$ be in the kernel of the action of $G$ (to show that $\varphi(g)$ is in the kernel of $\varphi$). Then $g \cdot a = a$ for all $a \in A$. If $\sigma_g$ is the permutation of $S_A$ corresponding to $g$, then $\sigma_g$ is the identity permutation, because $\sigma_g(a) = a$ for all $a \in A$. Thus $\sigma_g = \varphi(g)$ is in the kernel of $\varphi$.
+
+    Next, let $\varphi(g)$ be in the kernel of $\varphi$ (to show that $g$ is in the kernel of $G$). Then $\varphi(g)$ is the identity permutation, so $\varphi(g) \cdot a = \sigma_g(a) = a$ for all $a \in A$. Also, by definition, $\sigma_g(a) = g \cdot a$, so $g \cdot a = a$ for all $a \in A$. Thus $g$ is in the kernel of the action of $G$.
+
+    Having shown that membership in one implies membership in the other, this proves that the kernel of $G$ acting on $A$ is thus equal to the kernel of the permutation representation $\varphi: G \rightarrow S_A$.
+\end{proof}
+
+\section*{6. (4/28/23)}
+
+Prove that a group $G$ acts faithfully on a set $A$ if and only if the kernel of the action is the set consisting of only the identity.
+
+\begin{proof}
+    First, let $G$ act on $A$. Suppose that $G$ acts on $A$ faithfully (to show that the kernel of the action of $G$ is the set consisting of only the identity). Consider the permutation representation $\varphi: G \rightarrow S_A$. Since $G$ acts on $A$ faithfully, $\varphi$ is injective (that is, $g_1, g_2 \in G$ induce different permutations $\varphi(g_1), \varphi(g_2)$). Thus the identity permutation $\varphi(1)$ is the only permutation that assigns $a$ to $a$ for all $a \in A$. From 5., the kernel of the action of $G$ is the same as the kernel of $\varphi$, so the identity of $G$ is the only element in the kernel of the action of $G$.
+
+    Next, suppose that the kernel of the action of $G = \{ 1 \}$ (to show that $G$ acts on $A$ faithfully). Suppose for some $g_1, g_2 \in G$, we have $\varphi(g_1) = \varphi(g_2)$, that is, $\sigma_{g_1}(a) = \sigma_{g_2}(a)$ for all $a \in A$. Consider the permutation obtained by composing $\varphi(g_1)^{-1} \circ \varphi(g_2)$. Applying the resulting permutation to some $a \in A$ (and saying that $\sigma_{g_1}(a) = \sigma_{g_2}(a) = b$), we obtain $(\varphi(g_1)^{-1} \circ \varphi(g_2))(a) = \sigma_{g_1}^{-1}(\sigma_{g_2}(a)) = \sigma_{g_1}^{-1}(b) = a$. This implies that $\varphi(g_1)^{-1} \circ \varphi(g_2)$ is the identity permutation. Since $\varphi$ is a homomorphism, $\varphi(g_1)^{-1} \circ \varphi(g_2) = \varphi(g_1^{-1}) \circ \varphi(g_2) = \varphi(g_1^{-1} g_2)$. However, because the kernel of the action of $G$ is $\{ 1 \}$, and from 5., the kernel of $\varphi$ is also $\{ 1 \}$, this implies that $g_1^{-1} g_2 = 1 \Rightarrow g_1 = g_2$.
+\end{proof}
+
 \end{document}
