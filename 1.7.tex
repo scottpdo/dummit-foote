@@ -80,4 +80,14 @@ Prove that a group $G$ acts faithfully on a set $A$ if and only if the kernel of
     Next, suppose that the kernel of the action of $G = \{ 1 \}$ (to show that $G$ acts on $A$ faithfully). Suppose for some $g_1, g_2 \in G$, we have $\varphi(g_1) = \varphi(g_2)$, that is, $\sigma_{g_1}(a) = \sigma_{g_2}(a)$ for all $a \in A$. Consider the permutation obtained by composing $\varphi(g_1)^{-1} \circ \varphi(g_2)$. Applying the resulting permutation to some $a \in A$ (and saying that $\sigma_{g_1}(a) = \sigma_{g_2}(a) = b$), we obtain $(\varphi(g_1)^{-1} \circ \varphi(g_2))(a) = \sigma_{g_1}^{-1}(\sigma_{g_2}(a)) = \sigma_{g_1}^{-1}(b) = a$. This implies that $\varphi(g_1)^{-1} \circ \varphi(g_2)$ is the identity permutation. Since $\varphi$ is a homomorphism, $\varphi(g_1)^{-1} \circ \varphi(g_2) = \varphi(g_1^{-1}) \circ \varphi(g_2) = \varphi(g_1^{-1} g_2)$. However, because the kernel of the action of $G$ is $\{ 1 \}$, and from 5., the kernel of $\varphi$ is also $\{ 1 \}$, this implies that $g_1^{-1} g_2 = 1 \Rightarrow g_1 = g_2$.
 \end{proof}
 
+\section*{7. (4/29/23)}
+
+Prove that the action of the multiplicative group $\mathbb{R}^\times$ on $\mathbb{R}^n$ defined by \\ $\alpha \cdot (r_1, r_2, ..., r_n) = (\alpha r_1, \alpha r_2, ..., \alpha r_n)$ is faithful.
+
+\begin{proof}
+    From 6., a group acts faithfully on a set if and only if the kernel of the action consists only of the group's identity. Therefore, to show that the given action of $\mathbb{R}^\times$ on $\mathbb{R}^n$ is faithful, it suffices to show that the kernel of the action is $\{ 1 \}$.
+
+    By definition, the kernel of the action is the set of all $\alpha \in \mathbb{R}$ such that $\alpha \cdot (r_1, r_2, ..., r_n) = (r_1, r_2, ..., r_n)$ for all such elements of $\mathbb{R}^n$. By definition of the group action, then, for an element $\alpha$ of $\mathbb{R}^\times$ to be in the kernel of the action, we must have $\alpha r_1 = r_1, \alpha r_2 = r_2, ..., \alpha r_n = r_n$. The only element for which this holds is $1$. Thus the kernel of the action is $\{ 1 \}$, and so $\mathbb{R}^\times$ acts faithfully on $\mathbb{R}^n$.
+\end{proof}
+
 \end{document}
