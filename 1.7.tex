@@ -141,4 +141,30 @@ Do both parts of the preceding exercise with "ordered $k$-tuples" in place of "$
           \end{itemize}
 \end{enumerate}
 
+\section*{10. (5/4/23)}
+
+With reference to the two preceding exercises determine:
+
+\begin{enumerate}[label=(\alph*)]
+  \item for which values of $k$ the action of $S_n$ on $k$-element subsets is faithful, and
+  \item for which values of $k$ the action of $S_n$ on ordered $k$-tuples is faithful.
+\end{enumerate}
+
+For the action of $S_n$ on $k$-element subsets, the action is faithful if $n > 1$ and $k < n$.
+\begin{proof}
+  In the case where $n = 1$, then the action is trivially faithful (because the symmetric group $S_n$ consists only of the identity).
+  
+  So suppose that $n > 1$ and let $k < n$, with $B$ the set of all $k$-element subsets of $A = \{ 1, 2, ..., n \}$. Let $\sigma \in S_n$ be a non-identity permutation. Then $\sigma$ assigns at least one element of $A$ to a different element of $A$. Suppose that $\sigma(a_1) = a_2$ for some $a_1, a_2 \in A$. Because $k < n$, there exists a subset $b \in B$ such that $a_1 \in b$ and $a_2 \notin b$. Then $\sigma \cdot b = \{ \sigma(a_1), ... \} = \{ a_2, ... \} \neq b$, and so $\sigma$ is not in the kernel of the action. Therefore the kernel of the action consists only of the identity permutation, and so the action is faithful.
+
+  Now, let $n > 1$ and let $k = n$. Then $B$, the set of all $k$-element subsets of $A = \{ 1, 2, ..., n \}$, consists only of $A$ itself. Now let $\sigma \in S_n$ and let $a_1, a_2 \in A$ with $\sigma(a_1) = a_2$. For all $b \in B$ (because $b = A$), $a_1, a_2 \in b \Rightarrow \sigma(a_2) \in b$. Therefore $\sigma \cdot b = b$ for all $b \in B$. Thus every permutation of $S_n$ is in the kernel of the action, and so the action is not faithful.
+
+  This proves that the action of $S_n$ on $k$-element subsets is faithful if and only if $n > 1$ and $k < n$.
+\end{proof}
+
+For the action of $S_n$ on ordered $k$-tuples, the action is faithful for all values of $k$ (if $n > 1$).
+
+\begin{proof}
+  As above, the action is trivially faithful if $n = 1$, so suppose that $n > 1$, let $\sigma$ be a non-identity permutation in $S_n$, and let $1 \leq k \leq n$, such that $B$ is the set of all $k$-element tuples of $A = \{ 1, 2, ..., n \}$ (ex. $(1,2)$ and $(2,1) \in B$). Let $a_1 \in A$ and let $a_2 = \sigma(a_1)$. Let $b$ be the $k$-tuple consisting only of $a_1$, that is, $\underbrace{(a_1, ..., a_1)}_{\text{$k$ times}}$. Then $\sigma \cdot b = \sigma \cdot (a_1, ..., a_1) = (\sigma(a_1), ..., \sigma(a_1)) = (a_2, ..., a_2)$. Then for all non-identity $\sigma \in S_n$, there exists a $b \in B$ such that $\sigma \cdot b \neq b$. Therefore the only permutation in the kernel of the action is the identity permutation, and so the action is faithful for all values of $k$.
+\end{proof}
+
 \end{document}
