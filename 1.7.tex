@@ -228,4 +228,24 @@ Assume $n$ is an even positive integer and show that $D_{2n}$ acts on the set co
   Thus the kernel of this action is $\{ 1, r^{n/2} \}$.
 \end{proof}
 
+\section*{13. (5/5/23)}
+
+Find the kernel of the left regular action.
+
+\begin{proof}
+  The left regular action of $G$ on itself is defined by $g \cdot a = ga$ for $g, a \in G$. The kernel of this action consists of all $g \in G$ such that $ga = a$ for all $a \in G$. Let $a \in G$ and suppose that $ga = a$ for some $g \in G$. By definition of the group identity, $1 \cdot a = a$, so $ga = 1 \cdot a$. We right-multiply both sides by $a^{-1}$ to obtain $g = 1$. Then the kernel of the left regular action is $\{ 1 \}$, and so the action is faithful.
+\end{proof}
+
+\section*{14. (5/5/23)}
+
+Let $G$ be a group and let $A = G$. Show that if $G$ is non-abelian then the maps defined by $g \cdot a = ag$ for all $g, a \in G$ do \emph{not} satisfy the axioms of a (left) group action of $G$ on itself.
+
+\begin{proof}
+  Since $G$ is non-abelian, there exist $g_1, g_2 \in G$ such that $g_1 g_2 \neq g_2 g_1$. Then for all $a \in G$:
+  \begin{equation*}
+    g_1 \cdot g_2 \cdot a = g_1 \cdot (a g_2) = a g_2 g_1 \neq a g_1 g_2 = (g_1 g_2) \cdot a.
+  \end{equation*}
+  Thus this map is not a group action for non-abelian groups.
+\end{proof}
+
 \end{document}
