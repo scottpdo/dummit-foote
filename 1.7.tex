@@ -167,4 +167,65 @@ For the action of $S_n$ on ordered $k$-tuples, the action is faithful for all va
   As above, the action is trivially faithful if $n = 1$, so suppose that $n > 1$, let $\sigma$ be a non-identity permutation in $S_n$, and let $1 \leq k \leq n$, such that $B$ is the set of all $k$-element tuples of $A = \{ 1, 2, ..., n \}$ (ex. $(1,2)$ and $(2,1) \in B$). Let $a_1 \in A$ and let $a_2 = \sigma(a_1)$. Let $b$ be the $k$-tuple consisting only of $a_1$, that is, $\underbrace{(a_1, ..., a_1)}_{\text{$k$ times}}$. Then $\sigma \cdot b = \sigma \cdot (a_1, ..., a_1) = (\sigma(a_1), ..., \sigma(a_1)) = (a_2, ..., a_2)$. Then for all non-identity $\sigma \in S_n$, there exists a $b \in B$ such that $\sigma \cdot b \neq b$. Therefore the only permutation in the kernel of the action is the identity permutation, and so the action is faithful for all values of $k$.
 \end{proof}
 
+\section*{11. (5/4/23)}
+
+Write out the cycle decomposition of the eight permutations in $S_4$ corresponding to the elements of $D_8$ given by the action of $D_8$ on the vertices of a square.
+
+\begin{itemize}
+  \item $1: (1)$
+  \item $r: (1, 2, 3, 4)$
+  \item $r^2: (1, 3)(2, 4)$
+  \item $r^3: (1, 4, 3, 2)$
+  \item $s: (2, 4)$
+  \item $sr: (1, 4)(2, 3)$
+  \item $sr^2: (1, 3)$
+  \item $sr^3: (1, 2)(3, 4)$
+\end{itemize}
+
+\section*{12. (5/5/23)}
+
+Assume $n$ is an even positive integer and show that $D_{2n}$ acts on the set consisting of pairs of opposite vertices of a regular $n$-gon. Find the kernel of this action.
+
+\begin{proof}
+  Let $A$ be the set of pairs of opopsite vertices of a regular $n$-gon:
+  \begin{equation*}
+    \bigl\{ \{1,\frac{n}{2} + 1\}, \{2, \frac{n}{2} + 2\}, ..., \{\frac{n}{2} - 1, n - 1\} \bigr\}.
+  \end{equation*}
+  We will show that the following is an action of $D_{2n}$ on the element $\{k, \frac{n}{2} + k\} \in A, 1 \leq k < \frac{n}{2}$ defined on the generators of $D_{2n}$: 
+  \begin{itemize}
+    \item $s \cdot \{ k, \frac{n}{2} + k \} = \{ n - k + 1, \frac{n}{2} - k + 1 \}$, and
+    \item $r \cdot \{ k, \frac{n}{2} + k \} = \{ k + 1, \frac{n}{2} + k + 1 \}$, where all values are taken mod $n$.
+  \end{itemize}
+
+  In order to prove that this is a group action, we will show that the relations of $D_{2n}$ hold when acting on elements of $A$, that is, for all $a \in A$, we have $a = 1 \cdot a = (s^2) \cdot a = s \cdot s \cdot a$, that $a = 1 \cdot a = (r^n) \cdot a = \underbrace{r \cdot ... \cdot r}_\text{$n$ times} \cdot a$, and finally, that $s \cdot r \cdot a = r^{-1} \cdot s \cdot a$.
+
+  First, $s \cdot s \cdot \{ k, \frac{n}{2} + k \} = s \cdot \{ n - k + 1, \frac{n}{2} - k + 1 \}$ by definition. In turn, this equals $\{ n - (n - k + 1) + 1, \frac{n}{2} - (n - k + 1) + 1 \} = \{ k, -\frac{n}{2} + k \}$. Since all values are taken mod $n$, $-\frac{n}{2} + k = \frac{n}{2} + k$, and so $s \cdot s \cdot \{ k, \frac{n}{2} + k \} = \{ k, \frac{n}{2} + k \}$. Therefore $s \cdot s \cdot a = a$ for all $a \in A$.
+
+  Next, to show that $\underbrace{r \cdot ... \cdot r}_\text{$n$ times} \cdot a = a$, we will first prove by induction that $\underbrace{r \cdot ... \cdot r}_\text{$m$ times} \cdot \{ k, \frac{n}{2} + k \} = \{ k + m, \frac{n}{2} + m \}, m \geq 0$. The base case $r \cdot \{ k, \frac{n}{2} + k \} = \{ k + 1, \frac{n}{2} + k + 1 \}$ holds by definition. So suppose for some $m$, $\underbrace{r \cdot ... \cdot r}_\text{$m$ times} \cdot \{ k, \frac{n}{2} + k \} = \{ k + m, \frac{n}{2} + m \}$ (mod $n$). Then: 
+  \begin{multline*}
+    \underbrace{r \cdot ... \cdot r}_\text{$m + 1$ times} \cdot \{ k, \frac{n}{2} + k \} = r \cdot \underbrace{r \cdot ... \cdot r}_\text{$m$ times} \cdot \{ k, \frac{n}{2} + k \} = r \cdot \{ k + m, \frac{n}{2} + k + m \} = \\
+    \{ k + (m + 1), \frac{n}{2} + k + (m + 1) \}.
+  \end{multline*}
+  Thus the induction case holds, and so:
+  \begin{multline*}
+    \underbrace{r \cdot ... \cdot r}_\text{$n$ times} \cdot a = \underbrace{r \cdot ... \cdot r}_\text{$n$ times} \cdot\{ k, \frac{n}{2} + k \} = \\ \{ k + n, \frac{n}{2} + k + n \} = \{ k, \frac{n}{2} + k \} = a \text{ for all } a \in A.
+  \end{multline*}
+
+  Finally, to show that $s \cdot r \cdot a = r^{-1} \cdot s \cdot a$, we first note that $r^{-1} \cdot a = \{ k - 1, \\ \frac{n}{2} + k - 1 \}$. Now:
+  \begin{align*}
+    s \cdot r \cdot \{ k, \frac{n}{2} + k \} &= & r^{-1} \cdot s \cdot \{ k, \frac{n}{2} + k \} &= \\
+    s \cdot \{ k + 1, \frac{n}{2} + k + 1 \} &= & r^{-1} \cdot \{ n - k + 1, \frac{n}{2} - k + 1 \} &= \\
+    \{ n - (k + 1) + 1, \frac{n}{2} - (k + 1) + 1 \} &= & \{ n - k, \frac{n}{2} - k \}. \\
+    \{ n - k, \frac{n}{2} - k \}, \text{ and }
+  \end{align*}
+  Therefore $s \cdot r \cdot a = r^{-1} \cdot s \cdot a$ for all $a \in A$. Together, these relations show that the above is a group action.
+
+  We will now consider the kernel of this action. This consists of elements $s^{\{0, 1\}}r^m$ of $D_{2n}$ such that $s^{\{0, 1\}}r^m \cdot a = a$ for all $a \in A$. We will consider the two cases $r^m$ and $sr^m$ separately.
+  \begin{itemize}
+    \item $r^m$: From above, $r^m \cdot \{ k, \frac{n}{2} + k \} = \{ k + m, \frac{n}{2} + k + m \}$ for all $m \geq 0$. Clearly $m = 0 \Rightarrow r = 1$ satisfies this equality. Since values are taken mod $n$ and these are sets, not tuples, also note that $k = \frac{n}{2} + k + m \Rightarrow 0 = \frac{n}{2} + m \Rightarrow m = \frac{n}{2}$. So among elements of the form $r^m$, only 1 and $r^{n/2}$ are in the kernel of the action.
+    \item $sr^m$: From above, $sr^m \cdot \{ k, \frac{n}{2} + k \} = s \cdot \{ k + m, \frac{n}{2} + k + m \} = \\ \{ n - (k + m) + 1, \frac{n}{2} - (k + m) + 1 \}$. Considering the first elements of each set together, we have $k = n - (k + m) + 1 \Rightarrow 2k = n - m + 1 \Rightarrow m = 1 - 2k$. Since $k$ is variable, we cannot fix $m$, and so there is no value of $m$ for which $sr^m \cdot a = a$ for all $a \in A$.
+  \end{itemize}
+  Thus the kernel of this action is $\{ 1, r^{n/2} \}$.
+\end{proof}
+
 \end{document}
