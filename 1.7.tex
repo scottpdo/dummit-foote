@@ -248,4 +248,48 @@ Let $G$ be a group and let $A = G$. Show that if $G$ is non-abelian then the map
   Thus this map is not a group action for non-abelian groups.
 \end{proof}
 
+\section*{15. (5/12/23)}
+
+Let $G$ be any group and let $A = G$. Show that the maps defined by $g \cdot a \mapsto ag^{-1}$ for all $g, a \in G$ \emph{do} satisfy the axioms of a (left) group action of $G$ on itself.
+
+\begin{proof}
+  For the identity, $1 \cdot a = a (1^{-1}) = a$ for all $a \in G$.
+  
+  Then, for all $g_1, g_2 \in G$, $g_1 \cdot g_2 \cdot a = g_1 \cdot (a g_2^{-1}) = a g_2^{-1} g_1^{-1} = a (g_1 g_2)^{-1} = (g_1 g_2)^{-1} \cdot a$.
+
+  Therefore this satisfies the axioms of a group action of $G$ on itself.
+\end{proof}
+
+\section*{16. (5/12/23)}
+
+Let $G$ be any group and let $A = G$. Show that the maps defined by $g \cdot a \mapsto gag^{-1}$ for all $g, a \in G$ \emph{do} satisfy the axioms of a (left) group action of $G$ (this action of $G$ on itself is called \emph{conjugation}).
+
+\begin{proof}
+  As in 15., the requirement for identity is trivial, since $1 = 1^{-1}$.
+
+  Then, for all $g_1, g_2 \in G$, we have:
+
+  \begin{multline*}
+    g_1 \cdot g_2 \cdot a = g_1 \cdot (g_2 a g_2^{-1}) = g_1 g_2 a g_2^{-1} g_1^{-1} = (g_1 g_2) a (g_1 g_2)^{-1} = (g_1 g_2) \cdot a,
+  \end{multline*}
+
+  as desired. Therefore conjugation satisfies the axioms of a group action of $G$ on itself.
+\end{proof}
+
+\section*{17. (5/12/23)}
+
+Let $G$ be a group and let $G$ act on itself by left conjugation, so each $g \in G$ maps $G$ to $G$ by $x \mapsto gxg^{-1}$. For fixed $g \in G$, prove that conjugation by $g$ is an isomorphism from $G$ onto itself. Deduce that $x$ and $gxg^{-1}$ have the same order for all $x \in G$ and that for any subset $A$ of $G$, $|A| = |gAg^{-1}|$ (here $gAg^{-1} = \{ gag^{-1} \mid a \in A \}$).
+
+\begin{proof}
+  Let $g \in G$ and let $\varphi_g: G \rightarrow G$ be defined by $\varphi_g(x) = gxg^{-1}$. We will show that $\varphi_g$ is a homomorphism, is injective, and is surjective; it follows then that $\varphi_g$ is an automorphism of $G$.
+
+  Let $x, y \in G$. Then $\varphi_g(x) \varphi_g(y) = gxg^{-1}gyg^{-1} = gxyg^{-1} = \varphi_g(xy)$. Thus $\varphi_g$ is a homomorphism.
+
+  Next, to show that $\varphi_g$ is one-to-one, let $\varphi_g(x) = \varphi_g(y)$. Then $gxg^{-1} = gyg^{-1}$. Right-multiplying by $g^{-1}$ and then left-multiplying by $g$, we obtain $x = y$, so $\varphi_g$ is injective.
+
+  Lastly, to show that $\varphi_g$ is onto, let $z \in G$. Let $x = g^{-1}zg$. Then $\varphi_g(x) = gxg^{-1} = gg^{-1}zgg^{-1} = z$, so $\varphi_g$ is surjective. Since it is a bijective homomorphism, $\varphi_g$ is thus an automorphism of $G$.
+
+  Since $\varphi$ is an automorphism that uniquely maps $x$ to $gxg^{-1}$, we deduce that $|x| = |gx^{-1}|$ (from Ch. 1.6, exercise 2.). It follows that, for any $A \subseteq G$, $gAg^{-1} \subseteq G$ contains as many elements (of equal order) as does $A$.
+\end{proof}
+
 \end{document}
