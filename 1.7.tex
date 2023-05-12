@@ -292,4 +292,24 @@ Let $G$ be a group and let $G$ act on itself by left conjugation, so each $g \in
   Since $\varphi$ is an automorphism that uniquely maps $x$ to $gxg^{-1}$, we deduce that $|x| = |gx^{-1}|$ (from Ch. 1.6, exercise 2.). It follows that, for any $A \subseteq G$, $gAg^{-1} \subseteq G$ contains as many elements (of equal order) as does $A$.
 \end{proof}
 
+\section*{18. (5/12/23)}
+
+Let $H$ be a group acting on a set $A$. Prove that the relation $\sim$ on $A$ defined by
+\begin{equation*}
+  a \sim b \text{ if and only if } a = hb \text{ for some } h \in H
+\end{equation*}
+is an equivalence relation. (For each $x \in A$ the equivalence class of $x$ under $\sim$ is called the \emph{orbit} of $x$ under the action of $H$. The orbits under the action of $H$ partition the set $A$.)
+
+\begin{proof}
+  In order to show that $\sim$ is an equivalence relation on $A$, we must show that, for all $a, b, c \in A$, i) $a \sim a$; ii) $a \sim b \Rightarrow b \sim a$, and iii) $a \sim b, b \sim c \Rightarrow \\ a \sim c$.
+
+  First, for all $a \in A$, $1_H \cdot a = a$ (by definition of a group action), so $a \sim a$.
+
+  Next, suppose that $a \sim b$. Then $a = hb$ for some $h \in H$. This implies that $b = h^{-1} a$, and since $h^{-1}$, it follows that $b \sim a$ as well.
+
+  Finally, suppose that $a \sim b$ and $b \sim c$. Then $a = h_1 b, b = h_2 c$ for some $h_1, h_2 \in H$. Then $a = h_1 h_2 c$, and since $H$ is closed under its group operation, the product $h_1 h_2 \in H$, so $a \sim c$.
+
+  Thus $\sim$ is an equivalence relation on $A$.
+\end{proof}
+
 \end{document}
