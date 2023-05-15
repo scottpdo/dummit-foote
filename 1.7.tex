@@ -312,4 +312,21 @@ is an equivalence relation. (For each $x \in A$ the equivalence class of $x$ und
   Thus $\sim$ is an equivalence relation on $A$.
 \end{proof}
 
+\section*{19. (5/15/23)}
+
+Let $H$ be a subgroup of the finite group $G$ and let $H$ act on $G$ by left multiplication. Let $x \in G$ and let $\mathcal{O}$ be the orbit of $x$ under the action of $H$. Prove that the map $H \rightarrow \mathcal{O}$ defined by $h \mapsto hx$ is a bijection (hence that all orbits have cardinality $|H|$). From this and the preceding exercise deduce \emph{Lagrange's Theorem}:
+\begin{center}
+  \emph{if $G$ is a finite group and $H$ is a subgroup of $G$ then $|H|$ divides $|G|$.}
+\end{center}
+
+\begin{proof}
+  To show that the map from the subgroup $H$ to the orbit $\mathcal{O}$ of $x \in G$ defined by left multiplication is a bijection, let $\varphi: H \rightarrow \mathcal{O}$ be defined by $\varphi(h) = hx$. We will show that $\varphi$ is injective and surjective.
+
+  First, to show that $\varphi$ is one-to-one, let $\varphi(y_1) = \varphi(y_2)$ for $y_1, y_2 \in H$. Then $y_1 x = y_2 x$, which implies that $y_1 = y_2$, so $\varphi$ is injective.
+
+  Next, to show that $\varphi$ is onto, let $z \in \mathcal{O}$ (to show that $z = \varphi(y)$ for some $y \in H$). Since $z$ is in the orbit of the given element $x$, $x = hz$ for some $h \in H$. Then $z = h^{-1} x$, which implies that $z = \varphi(h^{-1})$, and since $H$ is a subgroup of $G$ and is therefore closed under inverses, $\varphi$ is surjective.
+
+  Since $\varphi$ is a bijection from the subgroup $H$ to $\mathcal{O},$ the orbit of $x$, the two have the same cardinality. From 18., the orbits of the elements of $G$ partition $G$; that is, the orbits of $x$ and $y$ under the action of $H$ are either disjoint or equal. Let $|H| = |\mathcal{O}| = n$. There are $|G| - n$ elements in $G$ not in the orbit of $x$ under the action of $H$. For another element $y \in G$, either the orbit of $y$ is equal to the orbit of $x$, or it contains $|H| = n$ elements, and in the case of the latter, there are $|G| - 2n$ elements in $G$ not in the orbits of $x$ and $y$. Continuing this process for each element of $G$, the orbit of each element must contain $n$ elements and we must eventually arrive at 0 remaining elements, so $|G| = kn$, that is, the order of the subgroup $H$ divides the order of $G$.
+\end{proof}
+
 \end{document}
