@@ -329,4 +329,50 @@ Let $H$ be a subgroup of the finite group $G$ and let $H$ act on $G$ by left mul
   Since $\varphi$ is a bijection from the subgroup $H$ to $\mathcal{O},$ the orbit of $x$, the two have the same cardinality. From 18., the orbits of the elements of $G$ partition $G$; that is, the orbits of $x$ and $y$ under the action of $H$ are either disjoint or equal. Let $|H| = |\mathcal{O}| = n$. There are $|G| - n$ elements in $G$ not in the orbit of $x$ under the action of $H$. For another element $y \in G$, either the orbit of $y$ is equal to the orbit of $x$, or it contains $|H| = n$ elements, and in the case of the latter, there are $|G| - 2n$ elements in $G$ not in the orbits of $x$ and $y$. Continuing this process for each element of $G$, the orbit of each element must contain $n$ elements and we must eventually arrive at 0 remaining elements, so $|G| = kn$, that is, the order of the subgroup $H$ divides the order of $G$.
 \end{proof}
 
+\section*{20. (5/18/23)}
+
+Show that the group of rigid motions of a tetrahedron is isomorphic to a subgroup of $S_4$.
+
+\begin{proof}
+  Let $G$ be the group of rigid motions of a tetrahedron. From Ch. 1.2, Ex. 9., this group has order 12. Order the vertices 1, 2, 3, and 4 and consider fixing vertex 1. There are two rotations (excluding the identity) that permute the remaining vertices 2, 3, and 4. The first sends 2 to 3, 3 to 4, and 4 to 2, and the second (the inverse of the first) sends 2 to 4, 4 to 3, and 3 to 2. For each of the four vertices, there are two such non-identity rotations, that is, eight such rotations. They can be written as cycle decompositions of permutations of $S_4$ (in fact, they are all the 3-cycles of $S_4$): $(1, 2, 3), (1, 3, 2), (1, 2, 4), (1, 4, 2), (1, 3, 4), (1, 4, 3), \\ (2, 3, 4), (2, 4, 3)$.
+
+  There are also the rotations to consider that swap the positions of pairs of vertices. For example, one such rotation permutes 1 and 2 (and in doing so, also swaps 3 and 4). Similarly, these can be represented by the cycle decompositions made up of two disjoint 2-cycles: $(1, 2)(3, 4), (1, 3)(2, 4), \text{ and } (1, 4)(2, 3)$. Finally, there is the identity, bringing the total number of rigid motions to 12, as shown in Ch. 1.2, Ex. 9.
+
+  Intuitively, this collection should be a subgroup, because each rigid motion has an inverse achieved by rotating it in the opposite direction, and there is no way to obtain a permutation of the vertices of a tetrahedron that is not already included in the given motions. However, to show that this collection as denoted by permutations in $S_4$ is a subgroup of $S_4$, we will show that it is closed under inverses and under the binary operation of $S_4$. Each 3-cycle has an inverse in the other 3-cycle that contains the same three numbers; that is, the inverse of $(1, 2, 3)$ is $(1, 3, 2)$. Each permutation whose cycle decomposition is a pair of disjoint 2-cycles is its own inverse, since the product of a 2-cycle with itself is identity. Thus the collection is closed under inverses.
+
+  Next, to show that it is closed under the binary operation, first note that the collection consists of the identity, all eight 3-cycles, and all three pairs of disjoint 2-cycles. So it suffices to show that the product of any two of these elements is a 3-cycle or is a pair of disjoint 2-cycles. Further, by exhaustively showing that this holds for one representative 3-cycle (against the remaining elements) and one representative pair of disjoint 2-cycles (against the remaining elements), we will have shown that it holds for all 3-cycles and all pairs of disjoint 2-cycles. Then:
+
+  \begin{itemize}
+    \item $(1, 2, 3)(1, 2, 3) = (1, 3, 2)$
+    \item $(1, 2, 3)(1, 3, 2) = (1)$
+    \item $(1, 2, 3)(1, 2, 4) = (1, 3)(2, 4)$
+    \item $(1, 2, 3)(1, 4, 2) = (1, 4, 3)$
+    \item $(1, 2, 3)(1, 3, 4) = (2, 3, 4)$
+    \item $(1, 2, 3)(1, 4, 3) = (1, 4)(2, 3)$
+    \item $(1, 2, 3)(2, 3, 4) = (1, 2)(3, 4)$
+    \item $(1, 2, 3)(2, 4, 3) = (1, 2, 4)$
+    \item $(1, 2, 3)(1, 2)(3, 4) = (1, 3, 4)$
+    \item $(1, 2, 3)(1, 3)(2, 4) = (2, 4, 3)$
+    \item $(1, 2, 3)(1, 4)(2, 3) = (1, 4, 2)$
+  \end{itemize}
+
+  Since the collection is the products of $(1, 2, 3)$ and every other element are in the collection, and we can replace 1, 2, 3 with any other 3-cycle, it is closed for all 3-cycles. We will show this holds similarly for $(1, 2)(3, 4)$:
+
+  \begin{itemize}
+    \item $(1, 2)(3, 4)(1, 2, 3) = (2, 4, 3)$
+    \item $(1, 2)(3, 4)(1, 3, 2) = (1, 4, 3)$
+    \item $(1, 2)(3, 4)(1, 2, 4) = (2, 3, 4)$
+    \item $(1, 2)(3, 4)(1, 4, 2) = (1, 3, 4)$
+    \item $(1, 2)(3, 4)(1, 3, 4) = (1, 4, 2)$
+    \item $(1, 2)(3, 4)(1, 4, 3) = (1, 3, 2)$
+    \item $(1, 2)(3, 4)(2, 3, 4) = (1, 2, 4)$
+    \item $(1, 2)(3, 4)(2, 4, 3) = (1, 2, 3)$
+    \item $(1, 2)(3, 4)(1, 2)(3, 4) = (1)$
+    \item $(1, 2)(3, 4)(1, 3)(2, 4) = (1, 4)(2, 3)$
+    \item $(1, 2)(3, 4)(1, 4)(2, 3) = (1, 3)(2, 4)$
+  \end{itemize}
+
+  Thus, since it is closed under the binary operation of $S_4$ and is closed under inverses, this collection is a subgroup of $S_4$.
+\end{proof}
+
 \end{document}
