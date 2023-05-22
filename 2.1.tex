@@ -54,4 +54,50 @@ In each of (a) - (e) prove that the specified subset $H$ is a subgroup of the gi
           \end{proof}
 \end{enumerate}
 
+\section*{2. (5/22/23)}
+
+In each of (a) - (e) prove that the specified subset $H$ is \emph{not} a subgroup of the given group $G$:
+
+\begin{enumerate}[label=(\alph*)]
+    \item $H = $ the set of 2-cycles, $G = D_{2n}$ for $n \geq 3$
+          \begin{proof}
+            $H$ is not closed. Let $\sigma_1 = (1, 2), \sigma_2 = (2, 3)$, then $\sigma_1 \sigma_2 = (1, 3, 2)$, a 3-cycle and therefore not in $H$.
+          \end{proof}
+    \item $H = $ the set of reflections, $G = D_{2n}$ for $n \geq 3$
+          \begin{proof}
+            Formally, $H = \{ sr^k \in D_{2n} \mid 0 \leq k < n \}$. $H$ is not closed. For example, $sr, sr^2 \in H$ but $sr^2sr = sr^2r^{-1}s = srs = ssr^{-1} = r^{-1} \notin H$.
+          \end{proof}
+    \item $H = \{ x \in G \mid |x| = n \} \cup \{ 1 \}$, $G$ a group containing an element of order $n$ where $n$ is a composite integer greater than 1
+          \begin{proof}
+            By counterexample, let $G = \mathbb{Z}/8\mathbb{Z}$ under modular addition. Let $n = 8$. The elements 1 and 3 have order 8, so both are in $H$. However, their sum, 4, has order 2, and so is not an element of $H$.
+          \end{proof}
+    \item $H = $ the set of (positive and negative) odd integers together with 0, $G = \mathbb{Z}$
+          \begin{proof}
+            Let $k_1, k_2 \in H$. Since both are odd, there exist $n_1, n_2 \in \mathbb{Z}$ such that $k_1 = 2n_1 + 1 \text{ and } k_2 = 2n_2 + 1$. Their sum, then, is $2n_1 + 1 + 2n_2 + 1 = 2n_1 + 2n_2 + 2 = 2(n_1 + n_2 + 1)$, which is an even integer, and so is not an element of $H$.
+          \end{proof}
+    \item $H = $ the set of real numbers whose square is a rational number, $G = \mathbb{R}$ (under addition)
+          \begin{proof}
+            By counterexample, consider $\sqrt{2}, \sqrt{3} \in H$. Their sum, $\sqrt{2} + \sqrt{3}$, when squared, is equal to $(\sqrt{2} + \sqrt{3})^2 = 2 + 2\sqrt{6} + 3 = 5 + 2\sqrt{6} \notin \mathbb{Q}$. Therefore $H$ is not closed, and is not a subset of $G$.
+          \end{proof}
+\end{enumerate}
+
+\section*{3. (5/22/23)}
+
+Show that the following subsets of the dihedral group $D_8$ are actually subgroups:
+
+\begin{enumerate}[label=(\alph*)]
+    \item $\{ 1, r^2, s, sr^2 \}$
+          \begin{proof}
+            For these 4 elements, we will exhaustively show that the subset fulfills the criteria for a subgroup of $D_8$.
+
+            Each element is its own inverse in $D_8$, so the set is closed under inverses.
+
+            It is also closed under the product of two elements. Considering only the non-trivial products, starting with $r^2$: $r^2s = sr^{-2} = sr^2$ and $r^2sr^2 = sr^{-2}r^2 = s$. For $s$: $ssr^2 = r^2$. Finally for $sr^2$: $sr^2 r^2 = s$; $sr^2 s = ssr^{-2} = r^2$. Since the subset of closed under inverses and the binary operation, it is a subgroup.
+          \end{proof}
+    \item $\{ 1, r^2, sr, sr^3 \}$
+          \begin{proof}
+            Similar to above, each element is its own inverse. To show it is closed, then, starting with $r^2$: $r^2 sr = sr^{-2} r = sr^{-1} = sr^3$; $r^2 sr^3 = sr^{-2} r^3 = sr$. For $sr$: $sr r^2 = sr^3$; $sr sr^3 = ssr^{-1} r^3 = r^2$. Finally for $sr^3$: $sr^3 r^2 = sr^{-1} r^2 = sr$; $sr^3 sr = ss r^{-3} r = r^{-2} = r^2$. Thus it is a subgroup of $D_8$.
+          \end{proof}
+\end{enumerate}
+
 \end{document}
