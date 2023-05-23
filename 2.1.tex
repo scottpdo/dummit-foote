@@ -116,4 +116,18 @@ Prove that $G$ cannot have a subgroup $H$ with $|H| = n - 1$, where $n = |G| > 2
     Let $G$ be a finite group of order $n > 2$ and suppose (toward contradiction) that $H$ is a subgroup of $G$ with order $n - 1$. Since $H$ is a subgroup, $1 \in H$. There is exactly one element of $G$ that is not an element of $H$, and it is not the identity. Call that element $g$. Then $g^{-1}$ must be an element of $H$. However, $g^{-1}$ has no inverse in $H$, since by definition $g$ is not in $H$. Therefore $H$ cannot be a subgroup, contradicting the initial assumption that $H$ is a subgroup of $G$ with order $n - 1$.
 \end{proof}
 
+\section*{6. (5/23/23)}
+
+Let $G$ be an abelian group. Prove that $\{g \in G \mid |g| < \infty \}$ is a subgroup of $G$ (called the \emph{torsion subgroup} of $G$). Give an explicit example where this set is not a subgroup when $G$ is non-abelian.
+
+\begin{proof}
+    We will show that the given set is closed and closed under inverses, and is thus a subgroup of $G$.
+
+    First, let $g_1, g_2 \in G$ with $|g_1| = n$ and $|g_2| = m$. Let $k$ be the least common multiple of $n$ and $m$. Then $g_1^k = g_2^k = 1$. And, given that $G$ is abelian, we have $g_1^k g_2^k = (g_1 g_2)^k = 1$. Thus the order of $g_1 g_2$ is finite, so the set is closed.
+
+    Next, it suffices to demonstrate that, for all $g \in G$ with $|g| = n$, we have $|g^{-1}| = n$, so the set is also closed under inverses and is thus a subgroup of $G$.
+
+    In the non-abelian group $G = GL_2(\mathbb{R})$, however, consider the two elements $\begin{pmatrix}1 & 0 \\ 0 & -1\end{pmatrix}$ and $\begin{pmatrix}1 & 0 \\ 1 & -1\end{pmatrix}$. Each has order 2. However, their product is $\begin{pmatrix}1 & 0 \\ -1 & 1\end{pmatrix}$. Multiplied by itself, this results in $\begin{pmatrix}1 & 0 \\ -2 & 1\end{pmatrix}$, and in general, it can be proven through induction that $\begin{pmatrix}1 & 0 \\ -1 & 1\end{pmatrix}^n =\begin{pmatrix}1 & 0 \\ -n & 1\end{pmatrix}$; that is, it has infinite order. Thus the set of elements with finite order is not closed in $GL_2(\mathbb{R})$ and so it is not a subgroup.
+\end{proof}
+
 \end{document}
