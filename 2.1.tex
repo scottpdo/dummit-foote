@@ -100,4 +100,20 @@ Show that the following subsets of the dihedral group $D_8$ are actually subgrou
           \end{proof}
 \end{enumerate}
 
+\section*{4. (5/22/23)}
+
+Give an explicit example of a group $G$ and an infinite subset $H$ of $G$ that is closed under the group operation but is not a subgroup of $G$.
+
+\begin{proof}
+    Let $G = \mathbb{Z}, H = \mathbb{Z}^+$. For any two $n, m \in H$, we have $n > 0$ and $m > 0$. Their sum, $n + m$, is also greater than zero, and so is an element of $H$. However, $H$ does not contain the identity element 0 (as well as containing no additive inverses of any elememts), and so is not a subgroup of $G$.
+\end{proof}
+
+\section*{5. (5/22/23)}
+
+Prove that $G$ cannot have a subgroup $H$ with $|H| = n - 1$, where $n = |G| > 2$.
+
+\begin{proof}
+    Let $G$ be a finite group of order $n > 2$ and suppose (toward contradiction) that $H$ is a subgroup of $G$ with order $n - 1$. Since $H$ is a subgroup, $1 \in H$. There is exactly one element of $G$ that is not an element of $H$, and it is not the identity. Call that element $g$. Then $g^{-1}$ must be an element of $H$. However, $g^{-1}$ has no inverse in $H$, since by definition $g$ is not in $H$. Therefore $H$ cannot be a subgroup, contradicting the initial assumption that $H$ is a subgroup of $G$ with order $n - 1$.
+\end{proof}
+
 \end{document}
