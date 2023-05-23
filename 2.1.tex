@@ -130,4 +130,16 @@ Let $G$ be an abelian group. Prove that $\{g \in G \mid |g| < \infty \}$ is a su
     In the non-abelian group $G = GL_2(\mathbb{R})$, however, consider the two elements $\begin{pmatrix}1 & 0 \\ 0 & -1\end{pmatrix}$ and $\begin{pmatrix}1 & 0 \\ 1 & -1\end{pmatrix}$. Each has order 2. However, their product is $\begin{pmatrix}1 & 0 \\ -1 & 1\end{pmatrix}$. Multiplied by itself, this results in $\begin{pmatrix}1 & 0 \\ -2 & 1\end{pmatrix}$, and in general, it can be proven through induction that $\begin{pmatrix}1 & 0 \\ -1 & 1\end{pmatrix}^n =\begin{pmatrix}1 & 0 \\ -n & 1\end{pmatrix}$; that is, it has infinite order. Thus the set of elements with finite order is not closed in $GL_2(\mathbb{R})$ and so it is not a subgroup.
 \end{proof}
 
+\section*{7. (5/23/23)}
+
+Fix some $n \in \mathbb{Z}$ with $n > 1$. Find the torsion subgroup of $\mathbb{Z} \times (\mathbb{Z}/n\mathbb{Z})$. Show that the set of elements infinite order together with the identity is \emph{not} a subgroup of this direct product.
+
+\begin{proof}
+    The torsion subgroup of $\mathbb{Z} \times (\mathbb{Z}/n\mathbb{Z})$ is $\{ (k, m) \mid |(k, m)| < \infty, k \in \mathbb{Z}, 0 \leq m < n \}$. Considering $\mathbb{Z} \times (\mathbb{Z}/n\mathbb{Z})$ under addition, suppose that $(k, m)$ has order $p$, so $p(k, m) = (0, 0)$. Then $pk = 0$ (in $\mathbb{Z}$) and $mk = 0$ (in $\mathbb{Z}/n\mathbb{Z}$). The only value of $k$ that satisfies this in 0. Because $\mathbb{Z}/n\mathbb{Z}$ is finite, all values of $m$ have finite order (that is, there exists a $p$ for all $m \in \mathbb{Z}/n\mathbb{Z}$ such that $pm = 0$).
+
+    It follows that the torsion subgroup of $\mathbb{Z} \times (\mathbb{Z}/n\mathbb{Z})$ is $\{ (0, m) \mid 0 \leq m < n \}$.
+
+    Now let $A = $ the set of elements of infinite order together with identity, that is, $A = \{ (k, m) \mid |(k, m)| = \infty \} \cup \{ (0, 0) \}$. $(1, 1)$ and $(-1, 1)$ are both in $A$. However, their sum, $(0, 1)$, has finite order (it is in the torsion subgroup, above), and so $A$ is not closed, and is therefore not a subgroup of $\mathbb{Z} \times (\mathbb{Z}/n\mathbb{Z})$.
+\end{proof}
+
 \end{document}
