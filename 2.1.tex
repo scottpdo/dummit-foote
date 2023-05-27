@@ -154,6 +154,20 @@ Let $H$ and $K$ be subgroups of $G$. Prove that $H \cup K$ is a subgroup if and 
     Next, to show that one subgroup being contained in the other implies that their union is a subgroup, without loss of generality let $H \subseteq K$. In this case $H \subset K \Rightarrow H \cup K = K$, which by definition is a subgroup of $G$.
 
     Thus $H \cup K$ is a subgroup if and only if $H \subseteq K$ or $K \subseteq H$.
-\end{proof}
+\end{proof}\
+
+\section*{9. (5/27/23)}
+
+Let $G = GL_n(F)$, where $F$ is any field. Define
+\begin{equation*}
+    SL_n(F) = \{ A \in GL_n(F) \mid \det{A} = 1 \}
+\end{equation*}
+(called the \emph{special linear group}). Prove that $SL_n(F) \leq GL_n(F)$.
+
+Clearly $SL_n(F)$ is a subset of $GL_n(F)$, since by definition $A \in SL_n(F) \Rightarrow GL_n(F)$. It remains to be proven that $SL_n(F)$ is a subgroup, which we will show by the subgroup criterion.
+
+Let $B \in SL_n(F)$. From elementary linear algebra, the determinant of the product of two matrices is equal to the product of the two determinants of each matrix. So $1 = \det{I_n} = \det{B^{-1} B} = \det{B^{-1}} \det{B} = \det{B^{-1}}$. Then the determinant of $B$'s inverse is also 1, so $SL_n(F)$ is closed under inverses.
+
+Next, let $A \in SL_n(F)$ and consider the product $AB^{-1}$. From above, the determinant of this matrix is equal to $\det{A} \det{B^{-1}} = 1 \cdot 1 = 1$. Thus $SL_n(F)$ is also closed under matrix multiplication, and so is a subgroup of $GL_n(F)$.
 
 \end{document}
