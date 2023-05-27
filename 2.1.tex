@@ -193,4 +193,41 @@ Let $G = GL_n(F)$, where $F$ is any field. Define
           \end{proof}
 \end{enumerate}
 
+\section*{11. (5/27/23)}
+
+Let $A$ and $B$ be groups. Prove that the following sets are subgroups of the direct product $A \times B$:
+
+\begin{enumerate}[label=(\alph*)]
+    \item $\{ (a, 1) \mid a \in A \}$
+          \begin{proof}
+            Let $(a_1, 1), (a_2, 1)$ in the set. Then $(a_1, 1)(a_2, 1) = (a_1 a_2, 1)$. Now $a_1 a_2 \in A$, so this is closed. Also, given $(a, 1)$, $a \in A \Rightarrow a^{-1} \in A$, so $(a, 1)^{-1} = (a^{-1}, 1)$ is in the set. Since it is closed and closed under inverses, it is a subgroup.
+          \end{proof}
+    \item $\{ (1, b) \mid b \in B \}$
+          \begin{proof}
+            The proof is identical to the one above but using $b_1, b_2 \in B$ in place of $a_1, a_2 \in A$.
+          \end{proof}
+    \item $\{ (a, a) \mid a \in A \}$, where here we assume $B = A$ (called the \emph{diagonal subgroup}).
+          \begin{proof}
+            Let $(a_1, a_1), (a_2, a_2)$ in the set. Then $(a_1, a_1)(a_2, a_2) = (a_1 a_2, a_1 a_2)$. Since $a_1 a_2 \in A$, it is closed. Also, $(a, a)^{-1} = (a^{-1}, a^{-1})$, so it is closed under inverses and is therefore a subgroup.
+          \end{proof}
+\end{enumerate}
+
+\section*{12. (5/27/23)}
+
+Let $A$ be an abelian group and fix some $n \in \mathbb{Z}$. Prove that the following sets are subgroups of $A$:
+\begin{enumerate}[label=(\alph*)]
+    \item $B = \{ a^n \mid a \in A \}$
+          \begin{proof}
+            Let $a, b \in A$. Then $a^n, b^n \in B$. From Ch. 1, Ex. 24, since $A$ is abelian, $a^n b^n = (ab)^n$. Thus the product $ab$ is an element of $B$, so it is closed.
+
+            Also, the inverse of $a^n$ is $a^{-n}$, which is equal to $(a^{-1})^n$, so $B$ is closed under inverses and is thus a subgroup of $A$.
+          \end{proof}
+    \item $B = \{ a \in A \mid a^n = 1 \}$.
+          \begin{proof}
+            Let $a, b \in B$. Then $a^n = b^n = 1$. Since $A$ is abelian, we also have $1 = a^n b^n = (ab)^n$. Thus $B$ is closed.
+
+            Also, $a^n = 1$ implies that its inverse, $a^{-n} = (a^{-1})^n = 1$, so $B$ is closed under inverses and is a subgroup of $A$.
+          \end{proof}
+\end{enumerate}
+
 \end{document}
