@@ -164,10 +164,33 @@ Let $G = GL_n(F)$, where $F$ is any field. Define
 \end{equation*}
 (called the \emph{special linear group}). Prove that $SL_n(F) \leq GL_n(F)$.
 
-Clearly $SL_n(F)$ is a subset of $GL_n(F)$, since by definition $A \in SL_n(F) \Rightarrow GL_n(F)$. It remains to be proven that $SL_n(F)$ is a subgroup, which we will show by the subgroup criterion.
+\begin{proof}
+    Clearly $SL_n(F)$ is a subset of $GL_n(F)$, since by definition $A \in SL_n(F)$ implies $A \in GL_n(F)$. It remains to be proven that $SL_n(F)$ is a subgroup, which we will show by the subgroup criterion.
 
-Let $B \in SL_n(F)$. From elementary linear algebra, the determinant of the product of two matrices is equal to the product of the two determinants of each matrix. So $1 = \det{I_n} = \det{B^{-1} B} = \det{B^{-1}} \det{B} = \det{B^{-1}}$. Then the determinant of $B$'s inverse is also 1, so $SL_n(F)$ is closed under inverses.
+    Let $B \in SL_n(F)$. From elementary linear algebra, the determinant of the product of two matrices is equal to the product of the two determinants of each matrix. So $1 = \det{I_n} = \det{B^{-1} B} = \det{B^{-1}} \det{B} = \det{B^{-1}}$. Then the determinant of $B$'s inverse is also 1, so $SL_n(F)$ is closed under inverses.
 
-Next, let $A \in SL_n(F)$ and consider the product $AB^{-1}$. From above, the determinant of this matrix is equal to $\det{A} \det{B^{-1}} = 1 \cdot 1 = 1$. Thus $SL_n(F)$ is also closed under matrix multiplication, and so is a subgroup of $GL_n(F)$.
+    Next, let $A \in SL_n(F)$ and consider the product $AB^{-1}$. From above, the determinant of this matrix is equal to $\det{A} \det{B^{-1}} = 1 \cdot 1 = 1$. Thus $SL_n(F)$ is also closed under matrix multiplication, and so is a subgroup of $GL_n(F)$.
+\end{proof}
+
+\section*{10. (5/27/23)}
+
+\begin{enumerate}[label=(\alph*)]
+    \item Prove that if $H$ and $K$ are subgroups of $G$ then so is their intersection $H \cap K$.
+          \begin{proof}
+            Let $g_1, g_2 \in H \cap K$. Then $g_1 \in H, g_2 \in H, g_1 \in K, \text{ and } g_2 \in K$. It follows that the product $g_1 g_2$ is an element of both $H$ and $K$, since both subgroups are closed. Thus $g_1 g_2 \in H \cap K$, and so $H \cap K$ is closed.
+
+            Similarly, 
+            \begin{equation*}
+                g \in H \cap K \Rightarrow g \in H, g \in K \Rightarrow g^{-1} \in H, g^{-1} \in K \Rightarrow g^{-1} \in H \cap K,
+            \end{equation*}
+            which shows that $H \cap K$ is also closed under inverses and is therefore a subgroup of $G$.
+          \end{proof}
+    \item Prove that the intersection of an arbitrary nonempty collection of subgroups of $G$ is again a subgroup of $G$ (do not assume the collection is countable).
+          \begin{proof}
+            Let $\mathcal{H}$ be a collection of nonempty subgroups of $G$. Consider $\bigcap_{H \in \mathcal{H}} = \{ h \in G \mid h \in H \text{ for all } H \in \mathcal{H} \}$. Let $h_1, h_2$ be in this subset. Then for all $H \in \mathcal{H}$, $h_1 \in H$ and $h_2 \in H$, so $h_1 h_2 \in H$. So this intersection is closed under the binary operation of $G$. Similarly, for all $H \in \mathcal{H}$, $h \in H \Rightarrow h^{-1} \in H$, and so it is also closed under inverses.
+
+            Thus an arbitrary nonempty collection of subgroups is a subgroup.
+          \end{proof}
+\end{enumerate}
 
 \end{document}
