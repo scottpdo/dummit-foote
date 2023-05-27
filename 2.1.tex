@@ -230,4 +230,14 @@ Let $A$ be an abelian group and fix some $n \in \mathbb{Z}$. Prove that the foll
           \end{proof}
 \end{enumerate}
 
+\section*{13. (5/27/23)}
+
+Let $H$ be a subgroup of the additive group of rational numbers with the property that $1/x \in H$ for every nonzero element $x$ of $H$. Prove that $H = \{ 0 \}$ or $\mathbb{Q}$.
+
+\begin{proof}
+    If $H = \{ 0 \}$, then the definition trivially holds. Suppose that $H$ contains at least one other element, $\frac{m}{n}$. Since $H$ is closed under addition, $\underbrace{\frac{m}{n} + ... + \frac{m}{n}}_{n \text{ times}} = m \in H$. Then, by definition of $H$, $\frac{1}{m} \in H$. It follows that $\underbrace{\frac{1}{m} + ... + \frac{1}{m}}_{m \text{ times}} = 1 \in H$.
+
+    Now let $\frac{p}{q}$ be any rational number. We can show that it is contained in $H$ by: $\underbrace{1 + ... + 1}_{q \text{ times}} = q \Rightarrow \frac{1}{q} \in H$. Then $\underbrace{\frac{1}{q} + ... + \frac{1}{q}}_{pq \text{ times}} = \frac{p}{q} \in H$. Thus, from its definition, if $H$ contains any other rational number other than zero, it is itself the group of rational numbers under addition.
+\end{proof}
+
 \end{document}
