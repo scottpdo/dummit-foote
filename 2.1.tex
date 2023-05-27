@@ -240,4 +240,24 @@ Let $H$ be a subgroup of the additive group of rational numbers with the propert
     Now let $\frac{p}{q}$ be any rational number. We can show that it is contained in $H$ by: $\underbrace{1 + ... + 1}_{q \text{ times}} = q \Rightarrow \frac{1}{q} \in H$. Then $\underbrace{\frac{1}{q} + ... + \frac{1}{q}}_{pq \text{ times}} = \frac{p}{q} \in H$. Thus, from its definition, if $H$ contains any other rational number other than zero, it is itself the group of rational numbers under addition.
 \end{proof}
 
+\section*{14. (5/27/23)}
+
+Show that $\{ x \in D_{2n} \mid x^2 = 1 \}$ is not a subgroup of $D_{2n}$ (here $n \geq 3$).
+
+\begin{proof}
+    It suffices to show that the given subset is not closed. The elements $s$ and $sr$ in $D_{2n}$ both have order 2 (by definition of generators, $s^2 = 1$ and $(sr)^2 = srsr = ssr^{-1}r = 1$). However, their product, $ssr = r$ has order $n > 2$. Thus the set is not closed and is therefore not a subgroup of $D_{2n}$.
+\end{proof}
+
+\section*{15. (5/27/23)}
+
+Let $H_1 \leq H_2 \leq ...$ be an ascending chain of subgroups of $G$. Prove that $\bigcup^\infty_{i = 1}{H_i}$ is a subgroup of $G$.
+
+\begin{proof}
+    Let $h_1, h_2 \in \bigcup^\infty_{i = 1}{H_i}$. Then for some $n, m \in \mathbb{Z}^+$, $h_1 \in H_n, h_2 \in H_m$. Without loss of generality suppose that $n < m$. Then, since $H_n \subseteq H_m$, $h_1 \in H_m$, which implies that $h_1 h_2 \in H_m$. Thus $h_1 h_2 \in \bigcup^\infty_{i = 1}{H_i}$, so the union is closed under the binary operation of $G$.
+
+    Next, note that for all $h \in \bigcup^\infty_{i = 1}{H_i}$, $h \in H_n$ implies that $h^{-1} \in H_n$, and so $h^{-1} \in \bigcup^\infty_{i = 1}{H_i}$; that is, the union is also closed under inverses.
+
+    Thus the union of an ascending chain of subgroups of $G$ is also a subgroup of $G$.
+\end{proof}
+
 \end{document}
