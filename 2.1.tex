@@ -142,4 +142,18 @@ Fix some $n \in \mathbb{Z}$ with $n > 1$. Find the torsion subgroup of $\mathbb{
     Now let $A = $ the set of elements of infinite order together with identity, that is, $A = \{ (k, m) \mid |(k, m)| = \infty \} \cup \{ (0, 0) \}$. $(1, 1)$ and $(-1, 1)$ are both in $A$. However, their sum, $(0, 1)$, has finite order (it is in the torsion subgroup, above), and so $A$ is not closed, and is therefore not a subgroup of $\mathbb{Z} \times (\mathbb{Z}/n\mathbb{Z})$.
 \end{proof}
 
+\section*{8. (5/27/23)}
+
+Let $H$ and $K$ be subgroups of $G$. Prove that $H \cup K$ is a subgroup if and only if either $H \subseteq K$ or $K \subseteq H$.
+
+\begin{proof}
+    First, to show that $H \cup K$ a subgroup implies that $H \subset K$, let $h \in H$ and $k \in K$. Because $H \cup K$ is a subgroup, it is closed, and since $h, k \in H \cup K$, it follows that $hk \in H \cup K$. Then either $hk \in H$ or $hk \in K$.
+    
+    If $hk \in H$, then, since $H$ is closed under inverses, $h^{-1} \in H$, we have $h^{-1}hk \in H \Rightarrow k \in H$. This implies that $K \subseteq H$. Or, if $hk \in K$, then similarly $hkk^{-1} = h \in K \Rightarrow H \subseteq K$.
+
+    Next, to show that one subgroup being contained in the other implies that their union is a subgroup, without loss of generality let $H \subseteq K$. In this case $H \subset K \Rightarrow H \cup K = K$, which by definition is a subgroup of $G$.
+
+    Thus $H \cup K$ is a subgroup if and only if $H \subseteq K$ or $K \subseteq H$.
+\end{proof}
+
 \end{document}
