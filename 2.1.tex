@@ -2,7 +2,7 @@
 
 \title{Dummit \& Foote Ch. 2.1: Subgroups, Definition and Examples}
 \author{Scott Donaldson}
-\date{May 2023}
+\date{May - Jun. 2023}
 \usepackage{amsmath, amsthm, amsfonts, enumitem}
 
 \begin{document}
@@ -258,6 +258,30 @@ Let $H_1 \leq H_2 \leq ...$ be an ascending chain of subgroups of $G$. Prove tha
     Next, note that for all $h \in \bigcup^\infty_{i = 1}{H_i}$, $h \in H_n$ implies that $h^{-1} \in H_n$, and so $h^{-1} \in \bigcup^\infty_{i = 1}{H_i}$; that is, the union is also closed under inverses.
 
     Thus the union of an ascending chain of subgroups of $G$ is also a subgroup of $G$.
+\end{proof}
+
+\section*{16. (6/4/23)}
+
+Let $n \in \mathbb{Z}^+$ and let $F$ be a field. Prove that the set $\{ (a_{ij}) \in GL_N(F) \mid a_{ij} = 0 \text{ for all } i > j \}$ is a subgroup of $GL_n(F)$ (called the group of \emph{upper triangular} matrices).
+
+\begin{proof}
+    First, to show that the set of upper triangular matrices is closed under matrix multiplication, let $A$ and $B$ be upper triangular matrices, and consider the $i,j\text{-th}$ entry of $AB$. The value is equal to $a_{i1}b_{1j} + a_{i2}b_{2j} + ... + a_{in}b_{nj}$. Consider this sum when $i > j$. Then for any $k \leq j$, $a_{ik} = 0$, so the product $a_{ik}b_{kj}$ is also zero. Then, for $k > j$, $b_{kj} = 0$, so the product is again zero. Thus the sum equals zero, and so the $i,j\text{-th}$ entry of $AB$ is zero when $i > j$, so the product is an upper triangular matrix.
+
+    Next, we show that given an upper triangular matrix $A$, its inverse $A^{-1}$ is also an upper triangular matrix. Toward contradiction, suppose that $A^{-1}$ is \emph{not} upper triangular. Denote the entries of $A^{-1}$ by $c_{ij}$. Then for some $c_{ij}$ in $A^{-1}, i > j, c_{ij} \neq 0$. Consider the $i,j$-th entry of $A^{-1}A = c_{i1}a_{1j} + ... + c_{ij}a_{jj} + ... + c_{in}a_{nj}$. All of the products before $c_{ij}a_{jj}$ are zero, since the entries coming from $A^{-1}$ are zero. All of the products after $c_{ij}a_{jj}$ are zero, since the entries coming from $A$ are zero. However, the product $c_{ij}a_{jj}$ is not zero, since both $c_{ij}$ (by assumption) and $a_{jj}$ (by definition) are nonzero. It follows that the matrix product $A^{-1}A$ is not the identity matrix, and so $A^{-1}$ is not $A$'s inverse, a contradiction. Thus the inverse of $A$ must be an upper triangular matrix, and so the set of upper triangular matrices is closed under inverses.
+
+    Having shown that it is closed under matrix multiplication and closed under inverses, the set of upper triangular matrices is a subgroup of $GL_n(F)$.
+\end{proof}
+
+\section*{17. (6/4/23)}
+
+Let $n \in \mathbb{Z}^+$ and let $F$ be a field. Prove that the set $\{ (a_{ij}) \in GL_N(F) \mid a_{ij} = 0 \text{ for all } i > j, \text{ and } a_{ii} = 1 \text{ for all } i \}$ is a subgroup of $GL_n(F)$.
+
+\begin{proof}
+    This proof is similar to the preceding exercise. To show that the set is closed, let $A$ and $B$ be upper triangular matrices with all diagonal entries equal to 1. From 16., their product is also an upper triangular matrix, so we need only consider an arbitrary diagonal entry of $AB$. The value of the $i,i$-th entry is equal to $\underbrace{a_{i1}b_{1i} + ...}_{\text{entries from } A = 0} + \underbrace{a_{ii}b_{ii}}_{1 \cdot 1} + \underbrace{... + a_{in}b_{ni}}_{\text{entries from } B = 0} = 1$. So the set is closed under matrix multiplication.
+
+    Next, from 16., we know that the inverse of a matrix $A$ is upper triangular, so consider only its $i,i$-th entry. Suppose $c_{ii}$ of $A^{-1}$ is equal to $k \neq 1$. Then the $i,i$-th entry of the product $A^{-1}A$ equals $\underbrace{c_{i1}a_{1i} + ...}_{\text{entries from } A^{-1} = 0} + \underbrace{c_{ii}a_{ii}}_{k \cdot 1} + \underbrace{... + c_{in}a_{ni}}_{\text{entries from } A = 0} = k \neq 1$. It follows that this product is not the identity matrix, a contradiction. Thus the set is closed under inverses.
+
+    Having shown that it is closed under matrix multiplication and closed under inverses, the set of upper triangular matrices with diagonal entries equal to 1 is a subgroup of $GL_n(F)$.    
 \end{proof}
 
 \end{document}
