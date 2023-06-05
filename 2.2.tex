@@ -1,0 +1,34 @@
+\documentclass{article}
+
+\title{Dummit \& Foote Ch. 2.2: Centralizers and Normalizers, Stabilizers and Kernels}
+\author{Scott Donaldson}
+\date{Jun. 2023}
+\usepackage{amsmath, amsthm, amsfonts, enumitem}
+
+\begin{document}
+
+\maketitle
+
+\section*{1. (6/5/23)}
+
+Prove that $C_G(A) = \{ g \in G \mid g^{-1}ag = a \text{ for all } a \in A \}$.
+
+\begin{proof}
+    By definition, $C_G(A) = \{ g \in G \mid gag^{-1} = a \text{ for all } a \in A \}$ (that is, it is the set of elements of $G$ that commute with all elements of $A$).
+
+    Let $g \in C_G(A), a \in A$. Then $gag^{-1} = a$, which implies that $ga = ag$, and so left-multiplying by $g^{-1}$ we obtain $a = g^{-1}ag$. Therefore, equivalently, $C_G(A)$ is the set of elements $g \in G$ such that $g^{-1}ag = a$ for all $a \in A$.
+\end{proof}
+
+\section*{2. (6/5/23)}
+
+Prove that $C_G(Z(G)) = G$ and deduce that $N_G(Z(G)) = G$.
+
+\begin{proof}
+    Recall that $Z(G) = \{g \in G \mid gx = xg \text{ for all } x \in G \}$. Let $z \in Z(G)$, so $z$ commutes with every element of $G$.
+    
+    Also recall that $C_G(A) = \{ g \in G \mid gag^{-1} = a \text{ for all } a \in A \}$. When $A = Z(G)$, then every element of $g$ commutes with every element of $A$. Therefore for all $g \in G$, $g \in C_G(Z(G))$. Thus $C_G(Z(G)) = G$.
+
+    Note that, since $C_G(A) \leq N_G(A)$ for all subsets $A$, we must have $G = C_G(Z(G)) \leq N_G(Z(G))$. Since there is no greater set of elements, we also have $N_G(Z(G)) = G$.
+\end{proof}
+
+\end{document}
