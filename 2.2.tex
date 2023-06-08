@@ -31,4 +31,14 @@ Prove that $C_G(Z(G)) = G$ and deduce that $N_G(Z(G)) = G$.
     Note that, since $C_G(A) \leq N_G(A)$ for all subsets $A$, we must have $G = C_G(Z(G)) \leq N_G(Z(G))$. Since there is no greater set of elements, we also have $N_G(Z(G)) = G$.
 \end{proof}
 
+\section*{3. (6/8/23)}
+
+Prove that if $A$ and $B$ are subsets of $G$ with $A \subseteq B$ then $C_G(B)$ is a subgroup of $C_G(A)$.
+
+\begin{proof}
+    Let $a \in A \text{ and } g \in C_G(B)$. Then $g$ commutes with every element of $b$, that is, $gb = bg \Rightarrow gbg^{-1} = b$ for all $b \in B$. Since $A \subseteq B$, we also have $gag^{-1} = a$ for all $a \in A$. Therefore $g \in C_G(A)$, which implies that $C_G(B) \subseteq C_G(A)$.
+
+    From the introduction to this chapter, centralizers are subgroups, so both $C_G(B) \leq G$ and $C_G(A) \leq G$. Since $C_G(B)$ is contained within $C_G(A)$ and both are subgroups of $G$, $C_G(B)$ must be closed within $C_G(A)$ and closed under inverses within $C_G(A)$, so it is also a subgroup of $C_G(A)$.
+\end{proof}
+
 \end{document}
