@@ -104,4 +104,23 @@ In each of parts (a) through (c) show that for the specified group $G$ and subgr
           \end{proof}
 \end{enumerate}
 
+\section*{6. (6/9/23)}
+
+Let $H$ be a subgroup of the group $G$.
+
+\begin{enumerate}[label=(\alph*)]
+    \item Show that $H \leq N_G(H)$. Give an example to show that this is not necessarily true if $H$ is not a subgroup.
+          \begin{proof}
+            Let $h_1, h_2 \in H$ (to show that $h_1 \in N_G(H)$). Because $H$ is a subgroup of $G$, it is closed and closed under inverses, so $h_1 h_2 h_1^{-1} \in H$. So the conjugate of every element with every other element of $H$ is in $H$, which implies that $H \leq N_G(H)$.
+
+            However, this does not follow if $H$ is merely a subset of $G$. For example, let $G = D_6$ and $H = \{ s, r \}$. Then $rsr^{-1} = sr^2r^2 = sr \notin H$, which implies that $r \notin H$. Therefore $H$ is not contained within its normalizer.
+          \end{proof}
+    \item Show that $H \leq C_G(H)$ if and only if $H$ is abelian.
+          \begin{proof}
+            First, let $H$ be abelian and let $h_1, h_2 \in H$. Because $H$ is abelian, we have $h_1 h_2 = h_2 h_1 \Rightarrow h_2 = h_1 h_2 h_1^{-1}$, so the conjugate of $h_2$ by $h_1$ is $h_2$. Thus the arbitrary element $h_1$ is in the centralizer of $H$, and so $H \leq C_G(H)$.
+
+            Next, let $H \leq C_G(H)$. Then for all $h_1, h_2 \in H$, $h_2 = h_1 h_2 h_1^{-1} \Rightarrow h_2 h_1 = h_1 h_2$, and so $H$ is an abelian subgroup of $G$.
+          \end{proof}
+\end{enumerate}
+
 \end{document}
