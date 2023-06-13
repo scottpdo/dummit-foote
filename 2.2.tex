@@ -123,4 +123,49 @@ Let $H$ be a subgroup of the group $G$.
           \end{proof}
 \end{enumerate}
 
+\section*{7. (6/13/23)}
+
+Let $n \in \mathbb{Z}$ with $n \geq 3$. Prove the following:
+
+\begin{enumerate}[label=(\alph*)]
+    \item $Z(D_{2n}) = \{ 1 \}$ if $n$ is odd
+          \begin{proof}
+            Recall that $Z(D_{2n}) = \{ x \in D_{2n} \mid xy = yx \text{ for all } y \in D_{2n} \}$. Let $x \in Z(D_{2n}), y \in D_{2n}$. We will consider separately the cases where $x = r^k$ and $x = sr^k$.
+
+            Suppose $x = r^k$ for some $0 < k < n$ (clearly if $x = r^0 = 1$, then it is in the center of $D_{2n}$). If $y = s$, then $xy = r^ks = sr^{-k}$ and $yx = sr^k$. These are only equal when $k = -k$ (mod $n$); since $n$ is odd there are no values of $k$ that satisfy this equality, and so $x = r^k$ does not commute with every element of $D_{2n}$ and is not in $Z(D_{2n})$.
+
+            Next, suppose $x = sr^k$. Then if $y = r$, we have $xy = sr^kr = sr^{k + 1}$ and $yx = rsr^k = sr^{-1}r^k = sr^{k - 1}$. No values of $k$ satisfy this equality and so no $x$ of the form $sr^k$ is in $Z(D_{2n})$. Thus the center of $D_{2n}$ consists of only the identity when $n$ is odd.
+          \end{proof}
+    \item $Z(D_{2n}) = \{ 1, r^k \} $ if $n = 2k$
+          \begin{proof}
+            The case where $x = sr^k$ is identical to the above proof; if $y = r$ then they do not commute and so no $x$ of the form $sr^k$ is in $Z(D_{2n})$.
+
+            Consider $x = r^k$ for some $0 < k < n$. If $y = r^p, 0 \leq p < n$, then they commute because both elements are powers of $r$. So let $y = sr^p$. Then $xy = r^ksr^p = sr^{-k}r^p = sr^{p - k}$ and $yx = sr^pr^k = sr^{p + k}$. These are equal to each other when $p - k = p + k$, that is, when $-k = k$ (mod $n$), which implies that $2k = n$. Since $n$ is even, there is a value of $k$ for which this occurs, $n / 2$.
+
+            Thus the center of $D_{2n}$ when $n = 2k$ is $\{ 1, r^k \}$.
+          \end{proof}
+\end{enumerate}
+
+\section*{8. (6/13/23)}
+
+Let $G = S_n$, fix an $i \in \{ 1, 2, ..., n \}$ and let $G_i = \{ \sigma \in G \mid \sigma(i) = i \}$ (the stabilizer of $i$ in $G$). Use group actions to prove that $G_i$ is a subgroup of $G$. Find $|G_i|$.
+
+\begin{proof}
+    There is a group action of $G$ on $\{ 1, ..., n \}$ defined by $\sigma \cdot k = \sigma(k)$. The identity permutation applied to any $k$ is always $k$, and closure is easily demonstrated by composition of permutations.
+
+    Now let $\sigma_1, \sigma_2 \in G_i$ (to show that $\sigma_1 \circ \sigma_2 \in G_i$). Then $\sigma_1(i) = i$ and $\sigma_2(i) = i$. It follows that $\sigma_1(\sigma_2(i)) = \sigma_1(i) = i$, and since this is equal to $(\sigma_1 \circ \sigma_2)(i)$, $\sigma_1 \circ \sigma_2$ is in $G_i$, so it is closed.
+
+    Next, note that $\sigma(i) = i$ for some $\sigma \in G_i$ implies that $i = \sigma^{-1}(i)$, so $\sigma^{-1}$ is also in $G_i$ and it is therefore closed under inverses. Thus $G_i$ is a subgroup of $G$.
+
+    To find the order of $G_i$, recall from Ch. 1.3 that the order of $S_n$ is $n!$. Further, $G_i$ consists of those permutations of $S_n$ whose cycle decompositions do not include $i$. We will show that $G_i$ has the same cardinality as $S_{n - 1}$ and that its order is therefore $(n - 1)!$.
+
+    Let $\varphi: G_i \rightarrow S_{n - 1}$ be defined on elements of $\{ 1, ..., n \}$ by $\varphi(\sigma(m)) = \sigma(m)$  if $m < i$ and $= \sigma(m) - 1$ if $m > i$. For example, if $i = 10$, $\varphi$ maps the permutation with cycle decomposition $(1, 5, 9, 13, 17)$ to $(1, 5, 9, 12, 16)$.
+    
+    $\varphi$ is one-to-one: If $\varphi(\sigma_1(m)) = \varphi(\sigma_2(m))$, then they are by definition equal if $\sigma_1(m)$ and $\sigma_2(m)$ are either both less than or both greater than $i$. Without loss of generality, suppose that $\sigma_1(m) < i$ and $\sigma_2(m) > i$. Then $\varphi(\sigma_1(m)) < i$ and $\varphi(\sigma_2(i)) \geq i$, so they cannot be equal.
+
+    $\varphi$ is onto: Let $\sigma \in S_{n - 1}$. There is a unique permutation $G_i$ that maps to $\sigma$ whose cycle decomposition contains the same values in the same positions as $\sigma$ when those values are less than $i$, and the successor of those values in the same positions as $\sigma$ when those values are greater than $i$. Formally, the inverse $\varphi^{-1}: S_{n - 1} \rightarrow G_i$ is well-defined by $\varphi(\sigma(m)) = \sigma(m)$ if $m < i$ and $= \sigma(m) + 1$ if $m > i$.
+
+    This proves that $\varphi$ is a bijection (note that the additional requirement that it is an isomorphism is unnecessary because we are only concerned with the size of these groups). Therefore $|G_i| = |S_{n - 1}| = (n - 1)!$.
+\end{proof}
+
 \end{document}
