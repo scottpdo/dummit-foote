@@ -168,4 +168,30 @@ Let $G = S_n$, fix an $i \in \{ 1, 2, ..., n \}$ and let $G_i = \{ \sigma \in G 
     This proves that $\varphi$ is a bijection (note that the additional requirement that it is an isomorphism is unnecessary because we are only concerned with the size of these groups). Therefore $|G_i| = |S_{n - 1}| = (n - 1)!$.
 \end{proof}
 
+\section*{9. (6/13/23)}
+
+For any subgroup $H$ of $G$ and any nonempty subset $A$ of $G$ define $N_H(A)$ to be the set $\{ h \in H \mid hAh^{-1} = A \}$. Show that $N_H(A) = N_G(A) \cap H$ and deduce that $N_H(A)$ is a subgroup of $H$ (note that $A$ need not be a subset of $H$).
+
+\begin{proof}
+    To show that $N_H(A) = N_G(A) \cap H$, we will show that membership in one implies membership in the other, and vice-versa.
+
+    First, let $h \in N_H(A)$ (to show that $h \in N_G(A) \cap H$). Then $hAh^{-1} = A$. Also, by definition, $N_G(A) = \{ g \in G \mid gAg^{-1} = A \}$, so $h \in N_G(A)$. Further, since $N_H(A)$ consists of only those $h \in N_G(A)$ that are also in $H$, it follows that $h \in N_G(A) \cap H$.
+
+    Next, let $h \in N_G(A) \cap H$, that is, $h \in N_G(A)$ and $h \in H$. Since $h \in N_G(A)$, $hAh^{-1} = A$. It follows immediately that $h \in N_H(A)$. Therefore $N_H(A) = N_G(A) \cap H$.
+
+    Now from Ch. 2.1, exercise 10., the intersection of two subgroups (of $G$) is again a subgroup (of $G$). Since $N_H(A)$ is also restricted to $H$ and containment of subgroups is transitive, we deduce that $N_H(A)$ is a subgroup of $H$.
+\end{proof}
+
+\section*{10. (6/13/23)}
+
+Let $H$ be a subgroup of order 2 in $G$. Show that $N_G(H) = C_G(H)$. Deduce that if $N_G(H) = G$ then $H \leq Z(G)$.
+
+\begin{proof}
+    Let $H = \{ 1, h \} \leq G$. In order to prove that $N_G(H) = C_G(H)$, we will show that membership in one implies membership in the other, and vice-versa.
+
+    For some $g \in G$, let $g \in N_G(H)$. Then $gHg^{-1} = H$. Since $g \cdot 1 \cdot g^{-1} = 1$, we must have $ghg^{-1} = h$, which implies that $gh = hg$. Then $g$ commutes with both 1 and $h$, that is, with every element of $H$, and so $g \in C_G(H)$. Since we know that $C_G(H) \leq N_G(H)$, this proves that $N_G(H) = C_G(H)$.
+
+    Next suppose that $N_G(H) = G$. Then for every $g \in G$, $gh = hg$. So an arbitrary element $g$ commutes with every element of $H$. Put differently, every element of $H$ commutes with every element of $G$. It follows that $H$ is contained in the center of $G$, that is, $H \leq Z(G)$.
+\end{proof}
+
 \end{document}
