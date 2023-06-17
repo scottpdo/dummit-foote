@@ -231,7 +231,7 @@ for all $p(x_1, x_2, x_3, x_4) \in R$ (i.e., $\sigma$ simply permutes the indice
 
             Next, let $\sigma_1, \sigma_2 \in S_4$. Then:
             \begin{flalign*}
-                \sigma_1 \cdot (\sigma_2 \cdot p(x_1, x_2, x_3, x_4)) = \sigma_1 \cdot p(x_{\sigma_2(1)}, x_{\sigma_2(2)}, x_{\sigma_2(3)}, x_{\sigma_2(4)}) = \\ p(x_{\sigma_1(\sigma_2(1))}, x_{\sigma_1(\sigma_2(2))}, x_{\sigma_1(\sigma_2(3))}, x_{\sigma_1(\sigma_2(4))}) = \\ (\sigma_1 \circ \sigma_2) \cdot p(x_1, x_2, x_3, x_4)),
+                \sigma_1 \cdot (\sigma_2 \cdot p(x_1, x_2, x_3, x_4)) = \sigma_1 \cdot p(x_{\sigma_2(1)}, x_{\sigma_2(2)}, x_{\sigma_2(3)}, x_{\sigma_2(4)}) = \\ p(x_{\sigma_1(\sigma_2(1))}, x_{\sigma_1(\sigma_2(2))}, x_{\sigma_1(\sigma_2(3))}, x_{\sigma_1(\sigma_2(4))}) = \\ (\sigma_1 \circ \sigma_2) \cdot p(x_1, x_2, x_3, x_4),
             \end{flalign*}
             
             as desired. Thus the definitions give a group action of $S_4$ on $R$.
@@ -303,5 +303,27 @@ for all $p(x_1, x_2, x_3, x_4) \in R$ (i.e., $\sigma$ simply permutes the indice
             Thus the above permutations (isomorphic to the dihedral group $D_8$) are the same as those that stabilize $x_1 x_2 + x_3 x_4$.
           \end{proof}
 \end{enumerate}
+
+\section*{13. (6/17/23)}
+
+Let $n$ be a positive integer and let $R$ be the set of all polynomials with integer coefficients in the independent variables $x_1, x_2, ..., x_n$ i.e., the members of $R$ are finite sums of the form $ax_1^{r_1}x_2^{r_2}...x_n^{r_n}$, where $a$ is any integer and $r_1, ..., r_n$ are nonnegative integers.
+
+For each $\sigma \in S_n$ define a map
+\begin{equation*}
+  \sigma: R \rightarrow R \text{ by } \sigma \cdot p(x_1, x_2, ..., x_n) = p(x_{\sigma(1)}, x_{\sigma(2)}, ..., x_{\sigma(n)}).
+\end{equation*}
+Prove that this defines a (left) group action of $S_n$ on $R$.
+
+\begin{proof}
+  To show that this is a group action, we must show that $(1) \cdot p = p$ for all $p \in R$, and that $\sigma_1 \cdot (\sigma_2 \cdot p) = (\sigma_1 \circ \sigma_2) \cdot p$ for all $p \in R, \sigma_1, \sigma_2 \in S_n$.
+
+  First, $(1) \cdot p(x_1, x_2, ..., x_n) = p(x_1, x_2, ..., x_n)$ satisfies the identity condition.
+
+  Next, let $\sigma_1, \sigma_2 \in S_n$. Then:
+  \begin{flalign*}
+      \sigma_1 \cdot (\sigma_2 \cdot p(x_1, x_2, ..., x_n)) = \sigma_1 \cdot p(x_{\sigma_2(1)}, x_{\sigma_2(2)}, ..., x_{\sigma_2(n)}) = \\ p(x_{\sigma_1(\sigma_2(1))}, x_{\sigma_1(\sigma_2(2))}, ..., x_{\sigma_1(\sigma_2(n))}) = \\ (\sigma_1 \circ \sigma_2) \cdot p(x_1, x_2, ..., x_n),
+  \end{flalign*}
+  as desired.
+\end{proof}
 
 \end{document}
