@@ -326,4 +326,16 @@ Prove that this defines a (left) group action of $S_n$ on $R$.
   as desired.
 \end{proof}
 
+\section*{14. (6/18/23)}
+
+Let $H(F)$ be the Heisenberg group over the field $F$ introduced in Exercise 11 of Section 1.4. Determine which matrices lie in the center of $H(F)$ and prove that $Z(H(F))$ is isomorphic to the additive group $F$.
+
+\begin{proof}
+  Let $H(F)$ be the Heisenberg group over the field $F$, that is, the group of $3 \times 3$ matrices of the form $\begin{pmatrix}1 & a & b \\ 0 & 1 & c \\ 0 & 0 & 1\end{pmatrix}$, with $a, b, c \in F$, under the operation of matrix multiplication. From 1.4., it can be shown through matrix multiplication that the two matrices $X = \begin{pmatrix}1 & a & b \\ 0 & 1 & c \\ 0 & 0 & 1\end{pmatrix}$ and $Y = \begin{pmatrix}1 & d & e \\ 0 & 1 & f \\ 0 & 0 & 1\end{pmatrix}$ commute if and only if the upper-right entries of the products $XY$ and $YX$ are equal, namely $e + af + b = b + cd + e \Rightarrow af = cd$. In this case, if $a \neq 0$ and $c \neq 0$, then one can always choose $d = 0, f \neq 0$ so that $cd = 0$ but $af \neq 0$, which implies that the two matrices do not commute. Therefore, we must have $a = c = 0$ for the given matrix $X$ to be guaranteed to commute with $Y$ (regardless of the values of the entries $d$ and $f$ in $Y$). Thus the center of $H(F)$ is comprised of matrices of the form $\begin{pmatrix}1 & 0 & x \\ 0 & 1 & 0 \\ 0 & 0 & 1\end{pmatrix}, x \in F$.
+
+  Next, let $\varphi$ be a map from $Z(H(F))$ to $F^+$, the additive group $F$, defined by $\varphi(\begin{pmatrix}1 & 0 & x \\ 0 & 1 & 0 \\ 0 & 0 & 1\end{pmatrix}) = x$. For $A, B \in Z(H(F))$, let $a$ and $b$ be the upper-right entries, respectively. Then $\varphi(A)\varphi(B) = a + b$ and $\varphi(AB) = \varphi(\begin{pmatrix}1 & 0 & a + b \\ 0 & 1 & 0 \\ 0 & 0 & 1\end{pmatrix}) = a + b$, so $\varphi$ is a homomorphism.
+
+  In fact, $\varphi$ is an isomorphism. It is one-to-one: Let $\varphi(A) = \varphi(B)$. Then $a = b$, so $A = B$. It is also onto: Let $x \in F^+$. Then $\varphi(X) = x$. Since $\varphi$ is a bijective homomorphism, it is an isomorphism, and so $Z(H(F)) \cong F^+$.
+\end{proof}
+
 \end{document}
