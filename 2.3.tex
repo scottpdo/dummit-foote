@@ -113,4 +113,43 @@ Let $Z_{48} = \langle x \rangle$ and use the isomorphism $\mathbb{Z}/48\mathbb{Z
     \item Subgroup of order 1, the trivial subgroup: $\{ 1 \}$.
 \end{itemize}
 
+\section*{8. (6/23/23)}
+
+Let $Z_{48} = \langle x \rangle$. For which integers $a$ does the map $\varphi_a$ defined by $\varphi_a: \overline{1} \mapsto x^a$ extend to an \emph{isomorphism} from $\mathbb{Z}/48\mathbb{Z}$ onto $Z_{48}$?
+
+\begin{proof}
+    We will show that $\varphi_a$ is an isomorphism from $\mathbb{Z}/48\mathbb{Z}$ onto $Z_{48}$ if and only if $a \in \mathbb{Z}$ is relatively prime to 48.
+
+    First, let $m, n \in \mathbb{Z}/48\mathbb{Z}$. Then $\varphi_a(m)\varphi_a(n) = (x^a)^m (x^a)^n = (x^a)^{m + n} = \varphi_a(m + n)$. So $\varphi_a$ is a homomorphism.
+
+    Next, $\varphi_a$ is one-to-one. Let $\varphi_a(n) = \varphi_a(m)$ for $m, n \in \mathbb{Z}/48\mathbb{Z}$. Then $(x^a)^m = (x^a)^n \Rightarrow x^{am} = x^{an}$, and so $am = an$ (mod 48). Since $a$ is relatively prime to 48, we must therefore have $m = n$, and it follows that $\varphi_a$ is injective. (Note, however, that if $k > 1$ divides both $a$ and 48, then $am = an$ does not imply that $m = n$, and $\varphi_a$ is therefore not injective. For example, if $a = 14$, then $\varphi_a(7) = (x^14)^7 = x^{98} = x^2$ and $\varphi_a(31) = (x^14)^31 = x^{434} = x^2$).
+
+    Finally, $\varphi_a$ is onto. Let $x^b \in Z_{48}$. Suppose there exists some $n \in \mathbb{Z}/48\mathbb{Z}$ such that $\varphi_a(n) = x^b$, that is, $(x^a)^n = x^b$. Then we must have $an = b$ (mod 48). Since $a$ is relatively prime to 48, any integer between 0 and 47 can be written as $an$ for some $n \in \mathbb{Z}/48\mathbb{Z}$, and so $\varphi_a$ is onto.
+
+    Thus for $a$ relatively prime to 48, $\varphi_a: \overline{1} \mapsto x^a$ is an isomorphism from $\mathbb{Z}/48\mathbb{Z}$ onto $Z_{48}$.
+\end{proof}
+
+\section*{9. (7/2/23)}
+
+Let $Z_{36} = \langle x \rangle$. For which integers $a$ does the map $\varphi_a$ defined by $\varphi_a: \overline{1} \mapsto x^a$ extend to a \emph{well defined homomorphism} from $\mathbb{Z}/48\mathbb{Z}$ onto $Z_{36}$? Can $\varphi_a$ ever be a surjective homomorphism?
+
+\begin{proof}
+    We will show that $\varphi_a: \mathbb{Z}/48\mathbb{Z} \rightarrow Z_{36}$ is a well defined homomorphism if and only if $a$ is a multiple of 3.
+
+    For $\varphi_a$ to be a homomorphism, we must have $\varphi_a(b)\varphi_a(c) = \varphi_a(b + c)$ for all $b, c \in \mathbb{Z}/48\mathbb{Z}$. Now $\varphi_a(b)\varphi_a(c) = (x^a)^b (x^a)^c = (x^a)^{b + c} = x^{a(b + c)}$ and $\varphi_a(b + c) = (x^a)^{b + c} = x^{a(b + c)}$. Superficially these appear identical already. However, note that in $\varphi_a(b)\varphi_a(c)$ we compute $ab + ac$ mod 36, while in $\varphi_a(b + c)$ we first take $b + c$ mod 48 before then computing $a(b + c)$. That is, $a$ must satisfy
+    \begin{equation*}
+        a(b + c \text{ mod } 48) \text{ mod } 36 = a(b + c) \text{ mod } 36
+    \end{equation*}
+    for all $b, c \in \mathbb{Z}/48\mathbb{Z}$. If $b + c < 48$, then the two are equal for all $a \in \mathbb{Z}$. So suppose that $b + c \geq 48$. Then $b + c \text{ mod } 48 = b + c - 48$, so we must have
+    \begin{flalign*}
+        a(b + c - 48) \text{ mod } 36 &= a(b + c) \text{ mod } 36 \\
+        ab + ac - 48a \text{ mod } 36 &= ab + ac \text{ mod } 36 \\
+        -48a \text{ mod } 36 &= 0 \text{ mod } 36 \\
+        -48a &\cong 36 \Rightarrow 48a \cong 36,
+    \end{flalign*}
+    that is, $a$ is some integer which, when multiplied by 48, results in a multiple of 36. Writing 48 as the product of its prime factors gives $2^4 \cdot 3$, while $36 = 2^2 \cdot 3^2$. Note that 36 has one more factor of 3, and so when $a$ is a multiple of 3, $48a$ will be a multiple of 36. Only these values satisfy the exponents in the equation above, and thus $\varphi_a$ is a homomorphism if and only if $a$ is a multiple of 3.
+
+    It is not possible for $\varphi_a$ to be a surjective homomorphism. Because $a$ must be a multiple of 3, we have $\varphi_a(1) = x^a = x^{3n} = (x^3)^n$ for some $n \in \mathbb{Z}$. In turn, $\varphi_a$ generates only the values $\varphi_a(2) = (x^6)^n, \varphi_a(3) = (x^9)^n$, ..., that is, it only generates powers of $x^3$ in $Z_{36}$. By counterexample, there is no value in $\mathbb{Z}/48\mathbb{Z}$ whose image under $\varphi_a$ is $x$, and so $\varphi_a$ cannot be surjective.
+\end{proof}
+
 \end{document}
