@@ -207,4 +207,42 @@ Prove that the following groups are \emph{not} cyclic:
           \end{proof}
 \end{enumerate}
 
+\section*{13. (7/5/23)}
+
+Prove that the following groups are \emph{not} isomorphic:
+
+\begin{enumerate}[label=(\alph*), itemsep=0em]
+    \item $\mathbb{Z} \times Z_2$ and $\mathbb{Z}$
+          \begin{proof}
+            The group of the integers under addition contains no elements of finite order other than the identity, 0. However, the group $\mathbb{Z} \times Z_2$ contains the element $(0, 1)$, which has order 2. Since there is no corresponding element of order 2 in $\mathbb{Z}$, the groups are not isomorphic.
+          \end{proof}
+    \item $\mathbb{Q} \times Z_2$ and $\mathbb{Q}$
+          \begin{proof}
+            The proof that $\mathbb{Q} \times Z_2$ and $\mathbb{Q}$ are not isomorphic is identical to the proof that $\mathbb{Z} \times Z_2$ and $\mathbb{Z}$ are not isomorphic.
+          \end{proof}
+\end{enumerate}
+
+\section*{14. (7/5/23)}
+
+Let $\sigma = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12)$. For each of the following integers $a$ compute $\sigma^a$:
+
+\begin{itemize}[itemsep=0em]
+    \item $a = 13$: $\sigma^{13} = \sigma$
+    \item $a = 65$: $\sigma^{65} = \sigma^5 = (1, 6, 11, 4, 9, 2, 7, 12, 5, 10, 3, 8)$
+    \item $a = 626$: $\sigma^{626} = \sigma^2 = (1, 3, 5, 7, 9, 11)(2, 4, 6, 8, 10, 12)$
+    \item $a = 1195$: $\sigma^{1195} = \sigma^7 = (1, 8, 3, 10, 5, 12, 7, 2, 9, 4, 11, 6)$
+    \item $a = -6$: $\sigma^{-6} = \sigma^6 = (1, 7)(2, 8)(3, 9)(4, 10)(5, 11)(6, 12)$
+    \item $a = -81$: $\sigma^{-81} = \sigma^3 = (1, 4, 7, 10)(2, 5, 8, 11)(3, 6, 9, 12)$
+    \item $a = -570$: $\sigma^{-570} = \sigma^6$
+    \item $a = -1211$: $\sigma^{-1211} = \sigma^{-11} = \sigma$
+\end{itemize}
+
+\section*{15. (7/5/23)}
+
+Prove that $\mathbb{Q} \times \mathbb{Q}$ is not cyclic.
+
+\begin{proof}
+    If $\mathbb{Q} \times \mathbb{Q}$ were cyclic, then it could be generated from a single element. Suppose toward contradiction that some element $(x, y)$ generates $\mathbb{Q} \times \mathbb{Q}$. Under addition in $\mathbb{Q}$ for each element of the ordered pair, we can generate elements of the form $(0, 0), (\pm x, \pm y), (\pm 2x, \pm 2y), (\pm 3x, \pm 3y), ...$. However, we cannot generate the element $(x/2, y/2)$, which is an element of $\mathbb{Q} \times \mathbb{Q}$. Therefore an arbitrary element $(x, y)$ cannot generate $\mathbb{Q} \times \mathbb{Q}$, and so there is no generator. Thus $\mathbb{Q} \times \mathbb{Q}$ is not a cyclic group.
+\end{proof}
+
 \end{document}
