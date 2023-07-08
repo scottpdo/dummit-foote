@@ -269,4 +269,44 @@ Find a presentation for $Z_n$ with one generator.
     This generates the $n$ elements $\{ x, x^2, ..., x^{n - 1}, 1 \}$, which is equal to $Z_n$.
 \end{proof}
 
+\section*{18. (7/8/23)}
+
+Show that if $H$ is any group and $h$ is an element of $H$ with $h^n = 1$, then there is a unique homomorphism from $Z_n = \langle x \rangle$ to $H$ such that $x \mapsto h$.
+
+\begin{proof}
+    Let $\varphi$ be a map from $Z_n \Rightarrow H$ defined by $\varphi(x^k) = h^k$ for $k \in \{ 0, ..., n - 1 \}$. We will show first that $\varphi$ is a homomorphism, and then that is the unique homomorphism from $Z_n$ to $H$ such that $\varphi(x) = h$.
+
+    Let $x^a, x^b$ be arbitrary elements of $Z_n$. We have $\varphi(x^a) \varphi(x^b) = h^a h^b = h^{a + b} = \varphi(x^{a + b}) = \varphi(x^a x^b)$, so $\varphi$ is a homomorphism.
+
+    Next, suppose that $\gamma$ is a homomorphism from $Z_n$ to $H$ with $\gamma(x) = h$. Then, from Ch. 1.6, Ex. 1, we have:
+    \begin{equation*}
+        \gamma(x^a) = \gamma(x)^a = h^a = \varphi(a),
+    \end{equation*}
+    and so $\gamma = \varphi$. Therefore $\varphi$ is the only such homomorphism from $Z_n$ to $H$ with $\varphi(x) = h$.
+\end{proof}
+
+\section*{19. (7/8/23)}
+
+Show that if $H$ is any group and $h$ is any element of $H$, then there is a unique homomorphism from $\mathbb{Z}$ to $H$ such that $1 \mapsto h$.
+
+\begin{proof}
+    The structure of this proof is nearly identical to that of the immediately preceding exercise. Let $\varphi$ be a map from $\mathbb{Z} \Rightarrow H$ defined by $\varphi(k) = h^k$ for any $k \in \mathbb{Z}$. We will show first that $\varphi$ is a homomorphism, and then that is the unique homomorphism from $\mathbb{Z}$ to $H$ such that $\varphi(1) = h$.
+
+    For any $a, b \in \mathbb{Z}$, we have $\varphi(a)\varphi(b) = h^a h^b = h^{a + b} = \varphi(a + b)$, so $\varphi$ is a homomorphism.
+
+    Next, suppose that $\gamma$ is a homomorphism from $\mathbb{Z}$ to $H$ with $\gamma(1) = h$. Then:
+    \begin{equation*}
+        \gamma(a) = \gamma(\underbrace{1 + ... + 1}_{\text{$a$ times}}) = \underbrace{\gamma(1) \cdot ... \cdot \gamma(1)}_{\text{$a$ times}} = \underbrace{h \cdot ... \cdot h}_{\text{$a$ times}} = h^a = \varphi(a),
+    \end{equation*}
+    and so $\gamma = \varphi$. Therefore $\varphi$ is the only such homomorphism from $\mathbb{Z}$ to $H$ with $\varphi(1) = h$.
+\end{proof}
+
+\section*{20. (7/8/23)}
+
+Let $p$ be a prime and let $n$ be a positive integer. Show that if $x$ is an element of the group $G$ such that $x^{p^n} = 1$ then $|x| = p^m$ for some $m \leq n$.
+
+\begin{proof}
+    Since $x^{p^n} = 1$, $x$ has finite order, so let $|x| = a < \infty$. Then we must have $a \leq p^n$, and $a \mid p^n$. Written as a product of its factors, $p^n = \underbrace{p \cdot ... \cdot p}_{\text{$n$ times}}$. From the Fundamental Theorem of Arithmetic, any divisor of this product must be a product of its factors, which consist only of the prime $p$. Thus, it follows that $a$ is likewise a product of $p$, and so $|x| = p^m$ for some $m \leq n$.
+\end{proof}
+
 \end{document}
