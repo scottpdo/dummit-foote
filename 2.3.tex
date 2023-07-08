@@ -245,4 +245,16 @@ Prove that $\mathbb{Q} \times \mathbb{Q}$ is not cyclic.
     If $\mathbb{Q} \times \mathbb{Q}$ were cyclic, then it could be generated from a single element. Suppose toward contradiction that some element $(x, y)$ generates $\mathbb{Q} \times \mathbb{Q}$. Under addition in $\mathbb{Q}$ for each element of the ordered pair, we can generate elements of the form $(0, 0), (\pm x, \pm y), (\pm 2x, \pm 2y), (\pm 3x, \pm 3y), ...$. However, we cannot generate the element $(x/2, y/2)$, which is an element of $\mathbb{Q} \times \mathbb{Q}$. Therefore an arbitrary element $(x, y)$ cannot generate $\mathbb{Q} \times \mathbb{Q}$, and so there is no generator. Thus $\mathbb{Q} \times \mathbb{Q}$ is not a cyclic group.
 \end{proof}
 
+\section*{16. (7/8/23)}
+
+Assume $|x| = n$ and $|y| = m$. Suppose that $x$ and $y$ \emph{commute}: $xy = yx$. Prove that $|xy|$ divides the least common multiple of $m$ and $n$. Need this be true if $x$ and $y$ do \emph{not} commute? Give an example of commuting elements $x, y$ such that the order of $xy$ is not equal to the least common multiple of $|x|$ and $|y|$.
+
+\begin{proof}
+    Given $|x| = n, |y| = m$, note that $x^n = y^m = 1$ implies that $x^{mn} y^{mn} = (xy)^{mn} = 1$. So $xy$ has finite order. Suppose that $|xy| = k < \infty$. Then, from Ch. 1, Ex. 24., $(xy)^k = x^k y^k = 1$.
+    
+    First, consider that if $x^k = a \neq 1$, then $y^k = a^{-1}$. It follows that $x^k = (y^k)^{-1}$, and so $x = y^{-1}$. Then $|xy| = |1| = 1$, which trivially divides the least common multiple of $m$ and $n$.
+
+    In the other case, we must have $x^k = y^k = 1$. Since the orders of $x$ and $y$ are $n$ and $m$, respectively, the orders of both elements divide $k$, that is, $k$ is a multiple of both $n$ and $m$. It follows that $k$ must be the least common multiple of $m$ and $n$.
+\end{proof}
+
 \end{document}
