@@ -352,4 +352,45 @@ Let $p$ be an odd prime and let $n$ be a positive integer. Use the Binomial Theo
     Finally, we note that, since $p^{n - 1}$ is the smallest power $a$ of $1 + p$ such that $(1 + p)^a \equiv 1$ (mod $p^n$), this implies that $1 + p$ is an element of order $p^{n - 1}$ in the multiplicative group $\mathbb{Z}/2^n\mathbb{Z}^\times$.
 \end{proof}
 
+\section*{22. (7/9/23)}
+
+Let $n$ be an integer $n \geq 3$. Use the Binomial Theorem to show that $(1 + 2^2)^{2^{n - 2}} \equiv 1$ (mod $2^n$) but $(1 + 2^2)^{2^{n - 3}} \not\equiv 1$ (mod $2^n$). Deduce that 5 is an element of order $2^{n - 2}$ in the multiplicative group $(\mathbb{Z}/2^n \mathbb{Z})^\times$.
+
+\begin{proof}
+    Now:
+    \begin{align*}
+        (1 + 2^2)^{2^{n - 2}} 
+        & = 1 + 2^{n - 2} \cdot 2^2 + \frac{2^{n - 2}(2^{n - 2} - 1)}{2} \cdot (2^2)^2 + \\
+        & \hspace{1.2em} \frac{2^{n - 2}(2^{n - 2} - 1)(2^{n - 2} - 2)}{6} \cdot (2^2)^3 + ... + (2^2)^{2^{n - 2}} \\
+        & = 1 + 2^n + 2^n \frac{2^2 (2^{n - 2} - 1)}{2} + 2^n \frac{(2^2)^2(2^{n - 2} - 1)(2^{n - 2} - 2)}{6} + \\
+        & \hspace{1.2em} ... + 2^n (2^{2^{n - 1} - n}),
+    \end{align*}
+    and as with Exercise 21, every summand after 1 is the product of $2^n$ with a whole number, which implies that the entire sum is equivalent to 1 (mod $2^n$).
+    
+    Meanwhile:
+    \begin{align*}
+        (1 + 2^2)^{2^{n - 3}} 
+        & = 1 + 2^{n - 3} \cdot 2^2 + \frac{2^{n - 3}(2^{n - 3} - 1)}{2} \cdot (2^2)^2 + \\
+        & \hspace{1.2em} \frac{2^{n - 3}(2^{n - 3} - 1)(2^{n - 3} - 2)}{6} \cdot (2^2)^3 + ... + (2^2)^{2^{n - 3}} \\
+        & = 1 + 2^{n - 1} + 2^n (2^{n - 3} - 1) + 2^n \frac{2^3 (2^{n - 3} - 1)(2^{n - 3} - 2)}{6} + \\
+        & \hspace{1.2em} ... + 2^n (2^{2^{n - 2} - n}),
+    \end{align*}
+    which is not equivalent to 1 (mod $2^n$). It follows that the order of 5 in $(\mathbb{Z}/2^n \mathbb{Z})^\times$ is $2^{n - 2}$.
+\end{proof}
+
+\section*{23. (7/9/23)}
+
+Show that $(\mathbb{Z}/2^n \mathbb{Z})^\times$ is not cyclic for any $n \geq 3$. [Find two distinct subgroups of order 2.]
+
+\begin{proof}
+    Recall that the multiplicative group $(\mathbb{Z}/2^n \mathbb{Z})^\times$ consists of all integers between 1 and $2^n$ with a multiplicative inverse in $\mathbb{Z}/2^n \mathbb{Z}$, that is, all integers relatively prime to $2^n$, or all positive odd integers less than $2^n$.
+
+    Note that, in $\mathbb{Z}/2^n \mathbb{Z}$:
+    \begin{flalign*}
+        (2^n - 1)^2 &= (2^n)^2 - 2 \cdot 2^n + 1 = 2^{2n} - 2^{n + 1} + 1 = 2^n (2^n - 2) + 1 = 1, \text{ and} \\
+        (2^{n - 1} - 1)^2 &= (2^{n - 1})^2 - 2 \cdot 2^{n - 1} + 1 = 2^{2n - 2} - 2^n + 1 = 2^n (2^{n - 2} - 1) + 1 = 1.
+    \end{flalign*}
+    So $2^n - 1$ and $2^{n - 1} - 1$ are two distinct elements in $(\mathbb{Z}/2^n \mathbb{Z})^\times$ of order 2. From Theorem 7.(3), a cyclic group has only one unique subgroup of order 2. However, $(\mathbb{Z}/2^n \mathbb{Z})^\times$ contains the two distinct subgroups $\{ 1, 2^n - 1 \}$ and $\{ 1, 2^{n - 1} - 1 \}$. Thus $(\mathbb{Z}/2^n \mathbb{Z})^\times$ is \emph{not} a cyclic group.
+\end{proof}
+
 \end{document}
