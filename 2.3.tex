@@ -2,7 +2,7 @@
 
 \title{Dummit \& Foote Ch. 2.3: Cyclic Groups and Cyclic Subgroups}
 \author{Scott Donaldson}
-\date{Jun. 2023}
+\date{Jun. - Jul. 2023}
 \usepackage{amsmath, amsthm, amsfonts, enumitem}
 
 \begin{document}
@@ -307,6 +307,49 @@ Let $p$ be a prime and let $n$ be a positive integer. Show that if $x$ is an ele
 
 \begin{proof}
     Since $x^{p^n} = 1$, $x$ has finite order, so let $|x| = a < \infty$. Then we must have $a \leq p^n$, and $a \mid p^n$. Written as a product of its factors, $p^n = \underbrace{p \cdot ... \cdot p}_{\text{$n$ times}}$. From the Fundamental Theorem of Arithmetic, any divisor of this product must be a product of its factors, which consist only of the prime $p$. Thus, it follows that $a$ is likewise a product of $p$, and so $|x| = p^m$ for some $m \leq n$.
+\end{proof}
+
+\section*{21. (7/9/23)}
+
+Let $p$ be an odd prime and let $n$ be a positive integer. Use the Binomial Theorem to show that $(1 + p)^{p^{n - 1}} \equiv 1$ (mod $p^n$) but $(1 + p)^{p^{n - 2}} \not\equiv 1$ (mod $p^n$). Deduce that $1 + p$ is an element of order $p^{n - 1}$ in the multiplicative group $(\mathbb{Z}/p^n \mathbb{Z})^\times$.
+
+\begin{proof}
+    The Binomial Theorem states that $(x + y)^n = \binom{n}{0}x^n y^0 + \binom{n}{1}x^{n - 1}y^1 + ... + \binom{n}{n}x^0y^n = \sum_{k = 0}^{n} \binom{n}{k} x^{n - k}y^k$.
+
+    Then for $(1 + p)^{p^{n - 1}}$, we have:
+    \begin{align*}
+        (1 + p)^{p^{n - 1}} 
+        & = \sum_{k = 0}^{p^{n - 1}} \binom{p^{n - 1}}{k} p^{{p^{n - 1}} - k} \\ 
+        & = 1 + \sum_{k = 1}^{p^{n - 1}} \binom{p^{n - 1}}{k} p^n p^{({p^{n - 1}} - k - n)} \\ 
+        & = 1 + p^n \sum_{k = 1}^{p^{n - 1}} \binom{p^{n - 1}}{k} p^{({p^{n - 1}} - k - n)}.
+    \end{align*}
+
+    Notice that, by factoring out the constant $p^n$ from the sum, the entire equation will be equal to 1 (mod $p^n$) if the exponent within the sum, $p^{n - 1} - k - n$, remains a non-negative integer for each summand. Now $k$ ranges from 1 to $n$, so $p^{n - 1} - k - n \geq p^{n - 1} - n - n = p^{n - 1} - 2n$. We will that $p^{n - 1} - 2n \geq 0$ for all primes $p$, with $n > 0$.
+
+    First, let's consider the case $n \geq 3$ (we will consider $n = 1$ and 2 separately). By induction, with the base case $n = 3$, we have $p^{n - 1} - 2n = p^2 - 6$, which is positive for all primes $p \geq 3$. Suppose then that $p^{n - 1} - 2n \geq 0$ for some fixed $n$. This implies that $p^{n - 1} \geq 2n$. Now since we are only considering odd prime numbers $p$, we must have $p > 2$. Then if we multiply the left side of the inequality by $p$, and add 2 to the right side, the inequality holds because we have added more to the left side than the right side. This results in $p \cdot p^{n - 1} \geq 2n + 2 \Rightarrow p^{(n + 1) - 1} \geq 2(n + 1)$, which satisfies the induction step. This shows that the exponent in the above sum is indeed a non-negative integer, and so the entire sum reduces to an integer, which proves that $(1 + p)^{p^{n - 1}} \equiv 1$ (mod $p^n$) for $n \geq 3$.
+
+    The final cases $n = 1$ and $n = 2$ are simple enough to solve algebraically. For $n = 1$, we have $(1 + p)^{p^0} = 1 + p \equiv 1$ (mod $p$). Then, for $n = 2$, we have $(1 + p)^{p^1} = (1 + p)^p$. Again using the Binomial Theorem, we have:
+    \begin{align*}
+        (1 + p)^p 
+        & = \sum_{k = 0}^{p} \binom{p}{k} p^{p - k} = \underbrace{\sum_{k = 0}^{p} \binom{p}{k} p^k}_{\text{ (alternate form)}} \\ 
+        & = 1 + \sum_{k = 1}^{p} \binom{p}{k} p^k = 1 + p^2 \sum_{k = 1}^{p} \binom{p}{k} p^{k - 2} \\
+        & = 1 + p^2 \Bigl(\binom{p}{1} p^{-1} + \binom{p}{2} p^0 + \binom{p}{3} p^1 + ... + \binom{p}{p} p^{p - 2} \Bigr).
+    \end{align*}
+    Of the summands within the parentheses, only one — $\binom{p}{1} p^{-1}$ is not obviously an integer, because may be a fraction with $p$ in the denominator. However, it reduces to $\frac{p!}{1 \cdot (p - 1)!} p^{-1} = p \cdot p^{-1} = 1$. Therefore the sum remains a whole number, and so the entire expansion is equivalent to 1 mod $p^2$.
+
+    This completes the proof that $(1 + p)^{p^{n - 1}} \equiv 1$ (mod $p^n$) for odd primes $p$ and $n > 0$.
+
+    Now if we consider $(1 + p)^{p^{n - 2}}$, the Binomial Theorem expansion shows that:
+    \begin{align*}
+        (1 + p)^{p^{n - 2}} 
+        & = \sum_{k = 0}^{p^{n - 2}} \binom{p^{n - 2}}{k} p^{{p^{n - 2}} - k} \\ 
+        & = 1 + p^{n - 2} p + \frac{p^{n - 2}(p^{n - 2} - 1)}{2}p^2 + \frac{p^{n - 2}(p^{n - 2} - 1)(p^{n - 2} - 2)}{6}p^3 \\
+        & \hspace{1.2em} + ... + p^{p^{n - 2}} \\
+        & = 1 + p^{n - 1} + p^n \bigl( ... \bigr)
+    \end{align*}
+    Where the omitted elements within the parenthesis reduce to an integer by similar proof to above. However, the whole expansion is equivalent to $(1 + p^{n - 1})$ mod $p^n$, not 1.
+
+    Finally, we note that, since $p^{n - 1}$ is the smallest power $a$ of $1 + p$ such that $(1 + p)^a \equiv 1$ (mod $p^n$), this implies that $1 + p$ is an element of order $p^{n - 1}$ in the multiplicative group $\mathbb{Z}/2^n\mathbb{Z}^\times$.
 \end{proof}
 
 \end{document}
