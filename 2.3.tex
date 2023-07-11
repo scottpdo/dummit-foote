@@ -393,4 +393,33 @@ Show that $(\mathbb{Z}/2^n \mathbb{Z})^\times$ is not cyclic for any $n \geq 3$.
     So $2^n - 1$ and $2^{n - 1} - 1$ are two distinct elements in $(\mathbb{Z}/2^n \mathbb{Z})^\times$ of order 2. From Theorem 7.(3), a cyclic group has only one unique subgroup of order 2. However, $(\mathbb{Z}/2^n \mathbb{Z})^\times$ contains the two distinct subgroups $\{ 1, 2^n - 1 \}$ and $\{ 1, 2^{n - 1} - 1 \}$. Thus $(\mathbb{Z}/2^n \mathbb{Z})^\times$ is \emph{not} a cyclic group.
 \end{proof}
 
+\section*{24. (7/11/23)}
+
+Let $G$ be a finite group and let $x \in G$.
+
+\begin{enumerate}[label=(\alph*), itemsep=0em]
+    \item Prove that if $g \in N_G(\langle x \rangle)$ then $gxg^{-1} = x^a$ for some $a \in \mathbb{Z}$.
+          \begin{proof}
+            Recall that $N_G(\langle x \rangle) = \{ g \in G \mid g \langle x \rangle g^{-1} = \langle x \rangle \}$.
+
+            Let $g \in G$ be in the normalizer of $\langle x \rangle$. Then for each $x^k \in \langle x \rangle$, $gx^kg^{-1} \in \langle x \rangle$, and specifically $gxg^{-1} \in \langle x \rangle$. Since $\langle x \rangle$ consists of all powers of $x$, this implies in turn that $gxg^{-1} = x^a$ for some $a \in \mathbb{Z}$.
+          \end{proof}
+    \item Prove conversely that if $gxg^{-1} = x^a$ for some $a \in \mathbb{Z}$ then $g \in N_G(\langle x \rangle)$.
+          \begin{proof}
+            Suppose that, for some $g \in G$, $gxg^{-1} = x^a$ for some $a \in \mathbb{Z}$. It can be shown by induction that $(gxg^{-1})^k = gx^kg^{-1}$ for all integers $k$. It follows that, for all elements $x^k \in \langle x \rangle$, we have $gx^kg^{-1} = (gxg^{-1})^k = x^{ak}$, a power of $x$ which is therefore also in $\langle x \rangle$. This implies that $g \langle x \rangle g^{-1} = \langle x \rangle$, and thus $g \in N_G(\langle x \rangle)$.
+          \end{proof}
+\end{enumerate}
+
+\section*{25. (7/11/23)}
+
+Let $G$ be a cyclic group of order $n$ and let $k$ be an integer relatively prime to $n$. Prove that the map $x \mapsto x^k$ is surjective. Use Lagrange's Theorem (Ch. 1.7, Exercise 19) to prove the same is true for any finite group of order $n$.
+
+\begin{proof}
+    Let $G = \langle x \rangle, |G| = n$, and let $k$ be relatively prime to $n$. Define a map $\varphi: G \rightarrow G$ by $\varphi(x) = x^k$.
+
+    From Proposition 6., the generators of $G$ are those $x^k$ for which $k$ is relatively prime to $n$, so $G = \langle x \rangle = \langle x^k \rangle$; that is, $\langle x^k \rangle$ has $n$ distinct elements. Now $\varphi(\langle x \rangle) = \{ 1, x^k, x^{2k}, ..., x^{(n - 1)k} \} = \langle x^k \rangle$. Thus $\varphi$ maps onto every element of $G = \langle x^k \rangle$, and so is surjective.
+
+    Now let $H$ be an arbitrary finite group of order $n$ and define $\varphi$ as above. Let $x \in H$ and suppose that $|x| = a$. Now $\langle x \rangle$ is a subgroup of $H$ of order $a$, so by Lagrange's Theorem, $a$ divides $n$. Next, again consider $\varphi(\langle x \rangle) = \{ 1, x^k, x^{2k}, ..., x^{(n - 1)k} \} = \langle x^k \rangle$. Since $k$ is relatively prime to $n$, it is also relatively prime to every divisor of $n$, including $a$. So the order of $\langle x^k \rangle$ can be no less than $a$, since for no integer $b < a$ do we have $x^{bk} = 1$. However, since $x^a = 1 \Rightarrow x^{ak} = 1$, it can also be no greater than $a$. It follows that $|\langle x^k \rangle| = a$. And, since $x^k \in \langle x^k \rangle$ and $x^k \in \langle x \rangle$, we must have $\langle x \rangle = \langle x^k \rangle$. Thus, every element $x \in H$, $x$ is included in $\varphi(\langle x \rangle)$, that is, there is some power of $x$ whose image under $\varphi$ is $x$, and therefore $\varphi$ is a surjective map.
+\end{proof}
+
 \end{document}
