@@ -23,4 +23,14 @@ Prove that if $H$ is a subgroup of $G$ then $\langle H \rangle = H$.
     that is, for all subset $K \leq G$ with $H \subseteq K$, we have $h \in K$. In particular, since $H$ is a subgroup of $G$, we have $h \in H$, since $H \leq G$ and $H \subseteq H$. Therefore $\langle H \rangle \subseteq H$, and it follows that $\langle H \rangle = H$.
 \end{proof}
 
+\section*{2. (7/17/23)}
+
+Prove that if $A$ is a subset of $B$ then $\langle A \rangle \leq \langle B \rangle$. Give an example where $A \subseteq B$ with $A \neq B$ but $\langle A \rangle = \langle B \rangle$.
+
+\begin{proof}
+    Let $G$ be a group and let $A \subseteq B \subseteq G$. Recall that one definition of $\langle A \rangle$ is the set of all finite words of elements and inverses of elements of $A$, that is, every element of $\langle A \rangle$ can be written $a_1^{\varepsilon_1} a_2^{\varepsilon_2} ... a_n^{\varepsilon_n}$, where $n \in \mathbb{Z}, n \geq 0$ and $a_i \in A, \varepsilon_i = \pm 1$ for each $i$. Since $A$ is a subset of $B$, $a_i \in A \Rightarrow a_i \in B$, and so each element $a_1^{\varepsilon_1} a_2^{\varepsilon_2} ... a_n^{\varepsilon_n} \in \langle A \rangle$ is also in $\langle B \rangle$. Therefore $\langle A \rangle \leq \langle B \rangle$.
+
+    Now let $G = \mathbb{Z}/3\mathbb{Z}$, $A = \{ 1 \}$, and $B = \{ 0, 1 \}$. Then we have $A \subseteq B$ with $A \neq B$ but $\langle A \rangle = \langle B \rangle = G$.
+\end{proof}
+
 \end{document}
