@@ -33,4 +33,22 @@ Prove that if $A$ is a subset of $B$ then $\langle A \rangle \leq \langle B \ran
     Now let $G = \mathbb{Z}/3\mathbb{Z}$, $A = \{ 1 \}$, and $B = \{ 0, 1 \}$. Then we have $A \subseteq B$ with $A \neq B$ but $\langle A \rangle = \langle B \rangle = G$.
 \end{proof}
 
+\section*{3. (7/17/23)}
+
+Prove that if $H$ is an abelian subgroup of $G$ then $\langle H, Z(G) \rangle$ is abelian. Give an explicit example of an abelian subgroup $H$ of a group $G$ such that $\langle H, C_G(H) \rangle$ is not abelian.
+
+\begin{proof}
+    Let $G$ be a group and let $H$ be an abelian subgroup of $G$. Recall that $Z(G) = \{ g \in G \mid xg = gx \text{ for all } x \in G \}$, that is, the set of elements of $G$ that commute with every element of $G$. We will show that $\langle H, Z(G) \rangle$ is an abelian subgroup of $G$.
+
+    First, we will show that the product of any two elements commutes with both elements. Let $a, b \in G$ be commuting elements. Then:
+    \begin{equation*}
+        (ab)a = aba = aab = a(ab), \text{ and } (ab)b = abb = bab = b(ab),
+    \end{equation*}
+    as desired.
+
+    Now the generated subgroup $\langle H, Z(G) \rangle$ is constructed from finite words of elements and inverses of elements from $H$ and $Z(G)$. Since $H$ is an abelian subgroup and elements of $Z(G)$ (and therefore their inverses) commute with every element of $G$ (and therefore $H$), it follows that every element in $\langle H, Z(G) \rangle$ is a product of commuting elements. Every such element therefore commutes with every other element in $H$ and $Z(G)$, as well as any other product of elements of $H$ and $Z(G)$. Thus $\langle H, Z(G) \rangle$ is an abelian subgroup of $G$.
+
+    However, it does not follow that $\langle H, C_G(H) \rangle$ is an abelian subgroup of $G$. Let $G = D_8$ and $H = \{ 1, r^2 \}$. The centralizer of $H$ in $G$ is all of $G$, since every element of $H$ commutes with every other element of $G$ (that is, $H = Z(G)$). Then the generated subgroup $\langle H, C_G(H) \rangle = \langle H, G \rangle = G$, which is non-abelian.
+\end{proof}
+
 \end{document}
