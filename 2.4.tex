@@ -237,4 +237,31 @@ Show that $SL_2(\mathbb{F}_3)$ and $S_4$ are two nonisomorphic groups of order 2
     From Exercise 9., $SL_2(\mathbb{F}_3)$ contains 24 elements, as does $S_4$. However, in $SL_2(\mathbb{F}_3)$, the element $\begin{pmatrix}2 & 0 \\ 1 & 2\end{pmatrix}$ has order 6, while no element in $S_4$ has order greater than 4. Therefore for any map $\varphi: SL_2(\mathbb{F}_3) \rightarrow S_4$, there is no element in $S_4$ such that $\varphi(\begin{pmatrix}2 & 0 \\ 1 & 2\end{pmatrix}^6) = \varphi(\begin{pmatrix}2 & 0 \\ 1 & 2\end{pmatrix})^6$. Then no such $\varphi$ is an isomorphism, and so the groups are not isomorphic to each other.
 \end{proof}
 
+\section*{12. (8/3/23)}
+
+Prove that the subgroup of upper triangular matrices in $GL_3(\mathbb{F}_2)$ is isomorphic to the dihedral group of order 8.
+
+\begin{proof}
+    Let $A$ be the subgroup of upper triangular matrices in $GL_3(\mathbb{F}_2)$ and let $\varphi: D_8 \rightarrow A$ be defined on generators by
+    \begin{equation*}
+        \varphi(s) = \begin{pmatrix}1 & 1 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1\end{pmatrix} \text{ and } \varphi(r) = \begin{pmatrix}1 & 1 & 0 \\ 0 & 1 & 1 \\ 0 & 0 & 1\end{pmatrix}.
+    \end{equation*}
+    We will show that $\varphi$ is an isomorphism.
+
+    The orders of the generators in $D_8$ hold under $\varphi$ in $A$:
+    \begin{equation*}
+        \varphi(s)^2 = \begin{pmatrix}1 & 1 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1\end{pmatrix}\begin{pmatrix}1 & 1 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1\end{pmatrix} = \begin{pmatrix}1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1\end{pmatrix}
+    \end{equation*}
+    and
+    \begin{equation*}
+        \varphi(r)^4 = \begin{pmatrix}1 & 1 & 0 \\ 0 & 1 & 1 \\ 0 & 0 & 1\end{pmatrix}^4 = \Biggl(\begin{pmatrix}1 & 0 & 1 \\ 0 & 1 & 0 \\ 0 & 0 & 1\end{pmatrix}^2\Biggr)^2 = \begin{pmatrix}1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1\end{pmatrix}.
+    \end{equation*}
+
+    We also note that $\varphi^{-1}(r) = \begin{pmatrix}1 & 1 & 1 \\ 0 & 1 & 1 \\ 0 & 0 & 1\end{pmatrix}$, and that
+    \begin{align*}
+        \varphi(s)\varphi(r) = \begin{pmatrix}1 & 1 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1\end{pmatrix}\begin{pmatrix}1 & 1 & 0 \\ 0 & 1 & 1 \\ 0 & 0 & 1\end{pmatrix} &= \begin{pmatrix}1 & 0 & 1 \\ 0 & 1 & 1 \\ 0 & 0 & 1\end{pmatrix} \\ &= \begin{pmatrix}1 & 1 & 1 \\ 0 & 1 & 1 \\ 0 & 0 & 1\end{pmatrix}\begin{pmatrix}1 & 1 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1\end{pmatrix} = \varphi^{-1}(r)\varphi(s).
+    \end{align*}
+    Then $\varphi$ is a surjective homomorphism. Since the order of $A$ is 8 (the upper-middle, upper-right, and middle-right entries may each be 0 or 1, so there are $2^3 = 8$ possible upper triangular matrices), $\varphi$ is also injective, and is thus an isomorphism. Thus the subgroup of upper triangular matrices in $GL_3(\mathbb{F}_2)$ is isomorphic to $D_8$.
+\end{proof}
+
 \end{document}
