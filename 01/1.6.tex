@@ -1,0 +1,501 @@
+\documentclass{article}
+
+\title{Dummit \& Foote Ch. 1.6: Homomorphisms and Isomorphisms}
+\author{Scott Donaldson}
+\date{Mar. - Apr. 2023}
+\usepackage{amsmath, amsthm, amsfonts, enumitem}
+
+\DeclareMathOperator\cis{cis}
+
+\begin{document}
+
+\maketitle
+
+\section*{1. (3/25/23)}
+
+Let $\varphi: G \rightarrow H$ be a homomorphism.
+
+\begin{enumerate}[label=(\alph*)]
+    \item Prove that $\varphi(x^n) = \varphi(x)^n$ for all $n \in \mathbb{Z}^+$.
+          \begin{proof}
+            By induction. When $n = 1, \varphi(x^1) = \varphi(x) = \varphi(x)^1$.
+
+            Suppose for some $n$, $\varphi(x^n) = \varphi(x)^n$. Then $\varphi(x^{n + 1}) = \varphi(x^n x)$. By definition, because $\varphi$ is a homomorphism from $G$ to $H$, $\varphi(ab) = \varphi(a)\varphi(b)$ for all $a, b \in G$. So $\varphi(x^n x) = \varphi(x^n) \varphi(x)$. By the induction hypothesis, $\varphi(x^n) = \varphi(x)^n$, so this equals $\varphi(x)^{n + 1}$.
+
+            Therefore $\varphi(x^n) = \varphi(x)^n$ for all $n \in \mathbb{Z}^+$.
+          \end{proof}
+
+    \item Do part (a) for $n = -1$ and deduce that $\varphi(x^n) = \varphi(x)^n$ for all $n \in \mathbb{Z}$.
+    
+          This proof diverges slightly from the directions but arrives at the same result.
+          
+          Note that, for all $x \in G$, $\varphi(x) = \varphi(1 \cdot x) = \varphi(1) \varphi(x)$. Therefore $\varphi(1) = 1$ (in $H$). Now $1 = \varphi(1) = \varphi(x^n \cdot x^{-n}) = \varphi(x^n) \varphi(x^{-n})$. From part a), this equals $\varphi(x)^n \varphi(x^{-n})$. Left-multiplying both sides by $\varphi(x)^{-n}$, we obtain $\varphi(x^{-n}) = \varphi(x)^{-n}$, as desired.
+          
+\end{enumerate}
+
+\section*{2. (3/26/23)}
+
+If $\varphi: G \rightarrow H$ is an isomorphism, prove that $|\varphi(x)| = |x|$ for all $x \in G$. Deduce that any two isomorphic groups have the same number of elements of order $n$ for each $n \in \mathbb{Z}^+$.
+
+\begin{proof}
+    Let $\varphi: G \rightarrow H$ be an isomorphism and let $x \in G$. If $|x|$ is finite, then, from 1.a), $\varphi(x^n) = \varphi(x)^n$ and (from 1.b) $\varphi(1) = \varphi(x^n) = \varphi(x)^n = 1 \in H$. The order of the element $\varphi(x)^n \in H$ is therefore at most $n$. Because $\varphi$ is an isomorphism, there is only one element whose image is 1, and that is $\varphi(1) = 1$. Therefore for no $m < n$ do we have $\varphi(x)^m = 1$, and so the order of $\varphi(x)$ is $n$.
+
+    Next, suppose that $x$ has infinite order in $G$. Then $x^n \neq 1$ for all $n > 0$. Because $\varphi$ is an isomorphism, we know that only $\varphi(1) = 1 \in H$. Therefore $\varphi(x^n) = \varphi(x)^n \neq 1$ for all $n > 0$. Therefore $|\varphi(x)| = \infty$.
+
+    This result is not necessarily true if $\varphi$ is a homomorphism. For example, $\varphi$ could send every element of $G$ to the identity in $H$. (This is a homomorphism: $\varphi(x)\varphi(y) = 1 \cdot 1 = 1$ and $\varphi(x)\varphi(y) = \varphi(xy) = 1$.) Then for all $x \in G$, $|\varphi(x)| = 1$, regardless of the order of $x$.
+\end{proof}
+
+\section*{3. (3/27/23)}
+
+If $\varphi: G \rightarrow H$ is an isomorphism, prove that $G$ is abelian if and only if $H$ is abelian. If $\varphi$ is a homomorphism, what additional conditions on $\varphi$ (if any) are sufficient to ensure that if $G$ is abelian, then so is $H$?
+
+\begin{proof}
+    First, let $G$ be an abelian group and $\varphi: G \rightarrow H$ be an isomorphism. Given arbitrary distinct elements of $H$, because $\varphi$ is surjective, there are two distinct elements in $G$ whose images are these elements in $H$. Let $\varphi(x), \varphi(y) \in H$ be distinct elements and $x, y \in G$. Then $\varphi(xy) = \varphi(x)\varphi(y)$. Also, because $x$ and $y$ commute, $\varphi(xy) = \varphi(yx) = \varphi(y)\varphi(x)$. Therefore $\varphi(x)\varphi(y) = \varphi(y)\varphi(x)$, so $H$ is an abelian group.
+
+    Next, let $H$ be an abelian group. Again let $\varphi(x), \varphi(y) \in H$ and $x, y \in G$. Then $\varphi(x)\varphi(y) = \varphi(xy)$. Also, $\varphi(x)\varphi(y) = \varphi(y)\varphi(x) = \varphi(yx)$. So $\varphi(xy) = \varphi(yx)$. Because $\varphi$ is one-to-one, this implies that $xy = yx$, and so $G$ is an abelian group.
+
+    If $\varphi$ is a homomorphism, then $G$ being an abelian group does not imply that $H$ is abelian. For example, $H$ could be a non-abelian group and $\varphi$ could send every element of $G$ to the identity in $H$.
+
+    A sufficient condition for a homomorphism $\varphi: G \rightarrow H$ to ensure that if $G$ is abelian, then so is $H$, is that $\varphi$ is surjective. Then for all $h \in H$, $h = \varphi(x)$ for some $x \in G$ (possibly more than one $x$). Let $h_1, h_2 \in H$ with $h_1 = \varphi(x_1) = \varphi(x_2) = ...$ and $h_2 = \varphi(y_1) = \varphi(y_2) = ...$ and with $x_i, y_j \in G$. $\varphi$ is a homomorphism, so for any $i, j$, $\varphi(x_i y_j) = \varphi(x_i) \varphi(y_j) = h_1 h_2$. Also, because $G$ is abelian, $\varphi(x_i y_j) = \varphi(y_j x_i) = \varphi(y_j) \varphi(x_i) = h_2 h_1$. Therefore $h_1 h_2 = h_2 h_1$, so $H$ is abelian.
+\end{proof}
+
+\section*{4. (3/27/23)}
+
+Prove that the multiplicative groups $\mathbb{R} - \{0\}$ and $\mathbb{C} - \{0\}$ are not isomorphic.
+
+\begin{proof}
+    For any $x \in \mathbb{R} - \{0\}$, $x \neq \pm{1}$, $x$ has infinite order. The proof of this is as follows: Let $x \in \mathbb{R} - \{0, \pm{1}\}$. If the absolute value of $x$ is greater than 1, then the absolute value of $x^n$ is greater than 1 for all $n$, and by induction $x$ has infinite order. If the absolute value of $x$ is less than 1, then the absolute value of $x^n$ is less than 1 for all $n$, and by induction $x$ has infinite order. So $1$ and $-1$ are the only elements of $\mathbb{R} - \{0\}$ with finite order.
+
+    In $\mathbb{C} - \{0\}$, $i$ and $-i$ have order 4. From 2., isomorphic groups have the same number of elements of order $n$ for each $n \in \mathbb{Z}^+$. However, $\mathbb{R} - \{0\}$ has no elements of order 4, and $\mathbb{C} - \{0\}$ has at least 2. Therefore they are not isomorphic.
+\end{proof}
+
+\section*{5. (3/27/23)}
+
+Prove that the additive groups $\mathbb{R}$ and $\mathbb{Q}$ are not isomorphic.
+
+\begin{proof}
+    Given that $\mathbb{R}$ and $\mathbb{Q}$ do not have the same cardinality ($\mathbb{R}$ is uncountable while $\mathbb{Q}$ is countably infinite), there is no map $\varphi: \mathbb{Q} \rightarrow \mathbb{R}$ that is surjective. An isomorphism is a bijection that is necessarily surjective, and so the two groups are not isomorphic.
+
+    Alternatively, consider the homomorphism $\varphi: \mathbb{Q} \rightarrow \mathbb{R}$ defined by $\varphi(q) = q$. Such a map is injective but not surjective: There is no $q \in \mathbb{Q}$ with $\varphi(q) = \sqrt{2} \in \mathbb{R}$. If we attempt to make $\varphi$ surjective by assigning $\varphi(q_1) = \sqrt{2}$ for some $q_1$, then $q_1$ now has no preimage in $\mathbb{Q}$, and so we must find a $q_2$ and assign $\varphi(q_2) = q_1$. However, now $q_2$ has no preimage. This process continues \emph{ad infinitum}, and $\varphi$ is forever not surjective. Therefore $\mathbb{R}$ and $\mathbb{Q}$ are not isomorphic.
+\end{proof}
+
+\section*{6. (3/27/23)}
+
+Prove that the additive groups $\mathbb{Z}$ and $\mathbb{Q}$ are not isomorphic.
+
+\begin{proof}
+    Consider a homomorphism $\varphi: \mathbb{Z} \rightarrow \mathbb{Q}$. For all $n \in \mathbb{Z}$, $\varphi(0) = \newline
+    \varphi(n + (-n)) = \varphi(n) + \varphi(-n)$. From 1.b), $\varphi(0) = 0$, so $\varphi$ preserves inverses: $\varphi(-n) = -\varphi(n)$. That is, $\varphi(n) = q$ implies that $\varphi(-n) = -q$.
+
+    We also claim that, if $\varphi(1) = k$, then $\varphi$ assigns all integers to their product with $k$ in $\mathbb{Q}$. Since $\varphi$ preserves inverses, we only have to show this for $n \in \mathbb{Z}^+$, by induction (base case given): Suppose that $\varphi(n) = kn$ for some $n \in \mathbb{Q}^+$. Then $\varphi(n + 1) = \varphi(n) + \varphi(1) = kn + k = k(n + 1)$, as desired. Therefore $\varphi$ assigns all integers to their product with $k$ in $\mathbb{Q}$.
+
+    But now it is impossible for $\varphi$ to be surjective, because only integer multiples of $k$ have preimages in $\mathbb{Z}$. For example, $k / 2 \in \mathbb{Q}$ has no preimage. Therefore $\mathbb{Z}$ and $\mathbb{Q}$ are not isomorphic.
+\end{proof}
+
+\section*{7. (3/27/23)}
+
+Prove that $D_8$ and $Q_8$ are not isomorphic.
+
+\begin{proof}
+    $s, sr, sr^2, sr^3 \in D_8$ all have order 2. However, in $Q_8$, only $-1$ has order 2. From 2., isomorphic groups must have the same number of elements of each order. Therefore $D_8$ and $Q_8$ are not isomorphic.
+\end{proof}
+
+\section*{8. (3/28/23)}
+
+Prove that if $n \neq m$, $S_n$ and $S_m$ are not isomorphic.
+
+\begin{proof}
+    Without loss of generality, let $n > m$. From Chapter 1.3, the order of a symmetric group $S_n$ is $n!$. Then $S_n$ contains $n!$ elements, and $S_m$ contains $m!$ elements. It is trivial to show that $n > m \Rightarrow n! > m!$. Since the two groups do not have the same cardinality, there is no bijection between them. Thus $S_n$ and $S_m$ are not isomorphic.
+\end{proof}
+
+\section*{9. (3/28/23)}
+
+Prove that $D_{24}$ and $S_4$ are not isomorphic.
+
+\begin{proof}
+    $D_{24}$ has 24 elements, and $S_4$ has 24 elements. They are both non-abelian. In order to prove that they are not isomorphic, then, let us consider the orders of each group's respective elements.
+
+    $D_{24}$ has 13 elements of order 2: $\{ sr^i \mid i \in \{0, ..., 11\} \}$ and $r^6$.
+
+    The elements of order 2 in $S_4$ are those permutations with cycle decompositions that are disjoint 2-cycles: \newline
+    $\{ (1,2), (1,3), (1,4), (2,3), (2,4), (3,4), (1,2)(3,4), (1,3)(2,4), (1,4)(2,3) \}$. So \newline
+    there are 9 elements of order 2 in $S_4$.
+
+    Since $D_{24}$ and $S_4$ do not have the same number of elements of order 2, they are not isomorphic.
+\end{proof}
+
+\section*{10. (3/31/23)}
+
+Fill in the details of the proof that the symmetric groups $S_\Delta$ and $S_\Omega$ are isomorphic if $|\Delta| = |\Omega|$ as follows: Let $\theta: \Delta \rightarrow \Omega$ be a bijection. Define
+\begin{equation*}
+    \varphi: S_\Delta \rightarrow S_\Omega \text{ by } \varphi(\sigma) = \theta \circ \sigma \circ \theta^{-1} \text{ for all } \sigma \in S_\Delta
+\end{equation*}
+and prove the following:
+
+\begin{enumerate}[label=(\alph*)]
+    \item $\varphi$ is well-defined, that is, if $\sigma$ is a permutation of $\Delta$ then $\theta \circ \sigma \circ \theta^{-1}$ is a permutation of $\Omega$.
+
+        To show that $\varphi$ is well-defined, we need to show that it assigns a given permutation of $\Delta$ to a unique permutation of $\Omega$.
+
+        An arbitrary permutation $\sigma$ is a bijection from $\Delta$ to itself. It is represented with a cycle decomposition that shows how it assigns a given element of $\Delta$ to another element. For $\sigma$ and a given element $s_1$, we can say that $\sigma$ assigns $s_1$ to $s_2 \in \Delta$.
+        
+        Since $\Delta$ and $\Omega$ have the same cardinality, there exists a bijection $\theta$ between them, and we can say that $\theta$ assigns distinct $s_1, s_2 \in \Delta$ to distinct $t_1, t_2 \in \Omega$, respectively.
+
+        Now let us consider what happens when we apply $\varphi$ to $\sigma$. By definition, $\varphi(\sigma) = \theta \circ \sigma \circ \theta^{-1}$. $\theta^{-1}$ is a bijection: $\Omega \rightarrow \Delta$, $\sigma$ is a bijection: $\Delta \rightarrow \Delta$, and $\theta$ is a bijection: $\Delta \rightarrow \Omega$. Applying the compositions, we see that $\varphi(\sigma)$ is a map from $\Omega \rightarrow \Omega$ (not yet proven to be a bijection).
+        
+        $t_1$ is an arbitrary element of $\Omega$ with preimage $s_1 \in \Delta$. Then:
+        \begin{equation*}
+            \varphi(\sigma)(t_1) = \theta (\sigma (\theta^{-1}(t_1))) = \theta (\sigma(s_1)) = \theta(s_2) = t_2,
+        \end{equation*}
+        that is, $\varphi(\sigma)$ is a permutation of $\Omega$ that uniquely assigns $t_1$ to $t_2$. Therefore $\varphi$ is well-defined.
+    
+    \item $\varphi$ is a bijection from $S_\Delta$ onto $S_\Omega$.
+        
+        We have shown that $\varphi$ is a well-defined map from $S_\Delta$ onto $S_\Omega$. However, it remains to be shown that $\varphi$ is a bijection.
+
+        To show that $\varphi$ is invertible, define a map $\gamma: S_\Omega \rightarrow S_\Delta$, with $\gamma(\tau) = \theta^{-1} \circ \tau \circ \theta$ for $\tau \in \Omega$. The proof above suffices to show that $\gamma$ is well-defined.
+
+        Consider what happens when we take $\gamma(\varphi(\sigma))$:
+        \begin{equation*}
+            \gamma(\varphi(\sigma)) = \gamma(\theta \circ \sigma \circ \theta^{-1}) = \theta^{-1} \circ (\theta \circ \sigma \circ \theta^{-1}) \circ \theta = (\theta^{-1} \theta) \circ \sigma \circ (\theta^{-1} \theta) = \sigma.
+        \end{equation*}
+
+        That is, $\gamma(\varphi(\sigma)) = \sigma$ for all $\sigma \in S_\Delta$. Therefore $\gamma = \varphi^{-1}$. Since $\varphi$ has a well-defined inverse, it is a bijection from $S_\Delta$ onto $S_\Omega$.
+
+    \item $\varphi$ is a homomorphism, that is, $\varphi(\sigma \circ \tau) = \varphi(\sigma) \circ \varphi(\tau)$.
+
+        We apply the function compositions: 
+        
+        \begin{multline*}
+            \varphi(\sigma \circ \tau) = \\
+            (\theta \circ \sigma \circ \theta^{-1}) \circ (\theta \circ \tau \circ \theta^{-1}) =
+            \theta \circ \sigma \circ (\theta^{-1} \circ \theta) \circ \tau \circ \theta^{-1} = \\
+            \theta \circ \sigma \circ \tau \circ \theta^{-1} = \varphi(\sigma) \circ \varphi(\tau).
+        \end{multline*}
+
+        Thus $\varphi$ is a homomorphism, and since it is also a bijection, the groups $S_\Delta$ and $S_\Omega$ are isomorphic.
+\end{enumerate}
+
+\section*{11. (4/1/23)}
+
+Let $A$ and $B$ be groups. Prove that $A \times B \cong B \times A$.
+
+\begin{proof}
+    Consider the map $\varphi: A \times B \rightarrow B \times A$ defined by $\varphi(a, b) = (b, a)$. $\varphi$ is injective, since $\varphi(a_1, b_1) = \varphi(a_2, b_2) \Rightarrow (b_1, a_1) = (b_2, a_2) \Rightarrow a_1 = a_2$ and $b_1 = b_2$. $\varphi$ is surjective, since for every $(b, a) \in B \times A$, there exists by definition $(a, b) \in A$ with $\varphi(a, b) = (b, a)$. Therefore $\varphi$ is a bijection from $A \times B \rightarrow B \times A$.
+
+    $\varphi$ is also a homomorphism: Let $(a_1, b_1), (a_2, b_2) \in A \times B$. Then:
+    \begin{multline*}
+        \varphi((a_1, b_1)(a_2, b_2)) = \varphi(a_1 a_2, b_1 b_2) = \\ 
+        (b_1 b_2, a_1 a_2) = (b_1, a_1)(b_2, a_2) = \varphi(a_1, b_1) \varphi(a_2, b_2).
+    \end{multline*}
+
+    Since $\varphi$ is a bijective homomorphism, it is an isomorphism, and so $A \times B \cong B \times A$.
+\end{proof}
+
+\section*{12. (4/5/23)}
+
+Let $A, B$, and $C$ be groups and let $G = A \times B$ and $H = B \times C$. Prove that $G \times C \cong A \times H$.
+
+\begin{proof}
+    Let $\varphi: G \times C \rightarrow A \times H$ defined by $\varphi \circ ((a, b), c) = (a, (b, c))$. We will show that $\varphi$ is a bijective homomorphism, that is, an isomorphism, and thus that $G \times C \cong A \times H$.
+
+    To show that $\varphi$ is injective, let $((a_1, b_1), c_1)$ and $((a_2, b_2), c_2) \in G \times C$, and suppose that applying $\varphi$ to both gives the same element $(a, (b, c)) \in A \times H$. Then, by definition of $\varphi$, $a_1 = a$ and $a_2 = a$, so $a_1 = a_2$. The same logic shows that $b_1 = b_2$ and $c_1 = c_2$. Thus the two elements in $G$ are in fact the same element, and therefore $\varphi$ is injective.
+
+    To show that $\varphi$ is surjective, let $(a, (b, c)) \in A \times H$. Then, by definition of $\varphi$, there exists $a, b, c \in A, B, C$, respectively, such that for $((a, b), c) \in G \times C$, $\varphi \circ ((a, b), c) = (a, (b, c))$. Therefore $\varphi$ is surjective, and so it is a bijection.
+
+    Finally, let $((a_1, b_1), c_1)$ and $((a_2, b_2), c_2) \in G \times C$. Then:
+    \begin{multline*}
+        \varphi \circ (((a_1, b_1), c_1)((a_2, b_2), c_2)) = \varphi \circ ((a_1 a_2, b_1 b_2), c_1 c_2) = (a_1 a_2, (b_1 b_2, c_1 c_2)) = \\
+        (a_1, (b_1, c_1))(a_2, (b_2, c_2)) = \varphi \circ ((a_1, b_1), c_1) \varphi \circ ((a_2, b_2), c_2).
+    \end{multline*}
+
+    Thus $\varphi$ is an isomorphism from $G \times C \rightarrow A \times H$, and so $G \times C \cong A \times H$.
+\end{proof}
+
+\section*{13. (4/5/23)}
+
+Let $G$ and $H$ be groups and let $\varphi: G \rightarrow H$ be a homomorphism. Prove that the image of $\varphi, \varphi(G)$, is a subgroup of $H$. Prove that if $\varphi$ is injective then $G \cong \varphi(G)$.
+
+\begin{proof}
+    To prove that $\varphi(G)$ is a subgroup of $H$, we must show that it is closed under the binary operation of $H$ and that it is closed under inverses (the other group properties follow from these). By definition, for $a, b \in G$, $\varphi(a), \varphi(b) \in H$. Since $\varphi$ is a homomorphism, their product, $\varphi(a) \varphi(b) = \varphi(ab)$, is also an element of $H$. Thus $\varphi(G)$ is closed under the binary operation of $H$.
+
+    To show that $\varphi(G)$ is closed under inverses, let $a \in G$. From 1.b), $\varphi(1) = 1$. Also, $\varphi(1) = \varphi(a a^{-1}) = \varphi(a) \varphi(a^{-1})$. Therefore $\varphi(a^{-1}) = \varphi(a)^{-1}$, and so $\varphi(G)$ is closed under inverses. Thus it is a subgroup of $H$.
+
+    Now suppose that $\varphi$ is injective. To prove that $G$ is then isomorphic to $\varphi(G)$, we must show that $\varphi$ is an isomorphism, that is, that it is also surjective onto $\varphi(G)$. By definition, since $\varphi(G) = \{h \in H \mid h = \varphi(g) \text{ for some } g \in G\}$, $\varphi$ is surjective onto $\varphi(G)$. Thus $\varphi$ is an isomorphism, and so $G \cong \varphi(G)$.
+\end{proof}
+
+\section*{14. (4/9/23)}
+
+Let $G$ and $H$ be groups and let $\varphi: G \rightarrow H$ be a homomorphism. Define the \emph{kernel} of $\varphi$ to be $\{ g \in G \mid \varphi(g) = 1_H \}$ (so the kernel is the set of elements in $G$ which map to the identity in $H$, i.e., is the fiber over the identity of $H$). Prove that the kernel of $\varphi$ is a subgroup of $G$. Prove that $\varphi$ is injective if and only if the kernel of $\varphi$ is the identity subgroup of $G$.
+
+\begin{proof}
+    To show that the kernel of $\varphi$ is a subgroup of $G$, we need to show that it is closed under the binary operation of $G$ and that it is closed under inverses.
+
+    Let $g_1, g_2$ be in the kernel of $\varphi$. Then $\varphi(g_1) = \varphi(g_2) = 1_H$. Since $\varphi$ is a homomorphism, $1_H = \varphi(g_1) \varphi(g_2) = \varphi(g_1 g_2).$ So the product $g_1 g_2$ of arbitrary elements in the kernel of $G$ is also in the kernel of $G$. Thus the kernel of $\varphi$ is closed under the binary operation of $G$.
+
+    From 1.b), $\varphi(1) = 1_H$. Also, $1_H = \varphi(1) = \varphi(g g^{-1}) = \varphi(g) \varphi(g^{-1}) = 1_H \cdot \varphi(g^{-1})$, which implies that $\varphi(g^{-1}) = 1_H$, so $g^{-1}$ is also in the kernel of $\varphi$. The kernel of $\varphi$ is closed under inverses, and thus it is a subgroup of $G$.
+
+    Now we will show that $\varphi$ is injective if and only if the kernel of $\varphi$ is $\{ 1_G \}$.
+
+    First, let $\varphi$ be an injective homomorphism from $G$ to $H$. So for any $g_1, g_2 \in G$, $\varphi(g_1) = \varphi(g_2)$ implies that $g_1 = g_2$. Let $g$ be in the kernel of $\varphi$, so $\varphi(g) = 1_H$. Also, $\varphi(1_G) = 1_H$, which implies that $g = 1_G$, so the only unique element in the kernel of $\varphi$ is $1_G$.
+
+    Next, suppose the kernel of $\varphi$ is $\{ 1_G \}$. So $g \in G, g \neq 1_G$ implies that $\varphi(g) \neq 1_H$. Suppose that $g_1, g_2 \in G, g_1, g_2 \neq 1_G$ such that $\varphi(g_1) = \varphi(g_2) = h \in H$. From 1.b), $\varphi(g_2) = h$ implies that $\varphi(g_2)^{-1} = \varphi(g_2^{-1}) = h^{-1}$. So $\varphi(g_1) \varphi(g_2^{-1}) = h h^{-1} = 1_H$. Because $\varphi$ is a homomorphism, $\varphi(g_1 g_2^{-1}) = 1_H$. Because the only element in the kernel of $\varphi$ is $1_G$, we must have $g_1 g_2^{-1} = 1_G$, which implies that $g_1 = g_2$. Therefore $\varphi$ is an injective map from $G$ to $H$.
+    
+    This completes the proof that $\varphi$ is injective if and only if the kernel of $\varphi$ is $\{ 1_G \}$.
+\end{proof}
+
+\section*{15. (4/9/23)}
+
+Define a map $\pi: \mathbb{R}^2 \rightarrow \mathbb{R}$ by $\pi((x, y)) = x$. Prove that $\pi$ is a homomorphism and find the kernel of $\pi$.
+
+\begin{proof}
+    To show that $\pi$ is a homomorphism, let $(x_1, y_1), (x_2, y_2) \in \mathbb{R}^2$. Then $\pi((x_1, y_1)(x_2, y_2)) = \pi((x_1 x_2, y_1 y_2)) = x_1 x_2$. Also, $\pi((x_1, y_1)) \cdot \pi((x_2, y_2)) = x_1 x_2$. Thus $\pi$ is a homomorphism.
+
+    By definition, the kernel of $\pi$ is the set $\{ (x, y) \in \mathbb{R}^2 \mid \pi(x, y) = 1 \}$. Now $\pi((x, y)) = 1$ if and only if $x = 1$. Note that $x = 1 \Rightarrow \pi((1, y)) = 1$ and $\pi((x, y)) = 1 \Rightarrow x = 1$. So the kernel of $\pi$ is $\{ (1, y) \in \mathbb{R}^2 \mid y \in \mathbb{R} \}$.
+\end{proof}
+
+\section*{16. (4/10/23)}
+
+Let $A$ and $B$ be groups and let $G$ be their direct product, $A \times B$. Prove that the maps $\pi_1: G \rightarrow A$ and $\pi_2: G \rightarrow B$ defined by $\pi_1((a, b)) = a$ and $\pi_2((a, b)) = b$ are homomorphisms and find their kernels.
+
+\begin{proof}
+    To show that $\pi_1$ and $\pi_2$ are homomorphisms, let $(a_1, b_1), (a_2, b_2) \in G$. Then $\pi_1((a_1, b_1)(a_2, b_2)) = \pi_1((a_1 a_2, b_1, b_2)) = a_1 a_2$ and $\pi_1((a_1, b_1)) \cdot \pi_1((a_2, b_2)) \newline 
+    = a_1 a_2$, so $\pi_1$ is a homomorphism. Similarly, $\pi_2((a_1, b_1)(a_2, b_2)) = b_1 b_2 = \pi_2((a_1, b_1)) \cdot \pi_2((a_2, b_2))$, so it is also a homomorphism.
+
+    Now by identical proof to 15., the kernel of $\pi_1$ is $\{ (1, b) \in G \mid b \in B \}$ and the kernel of $\pi_2$ is $\{ (a, 1) \in G \mid a \in A \}$.
+\end{proof}
+
+\section*{17. (4/11/23)}
+
+Let $G$ be any group. Prove that the map from $G$ to itself defined by $g \mapsto g^{-1}$ is a homomorphism if and only if $G$ is abelian.
+
+\begin{proof}
+    First, let $\varphi: G \rightarrow G$ be defined by $\varphi(g) = g^{-1}$, and let $G$ be abelian. Then for $g, h \in G$, $\varphi(gh) = (gh)^{-1}$. If we let $x = (gh)^{-1}$, then $ghx = 1 \Rightarrow hx = g^{-1} \Rightarrow x = h^{-1}g^{-1}$, so $\varphi(gh) = h^{-1}g^{-1}$. Also, $\varphi(g) \varphi(h) = g^{-1}h^{-1} = h^{-1}g^{-1}$ (since any elements of $G$ commute), and thus $\varphi$ is a homomorphism.
+
+    Next, let $\varphi$ be the map $G \rightarrow G$ defined by $\varphi(g) = g^{-1}$. As above, $\varphi(g) \varphi(h) = g^{-1} h^{-1}$ and $\varphi(gh) = (gh)^{-1} = h^{-1}g^{-1}$. If $\varphi$ is a homomorphism, then we must have $\varphi(g) \varphi(h) = \varphi(gh)$, that is, $g^{-1} h^{-1} = h^{-1} g^{-1}$. This implies that $(hg)^{-1} g = h^{-1} \Rightarrow (hg)^{-1} gh = 1 \Rightarrow gh = hg$, and so $G$ is abelian.
+
+    Therefore the map from $G$ to itself defined by $g \mapsto g^{-1}$ is a homomorphism if and only if $G$ is abelian.
+\end{proof}
+
+\section*{18. (4/14/23)}
+
+Let $G$ be any group. Prove that the map from $G$ to itself defined by $g \mapsto g^2$ is a homomorphism if and only if $G$ is abelian.
+
+\begin{proof}
+    First, let $\varphi: G \rightarrow G$ be defined by $\varphi(g) = g^{-1}$, and let $G$ be abelian. Then for $g, h \in G$, $\varphi(gh) = (gh)^2 = ghgh = gghh = g^2 h^2 = \varphi(g) \varphi(h)$, so $\varphi$ is a homomorphism.
+
+    Next, $\varphi$ be the map from $G$ to $G$ defined by $\varphi(g) = g^2$, and suppose that $\varphi$ is a homomorphism. Then $\varphi(g) \varphi(h) = \varphi(gh) \Rightarrow g^2 h^2 = (gh)^2$. Then:
+    \begin{equation*}
+        gghh = ghgh \Rightarrow ghh = hgh \Rightarrow gh = hg,
+    \end{equation*}
+    so $G$ is abelian.
+
+    Therefore the map from $G$ to itself defined by $g \mapsto g^2$ is a homomorphism if and only if $G$ is abelian.
+\end{proof}
+
+\section*{19. (4/14/23)}
+
+Let $G = \{z \in \mathbb{C} \mid z^n = 1$ for some $n \in \mathbb{Z}^+ \}$. Prove that for any fixed integer $k > 1$ the map from $G$ to itself defined by $z \mapsto z^k$ is a surjective homomorphism but is not an isomorphism.
+
+\begin{proof}
+    Using de Moivre's formula, we can rewrite any element $z \in G$ as $z = \cos{\frac{2\pi m}{n}} + i \sin{\frac{2\pi m}{n}}$ for a unique $m \in \{0, ..., n - 1\}$. For conciseness, let us write $z = \cis{\frac{2 \pi m}{n}}$.
+
+    The proof that the map is a homomorphism follows naturally from the fact that multiplication in $\mathbb{C}$ is commutative. Let $\varphi_k$ be the map defined by $\varphi_k(z) = z^k$, then $\varphi_k(yz) = (yz)^k = y^k z^k = \varphi_k(y) \varphi_k(z)$.
+
+    To prove that the map is surjective, let $z \in G = \cis{\frac{2 \pi m}{n}}$. Now de Moivre's formula states that, for a complex number $\cis{x}$, $(\cis{x})^m = \cis{mx}$. So there exists a complex number $y = \cis{\frac{2 \pi m}{nk}}$ with $y^k = (\cis{\frac{2 \pi m}{nk}})^k = \cis{k \frac{2 \pi m}{nk}} = \cis{\frac{2 \pi m}{n}} = z$. And, we have $y \in G$, because $z^n = (y^k)^n = y^{kn} = 1$.
+
+    However, this map is not an isomorphism because it is not one-to-one. Since it is surjective, let $z \in G$ and let $y^k = z$. Now let $z = \cis{\frac{2 \pi m}{n}}$ for a unique $m \in \{0, ..., n - 1\}$. Then $y$ is a complex number such that $y^k = \cis{\frac{2 \pi m}{n}}$. From de Moivre's formula, $y$ has the form $\cis{\frac{2 \pi m}{nk}}$. Such a $y$ is not uniquely defined. Consider $\cis{\frac{2 \pi m}{nk}}$ and $\cis{\frac{2 \pi (m + n)}{nk}}$ (the latter is distinct from the former whenever $n < k$, and we can always choose such a positive $n$ for $k > 1$). It follows that, raised to the power $k$, they are $\cis{\frac{2 \pi m}{n}}$ and $\cis{\frac{2 \pi (m + n)}{n}} = \cis{(\frac{2 \pi m}{n} + 2 \pi)} = \cis{\frac{2 \pi m}{n}}$, since sine and cosine have period $2 \pi$. That is, they are equal to each other. Thus, the map is not one-to-one, and is therefore not an isomorphism.
+\end{proof}
+
+\section*{20. (4/21/23)}
+
+Let $G$ be a group and let Aut($G$) be the set of all isomorphisms from $G$ onto $G$. Prove that Aut($G$) is a group under function composition (called the \emph{automorphism group} of $G$ and the elements of Aut($G$) are called \emph{automorphisms} of $G$).
+
+\begin{proof}
+    In order to prove that Aut($G$) is a group, we must show that it is associative and closed under the binary operation of function composition, that it contains an identity element, and that each element has a unique inverse. Associativity is given by the definition of the operation of function composition.
+
+    Aut($G$) contains an identity element: Let $e: G \rightarrow G$ such that $e(g) = g$ for all $g \in G$. $e$ is a bijection and a homomorphism, thus an isomorphism, and so belongs to Aut($G$). For any other isomorphism $f \in$ Aut($G$), note that $(e \circ f)(g) = f(g) = f(e(g)) = (f \circ e)(g)$. Thus $e$ is the identity element of Aut($G$).
+
+    Next, Aut($G$) is closed under function composition. Let $f, h \in$ Aut($G$) (to show that $f \circ h \in$ Aut($G$)). We will show that $f \circ h$ is an isomorphism, and thus belongs to Aut($G$). Let $g_1, g_2 \in G$. Then:
+    \begin{multline*}
+        (f \circ h)(g_1 g_2) = f(h(g_1 g_2)) = f(h(g_1) h(g_2)) = f(h(g_1)) f(h(g_2)) = \\ (f \circ h)(g_1) (f \circ h)(g_2),
+    \end{multline*}
+    so $f \circ h$ is a homomorphism. We will next show that $f \circ h$ is both injective and surjective.
+
+    Injective: Let $g_1, g_2 \in G, g_1 \neq g_2$. Because $h$ is injective, $h(g_1) \neq h(g_2)$. Because $f$ is injective, $f(h(g_1)) \neq f(h(g_2)) \Rightarrow (f \circ h)(g_1) \neq (f \circ h)(g_2)$. Thus, $f \circ h$ is injective.
+
+    Surjective: Let $g_3 \in G$. Because $f$ is surjective, there exists a $g_2 \in G$ such that $f(g_2) = g_3$. Because $h$ is surjective, there exists a $g_1 \in G$ such that $h(g_1) = g_2$. Thus, $g_3 = f(g_2) = f(h(g_1)) = (f \circ h)(g_1)$. Therefore $f \circ h$ is surjective, and so it is an isomorphism and belongs to Aut($G$).
+
+    Finally, to show that Aut($G$) is closed under inverses, we simply note that, if $f \in$ Aut($G$), then $f$ is a bijective map from $G$ onto $G$, so it has a well-defined inverse $f^{-1}$ that is also an isomorphism.
+
+    Thus Aut($G$) is a group under function composition.
+\end{proof}
+
+\section*{21. (4/21/23)}
+
+Prove that for each fixed nonzero $k \in \mathbb{Q}$ the map from $\mathbb{Q}$ to itself defined by $q \mapsto kq$ is an automorphism of $\mathbb{Q}$.
+
+\begin{proof}
+    Let $\varphi: \mathbb{Q} \rightarrow \mathbb{Q}$ be defined by $\varphi(q) = kq, k \in \mathbb{Q}, k \neq 0$. We will show that $\varphi$ is a homomorphism and is both injective and surjective, thus an automorphism of $\mathbb{Q}$.
+
+    Let $r \in \mathbb{Q}$ and let $s = r / k$. Since $\mathbb{Q}$ is closed under division and $k \neq 0$, $s \in \mathbb{Q}$. Also, $\varphi(s) = ks = r$. Therefore $\varphi$ is surjective.
+
+    Next, to show that $\varphi$ is injective, let $r \in \mathbb{Q}$ with $\varphi(s_1) = \varphi(s_2) = r$. Then $k s_1 = k s_2 = r$. It follows that $r / k = s_1 = s_2$. Therefore $\varphi$ is injective.
+
+    Finally, to show that $\varphi$ is a homomorphism, let $s_1, s_2 \in \mathbb{Q}$. We note that $\varphi(s_1 + s_2) = k (s_1 + s_2) = k s_1 + k s_2 = \varphi(s_1) + \varphi(s_2)$. Therefore $\varphi$ is a homomorphism.
+
+    This concludes the proof that $\varphi$ is an automomorphism of $\mathbb{Q}$.
+\end{proof}
+
+\section*{22. (4/21/23)}
+
+Let $A$ be an abelian group and fix some $k \in \mathbb{Q}$. Prove that the map $a \mapsto a^k$ is a homomorphism from $A$ to itself. If $k = -1$ prove that this homomorphism is an automorphism of $A$.
+
+\begin{proof}
+    Let $\varphi: A \rightarrow A$ be defined by $\varphi(a) = a^k, k \in \mathbb{Z}$. Let $a, b \in A$. Then $\varphi(a b) = (ab)^k = a^k b^k$ (from Ch. 1.1, exercise 24.), which equals $\varphi(a) \varphi(b)$. Therefore $\varphi$ is a homomorphism from $A$ to itself.
+
+    Now let us consider the case where $k = -1$. We will show that $\varphi$ is now both injective and surjective, that is, an automorphism of $A$.
+
+    Let $a \in A$. Given that $A$ is a group, $a$ has an inverse $a^{-1}$, and $(a^{-1})^{-1} = a$, so $\varphi(a^{-1}) = a$. Thus $\varphi$ is surjective. Also, from the uniqueness of inverses, $a^{-1}$ is the only element in $A$ for which $\varphi(a^{-1}) = (a^{-1})^{-1} = a$, so $\varphi$ is injective.
+
+    Since $\varphi$ is a bijective homomorphism, it is an automorphism of $A$.
+\end{proof}
+
+\section*{23. (4/21/23)}
+
+Let $G$ be a finite group which possesses an automorphism $\sigma$ such that $\sigma(g) = g$ if and only if $g = 1$. If $\sigma^2$ is the identity map from $G$ to $G$, prove that $G$ is abelian (such a $\sigma$ is called \emph{fixed point free} of order 2).
+
+\begin{proof}
+    Let $g \in G, g \neq 1$, and let $\sigma$ be an automorphism of $G$ with $\sigma^2(g) = g$. Applying the inverse of $\sigma$ to $\sigma(\sigma(g)) = g$ implies that $\sigma(g) = \sigma^{-1}(g)$.
+
+    Next, we see that $1 = \sigma(1) = \sigma(g g^{-1}) = \sigma(g) \sigma(g^{-1})$. Therefore $\sigma(g)^{-1} = \sigma(g^{-1})$. From above, then, we have $\sigma(g)^{-1} = \sigma(g)$. From 1.a), $\sigma(g)^{-1} = \sigma(g^{-1})$, so we have $\sigma(g^{-1}) = \sigma(g)$, and since $\sigma$ is injective, this implies that $g = g^{-1}$.
+
+    Now let $g, h \in G$. $gh = g^{-1}h^{-1} = (hg)^{-1} = hg$, so $G$ is an abelian group.
+\end{proof}
+
+\section*{24. (4/23/23)}
+
+Let $G$ be a finite group and let $x$ and $y$ be distinct elements of order 2 in $G$ that generate $G$. Prove that $G \cong D_{2n}$, where $n = |xy|$.
+
+\begin{proof}
+    Given that $x$ and $y$ generate $G$ and each have order 2 (that is, $x = x^{-1}$ and $y = y^{-1}$), we must have $xy$ as a third distinct element, because $x \neq y \Rightarrow x \neq y^{-1} \Rightarrow xy \neq 1$. For brevity, let $z = xy$. Then $x$ and $z$ also generate $G$, because $y$ can be written as $y = x^2y = x(xy) = xz$.
+
+    Also, note that $xz = xxy = y = yxx = y^{-1}x^{-1}x = (xy)^{-1}x = z^{-1}x$.
+
+    Now we can rewrite the given generators and relations $\langle x, y \mid x^2 = y^2 = 1 \rangle$ with $\langle x, z \mid x^2 = z^n = 1, xz = z^{-1}x \rangle$.
+
+    Consider a map $\varphi: G \rightarrow D_{2n}$ defined on the new generators $x$ and $z$ by $\varphi(x) = s$ and $\varphi(z) = r$. The new generators and relations under $\varphi$ become $\langle s, r \mid s^2 = r^n = 1, sr = r^{-1}s \rangle$, that is, the generators and relations that defined $D_{2n}$ in Ch. 1.2. Given that the generators and relations are identical, the two groups are isomorphic.
+\end{proof}
+
+\section*{25. (4/26/23)}
+
+Let $n \in \mathbb{Z}^+$, let $r$ and $s$ be the generators of $D_{2n}$ and let $\theta = 2\pi / n$.
+
+\begin{enumerate}[label=(\alph*)]
+    \item Prove that the matrix $\begin{pmatrix}\cos \theta & -\sin \theta\\\sin \theta & \cos \theta\end{pmatrix}$ is the matrix of linear transformation which rotates the $x, y$ plane about the origin in a counterclockwise direction by $\theta$ radians.
+          \begin{proof}
+            Given that the unit vector in the $x$ direction, $\begin{pmatrix}1 \\ 0\end{pmatrix}$, rotated counterclockwise by $\theta$ radians is $\begin{pmatrix}\cos \theta \\ \sin \theta\end{pmatrix}$, and the unit vector in the $y$ direction $\begin{pmatrix}0 \\ 1\end{pmatrix}$, rotated is $\begin{pmatrix}-\sin \theta \\ \cos \theta\end{pmatrix}$, consider the given $2 \times 2$ matrix applied to each of these basis vectors:
+            \begin{equation*}
+                \begin{pmatrix}\cos \theta & -\sin \theta\\\sin \theta & \cos \theta\end{pmatrix}\begin{pmatrix}1 \\ 0\end{pmatrix} = \begin{pmatrix}\cos \theta \\ \sin \theta\end{pmatrix} \text{ and } \begin{pmatrix}\cos \theta & -\sin \theta\\\sin \theta & \cos \theta\end{pmatrix}\begin{pmatrix}0 \\ 1\end{pmatrix} = \begin{pmatrix}-\sin \theta \\ \cos \theta\end{pmatrix}
+            \end{equation*}
+            This proves that the given matrix rotates the $x, y$ plane counterclockwise about the origin by $\theta$ radians.
+          \end{proof}
+    \item Prove that the map $\varphi: D_{2n} \rightarrow GL_2(\mathbb{R})$ defined on generators by 
+          \begin{equation*}
+            \varphi(r) = \begin{pmatrix}\cos \theta & -\sin \theta \\ \sin \theta & \cos \theta\end{pmatrix} \text{ and } \varphi(s) = \begin{pmatrix}0 & 1 \\ 1 & 0\end{pmatrix}
+          \end{equation*}
+          extends to a homomorphism of $D_{2n}$ into $GL_2(\mathbb{R})$.
+          \begin{proof}
+            In order to show that $\varphi$ is a homomorphism, it suffices to show that $\varphi$ applied to the relations of $D_{2n}$ hold in $GL_2(\mathbb{R})$. That is, given that $s^2 = r^n = 1$ and $sr = r^{-1}s$ in $D_{2n}$, we must show that $\varphi(s)^2 = \varphi(r)^n = \begin{pmatrix}1 & 0 \\ 0 & 1\end{pmatrix}$ and $\varphi(s)\varphi(r) = \varphi(r)^{-1}\varphi(s)$ in $GL_2(\mathbb{R})$.
+
+            $\varphi(s)^2 = \begin{pmatrix}0 & 1 \\ 1 & 0\end{pmatrix}\begin{pmatrix}0 & 1 \\ 1 & 0\end{pmatrix} = \begin{pmatrix}1 & 0 \\ 0 & 1\end{pmatrix}$, the identity matrix in $GL_2(\mathbb{R})$.
+
+            We will next show that $\varphi(r)^n$ is also the identity matrix. We will first show that $\varphi(r)^k, k \in \{0, ..., n - 1 \}$, is the matrix $\begin{pmatrix}\cos k \theta & -\sin k \theta \\ \sin k \theta & \cos k \theta\end{pmatrix}$ by induction. The base case is obvious.
+
+            For some $k \in \{0, ..., n - 1 \}$, suppose that $\varphi(r)^k = \begin{pmatrix}\cos k \theta & -\sin k \theta \\ \sin k \theta & \cos k \theta\end{pmatrix}$. Then:
+            \begin{multline*}
+                \varphi(r)^{k + 1} = \varphi(r)^k \varphi(r) = \begin{pmatrix}\cos k \theta & -\sin k \theta \\ \sin k \theta & \cos k \theta\end{pmatrix}\begin{pmatrix}\cos \theta & -\sin \theta \\ \sin \theta & \cos \theta\end{pmatrix} = \\
+                \begin{pmatrix}\cos k \theta \cos \theta - \sin k \theta \sin \theta & -\cos k \theta \sin \theta - \cos \theta \sin k \theta \\ \cos k \theta \sin \theta + \cos \theta \sin k \theta & \cos k \theta \cos \theta - \sin k \theta \sin \theta\end{pmatrix}.
+            \end{multline*}
+
+            From the trigonometric addition formulae, $\sin(\alpha + \beta) = \sin \alpha \cos \beta + \cos \alpha \sin \beta$ and $\cos(\alpha + \beta) = \cos \alpha \cos \beta - \sin \alpha \sin \beta$, the above is equal to $\begin{pmatrix}\cos (k + 1) \theta & -\sin (k + 1) \theta \\ \sin (k + 1) \theta & \cos (k + 1) \theta\end{pmatrix}$, which completes the proof by induction.
+
+            Then $\varphi(r)^n = \begin{pmatrix}\cos n \theta & -\sin n \theta \\ \sin n \theta & \cos n \theta\end{pmatrix} = \begin{pmatrix}\cos 2 \pi & -\sin 2 \pi \\ \sin 2 \pi & \cos 2 \pi\end{pmatrix} = \begin{pmatrix}1 & 0 \\ 0 & 1\end{pmatrix}$.
+
+            Finally, we show that the relation $\varphi(s)\varphi(r) = \varphi(r)^{-1}\varphi(s)$ holds.
+
+            We can find the inverse of a $2 \times 2$ matrix $\begin{pmatrix}a & b \\ c & d\end{pmatrix}$ by the formula \newline $\dfrac{1}{ad - bc}\begin{pmatrix}d & -b \\ -c & a\end{pmatrix}$. The inverse $\varphi(r)^{-1}$, then, is: \newline $\dfrac{1}{\sin^2{\theta} + \cos^2{\theta}}\begin{pmatrix}\cos \theta & \sin \theta \\ -\sin \theta & \cos \theta\end{pmatrix} = \begin{pmatrix}\cos \theta & \sin \theta \\ -\sin \theta & \cos \theta\end{pmatrix}$.
+            Then:
+            \begin{multline*}
+                \varphi(s)\varphi(r) = \begin{pmatrix}0 & 1 \\ 1 & 0\end{pmatrix}\begin{pmatrix}\cos \theta & -\sin \theta \\ \sin \theta & \cos \theta\end{pmatrix} = \begin{pmatrix}\sin \theta & \cos \theta \\ \cos \theta & -\sin \theta\end{pmatrix} = \\
+                \begin{pmatrix}\cos \theta & \sin \theta \\ -\sin \theta & \cos \theta\end{pmatrix}\begin{pmatrix}0 & 1 \\ 1 & 0\end{pmatrix} = \varphi(r)^{-1} \varphi(s),
+            \end{multline*}
+            as desired. Since the generators and relations of $D_{2n}$ hold under $\varphi$ into $GL_2(\mathbb{R})$, $\varphi$ is a homomorphism of $D_{2n}$ into $GL_2(\mathbb{R})$.
+          \end{proof}
+    \item Prove that the homomorphism $\varphi$ in part (b) is injective.
+          \begin{proof}
+            In order to prove that $\varphi: D_{2n} \rightarrow GL_2(\mathbb{R})$ is injective, we must show that $\varphi(a) = \varphi(b) \Rightarrow a = b$ for all $a, b \in D_{2n}$. We will considerately three cases separately.
+
+            First, let $a = r^k$ and $b = r^m$ for $k, m \in \{0, ..., n - 1\}$. Then:
+            \begin{multline*}
+                \varphi(r^k) = \varphi(r^m) \Rightarrow \begin{pmatrix}\cos k \theta & \sin k \theta \\ -\sin k \theta & \cos k \theta\end{pmatrix} = \begin{pmatrix}\cos m \theta & \sin m \theta \\ -\sin m \theta & \cos m \theta\end{pmatrix} \Rightarrow \\ \cos k \theta = \cos m \theta \text{ and } \sin k \theta = \sin m \theta.
+            \end{multline*}
+            This implies that $k = m$, and so $a = b$.
+
+            Similarly, if $a = sr^k$ and $b = sr^m$, then we again have $\sin k \theta = \sin m \theta \Rightarrow k = m \Rightarrow a = b$.
+
+            For the third case (without loss of generality), let $a = sr^k$ and $b = r^m$. Then we have $\begin{pmatrix}\sin k \theta & \cos k \theta \\ \cos k \theta & -\sin k \theta\end{pmatrix} = \begin{pmatrix}\cos m \theta & \sin m \theta \\ -\sin m \theta & \cos m \theta\end{pmatrix}$. Then $\sin k \theta = -\sin k \theta$, which happens when $k \theta = 0, \pi$. Also, $\cos k \theta = -\cos k \theta$, which happens when $k \theta = \pi / 2, 3\pi / 2$. Therefore there are no $k, m$ (and thus $a, b$) where this equality holds.
+
+            Therefore, in the only cases where we have $\varphi(a) = \varphi(b)$, it implies that $a = b$, and so $\varphi$ is injective.
+          \end{proof}
+\end{enumerate}
+
+\section*{26. (4/27/23)}
+
+Let $i$ and $j$ be the generators of $Q_8$ described in Ch. 1.5. Prove that the map $\varphi$ from $Q_8$ to $GL_2(\mathbb{C})$ defined on generators by
+\begin{equation*}
+    \varphi(i) = \begin{pmatrix}\sqrt{-1} & 0 \\ 0 & -\sqrt{-1}\end{pmatrix} \text{ and } \varphi(j) = \begin{pmatrix}0 & -1 \\ 1 & 0\end{pmatrix}
+\end{equation*}
+extends to a homomorphism. Prove that $\varphi$ is injective.
+
+\begin{proof}
+    As in 25., to prove that $\varphi$ is a homomorphism, we must show that the relations for $Q_8$ hold under $\varphi$ in $GL_2(\mathbb{C})$. The generators and relations for $Q_8$ are $\langle i, j \mid i^2 = j^2, i^4 = 1, ij = j^{-1}i \rangle$.
+
+    First, we show that $\varphi(i)^2 = \varphi(j)^2$.
+    \begin{equation*}
+        \varphi(i)^2 = \begin{pmatrix}\sqrt{-1} & 0 \\ 0 & -\sqrt{-1}\end{pmatrix}\begin{pmatrix}\sqrt{-1} & 0 \\ 0 & -\sqrt{-1}\end{pmatrix} = \begin{pmatrix}-1 & 0 \\ 0 & -1\end{pmatrix}, \text{ and }
+    \end{equation*}
+    \begin{equation*}
+        \varphi(j)^2 = \begin{pmatrix}0 & -1 \\ 1 & 0\end{pmatrix}\begin{pmatrix}0 & -1 \\ 1 & 0\end{pmatrix} = \begin{pmatrix}-1 & 0 \\ 0 & -1\end{pmatrix},
+    \end{equation*}
+    as desired.
+
+    To show that $\varphi(i)^4 = 1$, note that $\varphi(i)^4 = (\varphi(i)^2)^2 = \begin{pmatrix}-1 & 0 \\ 0 & -1\end{pmatrix}^2 = \begin{pmatrix}1 & 0 \\ 0 & 1\end{pmatrix}$.
+
+    Finally, note that $\begin{pmatrix}0 & 1 \\ -1 & 0\end{pmatrix}\varphi(j) = \begin{pmatrix}0 & 1 \\ -1 & 0\end{pmatrix}\begin{pmatrix}0 & -1 \\ 1 & 0\end{pmatrix} = \begin{pmatrix}1 & 0 \\ 0 & 1\end{pmatrix}$, so \newline $\varphi(j)^{-1} = \begin{pmatrix}0 & 1 \\ -1 & 0\end{pmatrix}$. Then:
+    \begin{equation*}
+        \varphi(i) \varphi(j) = \begin{pmatrix}\sqrt{-1} & 0 \\ 0 & -\sqrt{-1}\end{pmatrix}\begin{pmatrix}0 & -1 \\ 1 & 0\end{pmatrix} = \begin{pmatrix}0 & -\sqrt{-1} \\ -\sqrt{-1} & 0\end{pmatrix}, \text{ and }
+    \end{equation*}
+    \begin{equation*}
+        \varphi(j)^{-1} \varphi(i) = \begin{pmatrix}0 & 1 \\ -1 & 0\end{pmatrix}\begin{pmatrix}\sqrt{-1} & 0 \\ 0 & -\sqrt{-1}\end{pmatrix} = \begin{pmatrix}0 & -\sqrt{-1} \\ -\sqrt{-1} & 0\end{pmatrix}.
+    \end{equation*}
+
+    The relations of $Q_8$ hold under $\varphi$ in $GL_2(\mathbb{C})$, and thus $\varphi$ is a homomorphism.
+
+    Lastly, we will exhaustively consider each of the elements of $Q_8$ under $\varphi$ in $GL_2(\mathbb{C})$ and show that they are all unique, which proves that $\varphi$ is injective.
+
+    \vspace{1em}
+    \begin{tabular}{ |c|c|c|c| } 
+        \hline
+        1 & $\begin{pmatrix}1 & 0 \\ 0 & 1\end{pmatrix}$ & $-1$ & $\begin{pmatrix}-1 & 0 \\ 0 & -1\end{pmatrix}$ \\
+        \hline
+        $i$ & $\begin{pmatrix}\sqrt{-1} & 0 \\ 0 & -\sqrt{-1}\end{pmatrix}$ & $-i$ & $\begin{pmatrix}-\sqrt{-1} & 0 \\ 0 & \sqrt{-1}\end{pmatrix}$ \\
+        \hline
+        $j$ & $\begin{pmatrix}0 & 1 \\ -1 & 0\end{pmatrix}$ & $-j$ & $\begin{pmatrix}0 & -1 \\ 1 & 0\end{pmatrix}$ \\
+        \hline
+        $k$ = ij & $\begin{pmatrix}0 & -\sqrt{-1} \\ \sqrt{-1} & 0\end{pmatrix}$ & $-k = -ji$ & $\begin{pmatrix}0 & \sqrt{-1} \\ -\sqrt{-1} & 0\end{pmatrix}$ \\
+        \hline
+    \end{tabular}
+\end{proof}
+
+\end{document}
