@@ -336,4 +336,27 @@ A subgroup $M$ of $G$ is called a \emph{maximal subgroup} if $M \neq G$ and the 
           \end{proof}
 \end{enumerate}
 
+\section*{17. (8/8/23)}
+
+Let $G$ be a finitely generated group, say $G = \langle g_1, g_2, ..., g_n \rangle$, and let $\mathcal{S}$ be the set of all proper subgroups of $G$. Then $\mathcal{S}$ is partially ordered by inclusion. Let $\mathcal{C}$ be a chain in $\mathcal{S}$.
+
+\begin{enumerate}[label=(\alph*), itemsep=0em]
+    \item Prove that the union, $H$, of all the subgroups of $\mathcal{C}$ is a subgroup of $G$.
+          \begin{proof}
+            First, let $x, y \in H = \bigcup \mathcal{C}$. Let $H_1, H_2$ be subgroups in the chain $\mathcal{C}$, and without loss of generality let $x \in H_1, y \in H_2$, and $H_1 \leq H_2$. Since $x \in H_1$ and $H_1 \leq H_2$, we also have $x \in H_2$. Also, $H_2$ is closed under inverses, so $y^{-1} \in H_2$. Then because $H_2$ is also closed under the binary operation on $G$, we have $xy^{-1} \in H_2$.
+
+            Then for any two elements in $H$, the union of $\mathcal{C}$, the product of one with the inverse of the other is in $H$, which fulfills the subgroup criterion.
+          \end{proof}
+    \item Prove that $H$ is a \emph{proper} subgroup.
+          \begin{proof}
+            Toward contradiction, suppose that $H$ is not a proper subgroup, that is, that $H = G$. Then for each of the generators $g_i$ of $G$ we have $g_i \in H$. Let $H_1 \leq H_2 \leq ... \leq H_n$ be subgroups in the chain $\mathcal{C}$. Without loss of generality, suppose $g_1 \in H_1, g_2 \in H_2$, and so on. We end at $g_n \in H_n$, and since the subgroups are ordered, we have all generators $g_i \in H_n$. However, since $H_n$ is closed, this implies that all elements of $G$ are contained in the proper subgroup $H_n$, a contradiction. Therefore $H$ is a proper subgroup of $G$.
+          \end{proof}
+    \item Use Zorn's Lemma to show that $\mathcal{S}$ has a maximal element (which is, by definition, a maximal subgroup).
+          \begin{proof}
+            Recall that Zorn's Lemma states that if $A$ is a nonempty partially ordered set in which every chain has an upper bound then $A$ has a maximal element.
+
+            Now from the two preceding proofs, we know that there exists an upper bound for any chain $\mathcal{C}$, namely the union of subgroups in the chain, $H$. We have $H \in \mathcal{S}$ (it is a proper subgroup) and $H_i \leq H$ for all $H_i$ in the chain $\mathcal{C}$. Since $\mathcal{S}$ is a nonempty partially ordered set ($G$ is finitely generated and is not the trivial group, so $\mathcal{S}$ at least contains the trivial subgroup), by Zorn's Lemma it contains a maximal element, which is by definition a maximal subgroup.
+          \end{proof}
+\end{enumerate}
+
 \end{document}
