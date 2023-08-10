@@ -399,4 +399,16 @@ A nontrivial abelian group $A$ (written multiplicatively) is called \emph{divisi
           \end{proof}
 \end{enumerate}
 
+\section*{20. (8/10/23)}
+
+Prove that if $A$ and $B$ are both nontrivial abelian groups, then $A \times B$ is divisible if and only if both $A$ and $B$ are divisible groups.
+
+\begin{proof}
+    First, let $A$ and $B$ both be divisible. For each $a \in A, b \in B, k \neq 0$, there exist $x \in A, y \in B$ such that $x^k = a$ and $y^k = b$. Then for the element $(a, b) \in A \times B$, we have $(a, b) = (x^k, y^k) = (x, y)^k$, so $A \times B$ is divisible.
+
+    Next, let $A \times B$ be divisible. For each $(a, b) \in A \times B, k \neq 0$, there exists $(x, y) \in A \times B$ such that $(x, y)^k = (a, b)$. This implies that $(x^k, y^k) = (a, b)$, and so $x^k = a, y^k = b$ (that is, $x$ is the $k$-th root of $a$ and $y$ is the $k$-th root of $b$). Then $A$ and $B$ are both divisible.
+
+    Thus $A \times B$ is divisible if and only if $A$ and $B$ are both divisible groups.
+\end{proof}
+
 \end{document}
