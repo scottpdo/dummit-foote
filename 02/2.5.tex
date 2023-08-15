@@ -290,4 +290,16 @@ Draw the lattices of subgroups of the following groups:
     \draw (24) -- (48);
 \end{tikzpicture}
 
+\section*{10. (8/15/23)}
+
+Classify groups of order 4 by proving that if $|G| = 4$ then $G \cong Z_4$ or $G \cong V_4$.
+
+\begin{proof}
+    From Ch. 1.1, Exercise 36, if $G$ is a group with 4 elements and no element of order 4, then we must have $G = \langle a, b \mid a^2 = b^2 = 1, ab = ba \rangle \cong V_4$.
+
+    If $G$ does have an element of order 4, then we have the cyclic group $G = \langle a \mid a^4 = 1 \rangle \cong Z_4$. All cyclic groups of equal order are isomorphic.
+
+    Therefore a group of order 4 must be isomorphic to either the cyclic group of order 4 or the Klein 4-group.
+\end{proof}
+
 \end{document}
