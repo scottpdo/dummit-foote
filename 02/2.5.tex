@@ -302,4 +302,125 @@ Classify groups of order 4 by proving that if $|G| = 4$ then $G \cong Z_4$ or $G
     Therefore a group of order 4 must be isomorphic to either the cyclic group of order 4 or the Klein 4-group.
 \end{proof}
 
+\section*{11. (8/15/23)}
+
+Consider the group of order 16 with the following presentation:
+
+\begin{equation*}
+    QD_{16} = \langle \sigma, \tau \mid \sigma^8 = \tau^2 = 1, \sigma \tau = \tau \sigma^3 \rangle
+\end{equation*}
+
+(called the \emph{quasidihedral} or \emph{semidihedral} group of order 16). This group has three subgroups of order 8: $\langle \tau, \sigma^2 \rangle \cong D_8, \langle \sigma \rangle \cong Z_8$ and $\langle \sigma^2, \sigma \tau \rangle \cong Q_8$ and every proper subgroup is contained in one of these three subgroups. Fill in the lattice of all subgroups of the quasidihedral group, exhibiting each subgroup with at most two generators.
+
+\begin{tikzpicture}[x=1.5cm,y=1.5cm]
+    \node at (0,0)          (1)  {$1$};
+    \node at (0, 1)      (s4)  {$\langle \sigma^4 \rangle$};
+    \node at (-1, 1)      (t)  {$\langle \tau \rangle$};
+    \node at (-2, 1)      (ts4)  {$\langle \tau \sigma^4 \rangle$};
+    \node at (-3, 1)      (ts6)  {$\langle \tau \sigma^6 \rangle$};
+    \node at (-4, 1)      (ts2)  {$\langle \tau \sigma^2 \rangle$};
+    \node at (-1, 2)       (s4-t)  {$\langle \sigma^4, \tau \rangle$};
+    \node at (-2.5, 2)       (ts2-ts6)  {$\langle \tau \sigma^2, \tau \sigma^6 \rangle$};
+    \node at (0, 2)       (s2)  {$\langle \sigma^2 \rangle$};
+    \node at (1, 2)       (s4-ts)  {$\langle \sigma^4, \tau \sigma \rangle$};
+    \node at (2, 2)       (s4-ts3)  {$\langle \sigma^4, \tau \sigma^3 \rangle$};
+    \node at (-1, 3)      (s2-t)  {$\langle \sigma^2, \tau \rangle$};
+    \node at (0, 3)      (s)  {$\langle \sigma \rangle$};
+    \node at (1, 3)      (s2-ts)  {$\langle \sigma^2, \tau \sigma \rangle$};
+    \node at (0, 4)       (QD16)  {$QD_{16}$};
+    
+    \draw (1) -- (s4);
+    \draw (1) -- (t);
+    \draw (1) -- (ts4);
+    \draw (1) -- (ts6);
+    \draw (1) -- (ts2);
+    \draw (s4) -- (s4-t);
+    \draw (t) -- (s4-t);
+    \draw (ts4) -- (s4-t);
+    \draw (s4) -- (ts2-ts6);
+    \draw (ts2) -- (ts2-ts6);
+    \draw (ts6) -- (ts2-ts6);
+    \draw (s4) -- (s2);
+    \draw (s4) -- (s4-ts);
+    \draw (s4) -- (s4-ts3);
+    \draw (ts2-ts6) -- (s2-t);
+    \draw (s4-t) -- (s2-t);
+    \draw (s2) -- (s2-t);
+    \draw (s2) -- (s);
+    \draw (s2) -- (s2-ts);
+    \draw (s4-ts) -- (s2-ts);
+    \draw (s4-ts3) -- (s2-ts);
+    \draw (s) -- (QD16);
+    \draw (s2-ts) -- (QD16);
+    \draw (s2-t) -- (QD16);
+
+    \draw[white border] (s4) -- (ts2-ts6);
+\end{tikzpicture}
+
+\section*{12. (8/16/23)}
+
+The group $A = Z_2 \times Z_4 = \langle a, b \mid a^2 = b^4 = 1, ab = ba \rangle$ has order 8 and has three subgroups of order 4: $\langle a, b^2 \rangle \cong V_4, \langle b \rangle \cong Z_4$ and $\langle ab \rangle \cong Z_4$ and every proper subgroup is contained in one of these three. Draw the lattice of all subgroups of $A$, giving each subgroup in terms of at most two generators.
+
+\begin{center}
+\begin{tikzpicture}[x=1.5cm]
+    \node at (0,0)          (1)  {$1$};
+    \node at (0, 1)      (b2)  {$\langle b^2 \rangle$};
+    \node at (-1, 1)      (a)  {$\langle a \rangle$};
+    \node at (-2, 1)      (ab2)  {$\langle ab^2 \rangle$};
+    \node at (-1, 2)      (a-b2)  {$\langle a, b^2 \rangle$};
+    \node at (0, 2)       (b)  {$\langle b \rangle$};
+    \node at (1, 2)       (ab)  {$\langle ab \rangle$};
+    \node at (0, 3)       (A)  {$A$};
+    
+    \draw (1) -- (b2);
+    \draw (1) -- (ab2);
+    \draw (1) -- (a);
+    \draw (b2) -- (b);
+    \draw (b2) -- (ab);
+    \draw (b2) -- (a-b2);
+    \draw (ab2) -- (a-b2);
+    \draw (a) -- (a-b2);
+    \draw (a-b2) -- (A);
+    \draw (b) -- (A);
+    \draw (ab) -- (A);
+\end{tikzpicture}
+\end{center}
+
+\section*{13. (8/16/23)}
+
+The group $G = Z_2 \times Z_8 = \langle x, y \mid x^2 = y^8 = 1, xy = yx \rangle$ has order 16 and has three proper subgroups of order 8: $\langle x, y^2 \rangle \cong Z_2 \times Z_4, \langle y \rangle \cong Z_8$ and $\langle xy \rangle \cong Z_8$ and every proper subgroup is contained in one of these three. Draw the lattice of all subgroups of $G$, giving each subgroup in terms of at most two generators.
+
+\begin{center}
+    \begin{tikzpicture}[x=1.5cm]
+        \node at (0,0)          (1)  {$1$};
+        \node at (0, 1)      (y4)  {$\langle y^4 \rangle$};
+        \node at (-1.5, 1)      (x)  {$\langle x \rangle$};
+        \node at (-3, 1)      (xy4)  {$\langle xy^4 \rangle$};
+        \node at (-2, 2)      (x-y4)  {$\langle x, y^4 \rangle$};
+        \node at (-1, 2)      (xy2)  {$\langle xy^2 \rangle$};
+        \node at (0, 2)      (y2)  {$\langle y^2 \rangle$};
+        \node at (-1, 3)      (x-y2)  {$\langle x, y^2 \rangle$};
+        \node at (0, 3)      (y)  {$\langle y \rangle$};
+        \node at (1, 3)      (xy)  {$\langle xy \rangle$};
+        \node at (0, 4)      (G)  {$G$};
+        
+        \draw (1) -- (y4);
+        \draw (1) -- (x);
+        \draw (1) -- (xy4);
+        \draw (y4) -- (x-y4);
+        \draw (x) -- (x-y4);
+        \draw (xy4) -- (x-y4);
+        \draw (y4) -- (xy2);
+        \draw (y4) -- (y2);
+        \draw (x-y4) -- (x-y2);
+        \draw (xy2) -- (x-y2);
+        \draw (y2) -- (x-y2);
+        \draw (y2) -- (y);
+        \draw (y2) -- (xy);
+        \draw (x-y2) -- (G);
+        \draw (y) -- (G);
+        \draw (xy) -- (G);
+    \end{tikzpicture}
+    \end{center}
+
 \end{document}
