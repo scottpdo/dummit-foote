@@ -23,4 +23,16 @@ Let $\varphi: G \rightarrow H$ be a homomorphism and let $E \leq H$. Prove that 
     which implies that $xy^{-1} \in \varphi^{-1}(E)$. It follows that, by the subgroup criterion, $\varphi^{-1}(E) \leq G$.
 \end{proof}
 
+\section*{2. (8/23/23)}
+
+Let $\varphi: G \rightarrow H$ be a homomorphism of groups with kernel $K$ and let $a, b \in \varphi(G)$. Let $X \in G/K$ be the fiber above $a$ and $Y$ be the fiber above $b$, i.e., $X = \varphi^{-1}(a), Y = \varphi^{-1}(b)$. Fix an element $x \in X$ (so $\varphi(x) = a$). Prove that if $XY = Z$ in the quotient group $G/K$ and $z$ is any member of $Z$, then there is some $y \in Y$ such that $xy = z$.
+
+\begin{proof}
+    We know that, for any $x \in X, y \in Y$, $\varphi(x) = a$ and $\varphi(y) = b$. Since $\varphi$ is a homomorphism, it follows that $\varphi(xy) = \varphi(x)\varphi(y) = ab$, and so the image of any element of $XY = Z$ under $\varphi$ is $ab \in H$.
+    
+    Next, consider the element $x^{-1}z \in G$, as well as its image under $\varphi$. Since $\varphi$ is a homomorphism, we have $\varphi(x^{-1}) = \varphi(x)^{-1}$. So $\varphi(x^{-1}z) = \varphi(x^{-1})\varphi(z) = \varphi(x)^{-1}\varphi(z) = a^{-1}ab = b$. The set $Y$ consists of all elements of $G$ whose image under $\varphi$ is $b$, and so we must have $x^{-1}z \in Y$.
+
+    Now if we fix some element $x \in X$, then for any $z \in Z$, we have $x^{-1}z \in Y$ such that its product with $x$ is $z$: $x x^{-1}z = z$.
+\end{proof}
+
 \end{document}
