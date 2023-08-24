@@ -83,4 +83,22 @@ Use the preceding exercise to prove that the order of the element $gN$ in $G/N$ 
     As an example where $|gN| < |g|$, let $G = Z_9 = \langle x \rangle$ and let $N = \langle x^3 \rangle$. Because all cyclic groups are abelian, $N$ is normal in $G$, and so $G/N$ is well-defined. The quotient group $G/N$ contains three elements: $N, xN$, and $(x^2)N$. The element $xN \in G/N$ has order 3: $(xN)^3 = (x^3)N = N$ (because $x^3 \in N$). However, the generating element $x \in G$ has order 9.
 \end{proof}
 
+\section*{6. (8/24/23)}
+
+Define $\varphi: \mathbb{R}^\times \rightarrow \{ \pm 1 \}$ by letting $\varphi(x)$ be $x$ divided by the absolute value of $x$. Describe the fibers of $\varphi$ and prove that $\varphi$ is a homomorphism.
+
+\begin{proof}
+    We consider the two cases where $x < 0$ and $x > 0$ (0 is not an element of $\mathbb{R}^\times$). If $x > 0$, then $\varphi(x) = x/|x| = x/x = 1$. If $x < 0$, then $\varphi(x) = x/|x| = x/-x = -1$. Therefore the fiber above $-1$ is every negative real number and the fiber above 1 is every positive real number.
+
+    To show that $\varphi$ is a homomorphism, we let $x, y \in \mathbb{R}^\times$ and again consider the different cases: Where $x$ and $y$ are both positive, where they are both negative, and where one is positive and the other negative.
+
+    If both $x$ and $y$ are positive, then $\varphi(x)\varphi(y) = 1 \cdot 1 = 1$ and $\varphi(xy) = \frac{xy}{|xy|} = \frac{xy}{xy} = 1$, so $\varphi(x)\varphi(y) = \varphi(xy)$.
+
+    If both $x$ and $y$ are negative, then $\varphi(x)\varphi(y) = -1 \cdot -1 = 1$ and $\varphi(xy) = \frac{xy}{|xy|} = \frac{xy}{xy} = 1$, so $\varphi(x)\varphi(y) = \varphi(xy)$.
+
+    Suppose $x$ is positive and $y$ is negative. Then $\varphi(x)\varphi(y) = 1 \cdot -1 = -1$ and $\varphi(xy) = \frac{xy}{|xy|} = \frac{xy}{-xy} = -1$, so $\varphi(x)\varphi(y) = \varphi(xy)$.
+    
+    Thus, in every case of $x, y \in \mathbb{R}^\times$, we have $\varphi(x)\varphi(y) = \varphi(xy)$, and $\varphi$ is thus a homomorphism.
+\end{proof}
+
 \end{document}
