@@ -101,4 +101,16 @@ Define $\varphi: \mathbb{R}^\times \rightarrow \{ \pm 1 \}$ by letting $\varphi(
     Thus, in every case of $x, y \in \mathbb{R}^\times$, we have $\varphi(x)\varphi(y) = \varphi(xy)$, and $\varphi$ is thus a homomorphism.
 \end{proof}
 
+\section*{7. (8/24/23)}
+
+Define $\pi: \mathbb{R}^2 \rightarrow \mathbb{R}$ by $\pi((x, y)) = x + y$. Prove that $\pi$ is a surjective homomorphism and the describe the kernel and fibers of $\pi$ geometrically.
+
+\begin{proof}
+    First, to show that $\pi$ is surjective, let $z \in \mathbb{R}$. Now $z = z + 0$, so $(z, 0)$ is an element of $\mathbb{R}^2$ such that $\pi((z, 0)) = z + 0 = z$.
+
+    Next, to show that $\pi$ is a homomorphism, let $(x_1, y_1), (x_2, y_2) \in \mathbb{R}^2$. We have $\pi((x_1, y_1) + (x_2, y_2)) = \pi((x_1 + x_2, y_1 + y_2)) = x_1 + x_2 + y_1 + y_2$, and $\pi((x_1, y_1)) + \pi((x_2, y_2)) = x_1 + y_1 + x_2 + y_2$. By the commutativity of addition in $\mathbb{R}$, these are equal to each other, and so $\pi$ is a surjective homomorphism.
+
+    The kernel of $\pi$ consists of all points $(x, y) \in \mathbb{R}^2$ such that $x + y = 0$, that is, the diagonal line running from the upper-left to the bottom-right of the Cartesian plane. Geometrically, the fibers of $\pi$ are translations of this line, such that for any $z \in \mathbb{R}$, the fiber of $\pi$ above $z$ is the diagonal line intersecting both $(z, 0)$ and $(0, z)$.
+\end{proof}
+
 \end{document}
