@@ -113,4 +113,22 @@ Define $\pi: \mathbb{R}^2 \rightarrow \mathbb{R}$ by $\pi((x, y)) = x + y$. Prov
     The kernel of $\pi$ consists of all points $(x, y) \in \mathbb{R}^2$ such that $x + y = 0$, that is, the diagonal line running from the upper-left to the bottom-right of the Cartesian plane. Geometrically, the fibers of $\pi$ are translations of this line, such that for any $z \in \mathbb{R}$, the fiber of $\pi$ above $z$ is the diagonal line intersecting both $(z, 0)$ and $(0, z)$.
 \end{proof}
 
+\section*{8. (8/24/23)}
+
+Let $\varphi: \mathbb{R}^\times \rightarrow \mathbb{R}^\times$ be the map sending $x$ to the absolute value of $x$. Prove that $\varphi$ is a homomorphism and find the image of $\varphi$. Describe the kernel and the fibers of $\varphi$.
+
+\begin{proof}
+    Let $x, y \in \mathbb{R}^\times$ (so $x \neq 0, y \neq 0$). If both $x$ and $y$ are positive or both are negative, then:
+    \begin{equation*}
+        \varphi(xy) = |xy| = |x| |y| = \varphi(x) \varphi(y),
+    \end{equation*}
+    and if $x$ is positive and $y$ is negative, then:
+    \begin{equation*}
+        \varphi(xy) = |xy| = x(-y) = |x||y| = \varphi(x)\varphi(y),
+    \end{equation*}
+    so $\varphi$ is a homomorphism.
+
+    The image of $\varphi$ consists of every positive real number. The kernel of $\varphi$ is the set $\{ x \in \mathbb{R}^\times \mid |x| = 1 \}$, that is, $\{ \pm 1 \}$. For a given element $z > 0$, the fiber of $\varphi$ above $z$ is the set $\{ \pm z \}$.
+\end{proof}
+
 \end{document}
