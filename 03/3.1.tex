@@ -131,4 +131,21 @@ Let $\varphi: \mathbb{R}^\times \rightarrow \mathbb{R}^\times$ be the map sendin
     The image of $\varphi$ consists of every positive real number. The kernel of $\varphi$ is the set $\{ x \in \mathbb{R}^\times \mid |x| = 1 \}$, that is, $\{ \pm 1 \}$. For a given element $z > 0$, the fiber of $\varphi$ above $z$ is the set $\{ \pm z \}$.
 \end{proof}
 
+\section*{9. (8/25/23)}
+
+Define $\varphi: \mathbb{C}^\times \rightarrow \mathbb{R}^\times$ by $\varphi(a + bi) = a^2 + b^2$. Prove that $\varphi$ is a homomorphism and find the image of $\varphi$. Describe the kernel and the fibers of $\varphi$ geometrically (as subsets of the plane).
+
+\begin{proof}
+    To show that $\varphi$ is a homomorphism, let $z_1 = a_1 + b_1 i, z_2 = a_2 + b_2 i \in \mathbb{C}^\times$. We calculate:
+    \begin{flalign*}
+        \varphi(z_1 z_2) &= \varphi((a_1 + b_1 i)(a_2 + b_2 i)) \\ &= \varphi((a_1 a_2 - b_1 b_2) + (a_1 b_2 + a_2 b_1)i) \\ &= (a_1 a_2 - b_1 b_2)^2 + (a_1 b_2 + a_2 b_1)^2 \\ &= a_1^2 a_2^2 - 2a_1 a_2 b_1 b_2 + b_1^2 b_2^2 + a_1^2 b_2^2 + 2a_1 a_2 b_1 b_2 + a_2^2 b_1^2 \\ &= a_1^2 a_2^2 + b_1^2 b_2^2 + a_1^2 b_2^2 + a_2^2 b_1^2, \text{ and } \\
+        \varphi(z_1)\varphi(z_2) &= \varphi(a_1 + b_1 i)\varphi(a_2 + b_2 i) = (a_1^2 + b_1^2)(a_2^2 + b_2^2) \\ &= a_1^2 a_2^2 + b_1^2 b_2^2 + a_1^2 b_2^2 + a_2^2 b_1^2,
+    \end{flalign*}
+    which proves that $\varphi$ is a homomorphism.
+
+    The image of a complex number $a + bi$ under $\varphi$ is $a^2 + b^2$, which is always non-negative because it is the sum of two non-negative numbers. Since both $\mathbb{C}^\times$ and $\mathbb{R}^\times$ exclude 0, the image of $\varphi$ is therefore all positive real numbers.
+
+    The kernel of $\varphi$ are those complex numbers whose image under $\varphi$ is 1. Geometrically, $\varphi$ is a map from a point in the complex plane to its length, or distance from zero. Therefore the kernel of $\varphi$ is the unit circle in the complex plane. The fibers of a given positive real number $x$ is the circle of radius $x$ centered at the origin in the complex plane.
+\end{proof}
+
 \end{document}
