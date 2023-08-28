@@ -148,4 +148,14 @@ Define $\varphi: \mathbb{C}^\times \rightarrow \mathbb{R}^\times$ by $\varphi(a 
     The kernel of $\varphi$ are those complex numbers whose image under $\varphi$ is 1. Geometrically, $\varphi$ is a map from a point in the complex plane to its length, or distance from zero. Therefore the kernel of $\varphi$ is the unit circle in the complex plane. The fibers of a given positive real number $x$ is the circle of radius $x$ centered at the origin in the complex plane.
 \end{proof}
 
+\section*{10. (8/28/23)}
+
+Let $\varphi: \mathbb{Z}/8\mathbb{Z} \rightarrow \mathbb{Z}/4\mathbb{Z}$ by $\varphi(\overline{a}) = \overline{a}$. Show that this is a well-defined, surjective homomorphism and describe its fibers and kernel explicitly (showing that $\varphi$ is well-defined involves the fact that $\overline{a}$ has a different meaning in the domain and range of $\varphi$).
+
+\begin{proof}
+    The map $\varphi$ is well-defined because it assigns to each member of $\mathbb{Z}/8\mathbb{Z}$ a single, unique element of $\mathbb{Z}/4\mathbb{Z}$. Let $a \in \{ 0, ... 7 \}$ be equal to $\overline{a}$ mod 8. Then we have $\varphi(\overline{a}) = \varphi(a)$. Further, $\varphi$ assigns each $a \in \{ 0, ... 7 \}$ to $a$ mod 4; that is, it assigns 0 and 4 to 0, 1 and 5 to 1, 2 and 6 to 2, and 3 and 7 to 3. This also shows that $\varphi$ is surjective, since each $\overline{a} \cong \mathbb{Z}/4\mathbb{Z}$ (represented by $a = \overline{a}$ mod 4) has a preimage in $\mathbb{Z}/8\mathbb{Z}$.
+
+    The kernel of $\varphi$ is $\{ 0, 4 \} \leq \mathbb{Z}/8\mathbb{Z}$, and the fiber of any $a \in \mathbb{Z}/4\mathbb{Z}$ is the tuple $\{ a, a + 4 \}$.
+\end{proof}
+
 \end{document}
