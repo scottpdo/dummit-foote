@@ -5,6 +5,9 @@
 \date{Mar. 2023}
 \usepackage{amsmath, amsthm, amsfonts, enumitem}
 
+% 1.4.9 has a matrix multiplication that overflows but looks OK, so override the warning here
+\hfuzz=14pt
+
 \begin{document}
 
 \maketitle
@@ -144,20 +147,21 @@ Prove that the binary operation of multiplication of $2 \times 2$ matrices is as
 \begin{proof}
     Let $A = \begin{pmatrix}a_1 & a_2\\a_3 & a_4\end{pmatrix}, B = \begin{pmatrix}b_1 & b_2\\b_3 & b_4\end{pmatrix}, C = \begin{pmatrix}c_1 & c_2\\c_3 & c_4\end{pmatrix}$.
 
-    \begin{multline*}
-        A(BC) = \begin{pmatrix}a_1 & a_2\\a_3 & a_4\end{pmatrix}\Bigl(\begin{pmatrix}b_1 & b_2\\b_3 & b_4\end{pmatrix}\begin{pmatrix}c_1 & c_2\\c_3 & c_4\end{pmatrix}\Bigr) = \\
-        \begin{pmatrix}a_1 & a_2\\a_3 & a_4\end{pmatrix}\begin{pmatrix}b_1 c_1 + b_2 c_3 & b_1 c_2 + b_2 c_4\\b_3 c_1 + b_4 c_3 & b_3 c_2 + b_4 c_4\end{pmatrix} = \\
-        \begin{pmatrix}
+    \begin{align*}
+        A(BC) &= \begin{pmatrix}a_1 & a_2\\a_3 & a_4\end{pmatrix}\Bigl(\begin{pmatrix}b_1 & b_2\\b_3 & b_4\end{pmatrix}\begin{pmatrix}c_1 & c_2\\c_3 & c_4\end{pmatrix}\Bigr) \\ 
+        &= \begin{pmatrix}a_1 & a_2\\a_3 & a_4\end{pmatrix}\begin{pmatrix}b_1 c_1 + b_2 c_3 & b_1 c_2 + b_2 c_4\\b_3 c_1 + b_4 c_3 & b_3 c_2 + b_4 c_4\end{pmatrix} \\
+        &= \begin{pmatrix}
             a_1 (b_1 c_1 + b_2 c_3) + a_2 (b_3 c_1 + b_4 c_3) & a_1 (b_1 c_2 + b_2 c_4) + a_2 (b_3 c_2 + b_4 c_4)\\
             a_3 (b_1 c_1 + b_2 c_3) + a_4 (b_3 c_1 + b_4 c_3) & a_3 (b_1 c_2 + b_2 c_4) + a_4 (b_3 c_2 + b_4 c_4)
-        \end{pmatrix} = \\
-        \begin{pmatrix}
+        \end{pmatrix} \\
+        &= \begin{pmatrix}
             (a_1 b_1 + a_2 b_3) c_1 + (a_1 b_2 + a_2 b_4) c_3 & (a_1 b_1 + a_2 b_3) c_2 + (a_1 b_2 + a_2 b_4) c_4\\
             (a_3 b_1 + a_4 b_3) c_1 + (a_3 b_2 + a_4 b_4) c_3 & (a_3 b_1 + a_4 b_3) c_2 + (a_3 b_2 + a_4 b_4) c_4
-        \end{pmatrix} = \\
-        \begin{pmatrix}a_1 b_1 + a_2 b_3 & a_1 b_2 + a_2 b_4\\a_3 b_1 + a_4 b_3 & a_3 b_2 + a_4 b_4\end{pmatrix}\begin{pmatrix}c_1 & c_2 \\ c_3 & c_4\end{pmatrix} = \\
-        \Bigl(\begin{pmatrix}a_1 & a_2\\a_3 & a_4\end{pmatrix}\begin{pmatrix}b_1 & b_2\\b_3 & b_4\end{pmatrix}\Bigr)\begin{pmatrix}c_1 & c_2\\c_3 & c_4\end{pmatrix} = (AB)C.
-    \end{multline*}
+        \end{pmatrix} \\
+        &= \begin{pmatrix}a_1 b_1 + a_2 b_3 & a_1 b_2 + a_2 b_4\\a_3 b_1 + a_4 b_3 & a_3 b_2 + a_4 b_4\end{pmatrix}\begin{pmatrix}c_1 & c_2 \\ c_3 & c_4\end{pmatrix} \\
+        &= \Bigl(\begin{pmatrix}a_1 & a_2\\a_3 & a_4\end{pmatrix}\begin{pmatrix}b_1 & b_2\\b_3 & b_4\end{pmatrix}\Bigr)\begin{pmatrix}c_1 & c_2\\c_3 & c_4\end{pmatrix} \\
+        &= (AB)C.
+    \end{align*}
 \end{proof}
 
 \section*{10. (3/22/23)}
