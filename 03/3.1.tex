@@ -5,6 +5,9 @@
 \date{Aug. - Sep. 2023}
 \usepackage{amsmath, amsthm, amsfonts, enumitem, tabu}
 
+% 3.4.11 has a matrix multiplication that overflows but looks OK, so override the warning here
+\hfuzz=1pt
+
 \begin{document}
 
 \maketitle
@@ -157,5 +160,49 @@ Let $\varphi: \mathbb{Z}/8\mathbb{Z} \rightarrow \mathbb{Z}/4\mathbb{Z}$ by $\va
 
     The kernel of $\varphi$ is $\{ 0, 4 \} \leq \mathbb{Z}/8\mathbb{Z}$, and the fiber of any $a \in \mathbb{Z}/4\mathbb{Z}$ is the tuple $\{ a, a + 4 \}$.
 \end{proof}
+
+\section*{11. (8/28/23)}
+
+Let $F$ be a field and let $G = \{ \begin{pmatrix}a & b \\ 0 & c\end{pmatrix} \mid a, b, c \in F, ac \neq 0 \} \leq GL_2(F)$.
+
+\begin{enumerate}[label=(\alph*), itemsep=0em]
+    \item Prove that the map $\varphi: \begin{pmatrix}a & b \\ 0 & c\end{pmatrix} \mapsto a$ is a surjective homomorphism from $G$ onto $F^\times$ (recall that $F^\times$ is the multiplicative group of nonzero elements in $F$). Describe the fibers and kernel of $\varphi$.
+          \begin{proof}
+            To show that $\varphi$ is surjective, let $a \in F^\times$ (so $a \neq 0$). Then we have $\varphi(\begin{pmatrix}a & 0 \\ 0 & 1\end{pmatrix}) = a$, so $\varphi$ is onto.
+
+            Next, to show that it is a homomorphism, we note that:
+            \begin{equation*}
+                \varphi(\begin{pmatrix}a & b \\ 0 & c\end{pmatrix}\begin{pmatrix}d & e \\ 0 & f\end{pmatrix}) = \varphi(\begin{pmatrix}ad & ae + bf \\ 0 & cf\end{pmatrix}) = ad = \varphi(\begin{pmatrix}a & b \\ 0 & c\end{pmatrix})\varphi(\begin{pmatrix}d & e \\ 0 & f\end{pmatrix}),
+            \end{equation*}
+            so $\varphi$ is also a homomorphism.
+
+            The kernel of $\varphi$ is $\{ \begin{pmatrix}1 & b \\ 0 & c\end{pmatrix} \mid b, c \in F, c \neq 0 \}$, and the fiber of $\varphi$ over a given element $a \in F^\times$ is $\{ \begin{pmatrix} a & b \\ 0 & c\end{pmatrix} \mid b, c \in F, c \neq 0 \}$.
+          \end{proof}
+    \item Prove that the map $\psi: \begin{pmatrix}a & b \\ 0 & c\end{pmatrix} \mapsto (a, c)$ is a surjective homomorphism from $G$ onto $F^\times \times F^\times$. Describe the fibers and kernel of $\psi$.
+          \begin{proof}
+            To show that $\psi$ is surjective, let $(a, c) \in F^\times \times F^\times$ (so $a, c \neq 0$). Then we have $\psi(\begin{pmatrix}a & 0 \\ 0 & c\end{pmatrix}) = (a, c)$, so $\psi$ is onto.
+
+            Next, to show that it is a homomorphism, we note that:
+            \begin{align*}
+                \psi(\begin{pmatrix}a & b \\ 0 & c\end{pmatrix}\begin{pmatrix}d & e \\ 0 & f\end{pmatrix}) &= \psi(\begin{pmatrix}ad & ae + bf \\ 0 & cf\end{pmatrix}) = (ad, cf) \\ &= (a, c)(d, f) = \psi(\begin{pmatrix}a & b \\ 0 & c\end{pmatrix})\psi(\begin{pmatrix}d & e \\ 0 & f\end{pmatrix}),
+            \end{align*}
+            so $\psi$ is also a homomorphism.
+
+            The kernel of $\psi$ is the preimage of $(1, 1)$, that is, $\{ \begin{pmatrix}1 & b \\ 0 & 1\end{pmatrix} \mid b \in F \}$, and the fiber of $\psi$ over a given element $(a, c) \in F^\times \times F^\times$ is $\{ \begin{pmatrix}a & b \\ 0 & c\end{pmatrix} \mid b \in F \}$.
+          \end{proof}
+    \item Let $H = \{ \begin{pmatrix}1 & b \\ 0 & 1\end{pmatrix} \mid b \in F \}$. Prove that $H$ is isomorphic to the additive group $F$.
+          \begin{proof}
+            As usual, to show that $H$ is isomorphic to the additive group $F$, we must show that there exists a bijective homomorphism $\varphi: H \rightarrow F$. Define $\varphi$ by $\varphi(\begin{pmatrix}1 & b \\ 0 & 1\end{pmatrix}) = b$. We will show that it is an isomorphism.
+
+            First, $\varphi$ is injective: Suppose that $\varphi(\begin{pmatrix}1 & a \\ 0 & 1\end{pmatrix}) = \varphi(\begin{pmatrix}1 & b \\ 0 & 1\end{pmatrix}) = c$. Then we have $a = c$ and $b = c$, so the two matrices are the same, and $\varphi$ is injective.
+
+            Next, $\varphi$ is surjective: Let $b \in F$. Then we have $\varphi(\begin{pmatrix}1 & b \\ 0 & 1\end{pmatrix}) = b$.
+
+            Finally, $\varphi$ is a homomorphism:
+            \begin{equation*}
+                \varphi(\begin{pmatrix}1 & a \\ 0 & 1\end{pmatrix}\begin{pmatrix}1 & b \\ 0 & 1\end{pmatrix}) = \varphi(\begin{pmatrix}1 & a + b \\ 0 & 1\end{pmatrix}) = a + b = \varphi(\begin{pmatrix}1 & a \\ 0 & 1\end{pmatrix}) + \varphi(\begin{pmatrix}1 & b \\ 0 & 1\end{pmatrix}).
+            \end{equation*}
+          \end{proof}
+\end{enumerate}
 
 \end{document}
