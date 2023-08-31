@@ -102,14 +102,16 @@ Prove for all $n > 1$ that $\mathbb{Z}/n\mathbb{Z}$ is not a group under multipl
       Let $\mathbb{Z}/n\mathbb{Z}$ with $n > 1$. The element $1$ is the identity element, since (by multiplication of standard integers), $1 \cdot \bar{a} = \bar{a}$ for all $\bar{a} \in \mathbb{Z}/n\mathbb{Z}$. However, the element $0$ has no inverse, since (again by standard multiplication), there is no element $\bar{a}$ such that $0 \cdot \bar{a} = 1$. Thus, $\mathbb{Z}/n\mathbb{Z}$ is not a group under multiplication.
 \end{proof}
 
-\section*{6. (11/18/22)}
+\section*{6. (8/31/23)}
 
 Determine which of the following are sets are groups under addition:
 
 \begin{enumerate}[label=(\alph*)]
       \item the set of rational numbers (including $0 = 0/1$) in lowest terms whose denominators are odd:
       
-            This is a group. The identity element is $0$ and addition is associative by definition. Each element $a$ has an inverse in $-a = -1 \cdot a$. It remains to be shown that the set is closed under addition. Let $\frac{a}{b}$ and $\frac{c}{d}$ be two elements of the set. Then $\frac{a}{b} + \frac{c}{d} = \frac{ad + bc}{bd}$. The product of two odd numbers is odd, so $bd$ is odd. Further, if $\frac{ad + bc}{bd}$ is not in lowest terms, then the denominator must remain negative, since an odd number has no even divisors. Thus the set is closed under addition.
+            This is a group. The identity element is $0 = 0/1$ and addition is associative by definition. Each element $a$ has an inverse in $-a = -1 \cdot a$, since $a + (-a) = 0$. It remains to be shown that the set is closed under addition. 
+            
+            Let $\frac{a}{b}$ and $\frac{c}{d}$ be two rational numbers in lowers terms with $b, d$ odd. Then $\frac{a}{b} + \frac{c}{d} = \frac{ad + bc}{bd}$. The product of two odd numbers is odd, so $bd$ is odd. Further, if $\frac{ad + bc}{bd}$ is not in lowest terms (that is, if there is an $n > 1$ that divides both $ad + bc$ and $bd$), then the resulting rational number in lowest terms, $\dfrac{(ad + bc)/n}{bd/n}$, still has a denominator in lowest terms, because $n$ must be odd ($bd$ has no even divisors) and an odd number divided by an odd number remains odd. Therefore the set is closed under addition, and so it is a group.
       \item the set of rational numbers (including $0 = 0/1$) in lowest terms whose denominators are even:
 
             Not a group. $1/2 + 1/2 = 1/1$, a rational number whose denominator is odd.
