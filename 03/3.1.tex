@@ -281,4 +281,16 @@ Consider the additive quotient group $\mathbb{Q}/\mathbb{Z}$.
           \end{proof}
 \end{enumerate}
 
+\section*{15. (9/1/23)}
+
+Prove that the quotient of a divisible abelian group by any proper subgroup is also divisible. Deduce that $\mathbb{Q}/\mathbb{Z}$ is divisible.
+
+\begin{proof}
+    Let $A$ be a divisible abelian group and let $B$ be a proper subgroup of $A$. Since $A$ is abelian, all of its subgroups are normal, so the quotient group $A/B$ is well-defined.
+
+    Let $aB \in A/B$ and let $k > 0$. Since $A$ is divisible, there exists an $x \in A$ such that $x^k = a$. Then we have $aB = (x^k)B = (xB)^k$ for $xB \in A/B$, so $aB$ has a $k$-th root in $A/B$. Therefore $A/B$ is divisible.
+
+    Note that the rational numbers under addition form a divisible abelian group (from Ch. 2.4, Exercise 19.) and the integers are a proper subgroup of the rational numbers. It follows that the quotient group $\mathbb{Q}/\mathbb{Z}$ is divisible.
+\end{proof}
+
 \end{document}
