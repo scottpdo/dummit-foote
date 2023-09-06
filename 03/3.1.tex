@@ -312,7 +312,11 @@ Let $G$ be a group, let $N$ be a normal subgroup of $G$, and let $\overline{G} =
     \end{multline*}
     that is, we can write $\overline{g}$ as a finite product of $\overline{x}, \overline{y} \in \overline{G}$, and so $\overline{G} = \langle \overline{x}, \overline{y} \rangle$.
 
-    More generally, if $G = \langle S \rangle$, then any element $g$ can be written as a finite product of elements of $S$, say some combination $s_1, s_2, ..., s_n$. Similar to above, this means that any element $\overline{g} = gN \in G/N$ can be written as a finite product of $\overline{s_1}, \overline{s_2}, ..., \overline{s_n}$, and so $\overline{G} = \langle \overline{S} \rangle$.
+    More generally, if $G = \langle S \rangle$, then any element $g$ can be written as a finite product of elements of $S$, say $g = (s_1^{a_{11}}...s_n^{a_{n1}})(s_1^{a_{12}}...s_n^{a_{n2}})...(s_1^{a_{1k}}...s_n^{a_{nk}})$. Then we have:
+    \begin{equation*}
+        \overline{g} = gN = \Bigl( \prod_{j = 1}^{k} \bigl(\prod_{i = 1}^{n} s_i^{a_{ij}}\bigr) \Bigr) N = \prod_{j = 1}^{k} \prod_{i = 1}^{n} (s_i^{a_{ij}} N) = \prod_{j = 1}^{k} \prod_{i = 1}^{n} (s_i N)^{a_{ij}} = \prod_{j = 1}^{k} \prod_{i = 1}^{n} \overline{s_i}^{a_{ij}},
+    \end{equation*}
+    and so similar to above, this means that any element $\overline{g} = gN \in G/N$ can be written as a finite product of $\overline{s_1}, \overline{s_2}, ..., \overline{s_n}$, and therefore $\overline{G} = \langle \overline{S} \rangle$.
 \end{proof}
 
 \end{document}
