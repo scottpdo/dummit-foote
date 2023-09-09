@@ -44,11 +44,12 @@ Write out all the elements of $GL_2(\mathbb{F}_2)$ and compute the order of each
 Show that $GL_2(\mathbb{F}_2)$ is non-abelian.
 
 \begin{proof}
-    To prove that $GL_2(\mathbb{F}_2)$ is non-abelian, we need only show that it contains two non-commuting elements.
-
-    $\begin{pmatrix}0 & 1\\1 & 1\end{pmatrix} \times \begin{pmatrix}0 & 1\\1 & 0\end{pmatrix} = \begin{pmatrix}1 & 0\\1 & 1\end{pmatrix}$.
-
-    However, $\begin{pmatrix}0 & 1\\1 & 0\end{pmatrix} \times \begin{pmatrix}0 & 1\\1 & 1\end{pmatrix} = \begin{pmatrix}1 & 1\\0 & 1\end{pmatrix}$. These products are not equal, so $GL_2(\mathbb{F}_2)$ is non-abelian.
+    To prove that $GL_2(\mathbb{F}_2)$ is non-abelian, we need only show that it contains two non-commuting elements. We have:
+    \begin{align*}
+        \begin{pmatrix}0 & 1\\1 & 1\end{pmatrix} \begin{pmatrix}0 & 1\\1 & 0\end{pmatrix} &= \begin{pmatrix}1 & 0\\1 & 1\end{pmatrix}, \text{ while } \\
+        \begin{pmatrix}0 & 1\\1 & 0\end{pmatrix} \begin{pmatrix}0 & 1\\1 & 1\end{pmatrix} &= \begin{pmatrix}1 & 1\\0 & 1\end{pmatrix}
+    \end{align*}
+    Since these products are not equal, $GL_2(\mathbb{F}_2)$ is non-abelian.
 \end{proof}
 
 \section*{4. (3/18/23)}
