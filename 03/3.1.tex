@@ -476,4 +476,19 @@ Let $G = \mathbb{Z}/24\mathbb{Z}$ and let $\widetilde{G} = G/\langle \overline{1
           \end{proof}
 \end{enumerate}
 
+\section*{22. (9/14/23)}
+
+\begin{enumerate}[label=(\alph*), itemsep=0em]
+    \item Prove that if $H$ and $K$ are normal subgroups of $G$ then their intersection $H \cap K$ is also a normal subgroup of $G$.
+          \begin{proof}
+            Let $H$ and $K$ be normal subgroups of $G$. Let $h \in H \cap K$, so $h \in H$ and $h \in K$. Since both $H$ and $K$ are normal, we have $ghg^{-1} \in H$ and $ghg^{-1} \in K$ for all $g \in G$. It follows that $ghg^{-1} \in H \cap K$ for all $g \in G$. Therefore $H \cap K$ is a normal subgroup of $G$.
+          \end{proof}
+    \item Prove that the intersection of an arbitrary nonempty collection of normal subgroups of a group is a normal subgroup (do not assume the collection is countable).
+          \begin{proof}
+            Let $\mathcal{H}$ be a nonempty collection of normal subgroups of $G$. Consider $\bigcap_{H \in \mathcal{H}} = \{ h \in G \mid h \in H \text{ for all } H \in \mathcal{H} \}$. From Ch. 2.1, Exercise 10., we know that $\mathcal{H}$ is itself a subgroup of $G$. We will show that in this case it is normal in $G$.
+
+            Let $h \in \bigcap_{H \in \mathcal{H}}$. Then for all $H \in \mathcal{H}$, we have $h \in H$. Since each $H$ is normal in $G$, we have $ghg^{-1} \in H$ for all $g \in G, H \in \mathcal{H}$. It follows that $ghg^{-1} \in \bigcap_{H \in \mathcal{H}}$, and therefore $\bigcap_{H \in \mathcal{H}}$ is normal in $G$.
+          \end{proof}
+\end{enumerate}
+
 \end{document}
