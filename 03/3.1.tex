@@ -441,4 +441,39 @@ Let $G$ be the modular group of order 16: $G = \langle u, v \mid u^2 = v^8 = 1, 
         \end{proof}
 \end{enumerate}
 
+\section*{20. (9/14/23)}
+
+Let $G = \mathbb{Z}/24\mathbb{Z}$ and let $\widetilde{G} = G/\langle \overline{12} \rangle$, where for each integer $a$ we simplify notation by writing $\widetilde{\overline{a}}$ as $\widetilde{a}$.
+
+\begin{enumerate}[label=(\alph*), itemsep=0em]
+    \item Show that $\widetilde{G} = \{ \widetilde{0}, \widetilde{1}, ..., \widetilde{11} \}$.
+
+          Now $\widetilde{G}$ consists of the cosets of $\langle \overline{12} \rangle = \{ 0, 12 \}$ in $\mathbb{Z}/24\mathbb{Z}$, for example, $\widetilde{4} = 4 + \{ 0, 12 \} = \{ 4, 16 \}$ and $\widetilde{21} = 21 + \{ 0, 12 \} = \{ 21, 33 \} = \{ 9, 21 \} = \widetilde{9}$. For each $n \in \{ 0, ..., 11 \}$, the element $n + 12 \in \mathbb{Z}/24\mathbb{Z}$ has the same coset as $n$, since $n + 12 \cong n$ (mod 12). Thus the elements of $\widetilde{G}$ are:
+          \begin{align*}
+            \widetilde{0} &= \{ 0, 12 \} & \widetilde{4} &= \{ 4, 16 \} & \widetilde{8} &= \{ 8, 20 \} \\
+            \widetilde{1} &= \{ 1, 13 \} & \widetilde{5} &= \{ 5, 17 \} & \widetilde{9} &= \{ 9, 21 \} \\
+            \widetilde{2} &= \{ 2, 14 \} & \widetilde{6} &= \{ 6, 18 \} & \widetilde{10} &= \{ 10, 22 \} \\
+            \widetilde{3} &= \{ 3, 15 \} & \widetilde{7} &= \{ 7, 19 \} & \widetilde{11} &= \{ 11, 23 \}
+          \end{align*}
+    \item Find the order of each element of $\widetilde{G}$.
+          \begin{align*}
+            \widetilde{0} &: 1 & \widetilde{4} &: 3 & \widetilde{8} &: 3 \\
+            \widetilde{1} &: 12 & \widetilde{5} &: 12 & \widetilde{9} &: 4 \\
+            \widetilde{2} &: 6 & \widetilde{6} &: 2 & \widetilde{10} &: 6 \\
+            \widetilde{3} &: 4 & \widetilde{7} &: 12 & \widetilde{11} &: 12
+          \end{align*}
+    \item Prove that $\widetilde{G} \cong \mathbb{Z}/12\mathbb{Z}$. (Thus $(\mathbb{Z}/24\mathbb{Z}) / (12\mathbb{Z}/24\mathbb{Z}) \cong \mathbb{Z}/12\mathbb{Z}$, just as if we inverted and cancelled the $24\mathbb{Z}$'s.)
+          \begin{proof}
+            From Ch. 2.3, Theorem 4, $\mathbb{Z}/n\mathbb{Z}$ is another presentation of the unique cyclic group of order $n$. It suffices, then, to prove that $\widetilde{G}$ is cyclic in order to show that it is isomorphic to $\mathbb{Z}/12\mathbb{Z}$.
+
+            We claim that $\widetilde{1}$ is a generator for $\overline{G}$. For any element $\widetilde{a} \in \widetilde{G}$ ($0 \leq a < 12$), we can write:
+            \begin{align*}
+                \widetilde{a} &= \{ a, a + 12 \} = a + \{ 0, 12 \} = (\underbrace{1 + ... + 1}_{a \text{ times}}) + \{ 0, 12 \} \\ 
+                &= \underbrace{(1 + \{ 0, 12 \}) + ... + (1 + \{ 0, 12 \})}_{a \text{ times}} = \underbrace{\widetilde{1} + ... + \widetilde{1}}_{a \text{ times}} \\
+                &= a \cdot \widetilde{1},
+            \end{align*}
+            and so any element of $\widetilde{G}$ is generated from $\widetilde{1}$. Thus $\widetilde{G}$ is isomorphic to the cyclic group of order 12, which is isomorphic to $\mathbb{Z}/12\mathbb{Z}$.
+          \end{proof}
+\end{enumerate}
+
 \end{document}
