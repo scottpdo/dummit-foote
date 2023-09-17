@@ -491,4 +491,22 @@ Let $G = \mathbb{Z}/24\mathbb{Z}$ and let $\widetilde{G} = G/\langle \overline{1
           \end{proof}
 \end{enumerate}
 
+\section*{23. (9/16/23)}
+
+Prove that the join of any nonempty collection of normal subgroups of a group is a normal subgroup.
+
+\begin{proof}
+    Let $\mathcal{H}$ be a nonempty collection of subgroups of $G$ and let $\langle \mathcal{H} \rangle$ be their join.
+
+    Let $h \in \langle \mathcal{H} \rangle$. Then $h$ can be written as a finite product of elements, say $h_1, h_2, ..., h_n$, where each $h_i$ is an element of a corresponding normal subgroup $H_i \in \mathcal{H}$. We write this product:
+    \begin{equation*}
+        h = (h_1^{a_{11}}...h_n^{a_{n1}})(h_1^{a_{12}}...h_n^{a_{n2}})...(h_1^{a_{1k}}...h_n^{a_{nk}}) = \prod_{j = 1}^{k} \prod_{i = 1}^{n} h_i^{a_{ij}}.
+    \end{equation*}
+    Since each $h_i$ belongs to a normal subgroup $H_i$ of $G$, we have $gh_ig^{-1} \in H_i$ for all $g \in G$. It follows that, for any $m > 0$, we have $gh_i^kg^{-1} \in H_i$ (because $(gh_ig^{-1})^k = gh_ig^{-1}$). Now note that, since $(ga_1g^{-1})(ga_2g^{-1})...(ga_ng^{-1}) = g(a_1 a_2 ... a_n)g^{-1}$, the product of conjugates of the constituent elements of $h$ is equal to the conjugate of the product of those elements:
+    \begin{equation*}
+        \prod_{j = 1}^{k} \prod_{i = 1}^{n} gh_i^{a_{ij}}g^{-1} = g \Bigl(\prod_{j = 1}^{k} \prod_{i = 1}^{n} h_i^{a_{ij}}\Bigr) g^{-1} = ghg^{-1}.
+    \end{equation*}
+    The left-hand side of the equation is the product of conjugates of elements $h_i$ that each belong to the corresponding normal subgroup $H_i$. Therefore the product is an element of the join $\langle \mathcal{H} \rangle$. Since it is equal to the right-hand side, the conjugate of $h$ by any element $g \in G$, we must have $ghg^{-1} \in \langle \mathcal{H} \rangle$ for all $g \in G$. Thus the join of any nonempty collection of normal subgroups of a group is a normal subgroup.
+\end{proof}
+
 \end{document}
