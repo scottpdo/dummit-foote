@@ -509,4 +509,18 @@ Prove that the join of any nonempty collection of normal subgroups of a group is
     The left-hand side of the equation is the product of conjugates of elements $h_i$ that each belong to the corresponding normal subgroup $H_i$. Therefore the product is an element of the join $\langle \mathcal{H} \rangle$. Since it is equal to the right-hand side, the conjugate of $h$ by any element $g \in G$, we must have $ghg^{-1} \in \langle \mathcal{H} \rangle$ for all $g \in G$. Thus the join of any nonempty collection of normal subgroups of a group is a normal subgroup.
 \end{proof}
 
+\section*{24. (9/16/23)}
+
+Prove that if $N \unlhd G$ and $H$ is any subgroup of $G$ then $N \cap H \unlhd H$.
+
+\begin{proof}
+    Let $N \unlhd G$, $H \leq G$, and let $n \in N \cap H$, $h \in H$. Consider the conjugate element $hnh^{-1}$.
+
+    Since $N$ is normal in $G$ and $h \in H \Rightarrow h \in G$, we have $hnh^{-1} \in N$.
+
+    Since $H$ is a subgroup of $G$, it is closed and closed under inverses. Also, $n \in N \cap H \Rightarrow n \in H$, so the product $hnh^{-1}$ lies in $H$. We have both $hnh^{-1} \in N$ and $hnh^{-1} \in H$, so $hnh^{-1} \in N \cap H$.
+
+    So the conjugate of any element of $N \cap H$ by any element of $H$ is again an element of $N \cap H$. Therefore $N \cap H$ is normal in $H$.
+\end{proof}
+
 \end{document}
