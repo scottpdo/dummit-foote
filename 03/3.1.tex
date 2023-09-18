@@ -523,4 +523,29 @@ Prove that if $N \unlhd G$ and $H$ is any subgroup of $G$ then $N \cap H \unlhd 
     So the conjugate of any element of $N \cap H$ by any element of $H$ is again an element of $N \cap H$. Therefore $N \cap H$ is normal in $H$.
 \end{proof}
 
+\section*{25. (9/17/23)}
+
+\begin{enumerate}[label=(\alph*), itemsep=0em]
+    \item Prove that a subgroup $N$ of $G$ is normal if and only if $gNg^{-1} \subseteq G$ for all $g \in G$.
+          \begin{proof}
+            Recall that $N$ is defined to be normal in $G$ if $gNg^{-1} = N$ for all $g \in G$. Now if $N \unlhd G$, then clearly $gNg^{-1} \subseteq N$, since $gNg^{-1} = N$.
+
+            Suppose that $gNg^{-1} \subseteq N$ for all $g \in G$. Let $x \in N, g \in G$. The conjugate of $x$ by $g^{-1}$, $g^{-1}x(g^{-1})^{-1}$, must lie in $N$. Let us write $g^{-1}x(g^{-1})^{-1} = n \in N$. Then we have:
+            \begin{equation*}
+                x = gg^{-1}xgg^{-1} = g\bigl(g^{-1}x(g^{-1})^{-1}\bigr)g^{-1} = gng^{-1},
+            \end{equation*}
+            and so $x \in gNg^{-1}$. This implies that $N \subseteq gNg^{-1}$. Therefore $gNg^{-1} = N$ for all $g \in G$, and so $N \unlhd G$.
+          \end{proof}
+    \item Let $G = GL_2(\mathbb{Q})$, let $N$ be the subgroup of upper triangular matrices with integer entries and 1's on the diagonal, and let $g$ be the diagonal matrix with entries 2, 1. Show that $gNg^{-1} \subseteq N$ but $g$ does \emph{not} normalize $N$.
+          \begin{proof}
+            Let $N = \begin{pmatrix}1 & n \\ 0 & 1\end{pmatrix}$, where $n \in \mathbb{Z}$ and let $g = \begin{pmatrix}2 & 0 \\ 0 & 1\end{pmatrix}$. The inverse element $g^{-1} = \begin{pmatrix}1/2 & 0 \\ 0 & 1\end{pmatrix}$.
+
+            Then we have:
+            \begin{equation*}
+                gNg^{-1} = \left\{ \begin{pmatrix}2 & 0 \\ 0 & 1 \end{pmatrix}\begin{pmatrix}1 & n \\ 0 & 1 \end{pmatrix}\begin{pmatrix}1/2 & 0 \\ 0 & 1 \end{pmatrix} \mid n \in \mathbb{Z} \right\} = \left\{ \begin{pmatrix}1 & 2n \\ 0 & 1\end{pmatrix} \mid n \in \mathbb{Z} \right\}.
+            \end{equation*}
+            Since $2n \in \mathbb{Z}$ for all $n \in \mathbb{Z}$, we have $gNg^{-1} \subseteq N$. However, there is no $n \in \mathbb{Z}$ such that $g \begin{pmatrix}1 & n \\ 0 & 1 \end{pmatrix} g^{-1} = \begin{pmatrix}1 & 1 \\ 0 & 1\end{pmatrix}$. In order for $g$ to normalize $N$, we must have $gNg^{-1} = N$. Therefore $g$ does not normalize $N$.
+          \end{proof}
+\end{enumerate}
+
 \end{document}
