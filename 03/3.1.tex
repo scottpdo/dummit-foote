@@ -538,7 +538,7 @@ Prove that if $N \unlhd G$ and $H$ is any subgroup of $G$ then $N \cap H \unlhd 
           \end{proof}
     \item Let $G = GL_2(\mathbb{Q})$, let $N$ be the subgroup of upper triangular matrices with integer entries and 1's on the diagonal, and let $g$ be the diagonal matrix with entries 2, 1. Show that $gNg^{-1} \subseteq N$ but $g$ does \emph{not} normalize $N$.
           \begin{proof}
-            Let $N = \begin{pmatrix}1 & n \\ 0 & 1\end{pmatrix}$, where $n \in \mathbb{Z}$ and let $g = \begin{pmatrix}2 & 0 \\ 0 & 1\end{pmatrix}$. The inverse element $g^{-1} = \begin{pmatrix}1/2 & 0 \\ 0 & 1\end{pmatrix}$.
+            Let $N = \begin{pmatrix}1 & n \\ 0 & 1\end{pmatrix}$, where $n \in \mathbb{Z}$ and let $g = \begin{pmatrix}2 & 0 \\ 0 & 1\end{pmatrix}$, with inverse $g^{-1} = \begin{pmatrix}1/2 & 0 \\ 0 & 1\end{pmatrix}$.
 
             Then we have:
             \begin{equation*}
@@ -587,5 +587,25 @@ Let $a, b \in G$.
             is the product of a elements of $N$, and so belongs to $N$ itself. Then $gxg^{-1} \in N$ for all $g \in G$, which implies that $gNg^{-1} \subseteq N$, and thus $N$ is normal in $G$.
           \end{proof}
 \end{enumerate}
+
+\section*{27. (9/18/23)}
+
+Let $N$ be a \emph{finite} subgroup of a group $G$. Show that $gNg^{-1} \subseteq N$ if and only if $gNg^{-1} = N$. Deduce that $N_G(N) = \{ g \in G \mid gNg^{-1} \subseteq N \}$.
+
+\begin{proof}
+    Let $g \in G$. Now if $gNg^{-1} = N$, then clearly $gNg^{-1} \subseteq N$. So let us consider the case where $gNg^{-1} \subseteq N$. 
+    
+    Let $\varphi: N \rightarrow gNg^{-1}$ be defined by $\varphi(x) = gxg^{-1}$ for $x \in N$. We will show that $\varphi$ is a bijection, which implies that its domain and range have equal cardinality.
+
+    To prove that $\varphi$ is injective, let $x, y \in N$ and suppose that $\varphi(x) = \varphi(y)$. Then:
+    \begin{equation*}
+        gxg^{-1} = gyg^{-1} \Rightarrow gx = gy \Rightarrow x = y,
+    \end{equation*}
+    so $\varphi$ is one-to-one.
+
+    Next, let $z \in gNg^{-1}$. Since $gNg^{-1} = \{ gxg^{-1} \mid x \in G \}$, there exists some $y \in N$ such that $\varphi(y) = z$, so $\varphi$ is surjective. Therefore it is a bijection, and so $|N| = |gNg^{-1}|$.
+
+    Recall that the normalizer $N_G(N)$ is defined to be the subgroup $\{ g \in G \mid gNg^{-1} = N \}$. From above, when $N$ is finite, this is equal to $\{ g \in G \mid gNg^{-1} \subseteq N \}$.
+\end{proof}
 
 \end{document}
