@@ -645,4 +645,18 @@ Let $N$ be a \emph{finite} subgroup of $G$ and suppose $G = \langle T \rangle$ a
     Now the inner-most conjugate, $t_m^{pm} s_i^{ij} t_m^{-pm}$, is an element of $N$. Evaluating from the parentheses outward, each conjugate is of the form $t_a^{ab} s_i^{ij} t_a^{-ab}$, that is, always an element of $N$. Therefore we have $gng^{-1} \in N$ for all $g \in G, n \in N$, and so $gNg^{-1} \subseteq N$, which implies that $N \unlhd G$.
 \end{proof}
 
+\section*{30. (9/21/23)}
+
+Let $N \leq G$ and let $g \in G$. Prove that $gN = Ng$ if and only if $g \in N_G(N)$.
+
+\begin{proof}
+    Recall that $N_G(N)$, the normalizer of $N$ in $G$, is $\{ g \in G \mid gNg^{-1} = N \}$.
+
+    First, let $g \in N_G(N)$ (to show that $gN = Ng$). It follows that $gNg^{-1} = N$. Let $y \in gN$. Since $gN = \{ gn \mid n \in N \}$, we have $y = gx$ for some $x \in N$. From Chapter 2.2, the normalizer of $N$ is a subgroup of $G$, and so is closed under inverses, so we also have $g^{-1} \in N_G(N)$, and so $g^{-1}N(g^{-1})^{-1} = N$. It follows that $x = g^{-1}z(g^{-1})^{-1}$ for some (unique) $z \in N$. Then $y = gx = g(g^{-1}z(g^{-1})^{-1}) = zg$, so we have $y \in Ng$. This proves that $gN \subseteq Ng$. The proof showing that $Ng \subseteq gN$ is structurally identical (let $y \in Ng \Rightarrow y = xg$, etc.), and so we have $gN = Ng$.
+
+    Next, let $gN = Ng$ (to show that $gNg^{-1} = N$). Let $y \in N$. Then $yg = gx$ for some $x \in N$. So $y = gxg^{-1}$, which implies that $y \in gNg^{-1}$, and so $N \subseteq gNg^{-1}$.
+    
+    Similarly, let $y \in gNg^{-1}$, so $y = gxg^{-1}$ for some $x \in N$. Since $gN = Ng$, we know that $gx = zg$ for some $z \in N$. Then $y = gxg^{-1} = zgg^{-1} = z \in N$, so $gNg^{-1} \subseteq N$. Thus $gNg^{-1} = N$, so $g$ is in the normalizer of $N$.
+\end{proof}
+
 \end{document}
