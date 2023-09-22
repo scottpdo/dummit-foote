@@ -659,4 +659,14 @@ Let $N \leq G$ and let $g \in G$. Prove that $gN = Ng$ if and only if $g \in N_G
     Similarly, let $y \in gNg^{-1}$, so $y = gxg^{-1}$ for some $x \in N$. Since $gN = Ng$, we know that $gx = zg$ for some $z \in N$. Then $y = gxg^{-1} = zgg^{-1} = z \in N$, so $gNg^{-1} \subseteq N$. Thus $gNg^{-1} = N$, so $g$ is in the normalizer of $N$.
 \end{proof}
 
+\section*{31. (9/22/23)}
+
+Prove that if $H \leq G$ and $N$ is a normal subgroup of $H$ then $H \leq N_G(N)$. Deduce that $N_G(N)$ is the largest subgroup of $G$ in which $N$ is normal (i.e., is the join of all subgroups $H$ for which $N \unlhd H$).
+
+\begin{proof}
+    Let $H \leq G$, $N \unlhd H$, and let $h \in H$. Since $N$ is normal in $H$, we have $hNh^{-1} = N$. Recall that $N_G(N) = \{ g \in G \mid gNg^{-1} = N \}$. It follows that $h \in N_G(N)$, and so $H \subseteq N_G(N)$. Since both are subgroups of $G$, more specifically, we have $H \leq N_G(N)$.
+
+    This implies that any subgroup in which $N$ is normal is a subgroup of $N_G(N)$, and so $N_G(N)$ is the largest subgroup of $G$ in which $N$ is normal. In particular, if $N_G(N) \leq K$ for some subgroup $K$ of $G$, then $N$ is not normal in $K$, since otherwise we would have $K \leq N_G(N)$.
+\end{proof}
+
 \end{document}
