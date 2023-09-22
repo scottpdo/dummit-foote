@@ -3,7 +3,9 @@
 \title{Dummit \& Foote Ch. 3.1: Quotient Groups and Homomorphisms}
 \author{Scott Donaldson}
 \date{Aug. - Sep. 2023}
-\usepackage{amsmath, amsthm, amsfonts, enumitem, tabu}
+\usepackage{amsmath, amsthm, amsfonts, enumitem, tabu, tikz}
+
+\tikzset{white border/.style={preaction={draw,white,line width=4pt}}}
 
 % 3.4.11 has a matrix multiplication that overflows but looks OK, so override the warning here
 \hfuzz=1pt
@@ -685,11 +687,62 @@ Prove that every subgroup of $Q_8$ is normal. For each subgroup find the isomorp
 
     We will use the element $j$. We know that $j$ commutes with 1 and $-1$, so the conjugates of those elements by $j$ are 1 and $-1$, respectively. Then we see that $j \cdot i \cdot -j = j \cdot -k = -i$ and $j \cdot -i \cdot -j = j \cdot k = i$, so $j \cdot \langle i \rangle \cdot -j = \langle i \rangle$, which implies that $j \in N_{Q_8}(\langle i \rangle)$. Since the normalizer is a subgroup and therefore is closed under multiplication, it must be all of $Q_8$, and so $\langle i \rangle \unlhd Q_8$. Because $\langle i \rangle$ is isomorphic to $\langle j \rangle$ and $\langle k \rangle$ (map $i$ to $j$ and $i$ to $k$, respectively), those subgroups are also normal in $Q_8$.
 
-    Next, we consider $\langle -1 \rangle$. Since $i$ and $j$ are generators of $Q_8$, we only have to check the membership of the conjugates $i \cdot -1 \cdot -i$ and $j \cdot -1 \cdot -j$. But from above, $i$ and $j$ commute with $-1$, so therefore both $i$ and $j$ are in the normalizer of $\langle -1 \rangle$, and so $\langle i \rangle, \langle j \rangle \leq N_{Q_8}(\langle -1 \rangle)$. This is only possible when $N_{Q_8}(\langle -1 \rangle) = Q_8$, and so $\langle -1 \rangle \unlhd Q_8$.
+    Next, we consider $\langle -1 \rangle$. From Chapter 2.2, Exercise 4., this is the center of $Q_8$, thus normal.
 
     The quotient group $Q_8/\langle i \rangle$ consists of the cosets of $\langle i \rangle$ in $Q_8$. Now $Q_8$ has 8 elements and $\langle i \rangle$ has 4 elements, so there is only one other coset, which can be represented by $j \cdot \langle i \rangle$. Since it only has two elements and there is only one group of order 2, it is isomorphic to the cyclic group $Z_2$. As noted above, the quotient groups $Q_8/\langle j \rangle$ and $Q_8/\langle k \rangle$ are isomorphic.
 
     Finally, the quotient group $Q_8/\langle -1 \rangle$ will have four elements, so it is either isomorphic to $V_4$ or $Z_4$. Consider the element $i \langle -1 \rangle = \{ \pm{i} \}$. It has order 2, since any product of $\pm{i}$ with $\pm{i}$ is either 1 or $-1$, both of which lie in the identity element $\langle -1 \rangle$. Similarly, both $j \langle -1 \rangle$ and $k \langle -1 \rangle$ have order 2. Therefore $Q_8/\langle -1 \rangle \cong V_4$.
+\end{proof}
+
+\section*{33. (9/22/23)}
+
+Find all normal subgroups of $D_8$ and for each of these find the isomorphism type of its corresponding quotient.
+
+\begin{proof}
+    
+Recall that the lattice of subgroups of $D_8$ is:
+
+\begin{center}
+\begin{tikzpicture}[x=1.5cm,y=1.5cm]
+    \node at (0,0)          (1)  {$1$};
+    \node at (0, 1)      (r2)  {$\langle r^2 \rangle$};
+    \node at (-1, 1)      (sr2) {$\langle sr^2 \rangle$};
+    \node at (-2, 1)      (s) {$\langle s \rangle$};
+    \node at (1, 1)       (sr3) {$\langle sr^3 \rangle$};
+    \node at (2, 1)       (sr) {$\langle sr \rangle$};
+    \node at (-1, 2)       (s-r2) {$\langle s, r^2 \rangle$};
+    \node at (0, 2)       (r)  {$\langle r \rangle$};
+    \node at (1, 2)       (sr-r2) {$\langle sr, r^2 \rangle$};
+    \node at (0, 3)       (D8)  {$D_8$};
+    
+    \draw (1) -- (r2);
+    \draw (r2) -- (r);
+    \draw (r) -- (D8);
+    \draw (1) -- (sr2);
+    \draw (1) -- (s);
+    \draw (s) -- (s-r2);
+    \draw (sr2) -- (s-r2);
+    \draw (r2) -- (s-r2);
+    \draw (s-r2) -- (D8);
+    \draw (1) -- (sr3);
+    \draw (1) -- (sr);
+    \draw (sr3) -- (sr-r2);
+    \draw (sr) -- (sr-r2);
+    \draw (r2) -- (sr-r2);
+    \draw (sr-r2) -- (D8);
+\end{tikzpicture}
+\end{center}
+
+The center of $D_8$ is $\langle r^2 \rangle$, so that subgroup is normal in $D_8$. Next, consider $\langle r \rangle$. For the generator $s$, we have $srs^{-1} = srs = ssr^3 = r^3 \in \langle r \rangle$, so $s$ is in the normalizer of $\langle r \rangle$. Since both $s$ and $r$ are in $N_G(\langle r \rangle)$, we must have $N_G(\langle r \rangle) = D_8$, and so $\langle r \rangle \unlhd D_8$.
+
+Let us next consider the other 2-element subgroups (on the same horizontal line as $\langle r^2 \rangle$). For $\langle s \rangle$, we have $rsr^{-1} = sr^3r^{-1} = sr^2 \notin \langle s \rangle$, so it is not normal in $D_8$. Likewise, $r(sr^2)r^{-1} = s \notin \langle sr^2 \rangle$, $r(sr^3)r^{-1} = sr \notin \langle sr^3 \rangle$, and $r(sr)r^{-1} = sr^3 \notin \langle sr \rangle$. Then the only normal 2-element subgroup of $D_8$ is $\langle r^2 \rangle$.
+
+For the remaining 4-element subgroups $\langle s, r^2 \rangle$ and $\langle sr^3, r^2 \rangle$, since they are maximal subgroups, we only have to check that an element outside of each is in the normalizer in order for each to be normal in $D_8$. From above, we have $rsr^{-1} = sr^2 \in \langle s, r^2 \rangle$, so $r \in N_{D_8}(\langle s, r^2 \rangle)$, and so $\langle s, r^2 \rangle \unlhd D_8$. Lastly, $r(sr)r^{-1} = sr^3 \in \langle sr, r^2 \rangle$, so $\langle sr, r^2 \rangle \unlhd D_8$.
+
+In summary, the (proper, nontrivial) normal subgroups of $D_8$ are exactly $\langle r^2 \rangle, \langle r \rangle, \langle s, r^2 \rangle, \text{ and } \langle sr, r^2 \rangle$.
+
+For each of the 4-element normal subgroups, we infer that the corresponding quotient group has 2 elements and so is isomorphic to $Z_2$. Next, consider $D_8/\langle r^2 \rangle$, which contains 4 elements. The cosets of $\langle r^2 \rangle = \{ 1, r^2 \}$ in $D_8$ are $\overline{r} = \{ r, r^3 \}, \overline{s} = \{ s, sr^2 \}, \text{ and } \overline{sr} = \{ sr, sr^3 \}$. Each of these has order 2, and so we must have $D_8/\langle r^2 \rangle \cong V_4$.
+
 \end{proof}
 
 \end{document}
