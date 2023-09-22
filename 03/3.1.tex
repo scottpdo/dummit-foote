@@ -608,4 +608,41 @@ Let $N$ be a \emph{finite} subgroup of a group $G$. Show that $gNg^{-1} \subsete
     Recall that the normalizer $N_G(N)$ is defined to be the subgroup $\{ g \in G \mid gNg^{-1} = N \}$. From above, when $N$ is finite, this is equal to $\{ g \in G \mid gNg^{-1} \subseteq N \}$.
 \end{proof}
 
+\section*{28. (9/19/23)}
+
+Let $N$ be a \emph{finite} subgroup of a group $G$ and assume $N = \langle S \rangle$ for some subset $S$ of $G$. Prove that an element $g \in G$ normalizes $N$ if and only if $gSg^{-1} \subseteq N$.
+
+\begin{proof}
+    First, let $g \in G$ normalize $N$. Then $gNg^{-1} = N$. Since $N = \langle S \rangle$, we must have $S \subseteq N$, and so $gSg^{-1} \subseteq gNg^{-1} = N$.
+
+    Next, let $gSg^{-1} \subseteq N$ and let $n \in N$. We can write $n$ as a product of elements of $s$ as in Exercises 16., 23., and 26.(a) above. For convenience, let us write $n = \prod s_i^{ij}$. Then:
+    \begin{equation*}
+        gng^{-1} = g (\prod s_i^{ij}) g^{-1} = \prod (g s_i^{ij} g^{-1}),
+    \end{equation*}
+    which is the product of elements of $N$ and so lies in $N$. We then have $gNg^{-1} \subseteq N$. From 27., this implies that $gNg^{-1} = N$, and so $g$ normalizes $N$.
+\end{proof}
+
+\section*{29. (9/21/23)}
+
+Let $N$ be a \emph{finite} subgroup of $G$ and suppose $G = \langle T \rangle$ and $N = \langle S \rangle$ for some subsets $S$ and $T$ of $G$. Prove that $N$ is normal in $G$ if and only if $tSt^{-1} \subseteq N$ for all $t \in T$.
+
+\begin{proof}
+    First, let $N \unlhd G$. Then, from Exercise 27., $gNg^{-1} \subseteq N$ for all $g \in G$. Now since $T \subseteq G$ and $S \subseteq N$, this implies that $tst^{-1} \in N$ for all $t \in T, s \in S$, and so $tSt^{-1} \subseteq N$ for all $t \in T$. 
+
+    Next, let $tSt^{-1} \subseteq N$ for all $t \in T$. We will first show that we must have $tNt^{-1} \subseteq N$ for all $t \in T$, and that this subsequently implies that $gNg^{-1} \subseteq N$ for all $g \in G$. As above, let us write $n \in N = \prod s_i^{ij}$, and let $t \in T$. Then:
+    \begin{align*}
+        tnt^{-1} = t (\prod s_i^{ij}) t^{-1} = \prod (t s_i^{ij} t^{-1}),
+    \end{align*}
+    which is the product of elements of $N$ and so lies in $N$. We then have $tNt^{-1} \subseteq N$.
+
+    Next, let $g \in G$. Let us write $g$ as the product of elements of $T$, $g = (t_1^{11}...t_m^{1m})(t_1^{21}...t_m^{2m})...(t_1^{p1}...t_m^{pm})$. Then we have:
+    \begin{align*}
+        gng^{-1} &= (t_1^{11}...t_m^{1m})...(t_1^{p1}...t_m^{pm}) (\prod s_i^{ij}) ((t_1^{11}...t_m^{1m})...(t_1^{p1}...t_m^{pm}))^{-1} \\
+        &= t_1^{11}t_2^{12}...t_m^{pm} (\prod s_i^{ij}) (t_m^{pm})^{-1}...(t_2^{12})^{-1}(t_1^{11})^{-1} \\
+        &= t_1^{11}(t_2^{12}(...(t_m^{pm} (\prod s_i^{ij}) t_m^{-pm})...)t_2^{-12})t_1^{-11} \\
+        &= \prod (t_1^{11}(t_2^{12}(...(t_m^{pm} s_i^{ij} t_m^{-pm})...)t_2^{-12})t_1^{-11}).
+    \end{align*}
+    Now the inner-most conjugate, $t_m^{pm} s_i^{ij} t_m^{-pm}$, is an element of $N$. Evaluating from the parentheses outward, each conjugate is of the form $t_a^{ab} s_i^{ij} t_a^{-ab}$, that is, always an element of $N$. Therefore we have $gng^{-1} \in N$ for all $g \in G, n \in N$, and so $gNg^{-1} \subseteq N$, which implies that $N \unlhd G$.
+\end{proof}
+
 \end{document}
