@@ -3,4 +3,5 @@
 *.gz
 *.fls
 *.fdb_latexmk
+*.dvi
 .DS_Store
