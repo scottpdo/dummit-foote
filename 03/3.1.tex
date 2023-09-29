@@ -745,4 +745,23 @@ For each of the 4-element normal subgroups, we infer that the corresponding quot
 
 \end{proof}
 
+\section*{34. (9/29/23)}
+
+Let $D_{2n} = \{ s, r \mid s^2 = r^n = 1, sr = rs^{-1} \}$ be the usual presentation of the dihedral group of order $2n$ and let $k$ be a positive integer dividing $n$.
+
+\begin{enumerate}[label=(\alph*), itemsep=0em]
+    \item Prove that $\langle r^k \rangle$ is a normal subgroup of $D_{2n}$.
+          \begin{proof}
+            We will show that the normalizer of $\langle r^k \rangle$ is all of $D_{2n}$, which suffices to show that it is normal in $D_{2n}$.
+
+            Since we are dealing with finite groups and subgroups with known generators, we only have to consider the conjugates of generators. Of course $r$ commutes with all powers of itself, so $r$ is in the normalizer of $\langle r^k \rangle$. Next, consider the conjugate $s(r^k)s^{-1} = sr^ks = ssr^{-k} = r^{-k}$. The cyclic group $\langle r^k \rangle$ contains all elements of the form $r^{mk}, m \in \mathbb{Z}$, so $r^{-k} \in \langle r^k \rangle$. Therefore $s$ is also in the normalizer of $\langle r^k \rangle$. Since $r$ and $s$, the generators of $D_{2n}$, are both in the normalizer (and the normalizer is closed), it must then be the entire group $D_{2n}$. Therefore $\langle r^k \rangle \unlhd D_{2n}$.
+          \end{proof}
+    \item Prove that $D_{2n}/\langle r^k \rangle \cong D_{2k}$.
+          \begin{proof}
+            The quotient group $D_{2n}/\langle r^k \rangle$ consists of cosets of $\langle r^k \rangle$, of the form $(s^a r^b) \langle r^k \rangle$, which we will denote $\overline{s}^a \overline{r}^b$ for some $a, b \in \mathbb{Z}$. Given the relations of $D_{2n}$, we know that $a = 0$ or 1. Now if $b \geq k$, then there exists a $c > 0$ such that $0 \leq b - ck < k$. Since $b = b - ck$ (mod $k$), we have both $r^b, r^{b - ck} \in \overline{r}^b$, so $\overline{r}^{b - ck}$ is another representative with exponent between $0$ and $k - 1$.
+
+            Let $\varphi: D_{2k} \rightarrow D_{2n}/\langle r^k \rangle $ be defined on generators by $\varphi(s) = \overline{s}$, $\varphi(r) = \overline{r}$. We see that $\varphi(s)^2 = \overline{s}^2 = \overline{1}$ and $\varphi(r)^k = \overline{r}^k = \langle r^k \rangle = \overline{1}$. And, $\varphi(s) \varphi(r) = \overline{s} \overline{r} = \overline{r}^{-1} \overline{s} = \varphi(s)^{-1} \varphi(r)$, so the relations hold. Therefore $\varphi$ is an isomorphism, and so $D_{2n}/\langle r^k \rangle \cong D_{2k}$.
+          \end{proof}
+\end{enumerate}
+
 \end{document}
