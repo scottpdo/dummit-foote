@@ -764,4 +764,24 @@ Let $D_{2n} = \{ s, r \mid s^2 = r^n = 1, sr = rs^{-1} \}$ be the usual presenta
           \end{proof}
 \end{enumerate}
 
+\section*{35. (9/29/23)}
+
+Prove that $SL_n(F) \unlhd GL_n(F)$ and describe the isomorphism type of the quotient group.
+
+\begin{proof}
+    Let $\varphi: GL_n(F) \rightarrow F^\times$ be defined by $\varphi(A) = \det A$ for all $A \in GL_n(F)$. Recall from elementary linear algebra that $\det A \cdot \det B = \det AB$ for all square invertible matrices $A, B$. Then we have:
+    \begin{equation*}
+        \varphi(A)\varphi(B) = \det A \cdot \det B = \det AB = \varphi(AB),
+    \end{equation*}
+    so $\varphi$ is a homomorphism. The kernel of $\varphi$ consists of those matrices in $GL_n(F)$ whose image under $\varphi$ is 1 (the identity of $F^\times$), that is, those matrices with determinant 1. By definition, this is $SL_n(F)$. Since $SL_n(F)$ is the kernel of a homomorphism, by Proposition 7, it is normal in $GL_n(F)$.
+
+    Now consider the quotient group $GL_n(F) / SL_n(F)$. A representative $\overline{A}$ is the set $\{ AS \mid S \in S \in SL_n(F) \}$. We will show that $GL_n(F) / SL_n(F)$ is isomorphic to $F^\times$.
+
+    Let $\gamma: GL_n(F) / SL_n(F) \rightarrow F^\times$ be defined by $\gamma(\overline{A}) = \det A$. By the same logic as $\varphi$ above, $\gamma$ is a homomorphism. It is also surjective: Let $x \in F^\times$ (so $x \neq 0$). Then the diagonal matrix with $x$ in the top-left entry and 1's in every other diagonal entry has determinant $x \cdot 1 ... \cdot 1 = x$, so this matrix's image under $\gamma$ is $x$.
+
+    Finally, to show that $\gamma$ is injective, let $\gamma(\overline{A}) = \gamma(\overline{B})$, which implies that $\det A = \det B$. Let $a \in F^\times$ be the determinants of $A$ and $B$, respectively, and note that $\det A^{-1} = \det B^{-1} = 1/a$. Then we have $A^{-1}B, B^{-1}A \in SL_n(F)$, since the determinant of both products is $a/a = 1$. So we have $A = B(B^{-1}A)$ and $B = A(A^{-1}B)$, which implies that $A \in \overline{B}$ and $B \in \overline{A}$. In turn, this shows that $\overline{A} \subseteq \overline{B}$ and $\overline{B} \subseteq \overline{A}$, and so $\overline{A} = \overline{B}$, which proves that $\gamma$ is injective.
+
+    Since $\gamma$ is a bijective homomorphism, it is an isomorphism. Therefore $GL_n(F) / SL_n(F) \cong F^\times$.
+\end{proof}
+
 \end{document}
