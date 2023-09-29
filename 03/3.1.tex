@@ -824,4 +824,34 @@ Let $A$ and $B$ be groups. Show that $\{ (a, 1) \mid a \in A \}$ is a normal sub
     The map is a homomorphism: $\varphi(\overline{(1, b_1)})\varphi(\overline{(1, b_2)}) = b_1 b_2 = \varphi(\overline{(1, b_1 b_2)}) = \varphi(\overline{(1, b_1)} \cdot \overline{(1, b_2)})$. It is trivial to show that $\varphi$ is surjective and injective (since $\overline{(a, b)} = \overline{(1, b)}$ for all $a \in A$). Thus it is an isomorphism, so the quotient group $(A \times B) / (A \times 1)$ is isomorphic to $B$.
 \end{proof}
 
+\section*{38. (9/29/23)}
+
+Let $A$ be an abelian group and let $D$ be the (diagonal) subgroup $\{ (a, a) \mid a \in A \}$ of $A \times A$. Prove that $D$ is a normal subgroup of $A \times A$ and $(A \times A) / D \cong A$.
+
+\begin{proof}
+    We offer three variations on this proof.
+    
+    \begin{enumerate}[itemsep=0em]
+        \item Let $\varphi: A \times A \rightarrow A$ be defined by $\varphi(a, b) = ab^{-1}$. Then:
+        \begin{align*}
+            \varphi(a, b)\varphi(c, d) &= ab^{-1}cd^{-1} \\
+                &= acb^{-1}d^{-1} = ac(db)^{-1} = ac(bd)^{-1} \\
+                &= \varphi(ac, bd) = \varphi((a, b)(c, d)),
+        \end{align*}
+        so $\varphi$ is a homomorphism. The kernel of $\varphi$ is the set $\{ (a, b) \in A \times A \mid ab^{-1} = 1 \}$, which happens only when $a = b$, and so is $\{ (a, a) \} = D$. Since $D$ is the kernel of a homomorphism, it is normal in $A \times A$.
+        \item Let $(a, b) \in A \times A$. Then we have:
+            \begin{align*}
+                (a, b)(D) &= \{ (a, b)(d, d) \mid d \in A \} \\
+                &= \{ (ad, bd) \} = \{ (da, db) \} = \{ (d, d)(a, b) \} \\
+                &= (D)(a, b),
+            \end{align*}
+            so any left coset of $D$ is equal to the corresponding right coset, making $D$ normal in $A \times A$.
+        \item Recall from Ch. 1.1, Exercise 29. that $A \times B$ is abelian if and only if $A$ and $B$ are both abelian. Since $A$ is abelian, $A \times A$ is abelian, and thus every subgroup is normal.
+    \end{enumerate}
+
+    Now, consider the quotient group $(A \times A) / D$, which consists of the cosets of $D$ in $A \times A$. For example, $\overline{(a, b)} = \{ (a, b)(d, d) \mid d \in A \}$. Since $(b^{-1}, b^{-1}) \in D$, $(a, b)(b^{-1}, b^{-1}) = (ab^{-1}, 1)$ is another representative of $\overline{(a, b)}$, so we can write any representative of $(A \times A) / D$ in the form $\overline{(ab^{-1}, 1)}$ for some $a, b \in A$.
+
+    Let $\gamma: (A \times A) / D \rightarrow A$ be defined by $\gamma(\overline{(ab^{-1}, 1)}) = ab^{-1}$. Like $\varphi$ in the first proof above, $\gamma$ is a homomorphism, and is trivially bijective, thus an isomorphism. Therefore $(A \times A) / D \cong A$.
+\end{proof}
+
 \end{document}
