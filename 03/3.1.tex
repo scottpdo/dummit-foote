@@ -854,4 +854,21 @@ Let $A$ be an abelian group and let $D$ be the (diagonal) subgroup $\{ (a, a) \m
     Let $\gamma: (A \times A) / D \rightarrow A$ be defined by $\gamma(\overline{(ab^{-1}, 1)}) = ab^{-1}$. Like $\varphi$ in the first proof above, $\gamma$ is a homomorphism, and is trivially bijective, thus an isomorphism. Therefore $(A \times A) / D \cong A$.
 \end{proof}
 
+\section*{39. (9/29/23)}
+
+Suppose $A$ is the non-abelian group $S_3$ and $D$ is the diagonal subgroup $\{ (a, a) \mid a \in A \}$ of $A \times A$. Prove that $D$ is not normal in $A \times A$.
+
+\begin{proof}
+    Let us consider the conjugate of $((1, 3), (1, 3)) \in D$ by $((1, 2), (1, 3)) \in A \times A$.
+    \begin{align*}
+        ((1, 2), (1, 3)) \cdot ((1, 3), (1, 3)) \cdot ((1, 2), (1, 3))^{-1} &= \\
+        ((1, 2), (1, 3)) \cdot ((1, 3), (1, 3)) \cdot ((1, 2), (1, 3)) &= \text{ (2-cycle is its own inverse)} \\
+        ((1, 2), (1, 3)) \cdot ((1, 3)(1, 2), (1, 3)(1, 3)) &= \\
+        ((1, 2), (1, 3)) \cdot ((1, 2, 3), (1)) &= \\
+        ((1, 2)(1, 2, 3), (1, 3)(1)) &= \\
+        ((2, 3), (1, 3)) &\notin D,
+    \end{align*}
+    which shows that $D$ is not normal in $A \times A$.
+\end{proof}
+
 \end{document}
