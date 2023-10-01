@@ -1,0 +1,22 @@
+\documentclass{article}
+
+\title{Dummit \& Foote Ch. 3.2: More on Cosets and Lagrange's Theorem}
+\author{Scott Donaldson}
+\date{Oct. 2023}
+\usepackage{amsmath, amsthm, amsfonts, enumitem, tabu, tikz}
+
+\begin{document}
+
+\maketitle
+
+Let $G$ be a group.
+
+\section*{1. (10/1/23)}
+
+Which of the following are permissible orders of subgroups of a group of order 120: 1, 2, 5, 7, 9, 15, 60, 240? For each permissible order give the corresponding index.
+
+\begin{proof}
+    From Lagrange's theorem, the order of a subgroup of a group of order 120 must divide 120. Then the permissible orders for subgroups are $1 = \frac{120}{120}$, $2 = \frac{120}{60}, 5 = \frac{120}{24}, 15 = \frac{120}{8}$, and $60 = \frac{120}{2}$. For each of these orders the index is given by the corresponding denumerator.
+\end{proof}
+
+\end{document}
