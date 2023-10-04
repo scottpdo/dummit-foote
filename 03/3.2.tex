@@ -116,4 +116,12 @@ Let $H$ be a subgroup of $G$ and fix some element $g \in G$.
           Suppose that $H$ is the unique subgroup of order $n$ in $G$. Then for all $g \in G$, we must have $gHg^{-1} = H$ (it cannot be any other subgroup, because $|gHg^{-1}| = |H| = n$ and there is no other subgroup of order $n$ in $G$). It follows that $H$ is normal in $G$.
 \end{enumerate}
 
+\section*{6. (10/4/23)}
+
+Let $H \leq G$ and let $g \in G$. Prove that if the right coset of $Hg$ equals \emph{some} left coset of $H$ in $G$ then it equals the left coset $gH$ and $g$ must be in $N_G(H)$.
+
+\begin{proof}
+    Suppose $Hg = xH$ for some $x \in G$. Now $g \in Hg$, so we must also have $g \in xH$. Then $g = xh$ for some $h \in H$. It follows that $x = gh^{-1}$. So $Hg = xH = (gh^{-1})H = gH$, which in turns implies that $gHg^{-1} = H$. Therefore $g \in N_G(H)$.
+\end{proof}
+
 \end{document}
