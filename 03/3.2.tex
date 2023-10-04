@@ -96,4 +96,24 @@ Show that if $|G| = pq$ for some primes $p$ and $q$ (not necessarily distinct) t
     The center of a group is normal in that group, so $G/Z(G)$ is well-defined. Since $|Z(G)| = p$, it has $q$ cosets in $G$; that is, the quotient group $G/Z(G)$ has prime order $q$ and is thus isomorphic to $Z_q$, hence cyclic. From Ch. 3.1, Exercise 36., $G$ is thus abelian.
 \end{proof}
 
+\section*{5. (10/4/23)}
+
+Let $H$ be a subgroup of $G$ and fix some element $g \in G$.
+
+\begin{enumerate}[label=(\alph*), itemsep=0em]
+    \item Prove that $gHg^{-1}$ is a subgroup of $G$ of the same order as $H$.
+          \begin{proof}
+            By definition elements of $gHg^{-1}$ can be written in the form $ghg^{-1}$ for some $h \in H$, so let $gh_1g^{-1}, gh_2g^{-1} \in gHg^{-1}$. Then we have:
+            \begin{equation*}
+                (gh_1g^{-1})(gh_2g^{-1})^{-1} = gh_1g^{-1}gh_2^{-1}g_1 = gh_1h_2^{-1}g^{-1} \in gHg^{-1},
+            \end{equation*}
+            so $gHg^{-1}$ fulfills the subgroup criterion and is thus a subgroup of $G$.
+
+            Next, let $\varphi_g: H \rightarrow gHg^{-1}$ be defined by $\varphi_g(h) = ghg^{-1}$ for all $h \in H$. This map is injective by the cancellation laws: $gh_1g^{-1} = gh_2g^{-1}$ implies that $h_1 = h_2$. It is also surjective: Let $x \in gHg^{-1}$. By definition $x = ghg^{-1}$ for some $h \in H$, so $\varphi_g(h) = x$. Therefore $\varphi_g$ is a bijection, and so $H$ and $gHg^{-1}$ have the same order.
+          \end{proof}
+    \item Deduce that if $n \in \mathbb{Z}^+$ and $H$ is the unique subgroup of $G$ of order $n$ then $H \unlhd G$.
+
+          Suppose that $H$ is the unique subgroup of order $n$ in $G$. Then for all $g \in G$, we must have $gHg^{-1} = H$ (it cannot be any other subgroup, because $|gHg^{-1}| = |H| = n$ and there is no other subgroup of order $n$ in $G$). It follows that $H$ is normal in $G$.
+\end{enumerate}
+
 \end{document}
