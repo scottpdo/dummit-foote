@@ -124,4 +124,22 @@ Let $H \leq G$ and let $g \in G$. Prove that if the right coset of $Hg$ equals \
     Suppose $Hg = xH$ for some $x \in G$. Now $g \in Hg$, so we must also have $g \in xH$. Then $g = xh$ for some $h \in H$. It follows that $x = gh^{-1}$. So $Hg = xH = (gh^{-1})H = gH$, which in turns implies that $gHg^{-1} = H$. Therefore $g \in N_G(H)$.
 \end{proof}
 
+\section*{7. (10/5/23)}
+
+Let $H \leq G$ and define a relation $\sim$ on $G$ by $a \sim b$ if and only if $b^{-1}a \in H$. Prove that $\sim$ is an equivalence relation and describe the equivalence class of each $a \in G$. Use this to prove Proposition 4.
+
+\begin{proof}
+    Let $a, b, c \in G$. We have $a \sim a$, because $a^{-1} a = 1 \in H$. If $a \sim b$, then we have $b^{-1}a \in H$. Now $b \sim a = a^{-1}b = (b^{-1}a)^{-1} \in H$, since $H$ is closed under inverses, so $a \sim b$ implies that $b \sim a$ (and the logic holds in reverse). Finally, if $a \sim b$ and $b \sim c$, then $b^{-1}a, c^{-1}b \in H$. Then their product, $c^{-1}bb^{-1}a = c^{-1}a$, is an element of $H$, which implies $a \sim c$. The relation $\sim$ is reflexive, symmetric, and transitive, therefore it is an equivalence relation.
+
+    Let $a \in G$ and let $b$ lie in the left coset $aH$, so $b = ah$ for some $h \in H$. Then $b^{-1}a = (ah)^{-1}a = h^{-1}a^{-1}a = h^{-1} \in H$, so $a \sim b$. This implies that $aH$ is a subset of the equivalence class of $a$. And, if we have $a \sim b$, then $b^{-1}a \in H$, so $b^{-1}a = h$ for some $h \in H$. It follows that $b = ah^{-1} \in aH$, so the equivalence class of $a$ is a subset of $aH$. Since each is contained in the other, the equivalence class of $a$ under $\sim$ is the left coset $aH$.
+
+    Now Proposition 4 states that:
+    \begin{itemize}[itemsep=0em]
+        \item The set of left cosets of $H$ in $G$ form a partition of $G$.
+        \item For all $a, b \in G, aH = bH$ if and only if $b^{-1}a \in H$.
+        \item In particular, $aH = bH$ if and only if $a$ and $b$ are representatives of the same coset.
+    \end{itemize}
+    Since the equivalence class of $a$ under $\sim$ is exactly the left coset $aH$ and equivalence classes partition a set, the left cosets of $H$ in $G$ partition $G$. The proof for the remaining items follows directly from the proof above that $a \sim b \iff b^{-1}a \in H \iff b \in aH$.
+\end{proof}
+
 \end{document}
