@@ -142,4 +142,12 @@ Let $H \leq G$ and define a relation $\sim$ on $G$ by $a \sim b$ if and only if 
     Since the equivalence class of $a$ under $\sim$ is exactly the left coset $aH$ and equivalence classes partition a set, the left cosets of $H$ in $G$ partition $G$. The proof for the remaining items follows directly from the proof above that $a \sim b \iff b^{-1}a \in H \iff b \in aH$.
 \end{proof}
 
+\section*{8. (10/6/23)}
+
+Prove that if $H$ and $K$ are finite subgroups of $G$ whose orders are relatively prime then $H \cap K = 1$.
+
+\begin{proof}
+    Let $H, K \leq G$ be finite subgroups whose orders are relatively prime. Let $x \in H \cap K$, so $x \in H$ and $x \in K$. From Corollary 9, the order of $x$ divides the orders of both $H$ and $K$. Since $|H|$ and $|K|$ are relatively prime, the order of $x$ must be 1, therefore $x = 1$. It follows that $H \cap K = 1$.
+\end{proof}
+
 \end{document}
