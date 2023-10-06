@@ -887,4 +887,16 @@ Let $G$ be a group, let $N$ be a normal subgroup of $G$, and let $\overline{G} =
     Therefore $\overline{x}$ and $\overline{y}$ commute in $\overline{G}$ if and only if $x^{-1}y^{-1}xy \in N$.
 \end{proof}
 
+\section*{42. (10/6/23)}
+
+Assume both $H$ and $K$ are normal subgroups of $G$ with $H \cap K = 1$. Prove that $xy = yx$ for all $x \in H$ and $y \in K$. [Show $x^{-1}y^{-1}xy \in H \cap K$.]
+
+\begin{proof}
+    Let $x \in H, y \in K$.
+    
+    Since $H \unlhd G$, $gxg^{-1} \in H$ for all $g \in G$. Then we have $y^{-1}xy \in H$ (letting $g = y^{-1}$). Further, $H$ is closed and closed under inverses, so $x^{-1}y^{-1}xy \in H$.
+
+    Similarly, $K \unlhd G$ implies that $x^{-1}y^{-1}x \in K$ (conjugating $y^{-1} \in K$ by $x^{-1}$). So $x^{-1}y^{-1}xy$ also lies in $K$, giving us $x^{-1}y^{-1}xy \in H \cap K$. It follows that $x^{-1}y^{-1}xy = 1$, and left-multiplying by $x$ and then $y$, we obtain $xy = yx$ for all $x \in H, y \in K$.
+\end{proof}
+
 \end{document}
