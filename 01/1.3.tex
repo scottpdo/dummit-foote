@@ -212,18 +212,22 @@ Let $p$ be prime. Show that an element has order $p$ in $S_n$ if and only if its
     Next, let $\sigma \in S_n$ have a cycle decomposition which is a product of commuting $p$-cycles. Consider an arbitrary cycle $(a_1, a_2, ..., a_p)$. From 10., this cycle has order $p$. So every such cycle in $\sigma$ has order $p$. Thus $\sigma^p$ is the product of 1-cycles, and so is the identity permutation. Therefore $|\sigma| = p$.
 \end{proof}
 
-\section*{15. (3/14/23)}
+\section*{15. (3/14/23, revised 10/6/23)}
 
 Prove that the order of an element in $S_n$ equals the least common multiple of the lengths of the cycles in its cycle decomposition.
 
 \begin{proof}
-    Consider a permutation $\sigma \in S_n$. $\sigma$ can be written as the product of commuting cycles. If $\sigma$ consists of $m > 1$ commuting cycles, then it can be written $\sigma = \sigma_a \sigma_b$, where $\sigma_a$ consists of $m - 1$ commuting cycles and $\sigma_b$ a single cycle. From 10., $\sigma_b$'s order is its length.
+    Let $\sigma \in S_n$. We write the cycle decomposition of $\sigma = \sigma_1 \sigma_2 ... \sigma_m$, where each $\sigma_i$ is a single cycle. We will show by induction that the order of $\sigma$ is equal to the least common multiple of the lengths of the cycles in its cycle decomposition.
 
-    i) In the case where $\sigma_a$ and $\sigma_b$ both are single cycles of length $a$ and $b$, respectively, then $\sigma_a^a = \sigma_b^b = 1$. Let $c$ be the least common multiple of $a$ and $b$. Then $\sigma_a^c = 1$ and $\sigma_b^c = 1$, so $(\sigma_a \sigma_b)^c = 1$. Further, $c$ is the smallest positive integer for which $(\sigma_a \sigma_b)^c = 1$, because it is the smallest for which both $\sigma_a^c = 1$ and $\sigma_b^c = 1$. Thus the order of $\sigma$ is the least common multiple of the length of its cycles.
-    
-    ii) Now suppose that $\sigma_a$ is an arbitrary element of $S_n$ with order $a$, $\sigma_b$ is a single cycle with order $b$, and $\sigma_a \sigma_b$ has order $c$. From Ch. 1.1, Exercise 24., if $a$ and $b$ are commuting group elements, then $(ab)^k = a^k b^k$. Then $(\sigma_a \sigma_b)^c = \sigma_a^c \sigma_b^c$. Since the product has order $c$, raised to the power of $c$, it equals 1, so $\sigma_a^c \sigma_b^c = 1$. Because $\sigma_a$ and $\sigma_b$ commute, they have disjoint cycle decompositions, and therefore cannot be each other's inverses. Then we must have $\sigma_a^c = 1$ and $\sigma_b^c = 1$. From $|\sigma_a| = a$ and $|\sigma_b| = b$, we know that both $a$ and $b$ divide $c$. By definition, then, $c$ is the least common multiple of $a$ and $b$. Thus the order of $\sigma_a \sigma_b$ is the least common multiple of the orders of $\sigma_a$ and $\sigma_b$.
+    If $\sigma \in S_n$ is itself a single cycle, then from 10., its order is equal to its length.
 
-    Finally, for any given permutation $\sigma$ in $S_n$, to find its order, proceed like this: Take the first two single cycles of $\sigma$. As shown above in i), the order of their product is the least common multiple of their lengths. Next take the first three cycles. We now know the order of the product of the first two, and from above in ii), we know that the order of the product of the three is least common multiple of the third's cycle length together with the order of the first two (that is, the least common multiple of their cycle lengths). So the order of first three cycles is the least common multiple of their cycle lengths. One can proceed thusly to show that, for any positive $m$, the order of the product of the first $m$ cycles is the least common multiple of their cycle lengths. Thus the order of $\sigma$ is the least common multiple of the cycle lengths of its cycle decomposition.
+    For the induction step, suppose now that every permutation with a cycle decomposition containing $m$ disjoint cycles has order equal to the least common multiple of the lengths of its cycles. Let $\sigma' \in S_n$ be a permutation whose cycle decomposition contains $m + 1$ cycles. We can write $\sigma' = \sigma \sigma_{m + 1}$, where $\sigma$ is a permutation whose cycle decomposition contains $m$ cycles. Let us suppose $|\sigma| = k$ and $|\sigma_{m + 1}| = j$ (equivalently, $\sigma_{m + 1}$ has length $j$), and let $r$ be the least common multiple of $k$ and $j$. Then:
+    \begin{equation*}
+        \sigma^r = (\sigma \sigma_{m + 1})^r = \sigma^r \sigma_{m + 1}^r = \underbrace{\sigma^{q_1k} \sigma_{m + 1}^{q_2k}}_{\text{for some $q_1, q_2 \in \mathbb{Z}^+$}} = (1),
+    \end{equation*}
+    that is, the order of $\sigma$ divides $r$. For no positive integer $i$ smaller than $r$ do we have $\sigma^i = 1$ \emph{and} $\sigma_{m + 1}^i = 1$, or else $i$ would be a multiple of both $k$ and $j$, contradicting $r$ being their least common multiple. This shows that, if all permutations whose cycle decompositions consist of $m$ cycles have order equal to the least common multiple of the lengths of their cycles, then all permutations of $m + 1$ cycles do as well.
+
+    By induction, this completes the proof that all permutations in $S_n$ have order equal to the least common multiple of the lengths of the cycles in their cycle decompositions.
 \end{proof}
 
 \section*{16. (3/15/23)}
