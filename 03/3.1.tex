@@ -887,6 +887,22 @@ Let $G$ be a group, let $N$ be a normal subgroup of $G$, and let $\overline{G} =
     Therefore $\overline{x}$ and $\overline{y}$ commute in $\overline{G}$ if and only if $x^{-1}y^{-1}xy \in N$.
 \end{proof}
 
+\section*{41. (10/11/23)}
+
+Let $G$ be a group. Prove that $N = \langle x^{-1}y^{-1}xy \mid x, y \in G \rangle$ is a normal subgroup of $G$ and $G/N$ is abelian ($N$ is called the \emph{commutator subgroup} of $G$).
+
+\begin{proof}
+    Let $x^{-1}y^{-1}xy$ be a generator of $N$ (for some $x, y$ in $G$) and let $g$ lie in $G$. We will show that the conjugate $gx^{-1}y^{-1}xyg^{-1}$ lies in $N$, and so $g$ normalizes $N$. Observe that:
+    \begin{align*}
+        gx^{-1}y^{-1}xyg^{-1} &= gx^{-1}g^{-1} \cdot gy^{-1}g^{-1} \cdot gxg^{-1} \cdot gyg^{-1} \\
+        &= (gxg^{-1})^{-1}(gyg^{-1})^{-1}(gxg^{-1})(gyg^{-1}) \\
+        &= a^{-1}b^{-1}ab, \text{ where } a = gxg^{-1}, b = gyg^{-1}.
+    \end{align*}
+    Clearly $a, b \in G$, so the commutator element $a^{-1}b^{-1}ab = gx^{-1}y^{-1}xyg^{-1}$ by definition lies in $N$. Since any element $g \in G$ normalizes any generating element of $N$, it follows that $N_G(N) = N$, and so $N \unlhd G$.
+
+    Now let $\overline{x}, \overline{y}$ in $G/N$. By definition, $x^{-1}y^{-1}xy \in N$. From Exercise 40., $\overline{x}$ and $\overline{y}$ commute, so $G/N$ is abelian.
+\end{proof}
+
 \section*{42. (10/6/23)}
 
 Assume both $H$ and $K$ are normal subgroups of $G$ with $H \cap K = 1$. Prove that $xy = yx$ for all $x \in H$ and $y \in K$. [Show $x^{-1}y^{-1}xy \in H \cap K$.]
