@@ -150,4 +150,67 @@ Prove that if $H$ and $K$ are finite subgroups of $G$ whose orders are relativel
     Let $H, K \leq G$ be finite subgroups whose orders are relatively prime. Let $x \in H \cap K$, so $x \in H$ and $x \in K$. From Corollary 9, the order of $x$ divides the orders of both $H$ and $K$. Since $|H|$ and $|K|$ are relatively prime, the order of $x$ must be 1, therefore $x = 1$. It follows that $H \cap K = 1$.
 \end{proof}
 
+\section*{9. (10/12/23)}
+
+This exercise outlines a proof of Cauchy's Theorem due to James McKay (\emph{Another proof of Cauchy's group theorem}, Amer. Math. Monthly, 66(1959), p. 119). Let $G$ be a finite group and let $p$ be a prime dividing $|G|$. Let $\mathcal{S}$ denote the set of $p$-tuples of elements of $G$ the product of whose coordinates is 1:
+\begin{equation*}
+    \mathcal{S} = \{ (x_1, x_2, ..., x_p) \mid x_1 x_2 ... x_p = 1 \}.
+\end{equation*}
+
+\begin{enumerate}[label=(\alph*), itemsep=0em]
+    \item Show that $\mathcal{S}$ has $|G|^{p - 1}$ elements, hence has order divisible by $p$.
+          \begin{proof}
+            Construct an element of $\mathcal{S}$ coordinate by coordinate. There are $|G|$ choices for the first element $x_1$. There are again $|G|$ choices for the second element $x_2$. We proceed similarly until the final element, which must satisfy the constraint that the product of all coordinates is 1. Therefore the final element must be equal to $(x_1 x_2 ... x_{p - 1})^{-1}$. We have freely chosen $p - 1$ coordinates from among $|G|$ possibilities; therefore $|\mathcal{S}| = |G|^{p - 1}$.
+          \end{proof}
+\end{enumerate}
+Define the relation $\sim$ on $\mathcal{S}$ by letting $\alpha \sim \beta$ if $\beta$ is a cyclic permutation of $\alpha$.
+\begin{enumerate}[label=(\alph*), itemsep=0em, start=2]
+    \item Show that a cyclic permutation of $\mathcal{S}$ is again an element of $\mathcal{S}$.
+          \begin{proof}
+            Since $\alpha \sim \beta$ implies that $\beta$ is a cyclic permutation of $\alpha$, we have
+            \begin{equation*}
+                \alpha = (x_1, x_2, ..., x_p) \Rightarrow \beta = (x_{1 + n}, x_{2 + n}, ..., x_{p + n}),
+            \end{equation*}
+            where the subscripts of elements of $\beta$ are taken mod $p$ (although wrapping from 1 to $p$, rather than 0 to $p - 1$).
+
+            The product of the coordinates of $\alpha$ is:
+            \begin{align*}
+                1 = \prod \alpha &= x_1 x_2 ... x_p \\
+                &= (x_1 ... x_n)(x_{n + 1} ... x_p) \\
+                &= (x_{n + 1} ... x_p)(x_1 ... x_n) \text{ (if $ab = 1$, then $ab = ba$)} \\
+                &= (x_{1 + n} ... x_{p - n + n})(x_{(p - n + 1) + n} ... x_{p + n}) \\
+                &= x_{1 + n} ... x_{p + n} = \prod \beta,
+            \end{align*}
+            and so the product of $\beta$'s coordinates is 1, making it an element of $\mathcal{S}$.
+          \end{proof}
+    \item Prove that $\sim$ is an equivalence relation on $\mathcal{S}$.
+          \begin{proof}
+            Let $\alpha, \beta, \gamma \in \mathcal{S}$. The relation $\sim$ is:
+            \begin{itemize}[itemsep=0em]
+                \item Reflexive: Let $\alpha = (x_1, x_2, ..., x_p)$. Then $x_i = x_{i + 0}$ for all coordinates $x_i$, so $\alpha$ is a cyclic permutation of itself, and therefore $\alpha \sim \alpha$.
+                \item Symmetric: Let $\alpha \sim \beta$, $\alpha, \beta$ indexed by $x, y$ respectively. Since $\beta$ is a cyclic permutation of $\alpha$, we have $y_i = x_{i + n}$ for all $i \in \{ 1, ..., p \}$ for some $n \in \mathbb{Z}$. It follows that $x_i = y_{i + (p - n)}$ (subscripts mod $p$ wrapping from 1 to $p$), so $\alpha$ is also a cyclic permutation of $\beta$, and therefore $\beta \sim \alpha$.
+                \item Transitive: Let $\alpha \sim \beta$ and $\beta \sim \gamma$, with $\alpha, \beta$ as above and $\gamma$ indexed by $z$. We have $y_i = x_{i + n}$ and $z_i = y_{i + k}$ for some $k, n \in \mathbb{Z}$. It follows that $z_i = x_{i + k + n}$, which implies that $\gamma$ is a cyclic permutation of $\alpha$, so $\alpha \sim \gamma$.
+            \end{itemize}
+            Therefore $\sim$ is an equivalence relation on $\mathcal{S}$.
+          \end{proof}
+    \item Prove that an equivalence class contains a single element if and only if it is of the form $(x, x, ..., x)$ with $x^p = 1$.
+          \begin{proof}
+            First, let $\alpha = (x, ..., x)$ and let $\alpha \sim \beta$. Then $\beta$ is a cyclic permutation of $\alpha$. Since $\alpha$ consists of a single, repeated coordinate value, we must have $\beta = (x, ..., x) = \alpha$. Therefore the equivalence class of $\alpha$ consists only of itself.
+
+            Next, let $\alpha \in \mathcal{S}$ and suppose that the equivalence class of $\alpha$ under $\sim$ consists only of $\alpha$. Suppose $\alpha = (x_1, x_2, ..., x_p)$. Let $\beta$ be a cyclic permutation of $\alpha$ shifted by 1: $\beta = (x_2, x_3..., x_p, x_1)$. Now $\beta$ is in the equivalence class of $\alpha$, but we must have $\beta = \alpha$, so $x_{i + 1} = x_i$ for all $x_i$. It follows that $x_2 = x_1, x_3 = x_2 = x_1$, and so every value is equal to $x_1$. Then we have $\alpha = (x_1, ..., x_1)$, which is of the form $(x, ..., x)$, and by definition we must have $x^p = 1$.
+          \end{proof}
+    \item Prove that every equivalence class has order 1 or $p$ (this uses the fact that $p$ is a \emph{prime}). Deduce that $|G|^{p - 1} = k + pd$, where $k$ is the number of classes of size 1 and $d$ is the number of classes of size $p$.
+          \begin{proof}
+            From (d), if $\alpha = (x, ..., x)$ for some $x \in G$, its equivalence class has order 1.
+
+            Let $\alpha = (x_1, x_2, ..., x_p)$. Then there are exactly $p$ members in the equivalence class of $\alpha$, and they are the cyclic permutations of $\alpha$ shifted by $0, 1, 2, ..., p - 1$, respectively. For example, the $n$-th member of the equivalence class is $(x_{1 + n}, x_{2 + n}, ..., x_{p + n})$.
+
+            The equivalence classes of the elements of $\mathcal{S}$ partition $\mathcal{S}$. Suppose there are $k$ equivalence classes of order 1, and $d$ equivalence classes of order $p$. From (a), the order of $\mathcal{S}$ is $|G|^{p - 1}$. Then we have $|G|^{p - 1} = k + pd$.
+          \end{proof}
+    \item Since $\{ (1, 1, ..., 1) \}$ is an equivalence class of size 1, conclude from (e) that there must be a nonidentity element $x$ in $G$ with $x^p = 1$, i.e., $G$ contains an element of order $p$.
+          \begin{proof}
+            From (e), we have $|G|^{p - 1} = k + pd$ for some $k, d \geq 0$. From (a), $p$ divides the order of $\mathcal{S} = |G|^{p - 1}$, so we can write $ps = k + pd$ for some $s > 0$. Then $k = ps - pd = p(s - d)$, and so $p$ divides $k$. Because $p$ is prime, this implies that $k > 1$, so there are at least two elements whose equivalence classes have size 1. We already know that one is the identity; therefore there must be some element $\alpha \in \mathcal{S}, \alpha \neq (1, ..., 1)$ whose equivalence class under $\sim$ has size 1. From (d), $\alpha = (x, ..., x)$ for some $x \in G$, and we thus have $x^p = 1$, which implies that $|x| = p$.
+          \end{proof}
+\end{enumerate}
+
 \end{document}
