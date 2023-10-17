@@ -213,4 +213,22 @@ Define the relation $\sim$ on $\mathcal{S}$ by letting $\alpha \sim \beta$ if $\
           \end{proof}
 \end{enumerate}
 
+\section*{12. (10/16/23)}
+
+Let $H \leq G$. Prove that the map $x \mapsto x^{-1}$ sends each left coset of $H$ in $G$ onto a right coset of $H$ and gives a bijection between the set of left cosets and the set of right cosets of $H$ in $G$ (hence the number of left cosets of $H$ in $G$ equals the number of right cosets).
+
+\begin{proof}
+    Let $\varphi: G \rightarrow G$ be defined by $\varphi(x) = x^{-1}$ for all $x \in G$. Consider:
+    \begin{equation*}
+        \varphi(xH) = \{ \varphi(xh) \mid h \in H \} = \{ (xh)^{-1} \mid h \in H \} = \{ h^{-1} x^{-1} \mid h \in H \} = Hx^{-1},
+    \end{equation*}
+    so $\varphi$ maps left cosets of $H$ onto right cosets of $H$.
+
+    Further, considering $\varphi$ as a map from left cosets of $H$ to right cosets of $H$, it is a bijection.
+    
+    Toward injectivity, suppose that $\varphi(xH) = \varphi(yH)$ for some $x, y \in G$, and let $z \in xH$. Then $\varphi(z) = z^{-1} = hy^{-1}$, because $z \in xH$ and $\varphi(xH) = \varphi(yH)$. Inverting both sides, we obtain $z = (hy^{-1})^{-1} = yh^{-1} \in yH$, and so $xH \subseteq yH$. The same logic shows that $yH \subseteq xH$, so we must have $xH = yH$, and therefore $\varphi$ is injective.
+
+    It is also surjective: Letting $Hx$ be a right coset of $H$, by definition we have $\varphi(x^{-1}H) = Hx$. It is therefore a bijection, and so there are an equal number of left cosets and right cosets of $H$ in $G$. 
+\end{proof}
+
 \end{document}
