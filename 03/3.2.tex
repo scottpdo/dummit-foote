@@ -246,4 +246,23 @@ Fix any labelling of the vertices of a square and use this to identify $D_8$ as 
     so $s$ does not commute with $(1, 2, 3) \in S_4$. Therefore $D_8$ and $\langle (1, 2, 3) \rangle$ are not commuting subgroups of $S_4$.
 \end{proof}
 
+\section*{14. (10/17/23)}
+
+Prove that $S_4$ does not have a normal subgroup of order 8 or a normal subgroup of order 3.
+
+\begin{proof}
+    From Corollary 10, a subgroup of order 3 is isomorphic to $Z_3$, hence cyclic. So, without loss of generality, consider $\langle (1, 2, 3) \rangle \leq S_4$. Consider the conjugate of $(1, 2, 3)$ by $(1, 2)(3, 4)$:
+    \begin{equation*}
+        (1, 2)(3, 4) \cdot (1, 2, 3) \cdot (1, 2)(3, 4) = (1, 4, 2),
+    \end{equation*}
+    which is not an element of $\langle (1, 2, 3) \rangle$. Therefore there is an element of $S_4$ that does not normalize $\langle (1, 2, 3) \rangle$ and, by isomorphism, any subgroup of order 3, so $S_4$ does not contain any normal subgroups of order 3.
+    
+    Next, let $X \leq S_4$ with $|X| = 8$ and suppose that $X \unlhd S_4$. From Cauchy's Theorem, $X$ contains an element of order 2, which may be either a single 2-cycle or a pair of disjoint 2-cycles. We will consider each case individually:
+    \begin{itemize}
+        \item Without loss of generality, suppose that $(1, 2) \in X$. Because $X$ is normal in $S_4$, the conjugate element $(1, 2, 3) \cdot (1, 2) \cdot (1, 3, 2) = (2, 3)$ must lie in $X$. Because $X$ is closed, the product $(1, 2) \cdot (2, 3) = (1, 2, 3)$ must lie in $X$, a contradiction since (from Corollary 9) a subgroup of order 8 contains no elements of order 3. Thus $X$ is not normal in $S_4$.
+        \item Similarly, suppose that $(1, 2)(3, 4) \in X$. Again, the conjugate $(1, 2, 3) \cdot (1, 2)(3, 4) \cdot (1, 3, 2) = (1, 4, 3, 2)$ must lie in $X$. So the product $(1, 2)(3, 4) \cdot (1, 4, 3, 2) = (1, 3)$ must lie in $X$. Then, since $X$ contains a 2-cycle, it must contain an element of order 3, a contradiction. Thus $X$ is again not normal in $S_4$.
+    \end{itemize}
+    This concludes the proof that $S_4$ contains no normal subgroups of order 8 or order 3.
+\end{proof}
+
 \end{document}
