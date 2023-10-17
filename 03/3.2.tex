@@ -231,4 +231,19 @@ Let $H \leq G$. Prove that the map $x \mapsto x^{-1}$ sends each left coset of $
     It is also surjective: Letting $Hx$ be a right coset of $H$, by definition we have $\varphi(x^{-1}H) = Hx$. It is therefore a bijection, and so there are an equal number of left cosets and right cosets of $H$ in $G$. 
 \end{proof}
 
+\section*{13. (10/16/23)}
+
+Fix any labelling of the vertices of a square and use this to identify $D_8$ as a subgroup of $S_4$. Prove that the elements of $D_8$ and $\langle (1, 2, 3) \rangle$ do not commute in $S_4$.
+
+\begin{proof}
+    Label the vertices of a square starting at the upper-left corner and going clockwise 1, 2, 3, 4. We can assign to the generators $r, s$ of $D_8$ the permutations $(1, 2, 3, 4), (2, 4) \in S_4$, respectively.
+
+    To show that the elements of $D_8$ and $\langle (1, 2, 3) \rangle$ do not commute, we note that:
+    \begin{align*}
+        (1, 2, 3) \cdot s &= (1, 2, 3)(2, 4) = (1, 2, 4, 3), \text{ and} \\
+        s \cdot (1, 2, 3) &= (2, 4)(1, 2, 3) = (1, 4, 2, 3),
+    \end{align*}
+    so $s$ does not commute with $(1, 2, 3) \in S_4$. Therefore $D_8$ and $\langle (1, 2, 3) \rangle$ are not commuting subgroups of $S_4$.
+\end{proof}
+
 \end{document}
