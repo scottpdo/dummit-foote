@@ -318,4 +318,14 @@ Let $G = S_n$ and for fixed $i \in \{ 1, 2, ...., n \}$ let $G_i$ be the stabili
     This exhaustively shows that for all $\sigma_1, \sigma_2 \in G_i$, the equation $\varphi(\sigma_1 \circ \sigma_2) = \varphi(\sigma_1) \circ \varphi(\sigma_2)$ holds in $S_{n - 1}$. Thus $\varphi$ is an isomorphism, and so $G_i \cong S_{n - 1}$.
 \end{proof}
 
+\section*{16. (10/19/23)}
+
+Use Lagrange's Theorem in the multiplicative group $(\mathbb{Z}/p\mathbb{Z})^\times$ to prove \emph{Fermat's Little Theorem}: if $p$ is a prime then $a^p \equiv a \text{ (mod $p$)}$ for all $a \in \mathbb{Z}$.
+
+\begin{proof}
+    Recall that the order of the multiplicative group $(\mathbb{Z}/p\mathbb{Z})^\times$ is equal to the number of positive integers $n$ for which $n < p$ and $n$ is relatively prime to $p$. Since $p$ is prime, this is $p - 1$.
+
+    For any $\overline{a} \in (\mathbb{Z}/p\mathbb{Z})^\times$, the order of $\overline{a}$ must divide $p - 1$, and in particular, we have $\overline{a}^{p - 1} = 1$. It follows that $\overline{a}^p = \overline{a}$. If $\overline{a} \in (\mathbb{Z}/p\mathbb{Z})^\times$ is a representative of some $a \in \mathbb{Z}$, we then conclude that $a^p \equiv a \text{ (mod $p$)}$.
+\end{proof}
+
 \end{document}
