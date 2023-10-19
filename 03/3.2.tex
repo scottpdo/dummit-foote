@@ -328,4 +328,14 @@ Use Lagrange's Theorem in the multiplicative group $(\mathbb{Z}/p\mathbb{Z})^\ti
     For any $\overline{a} \in (\mathbb{Z}/p\mathbb{Z})^\times$, the order of $\overline{a}$ must divide $p - 1$, and in particular, we have $\overline{a}^{p - 1} = 1$. It follows that $\overline{a}^p = \overline{a}$. If $\overline{a} \in (\mathbb{Z}/p\mathbb{Z})^\times$ is a representative of some $a \in \mathbb{Z}$, we then conclude that $a^p \equiv a \text{ (mod $p$)}$.
 \end{proof}
 
+\section*{17. (10/19/23)}
+
+Let $p$ be a prime and let $n$ be a positive integer. Find the order of $\overline{p}$ in \\ $(\mathbb{Z}/(p^n - 1)\mathbb{Z})^\times$ and deduce that $n \mid \varphi(p^n - 1)$ (here $\varphi$ is Euler's function).
+
+\begin{proof}
+    The order of $(\mathbb{Z}/(p^n - 1)\mathbb{Z})^\times$ is equal to the number of positive integers $k$ for which $k < p^n - 1$ and $k$ is relatively prime to $p^n - 1$, that is, $\varphi(p^n - 1)$.
+
+    Now $p^n = (p^n - 1) + 1 \equiv 1 \text{ (mod $p^n - 1$)}$. For all non-negative $k < n$, we have $p^k < p^n$, so $n$ is the smallest positive integer for which $p^n \equiv 1 \text{ (mod $p^n - 1$)}$, which implies that $|\overline{p}| = n$. It follows that $n$ divides $\varphi(p^n - 1)$, the order of $(\mathbb{Z}/(p^n - 1)\mathbb{Z})^\times$.
+\end{proof}
+
 \end{document}
