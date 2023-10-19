@@ -265,4 +265,57 @@ Prove that $S_4$ does not have a normal subgroup of order 8 or a normal subgroup
     This concludes the proof that $S_4$ contains no normal subgroups of order 8 or order 3.
 \end{proof}
 
+\section*{15. (10/18/23)}
+
+Let $G = S_n$ and for fixed $i \in \{ 1, 2, ...., n \}$ let $G_i$ be the stabilizer of $i$. Prove that $G \cong S_{n - 1}$.
+
+\begin{proof}
+    From Ch. 2.2, Exercise 8., we have defined a bijection $\varphi: G_i \rightarrow S_{n - 1}$ defined on a permutation $\sigma \in G_i$ and an element $m \in \{ 1, 2, ..., n \}$ it permutes:
+    \begin{equation*}
+        \varphi(\sigma)(m) =
+        \begin{cases}
+            \sigma(m)      & \text{if } \sigma(m) \leq i \\
+            \sigma(m) - 1  & \text{if } \sigma(m) > i
+        \end{cases}.
+    \end{equation*}
+
+    For $\sigma_1, \sigma_2 \in G_i$ and $m \in \{ 1, ..., n \}$, let $\sigma_2(m) = k$ and $\sigma_1(k) = p$. Let us consider the different cases for $k$ and $p$.
+    
+    \begin{enumerate}[itemsep=0em]
+        \item $k \leq i, p \leq i$. Then:
+              \begin{multline*}
+                (\sigma_1 \circ \sigma_2)(m) = \sigma_1(\sigma_2(m)) = \sigma_1(k) = p \leq i, \text{ which implies that} \\
+                \varphi(\sigma_1 \circ \sigma_2)(m) = (\sigma_1 \circ \sigma_2)(m) = p.
+              \end{multline*}
+              Also:
+              \begin{align*}
+                \sigma_2(m) = k \leq i \Rightarrow \varphi(\sigma_2(m)) = \sigma_2(m) = k, & \text{ and} \\
+                \sigma_1(k) = p \leq i \Rightarrow \varphi(\sigma_1(k)) = \sigma_1(k) = p, & \text{ so} \\
+                (\varphi(\sigma_1) \circ \varphi(\sigma_2))(m) &= \varphi(\sigma_1)\bigl(\varphi(\sigma_2)(m)\bigr) \\ &= \varphi(\sigma_1)\bigl(\sigma_2(m)\bigr) \\ &= \varphi(\sigma_1)(k) = \sigma_1(k) = p,
+              \end{align*}
+              thus $\varphi(\sigma_1 \circ \sigma_2) = \varphi(\sigma_1) \circ \varphi(\sigma_2)$.
+        \item $k > i, p \leq i$. As above, we have $(\sigma_1 \circ \sigma_2)(m) = p \leq i$, which implies that $\varphi(\sigma_1 \circ \sigma_2)(m) = p$. Also:
+              \begin{align*}
+                \sigma_2(m) = k > i \Rightarrow \varphi(\sigma_2)(m) = \sigma_2(m) - 1 = k - 1.
+              \end{align*}
+              Now note that, in the permutation $\varphi(\sigma_1)$, all values greater than or equal to $i$ have been decremented by 1, so we have $\varphi(\sigma_1)(k - 1) = \sigma_1(k) = p$. It follows that:
+              \begin{align*}
+                (\varphi(\sigma_1) \circ \varphi(\sigma_2))(m) &= \varphi(\sigma_1)\bigl(\varphi(\sigma_2)(m)\bigr) \\ &= \varphi(\sigma_1)(k - 1) \\ &= \sigma_1(k) = p,
+              \end{align*}
+              thus $\varphi(\sigma_1 \circ \sigma_2) = \varphi(\sigma_1) \circ \varphi(\sigma_2)$.
+        \item $k \leq i, p > i$. Then $(\sigma_1 \circ \sigma_2)(m) = p > i$, which implies that $\varphi(\sigma_1 \circ \sigma_2)(m) = (\sigma_1 \circ \sigma_2)(m) = p - 1$.
+              As in the first case, $\varphi(\sigma_2)(m) = \sigma_2(m) = k$. So:
+              \begin{align*}
+                (\varphi(\sigma_1) \circ \varphi(\sigma_2))(m) &= \varphi(\sigma_1)\bigl(\varphi(\sigma_2)(m)\bigr) \\ &= \varphi(\sigma_1)(k) \\ &= \sigma_1(k) - 1 = p - 1,
+              \end{align*}
+              thus $\varphi(\sigma_1 \circ \sigma_2) = \varphi(\sigma_1) \circ \varphi(\sigma_2)$.
+        \item $k > i, p > i$. As above, we have $\varphi(\sigma_1 \circ \sigma_2)(m) = p - 1$. As in the second case, we have $\varphi(\sigma_2)(m) = k - 1$; however, $\sigma_1(k) = p > i$, so $\varphi(\sigma_1(k - 1)) = \sigma_1(k) - 1 = p - 1$. Then:
+              \begin{align*}
+                (\varphi(\sigma_1) \circ \varphi(\sigma_2))(m) &= \varphi(\sigma_1)\bigl(\varphi(\sigma_2)(m)\bigr) \\ &= \varphi(\sigma_1)(k - 1) \\ &= \sigma_1(k - 1) - 1 = p - 1,
+              \end{align*}
+              thus $\varphi(\sigma_1 \circ \sigma_2) = \varphi(\sigma_1) \circ \varphi(\sigma_2)$.
+    \end{enumerate}
+    This exhaustively shows that for all $\sigma_1, \sigma_2 \in G_i$, the equation $\varphi(\sigma_1 \circ \sigma_2) = \varphi(\sigma_1) \circ \varphi(\sigma_2)$ holds in $S_{n - 1}$. Thus $\varphi$ is an isomorphism, and so $G_i \cong S_{n - 1}$.
+\end{proof}
+
 \end{document}
