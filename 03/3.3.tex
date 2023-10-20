@@ -1,0 +1,29 @@
+\documentclass{article}
+
+\title{Dummit \& Foote Ch. 3.3: The Isomorphism Theorems}
+\author{Scott Donaldson}
+\date{Oct. 2023}
+\usepackage{amsmath, amsthm, amsfonts, enumitem, tabu, tikz}
+
+\begin{document}
+
+\maketitle
+
+Let $G$ be a group.
+
+\section*{1. (10/20/23)}
+
+Let $F$ be a finite field of order $q$ and let $n \in \mathbb{Z}^+$. Prove that \\ $|GL_n(F) : SL_n(F)| = q - 1$.
+
+\begin{proof}
+    Define a map $\varphi: GL_n(F) \rightarrow F^\times$ by $\varphi(A) = \det A$ for all $A \in GL_n(F)$. From Ch. 3.1, Exercise 35., $\varphi$ is a surjective homomorphism with $\ker \varphi = SL_n(F)$.
+
+    From Corollary 17, we have:
+    \begin{align*}
+        |GL_n(F) : \ker \varphi| &= |\varphi(GL_n(F))|, \text{ which implies that} \\
+        |GL_n(F) : SL_n(F)| &= \underbrace{|F^\times|}_\text{$\varphi$ is surjective} = q - 1,
+    \end{align*}
+    as desired
+\end{proof}
+
+\end{document}
