@@ -83,4 +83,60 @@ Let $C$ be a normal subgroup of the group $A$ and let $D$ be a normal subgroup o
     Thus $\varphi$ is an isomorphism, which concludes the proof that $(A \times B)/(C \times D) \cong (A / C) \times (B / D)$.
 \end{proof}
 
+\section*{5. (10/27/23)}
+
+Let $QD_{16}$ be the quasidihedral group described in Exercise 11 of Section 2.5. Prove that $\langle \sigma^4 \rangle$ is normal in $QD_{16}$ and use the Lattice Isomorphism Theorem to draw the lattice of subgroups of $QD_{16}/\langle \sigma^4 \rangle$. Which group of order 8 has the same lattice as this quotient? Use generators and relations for $QD_{16}/\langle \sigma^4 \rangle$ to decide the isomorphism type of this group.
+
+\begin{proof}[Solution]
+    Consider the subgroup $\langle \sigma^4 \rangle$ in $QD_{16}$. To prove that it is normal, it suffices to check that the conjugates of $\sigma^4$ by the generators of $QD_{16}$ lie in $\langle \sigma^4 \rangle$. Now powers of $\sigma$ commute, so we only need to check $\tau \sigma^4 \tau^{-1}$:
+    \begin{equation*}
+        \tau \sigma^4 \tau^{-1} = \tau \sigma^4 \tau = \tau \tau \sigma^{12} = \sigma^{12} = \sigma^4 \in \langle \sigma^4 \rangle,
+    \end{equation*}
+    so $\langle \sigma^4 \rangle \unlhd QD_{16}$.
+
+    Now from the Lattice Isomorphism Theorem, the lattice of subgroups of $QD_{16}/\langle \sigma^4 \rangle$ corresponds to the lattice of subgroups of $QD_{16}$ containing $\langle \sigma^4 \rangle$:
+
+    \begin{center}
+        \begin{tikzpicture}
+            \node at (0, 0)          (1)  {$\langle \overline{\sigma^4} \rangle = \overline{1}$};
+
+            \node at (-3, 1)      (ts2)  {$\langle \overline{\tau \sigma^2} \rangle$};
+            \node at (-1.5, 1)      (t) {$\langle \overline{\tau} \rangle$};
+            \node at (0, 1)      (s2) {$\langle \overline{\sigma^2} \rangle$};
+            \node at (1.5, 1)      (ts) {$\langle \overline{\tau \sigma} \rangle$};
+            \node at (3, 1)      (ts3) {$\langle \overline{\tau \sigma^3} \rangle$};
+
+            \node at (-1.5, 2)      (s2_t) {$\langle \overline{\sigma^2, \tau} \rangle$};
+            \node at (0, 2)      (s) {$\langle \overline{\sigma} \rangle$};
+            \node at (1.5, 2)      (s2_ts) {$\langle \overline{\sigma^2, \tau \sigma} \rangle$};
+            \node at (0, 3.5)       ()  {$QD_{16}/\langle \sigma^4 \rangle =$};
+            \node at (0, 3)       (QD16)  {$\overline{QD_{16}}$};
+            
+            \draw (1) -- (ts2);
+            \draw (1) -- (t);
+            \draw (1) -- (s2);
+            \draw (1) -- (ts);
+            \draw (1) -- (ts3);
+
+            \draw(ts2) -- (s2_t);
+            \draw(t) -- (s2_t);
+            \draw(s2) -- (s2_t);
+            \draw(s2) -- (s);
+            \draw(s2) -- (s2_ts);
+            \draw(ts) -- (s2_ts);
+            \draw(ts3) -- (s2_ts);
+
+            \draw(s2_t) -- (QD16);
+            \draw(s) -- (QD16);
+            \draw(s2_ts) -- (QD16);
+        \end{tikzpicture}
+    \end{center}
+
+    Next, consider the generators and relations for $\overline{QD_{16}}$:
+    \begin{equation*}
+        \overline{QD_{16}} = \langle \overline{\sigma}, \overline{\tau} \mid \overline{\sigma}^4 = \overline{\tau}^2 = \overline{1}, \overline{\sigma \tau} = \overline{\tau \sigma^3} = \overline{\tau} \cdot \overline{\sigma}^{-1} \rangle.
+    \end{equation*}
+    The right-most equation among the relations: $\overline{\tau \sigma^3} = \overline{\tau} \cdot \overline{\sigma}^{-1}$ shows that the generators and relations of this quotient group are identical to those of $D_8$, mapping $s \in D_8$ to $\overline{\tau} \in \overline{QD_{16}}$ and $r \in D_8$ to $\overline{\sigma} \in \overline{QD_{16}}$. Thus we have $QD_{16}/\langle \sigma^4 \rangle \cong D_8$.
+\end{proof}
+
 \end{document}
