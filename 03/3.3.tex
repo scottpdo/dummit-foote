@@ -60,4 +60,27 @@ Prove that if $H$ is a normal subgroup of $G$ of prime index $p$ then for all $K
     From the Diamond Isomorphism Theorem, we have $HK / H \cong K / H \cap K$. Since $HK = G$, it follows that $|G : H| = |K : H \cap K|$, and so $|K : K \cap H| = p$.
 \end{proof}
 
+\section*{4. (10/27/23)}
+
+Let $C$ be a normal subgroup of the group $A$ and let $D$ be a normal subgroup of the group $B$. Prove that $(C \times D) \unlhd (A \times B)$ and $(A \times B)/(C \times D) \cong (A / C) \times (B / D)$.
+
+\begin{proof}
+    Let $(c, d) \in C \times D$. Consider the conjugate of $(c, d)$ by $(a, b) \in A \times B$:
+    \begin{equation*}
+        (a, b)(c, d)(a, b)^{-1} = (a, b)(c, d)(a^{-1}, b^{-1}) = (aca^{-1}, bdb^{-1}).
+    \end{equation*}
+    Because $C \unlhd A$, the first coordinate is an element of $C$, and similarly the second is an element of $D$. Therefore the conjugate element lies in $C \times D$, and it follows that $(C \times D) \unlhd (A \times B)$.
+
+    Next, to show that $(A \times B)/(C \times D) \cong (A / C) \times (B / D)$, define a map $\varphi: (A \times B)/(C \times D) \rightarrow (A / C) \times (B / D)$ by $\varphi((\overline{a, b})) = (\overline{a}, \overline{b})$. We see that this map is a homomorphism:
+    \begin{multline*}
+        \varphi((\overline{a_1, b_1})(\overline{a_2, b_2})) = \varphi((\overline{a_1 a_2, b_1 b_2})) = (\overline{a_1 a_2}, \overline{b_1 b_2}) \\ = (\overline{a_1}, \overline{b_1})(\overline{a_2}, \overline{b_2}) = \varphi((\overline{a_1, b_1}))\varphi((\overline{a_2, b_2})).
+    \end{multline*}
+
+    It is also surjective by definition, since $(\overline{a}, \overline{b}) = \varphi((\overline{a, b}))$ is an arbitrary element of $(A / C) \times (B / D)$ with a preimage in $(A \times B)/(C \times D)$.
+
+    Finally, it is injective. Let $\varphi((\overline{a_1, b_1})) = \varphi((\overline{a_2, b_2}))$. Then $(\overline{a_1}, \overline{b_1}) = (\overline{a_2}, \overline{b_2})$, so we have $\overline{a_1} = \overline{a_2}$ and $\overline{b_1} = \overline{b_2}$. Since $\overline{a_1} = \overline{a_2}$ implies $(\overline{a_1, x}) = (\overline{a_2, x})$ for all $\overline{x} \in B/D$ and vice-versa, we then have $(\overline{a_1, b_1}) = (\overline{a_2, b_2})$, and so $\varphi$ is one-to-one.
+
+    Thus $\varphi$ is an isomorphism, which concludes the proof that $(A \times B)/(C \times D) \cong (A / C) \times (B / D)$.
+\end{proof}
+
 \end{document}
