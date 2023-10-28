@@ -139,4 +139,66 @@ Let $QD_{16}$ be the quasidihedral group described in Exercise 11 of Section 2.5
     The right-most equation among the relations: $\overline{\tau \sigma^3} = \overline{\tau} \cdot \overline{\sigma}^{-1}$ shows that the generators and relations of this quotient group are identical to those of $D_8$, mapping $s \in D_8$ to $\overline{\tau} \in \overline{QD_{16}}$ and $r \in D_8$ to $\overline{\sigma} \in \overline{QD_{16}}$. Thus we have $QD_{16}/\langle \sigma^4 \rangle \cong D_8$.
 \end{proof}
 
+\section*{6. (10/28/23)}
+
+Let $M = \langle v, u \rangle$ be the modular group of order 16 described in Exercise 14 of Section 2.5. Prove that $\langle v^4 \rangle$ is normal in $M$ and use the Lattice Isomorphism Theorem to draw the lattice of subgroups of $M/\langle v^4 \rangle$. Which group of order 8 has the same lattice as this quotient? Use generators and relations for $M/\langle v^4 \rangle$ to decide the isomorphism type of this group.
+
+\begin{proof}[Solution]
+    Recall that the modular group of order 16 is defined as:
+    \begin{equation*}
+        M = \langle v, u \mid u^2 = v^8 = 1, vu = uv^5 \rangle.
+    \end{equation*}
+    As above, to show that $\langle v^4 \rangle$ is normal in $M$, it suffices to show that the conjugate $uv^4u^{-1}$ lies in $\langle v^4 \rangle$:
+    \begin{equation*}
+        uv^4u^{-1} = uv^4u = uuv^{20} = v^{4} \in \langle v^4 \rangle,
+    \end{equation*}
+    so $\langle v^4 \rangle \unlhd M$.
+
+    From the Lattice Isomorphism Theorem, the lattice of subgroups of $M/\langle v^4 \rangle$ corresponds to the lattice of subgroups of $M$ containing $\langle v^4 \rangle$:
+
+    \begin{center}
+        \begin{tikzpicture}
+            \node at (0, 0)          (1)  {$\langle \overline{v^4} \rangle = \overline{1}$};
+
+            \node at (-3, 1)      (uv2)  {$\langle \overline{u v^2} \rangle$};
+            \node at (-1.5, 1)      (u) {$\langle \overline{u} \rangle$};
+            \node at (0, 1)      (v2) {$\langle \overline{v^2} \rangle$};
+            \node at (1.5, 1)      (uv) {$\langle \overline{u v} \rangle$};
+            \node at (3, 1)      (uv3) {$\langle \overline{u v^3} \rangle$};
+
+            \node at (-1.5, 2)      (v2_u) {$\langle \overline{v^2, u} \rangle$};
+            \node at (0, 2)      (v) {$\langle \overline{v} \rangle$};
+            \node at (1.5, 2)      (v2_uv) {$\langle \overline{v^2, u v} \rangle$};
+            \node at (0, 3.5)       ()  {$M/\langle v^4 \rangle =$};
+            \node at (0, 3)       (M)  {$\overline{M}$};
+            
+            \draw (1) -- (uv2);
+            \draw (1) -- (u);
+            \draw (1) -- (v2);
+            \draw (1) -- (uv);
+            \draw (1) -- (uv3);
+
+            \draw(ts2) -- (v2_u);
+            \draw(t) -- (v2_u);
+            \draw(v2) -- (v2_u);
+            \draw(v2) -- (v);
+            \draw(v2) -- (v2_uv);
+            \draw(ts) -- (v2_uv);
+            \draw(uv3) -- (v2_uv);
+
+            \draw(s2_t) -- (M);
+            \draw(v) -- (M);
+            \draw(v2_uv) -- (M);
+        \end{tikzpicture}
+    \end{center}
+
+
+    Next, consider the generators and relations for $M/\langle v^4 \rangle$:
+    \begin{equation*}
+        M/\langle v^4 \rangle = \langle \overline{v}, \overline{u} \mid \overline{v}^4 = \overline{u}^2 = \overline{1}, \overline{v u} = \overline{u v^5} = \overline{uv} \rangle.
+    \end{equation*}
+
+    The right-most equation shows that this is an abelian group. Consider the presentation for $Z_2 \times Z_4$ given by $\langle x, y \mid x^2 = y^4 = 1, xy = yx \rangle$. Mapping $\overline{u} \in M/\langle v^4 \rangle$ to $x \in Z_2 \times Z_4$ and $\overline{v} \in M/\langle v^4 \rangle$ to $y \in Z_2 \times Z_4$, we obtain an isomorphism. Therefore $M/\langle v^4 \rangle \cong Z_2 \times Z_4$.
+\end{proof}
+
 \end{document}
