@@ -201,4 +201,23 @@ Let $M = \langle v, u \rangle$ be the modular group of order 16 described in Exe
     The right-most equation shows that this is an abelian group. Consider the presentation for $Z_2 \times Z_4$ given by $\langle x, y \mid x^2 = y^4 = 1, xy = yx \rangle$. Mapping $\overline{u} \in M/\langle v^4 \rangle$ to $x \in Z_2 \times Z_4$ and $\overline{v} \in M/\langle v^4 \rangle$ to $y \in Z_2 \times Z_4$, we obtain an isomorphism. Therefore $M/\langle v^4 \rangle \cong Z_2 \times Z_4$.
 \end{proof}
 
+\section*{7. (10/28/23)}
+
+Let $M$ and $N$ be normal subgroups of $G$ such that $G = MN$. Prove that $G/(M \cap N) \cong (G/M) \times (G/N)$.
+
+\begin{proof}
+    Define a map $\varphi: G/(M \cap N) \rightarrow (G/M) \times (G/N)$ by $\varphi(\overline{g}) = (gM, gN)$. We see that $\varphi$ is a homomorphism:
+    \begin{multline*}
+        \varphi(\overline{g} \cdot \overline{h}) = \varphi(\overline{gh}) = ((gh)M, (gh)N) = (gM \cdot hM, gN \cdot hN) \\ = (gM, gN)(hM, hN) = \varphi(\overline{g})\varphi(\overline{h}).
+    \end{multline*}
+
+    It is also injective. Let $\varphi(\overline{g}) = \varphi(\overline{h})$, so $(gM, gN) = (hM, hN)$, which implies that $gM = hM$ and $gN = hN$. Now let $x \in M \cap N$, so $x \in M$ and $x \in N$. Then $gx \in hM$ (because $gM = hM$) and $gx \in hN$ (because $gN = hN$), so $gx \in hM \cap hN = h(M \cap N)$. The same logic shows that $hx \in g(M \cap N)$, and it follows that $g(M \cap N) = h(M \cap N) \Rightarrow \overline{g} = \overline{h}$, which proves that $\varphi$ is injective.
+
+    Finally, $\varphi$ is surjective. Let $(gM, hN)$ be an element of $(G/M) \times (G/N)$. Since $G = MN = \{ mn \mid m \in M, n \in N \}$, we can write:
+    \begin{multline*}
+        (gM, hN) = \underbrace{((m_1 n_1)M, (m_2 n_2)N)}_{\text{for some $m_1, m_2 \in M, n_1, n_2 \in N$}} \\ = (n_1 M, m_2 N) = ((m_2 n_1) M, (m_2 n_1) N) = \varphi(\overline{m_2 n_1}).
+    \end{multline*}
+    Thus $\varphi$ is an isomorphism, and so $G/(M \cap N) \cong (G/M) \times (G/N)$.
+\end{proof}
+
 \end{document}
