@@ -220,4 +220,18 @@ Let $M$ and $N$ be normal subgroups of $G$ such that $G = MN$. Prove that $G/(M 
     Thus $\varphi$ is an isomorphism, and so $G/(M \cap N) \cong (G/M) \times (G/N)$.
 \end{proof}
 
+\section*{9. (10/29/23)}
+
+Let $p$ be a prime and let $G$ be a group of order $p^a m$, where $p$ does not divide $m$. Assume $P$ is a subgroup of $G$ of order $p^a$ and $N$ is a normal subgroup of $G$ of order $p^b n$, where $p$ does not divide $n$. Prove that $|P \cap N| = p^b$ and $|PN / N| = p^{a - b}$. (The subgroup $P$ of $G$ is called a \emph{Sylow $p$-subgroup} of $G$. This exercise shows that the intersection of any Sylow $p$-subgroup of $G$ with a normal subgroup $N$ is a Sylow $p$-subgroup of $N$.)
+
+\begin{proof}
+    Since $P \cap N \leq P$ and $P \cap N \leq N$, the order of $P \cap N$ must divide $|P| = p^a$ and $|N| = p^b n$. And since the order of $N$ divides the order of $G$, we must have $b \leq a$. Therefore $|P \cap N| = p^c$ for some $c \leq b \leq a$.
+
+    Suppose that $c < a$. From the Diamond Isomorphism Theorem, $P \cap N \unlhd P$, so we have:
+    \begin{equation*}
+        |P : P \cap N| = |P / P \cap N| = \frac{|P|}{|P \cap N|} = \frac{p^a}{p^c} = p^{a - c}.
+    \end{equation*}
+    The Diamond Isomorphism Theorem also states that $PN / N \cong P / P \cap N$, which implies that $\frac{|PN|}{|N|} = p^{a - c}$. We know that the order of $N$ is $p^b n$, and so $|PN| = p^{a - c} p^b n = p^{a + b - c} n$. Now note that $a + b - c > a$, which contradicts the order of $N$ dividing the order of $G$. Therefore we must have $c = b$, and so $|P \cap N| = p^b$. Again, because $PN / N \cong P / P \cap N$, we obtain $|PN / N| = p^{a - b}$.
+\end{proof}
+
 \end{document}
