@@ -220,6 +220,18 @@ Let $M$ and $N$ be normal subgroups of $G$ such that $G = MN$. Prove that $G/(M 
     Thus $\varphi$ is an isomorphism, and so $G/(M \cap N) \cong (G/M) \times (G/N)$.
 \end{proof}
 
+\section*{8. (10/29/23)}
+
+Let $p$ be a prime and let $G$ be the group of $p$-power roots of 1 in $\mathbb{C}$ (cf. Exercise 18, Section 2.4). Prove that the map $z \mapsto z^p$ is a surjective homomorphism. Deduce that $G$ is isomorphic to a proper quotient of itself.
+
+\begin{proof}
+    Recall that $G = \{ z \in \mathbb{C} \mid z^{p^n} = 1 \text{ for some } n \in \mathbb{Z}^+ \}$. Define a map $\varphi: G \rightarrow G$ by $\varphi(z) = z^p$ for all $z \in G$. Since $\varphi(z_1 z_2) = (z_1 z_2)^p = z_1^p z_2^p = \varphi(z_1) \varphi(z_2)$, it is a homomorphism.
+
+    To show that $\varphi$ is surjective, let $y \in G$. In particular, let $y = e^{\frac{2 \pi i}{p^n}}$ for some $n \in \mathbb{Z}^+$. Let $z = y^{1/p}$. Then $\varphi(z) = z^p = (y^{1/p})^p = y$. And, because $z = y^{1/p} = e^{\frac{2 \pi i}{p^n} \cdot \frac{1}{p}} = e^{\frac{2 \pi i}{p^{n + 1}}}$, we have $z^{p^{n + 1}} = 1$, so $z \in G$. Therefore $\varphi$ is also surjective.
+
+    By the 1st Isomorphism Theorem, $\ker \varphi \unlhd G$ and $G / \ker \varphi \cong \varphi(G)$. Now the kernel of $\varphi$ is the set of those $z \in G$ such that $z^p = 1$, that is, $\langle e^{\frac{2 \pi i}{p}} \rangle$. So $G / \ker \varphi$ is a proper quotient of $G$. Since $\varphi$ is surjective, $\varphi(G) = G$, and therefore $G$ is isomorphic to a proper quotient of itself.
+\end{proof}
+
 \section*{9. (10/29/23)}
 
 Let $p$ be a prime and let $G$ be a group of order $p^a m$, where $p$ does not divide $m$. Assume $P$ is a subgroup of $G$ of order $p^a$ and $N$ is a normal subgroup of $G$ of order $p^b n$, where $p$ does not divide $n$. Prove that $|P \cap N| = p^b$ and $|PN / N| = p^{a - b}$. (The subgroup $P$ of $G$ is called a \emph{Sylow $p$-subgroup} of $G$. This exercise shows that the intersection of any Sylow $p$-subgroup of $G$ with a normal subgroup $N$ is a Sylow $p$-subgroup of $N$.)
