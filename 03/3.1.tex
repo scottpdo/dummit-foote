@@ -789,11 +789,7 @@ Prove that $SL_n(F) \unlhd GL_n(F)$ and describe the isomorphism type of the quo
 Prove that if $G/Z(G)$ is cyclic then $G$ is abelian.
 
 \begin{proof}
-    Let $G/Z(G)$ be a cyclic subgroup of $G$ with generator $\overline{x} = xZ(G)$ for some $x \in G$. By definition the quotient group $G/Z(G)$ consists of cosets of $Z(G)$, that is, $\{ Z(G), xZ(G), x^2 Z(G), ... \} = \{ \overline{1}, \overline{x}, \overline{x}^2, ... \}$. Now the cosets of $Z(G)$ partition $G$, so we have:
-    \begin{equation*}
-        G = Z(G) \cup xZ(G) \cup x^2 Z(G) \cup ... = \bigcup^{|x| - 1}_{i = 0} x^i Z(G).
-    \end{equation*}
-    This implies that for any $g \in G$, we can write $x = x^a z$ for some $a \in \mathbb{Z}, z \in Z(G)$.
+    Let $G/Z(G)$ be a cyclic subgroup of $G$ with generator $xZ(G)$ for some $x \in G$. By definition the quotient group $G/Z(G)$ consists of cosets of $Z(G)$, that is, $\{ Z(G), xZ(G), x^2 Z(G), ... \}$. The cosets of $Z(G)$ partition $G$, which implies that for any $g \in G$, we can write $g = x^a z$ for some $a \in \mathbb{Z}, z \in Z(G)$.
 
     Now let $g_1 = x^a z_1, g_2 = x^b z_2$. Then:
     \begin{align*}
@@ -803,7 +799,7 @@ Prove that if $G/Z(G)$ is cyclic then $G$ is abelian.
                 &= x^b z_2 x^a z_1 \text{ ($z_2$ commutes with $x^a$)} & \\
                 &= g_2 g_1,
     \end{align*}
-    and so every element of $G$ commutes with every other element of $G$. Thus $G$ is abelian.
+    and therefore $G$ is abelian.
 \end{proof}
 
 \section*{37. (9/29/23)}
