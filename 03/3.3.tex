@@ -246,4 +246,24 @@ Let $p$ be a prime and let $G$ be a group of order $p^a m$, where $p$ does not d
     The Diamond Isomorphism Theorem also states that $PN / N \cong P / P \cap N$, which implies that $\frac{|PN|}{|N|} = p^{a - c}$. We know that the order of $N$ is $p^b n$, and so $|PN| = p^{a - c} p^b n = p^{a + b - c} n$. Now note that $a + b - c > a$, which contradicts the order of $N$ dividing the order of $G$. Therefore we must have $c = b$, and so $|P \cap N| = p^b$. Again, because $PN / N \cong P / P \cap N$, we obtain $|PN / N| = p^{a - b}$.
 \end{proof}
 
+\section*{10. (11/2/23)}
+
+Generalize the preceding exercise as follows. A subgroup $H$ of a finite group $G$ is called a \emph{Hall subgroup} of $G$ if its index is relatively prime to its order: $(|G:H|, |H|) = 1$. Prove that if $H$ is a Hall subgroup of $G$ and $N \unlhd G$, then $H \cap N$ is a Hall subgroup of $N$ and $HN/N$ is a Hall subgroup of $G/N$.
+
+\begin{proof}
+    We wish to first show that $H \cap N$ is a Hall subgroup of $N$, that is, that $|H \cap N|$ and $|N : H \cap N|$ are relatively prime.
+    
+    Toward contradiction, let $x > 1$ divide both $|H \cap N|$ and $|N : H \cap N|$. Since $H \cap N \leq H$, $x$ also divides $|H|$. By Proposition 13,
+    \begin{equation*}
+        |HN| = \frac{|H||N|}{|H \cap N|} = |H| \frac{|N|}{|H \cap N|} = |H||N : H \cap N|.
+    \end{equation*}
+    By Corollary 15, $HN$ is a subgroup of $G$, so $|HN|$ divides $|G| = |H|\frac{|G|}{|H|}$. Since $|H|$ and $|G : H| = \frac{|G|}{|H|}$ are relatively prime, $|N : H \cap N|$ divides $\frac{|G|}{|H|}$. But if $x$ divides $|H|$, it does not divide $\frac{|G|}{|H|}$, and therefore also does not divide $|N : H \cap N|$, a contradiction. So we must have $x = 1$, which implies that $|H \cap N|$ and then $|N : H \cap N|$ are relatively prime, and $H \cap N$ is a Hall subgroup of $N$.
+
+    Next, consider $HN/N \leq G/N$. We wish to show that $HN/N$ is a Hall subgroup of $G/N$, that is, that $|HN/N|$ and $|G/N : HN / N|$ are relatively prime. Again suppose that $x > 1$ divides both $|HN/N|$ and $|G/N : HN / N|$. From the Diamond Isomorphism Theorem, $HN/N \cong H/H \cap N$, so $x$ divides $|H/H \cap N| = \frac{|H|}{|H \cap N|}$, and therefore $x$ divides the order of $H$. And, from the Third Isomorphism Theorem, $(G/N)/(HN/N) \cong G/HN$, so:
+    \begin{align*}
+        |G/N : HN / N| = |G:HN| = \frac{|G|}{|HN|} &= |G|\frac{|H \cap N|}{|H||N|} \\ &= \frac{|G|}{|H|} \cdot \frac{|H \cap N|}{|N|} = \frac{|G|}{|H|} \cdot \frac{1}{|N:H \cap N|}.
+    \end{align*}
+    By assumption, $x$ divides this, and so it also divides $\frac{|G|}{|H|} = |G:H|$. However, because $H$ is a Hall subgroup of $G$, this is a contradiction if $x > 1$. Therefore we must have $x = 1$, so $HN/N$ is a Hall subgroup of $G/N$.
+\end{proof}
+
 \end{document}
