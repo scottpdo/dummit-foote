@@ -226,13 +226,21 @@ Suppose $H$ and $K$ are subgroups of finite index in the (possibly infinite) gro
 
     Since we now know that $H \cap K$ has finite index in $G$, it must also have finite index in $H$ and $K$, respectively. Let $|H : H \cap K| = r$. Then there are $r$ unique cosets of $H \cap K$ in $H$ and $m$ cosets of $H$ in $G$. We have:
     \begin{align*}
-        H &= \bigcap_{i = 1}^r a_i(H \cap K) \text{ for some $a_1, ..., a_r \in G$ and} \\
-        G &= \bigcap_{j = 1}^m b_j H \text{ for some $b_1, ..., b_m \in G$, therefore} \\
-        G &= \bigcap_{j = 1}^m b_j \Bigl( \bigcap_{i = 1}^r a_i (H \cap K) \Bigr) = \bigcap_{j = 1}^m \bigcap_{i = 1}^r b_j a_i (H \cap K),
+        H &= \bigcup_{i = 1}^r h_i(H \cap K) \text{ for some $h_1, ..., h_r \in H,$ and} \\
+        G &= \bigcup_{j = 1}^m g_j H \text{ for some $g_1, ..., g_m \in G$, therefore} \\
+        G &= \bigcup_{j = 1}^m g_j \Bigl( \bigcup_{i = 1}^r h_i (H \cap K) \Bigr),
     \end{align*}
-    a partition $G$ into $mr$ unique cosets of $H \cap K$, so the index of $H$ in $G$ divides the index of $H \cap K$ in $G$. An identical proof shows the same is true for $K$. Since $m$ and $n$ divide $|G : H \cap K|$, it must be no less than the least common multiple of the two. Therefore l.c.m.$(m, n) \leq |G : H \cap K| \leq mn$.
+    a partition of $G$ into $mr$ unique cosets of $H \cap K$, so the index of $H$ in $G$ divides the index of $H \cap K$ in $G$. An identical proof shows the same is true for $K$. Since $m$ and $n$ divide $|G : H \cap K|$, it must be no less than the least common multiple of the two. Therefore l.c.m.$(m, n) \leq |G : H \cap K| \leq mn$.
 
     Note that if $m$ and $n$ are relatively prime, then their least common multiple is their product, in which case $|G : H \cap K| = |G : H| \cdot |G : K|$.
+\end{proof}
+
+\section*{11. (11/2/23)}
+
+Let $H \leq K \leq G$. Prove that $|G:H| = |G:K| \cdot |K:H|$ (do not assume $G$ is finite).
+
+\begin{proof}
+    The proof in Exercise 10 above generalizes to this case. Since we can partition $G$ into $|G:K|$ cosets of $K$ and $K$ into $|K:H|$ cosets of $H$, there are $|G:K| \cdot |K:H|$ unique cosets of $H$ in $G$, and so $|G:H| = |G:K| \cdot |K:H|$.
 \end{proof}
 
 \section*{12. (10/16/23)}
