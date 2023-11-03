@@ -21,4 +21,28 @@ Prove that if $G$ is an abelian simple group then $G \cong Z_p$ for some prime $
     Finally, if $n$ divides $|G|$, then from Chapter 2, Theorem 7.(3), $G$ contains a proper subgroup of order $n$. Therefore $|G|$ has no divisors other than 1 and itself, so we have $|G| = p$ for some prime $p$. We conclude that $G \cong Z_p$ for some prime $p$.
 \end{proof}
 
+\section*{2. (11/3/23)}
+
+Exhibit all 3 composition series for $Q_8$ and all 7 composition series for $D_8$. List the composition factors in each case.
+
+The 3 composition series for $Q_8$ are:
+\begin{enumerate}[itemsep=0em]
+    \item $1 \leq \langle -1 \rangle \leq \langle i \rangle \leq Q_8$
+    \item $1 \leq \langle -1 \rangle \leq \langle j \rangle \leq Q_8$
+    \item $1 \leq \langle -1 \rangle \leq \langle k \rangle \leq Q_8$
+\end{enumerate}
+In each series, each composition factor is isomorphic to $Z_2$ (thus each $N_i$ is normal in $N_{i + 1}$; since there is only one left coset it must equal the only right coset).
+
+The 7 composition series for $D_8$ are:
+\begin{enumerate}[itemsep=0em]
+    \item $1 \leq \langle s \rangle \leq \langle s, r^2 \rangle \leq D_8$
+    \item $1 \leq \langle sr^2 \rangle \leq \langle s, r^2 \rangle \leq D_8$
+    \item $1 \leq \langle r^2 \rangle \leq \langle s, r^2 \rangle \leq D_8$
+    \item $1 \leq \langle r^2 \rangle \leq \langle r \rangle \leq D_8$
+    \item $1 \leq \langle r^2 \rangle \leq \langle sr, r^2 \rangle \leq D_8$
+    \item $1 \leq \langle sr \rangle \leq \langle sr, r^2 \rangle \leq D_8$
+    \item $1 \leq \langle sr^3 \rangle \leq \langle sr, r^2 \rangle \leq D_8$
+\end{enumerate}
+Again each composition factor is isomorphic to $Z_2$.
+
 \end{document}
