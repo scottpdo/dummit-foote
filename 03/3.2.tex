@@ -368,4 +368,14 @@ Let $p$ be a prime and let $n$ be a positive integer. Find the order of $\overli
     Now $p^n = (p^n - 1) + 1 \equiv 1 \text{ (mod $p^n - 1$)}$. For all non-negative $k < n$, we have $p^k < p^n$, so $n$ is the smallest positive integer for which $p^n \equiv 1 \text{ (mod $p^n - 1$)}$, which implies that $|\overline{p}| = n$. It follows that $n$ divides $\varphi(p^n - 1)$, the order of $(\mathbb{Z}/(p^n - 1)\mathbb{Z})^\times$.
 \end{proof}
 
+\section*{18. (11/3/23)}
+
+Let $G$ be a finite group, let $H$ be a subgroup of $G$ and let $N \unlhd G$. Prove that if $|H|$ and $|G:N|$ are relatively prime then $H \leq N$.
+
+\begin{proof}
+    Toward contradiction, suppose that there exists an $h \in H, h \notin N$. The cyclic group $\langle hN \rangle$ is a subgroup of $G/N$, so its order divides $|G/N| = |G:N|$. Also, because for all $i, j \in \{ 0, ..., |h| - 1 \}$, $h^i N = h^j N$ implies $h^i = h^j$,$\langle hN \rangle$ has order equal to $|h|$, so $|h|$ divides $|G:N|$. Now since $|H|$ and $|G:N|$ are relatively prime and $|h|$ divides both, we must have $|h| = 1$, which implies that $h$ is the identity, and so lies in $N$, a contradiction.
+
+    Therefore for all $h \in H$, we must have $h \in N$, and so $H \leq N$.
+\end{proof}
+
 \end{document}
