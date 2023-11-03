@@ -213,6 +213,28 @@ Define the relation $\sim$ on $\mathcal{S}$ by letting $\alpha \sim \beta$ if $\
           \end{proof}
 \end{enumerate}
 
+\section*{10. (11/2/23)}
+
+Suppose $H$ and $K$ are subgroups of finite index in the (possibly infinite) group $G$ with $|G : H| = m$ and $|G : K| = n$. Prove that l.c.m.$(m, n) \leq |G : H \cap K| \leq mn$. Deduce that if $m$ and $n$ are relatively prime then $|G : H \cap K| = |G : H| \cdot |G : K|$.
+
+\begin{proof}
+    Let $g \in G$. Now $H \cap K$ is a subgroup of $G$, so the left cosets of it partition $G$. Consider the left coset:
+    \begin{equation*}
+        g(H \cap K) = \{ gx \mid x \in H \cap K \} = \{ gx \mid x \in H \} \cap \{ gx \mid x \in K \} = gH \cap gK. 
+    \end{equation*}
+    Since $|G:H| = m$, there are $m$ unique left cosets of $H$ in $G$, and similarly there are $n$ unique left cosets of $K$ in $G$. Then there are most $mn$ unique intersections of a left coset of $H$ with a left coset of $K$. It follows that there are at most $mn$ left cosets of $H \cap K$ in $G$, and so $|G : H \cap K| \leq mn$.
+
+    Since we now know that $H \cap K$ has finite index in $G$, it must also have finite index in $H$ and $K$, respectively. Let $|H : H \cap K| = r$. Then there are $r$ unique cosets of $H \cap K$ in $H$ and $m$ cosets of $H$ in $G$. We have:
+    \begin{align*}
+        H &= \bigcap_{i = 1}^r a_i(H \cap K) \text{ for some $a_1, ..., a_r \in G$ and} \\
+        G &= \bigcap_{j = 1}^m b_j H \text{ for some $b_1, ..., b_m \in G$, therefore} \\
+        G &= \bigcap_{j = 1}^m b_j \Bigl( \bigcap_{i = 1}^r a_i (H \cap K) \Bigr) = \bigcap_{j = 1}^m \bigcap_{i = 1}^r b_j a_i (H \cap K),
+    \end{align*}
+    a partition $G$ into $mr$ unique cosets of $H \cap K$, so the index of $H$ in $G$ divides the index of $H \cap K$ in $G$. An identical proof shows the same is true for $K$. Since $m$ and $n$ divide $|G : H \cap K|$, it must be no less than the least common multiple of the two. Therefore l.c.m.$(m, n) \leq |G : H \cap K| \leq mn$.
+
+    Note that if $m$ and $n$ are relatively prime, then their least common multiple is their product, in which case $|G : H \cap K| = |G : H| \cdot |G : K|$.
+\end{proof}
+
 \section*{12. (10/16/23)}
 
 Let $H \leq G$. Prove that the map $x \mapsto x^{-1}$ sends each left coset of $H$ in $G$ onto a right coset of $H$ and gives a bijection between the set of left cosets and the set of right cosets of $H$ in $G$ (hence the number of left cosets of $H$ in $G$ equals the number of right cosets).
