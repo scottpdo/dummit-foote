@@ -59,4 +59,16 @@ Find a composition series for the quasidihedral group of order 16 (cf. Exercise 
     where each composition factor is isomorphic to $Z_2$. Since $Z_2$ is abelian, each composition factor is solvable, and so $QD_{16}$ is solvable.
 \end{proof}
 
+\section*{4. (11/4/23)}
+
+Use Cauchy's Theorem and induction to show that a finite abelian group has a subgroup of order $n$ for each positive divisor $n$ of its order.
+
+\begin{proof}
+    Let $G$ be a finite abelian group. Let us suppose that, for all groups $H$, $|H| < |G|$, $H$ has a subgroup of order $n$ for each positive divisor $n$ of its order.
+
+    Let $p$ be a prime dividing $|G|$. From Cauchy's Theorem, there is an $x \in G$ with $|x| = p$. Since $G$ is abelian, $\langle x \rangle$ is normal in $G$. So the quotient group $G/\langle x \rangle$ is well-defined and has order $|G|/p < |G|$, thus it has a subgroup of order $n$ for each $n$ dividing $|G|/p$.
+    
+    Let $n$ be a positive divisor of $|G|$. Since $|G| = p \cdot \frac{|G|}{p}$, $n$ divides $\frac{|G|}{p}$. From the induction hypothesis, let $\overline{K}$ be a subgroup of $G/\langle x \rangle$ of order $n$. For each $\overline{k} \in \overline{K}, \overline{k} \neq \overline{1}$, we must have $k \notin \langle x \rangle$, or else we would have $\overline{k} = k \cdot \langle x \rangle = \langle x \rangle$. Then there is a bijection from $\overline{K}$ onto $K$ given by $\overline{k} \mapsto k$. Thus $K$ is a subgroup of $G$ of order $n$.
+\end{proof}
+
 \end{document}
