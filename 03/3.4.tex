@@ -123,4 +123,16 @@ Prove part (1) of the Jordan-Hölder Theorem by induction on $|G|$.
     where the quotient of each successive subgroup by the previous is a simple group. Thus it is a composition series for $G$.
 \end{proof}
 
+\section*{7. (11/9/23)}
+
+If $G$ is a finite group and $H \unlhd G$ prove that there is a composition series for $G$, one of whose terms is $H$.
+
+\begin{proof}
+    By the Jordan-Hölder Theorem, $H$ and the quotient group $G/H$ both have composition series. Then we can construct a chain (identical to the immediately above proof) such that
+    \begin{equation*}
+        1 = H_0 \leq H_1 \leq ... \leq H_{k - 1} \leq H_k = H = G_0 \leq G_1 \leq ... \leq G_{m + 1} \leq G_m = G
+    \end{equation*}
+    is a composition series for $G$, one of whose terms is $H$.
+\end{proof}
+
 \end{document}
