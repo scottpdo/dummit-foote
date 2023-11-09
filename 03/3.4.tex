@@ -2,7 +2,7 @@
 
 \title{Dummit \& Foote Ch. 3.4: Composition Series and the Hölder Program}
 \author{Scott Donaldson}
-\date{Oct. 2023}
+\date{Nov. 2023}
 \usepackage{amsmath, amsthm, amsfonts, amssymb, enumitem, tabu, tikz}
 
 \begin{document}
@@ -69,6 +69,58 @@ Use Cauchy's Theorem and induction to show that a finite abelian group has a sub
     Let $p$ be a prime dividing $|G|$. From Cauchy's Theorem, there is an $x \in G$ with $|x| = p$. Since $G$ is abelian, $\langle x \rangle$ is normal in $G$. So the quotient group $G/\langle x \rangle$ is well-defined and has order $|G|/p < |G|$, thus it has a subgroup of order $n$ for each $n$ dividing $|G|/p$.
     
     Let $n$ be a positive divisor of $|G|$. Since $|G| = p \cdot \frac{|G|}{p}$, $n$ divides $\frac{|G|}{p}$. From the induction hypothesis, let $\overline{K}$ be a subgroup of $G/\langle x \rangle$ of order $n$. For each $\overline{k} \in \overline{K}, \overline{k} \neq \overline{1}$, we must have $k \notin \langle x \rangle$, or else we would have $\overline{k} = k \cdot \langle x \rangle = \langle x \rangle$. Then there is a bijection from $\overline{K}$ onto $K$ given by $\overline{k} \mapsto k$. Thus $K$ is a subgroup of $G$ of order $n$.
+\end{proof}
+
+\section*{5. (11/7/23)}
+
+Prove that subgroups and quotient groups of a solvable group are solvable.
+
+\begin{proof}
+    Let $G$ be a solvable group. Then there exists a chain of subgroups
+    \begin{equation*}
+        1 = G_0 \unlhd G_1 \unlhd G_2 \unlhd ... \unlhd G_s = G
+    \end{equation*}
+    such that $G_{i + 1}/G_i$ is abelian for each $i \in \{ 0, ..., s - 1 \}$.
+
+    Let $N \leq G$ and let $G_i$ be the smallest subgroup in the above series such that $N \leq G_i$. Since $G_{i - 1} \unlhd G_i$, we have $G_i \leq N_G(G_{i - 1})$ and so $N \leq N_G(G_{i - 1})$. Then by the Diamond Isomorphism Theorem it follows that
+    \begin{align*}
+        NG_{i - 1} \leq G_i, \hspace{0.4em}
+        N \cap G_{i - 1} \unlhd N, \text{ and }
+        NG_{i - 1}/G_{i - 1} \cong N/N \cap G_{i - 1}.
+    \end{align*}
+    Since the quotient group $G_i/G_{i - 1}$ is abelian, its subgroup $NG_{i - 1}/G_{i - 1}$ is as well. Then, since $N/N \cap G_{i - 1} \cong NG_{i - 1}/G_{i - 1}$, it follows that $N/N \cap G_{i - 1}$ is abelian.
+
+    We can repeat the above process with $N \cap G_{i - 1} \leq G_{i - 1}$ to conclude that $N \cap G_{i - 2} \unlhd N \cap G_{i - 1}$, with $N \cap G_{i - 1}/N \cap G_{i - 2}$ abelian. Continuing this way we produce the chain
+    \begin{equation*}
+        1 = N \cap G_0 \unlhd N \cap G_1 \unlhd ... \unlhd N \cap G_{i - 1} \unlhd N \cap G_i = N
+    \end{equation*}
+    where $N \cap G_{i + 1} / N \cap G_i$ is abelian for $i \in \{ 0, ..., i - 1 \}$, which shows that $N$ is solvable.
+\end{proof}
+
+\section*{6. (11/9/23)}
+
+Prove part (1) of the Jordan-Hölder Theorem by induction on $|G|$.
+
+\begin{proof}
+    Part (1) of the Jordan-Hölder Theorem states that if $G$ is a finite group, $G \neq 1$, then $G$ has a composition series. Suppose that for all groups $H$, $|H| < G$, $H$ has a composition series.
+
+    If $G$ is a simple group, then $1 \leq G$ is a composition series, since $G/1 \cong G$ is simple.
+    
+    Therefore assume that $G$ contains at least one proper normal subgroup $N$. Then we have $|N| < |G|$, so by assumption $N$ has a composition series
+    \begin{equation*}
+        1 = N_0 \leq N_1 \leq ... \leq N_{k - 1} \leq N_k = N,
+    \end{equation*}
+    where the quotient group $N_{i + 1}/N_i$ is simple for $i \in \{ 0, ..., k - 1 \}$. And, the quotient group $G/N$ has order $|G/N| = \frac{|G|}{|N|} < |G|$, so it also contains a composition series
+    \begin{equation*}
+        N/N = G_0/N \leq G_1/N \leq ... \leq G_{m + 1}/N \leq G_m/N = G,
+    \end{equation*}
+    where each $(G_{i + 1}/N)/(G_i/N)$ is simple for $i \in \{ 0, ..., m - 1 \}$. By the Third Isomorphism Theorem, this implies that each $G_{i + 1}/G_i$ is simple.
+
+    We now have a chain
+    \begin{equation*}
+        1 = N_0 \leq N_1 \leq ... \leq N_{k - 1} \leq N_k = N = G_0 \leq G_1 \leq ... \leq G_{m + 1} \leq G_m = G
+    \end{equation*}
+    where the quotient of each successive subgroup by the previous is a simple group. Thus it is a composition series for $G$.
 \end{proof}
 
 \end{document}
