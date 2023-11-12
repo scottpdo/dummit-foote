@@ -135,4 +135,41 @@ If $G$ is a finite group and $H \unlhd G$ prove that there is a composition seri
     is a composition series for $G$, one of whose terms is $H$.
 \end{proof}
 
+\section*{8. (11/12/23)}
+
+Let $G$ be a \emph{finite} group. Prove that the following are equivalent:
+\begin{enumerate}[label=(\roman*), itemsep=0em]
+    \item $G$ is solvable
+    \item $G$ has a chain of subgroups: $1 = H_0 \unlhd H_1 \unlhd H_2 \unlhd ... \unlhd H_s = G$ such that $H_{i + 1}/H_i$ is cyclic, $0 \leq i \leq s - 1$
+    \item all composition factors of $G$ are of prime order
+    \item $G$ has a chain of subgroups: $1 = N_0 \unlhd N_1 \unlhd N_2 \unlhd ... \unlhd N_t = G$ such that each $N_i$ is a normal subgroup of $G$ and $N_{i + 1}/N$ is abelian, $0 \leq i \leq t - 1$.
+\end{enumerate}
+
+To show that (i) implies (ii), let $G$ be a finite solvable group. Then there exists a chain
+\begin{equation*}
+    1 = G_0 \unlhd G_1 \unlhd G_2 \unlhd ... \unlhd G_s = G
+\end{equation*}
+such that $G_{i + 1}/G_i$ is abelian for $0 \leq i \leq s - 1$. If for some $i$, $G_{i + 1}/G_i$ is not simple, then there exists a proper normal subgroup $H$ of $G_{i + 1}$ that contains but is not equal to $G_i$. Since $G_i \unlhd G_{i + 1}$, we also have $G_i \unlhd H$, and since $G_{i + 1}/G_i$ is abelian, $H/G_i$ is as well. So we can subdivide every link in the original chain to produce another chain:
+\begin{equation*}
+    1 = H_0 \unlhd H_1 \unlhd H_2 \unlhd ... \unlhd H_t = G,
+\end{equation*}
+where each $H_{i + 1}/H_i$ is an abelian simple group for $0 \leq i \leq t - 1$. From Exercise 1, an abelian simple group is isomorphic to $Z_p$ for some prime $p$. Therefore each quotient in the chain is cyclic.
+
+Similarly (ii) implies (iii). If $G$ has a chain of subgroups such that each quotient is cyclic, then each quotient is also abelian. If there is a quotient $H_{i + 1}/H_i$ that is composite, then we can find another proper normal subgroup $K$ of $H_{i + 1}$ that is not equal to $H_i$. We continue to do this until the links in the chain are of prime order.
+
+Next we show that (iii) implies (iv). All composition factors of $G$ are of prime order, so they are all isomorphic to $Z_p$ for some prime $p$, thus cyclic and abelian. Let $M$ be a minimal nontrivial normal subgroup of $G$. From Exercise 7, there is a composition series of $G$ that includes $M$. Let $N \unlhd M$ be of prime index, so $M/N$ is abelian. From Chapter 3.1, Exercise 40, it follows that, for all $x, y \in M$, the commutator element $x^{-1}y^{-1}xy$ lies in $N$. 
+
+We claim next that, for all $g \in G$, $gNg^{-1} \unlhd M$. Let $x = gng^{-1} \in gNg^{-1}$. Then for all $h \in G$:
+\begin{equation*}
+    hxh^{-1} = hgng^{-1}h^{-1} = (hg)n(hg)^{-1} \in M \text{ (since $hg \in G$ and $n \in M$)},
+\end{equation*}
+which shows that $gNg^{-1} \unlhd M$. Since $|gNg^{-1}| = |N|$, $M/gNg^{-1}$ has the same prime order as $M/N$, and the quotient group is therefore abelian, so for all $g \in G, x, y \in M$, we have $x^{-1}y^{-1}xy \in gNg^{-1}$. It follows that $gNg^{-1} = N$ for all $g \in G$, and so $N \unlhd G$, which contradicts $M$ being a minimal normal subgroup. Therefore we must have $N = 1$. In turn, we conclude that $x^{-1}y^{-1}xy = 1$ for all $x, y \in M$, and so $xy = yx$, hence $M$ is abelian.
+
+Since $M \unlhd G$, next let $\overline{G} = G/M$ and let $\overline{M_1} \in \overline{G}$ be a minimal nontrivial normal subgroup. Then $\overline{M_1} = M_1/M$ is an abelian quotient group. We continue inductively until we produce the chain
+\begin{equation*}
+    1 = M \unlhd M_1 \unlhd M_2 \unlhd ... \unlhd M_r = G,
+\end{equation*}
+where each $M_i$ is normal in $G$ and $M_{i + 1}/M_i$ is abelian, $0 \leq i \leq r - 1$.
+
+Finally, (iv) implies (i), for each $M_{i + 1}/M_i$ is already abelian, and so $G$ is abelian. This concludes the proof that the four statements above are equivalent.
 \end{document}
