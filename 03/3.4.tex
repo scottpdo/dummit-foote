@@ -145,6 +145,8 @@ Let $G$ be a \emph{finite} group. Prove that the following are equivalent:
     \item $G$ has a chain of subgroups: $1 = N_0 \unlhd N_1 \unlhd N_2 \unlhd ... \unlhd N_t = G$ such that each $N_i$ is a normal subgroup of $G$ and $N_{i + 1}/N$ is abelian, $0 \leq i \leq t - 1$.
 \end{enumerate}
 
+\begin{proof}
+
 To show that (i) implies (ii), let $G$ be a finite solvable group. Then there exists a chain
 \begin{equation*}
     1 = G_0 \unlhd G_1 \unlhd G_2 \unlhd ... \unlhd G_s = G
@@ -172,4 +174,28 @@ Since $M \unlhd G$, next let $\overline{G} = G/M$ and let $\overline{M_1} \in \o
 where each $M_i$ is normal in $G$ and $M_{i + 1}/M_i$ is abelian, $0 \leq i \leq r - 1$.
 
 Finally, (iv) implies (i), for each $M_{i + 1}/M_i$ is already abelian, and so $G$ is abelian. This concludes the proof that the four statements above are equivalent.
+\end{proof}
+
+\section*{9. (11/21/23)}
+
+Prove the following special case of part (2) of the Jordan-Hölder Theorem: assume the finite group $G$ has two composition series
+\begin{equation*}
+    1 = N_0 \unlhd N_1 \unlhd ... \unlhd N_r = G \text{ and } 1 = M_0 \unlhd M_1 \unlhd M_2 = G.
+\end{equation*}
+Show that $r = 2$ and that the list of composition factors is the same. [Use the Second Isomorphism Theorem.]
+
+\begin{proof}
+    Consider $M_1$ and $N_{r - 1} \unlhd G$. From the Diamond Isomorphism Theorem, $N_{r - 1} \cap M_1 \unlhd M_1$. Since $M_1$ is simple, this implies that either $N_{r - 1} \cap M_1 = M_1$ or $N_{r - 1} \cap M_1 = 1$.
+
+    If $N_{r - 1} \cap M_1 = M_1$, then $M_1 \leq N_{r - 1}$, and specifically, $M_1 \unlhd N_{r - 1}$. By the Lattice Isomorphism Theorem, since $N_{r - 1} \unlhd G$, $N_{r - 1}/M_1 \unlhd G/M_1$. However, since $G/M_1$ is simple, this implies that either $N_{r - 1} = M_1$ or $N_{r - 1} = G$. In either case, this means that $N_{r - 1}$ is part of the same composition series as $M_1$.
+
+    Next, if $N_{r - 1} \cap M_1 = 1$, then consider the product $N_{r - 1} M_1$, which is a subgroup of $G$, and specifically a normal subgroup of $G$: Let $nm \in N_{r - 1} M_1$ and consider the conjugate by any element of $g$:
+    \begin{equation*}
+        gnmg^{-1} = gng^{-1} \cdot gmg^{-1},
+    \end{equation*}
+    the product of an element of $N_{r - 1}$ with an element of $M_1$ and therefore belonging to $N_{r - 1} M_1$, which shows that $N_{r - 1} M_1 \unlhd G$. Similar to above, because $G/M_1$ is simple, $N_{r - 1} M_1$ must be either $M_1$ or all of $G$. If $N_{r - 1} M_1 = M_1$, then $N_{r - 1}$ is either 1 or $M_1$ itself, and so is again part of the same composition series.
+
+    However, if $N_{r - 1} M_1 = G$ and $N_{r - 1}$ is not the trivial group nor $M_1$, then $1 = N_0 \unlhd N_{r - 1} \unlhd N_r = G$ is a composition series with only two factors (so we conclude that $r = 2$). By the Diamond Isomorphism Theorem, we have $G/M_1 \cong N_{r - 1}/1 \cong N_{r - 1}$ and $G/N_{r - 1} \cong M_1/1 \cong M_1$, so the list of composition factors is the same.
+\end{proof}
+
 \end{document}
