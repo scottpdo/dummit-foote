@@ -93,4 +93,42 @@ Show that $S_n = \langle (1, 2), (1, 2, 3, ..., n) \rangle$ for all $n \geq 2$.
     This shows that every transposition of adjacent integers can be obtained from $\langle (1, 2), (1, 2, 3, ..., n) \rangle$, and from the results of Exercise 3, it therefore generates all of $S_n$.
 \end{proof}
 
+\section*{5. (12/7/23)}
+
+Show that if $p$ is prime, $S_p = \langle \sigma, \tau \rangle$ where $\sigma$ is any transposition and $\tau$ is any $p$-cycle.
+
+\begin{proof}
+    Let $\tau = (a_1, a_2, ..., a_p)$ and $\sigma = (a_i, a_{i + k})$, where $1 \leq i < p$ and $i < k \leq p - i$. Note that:
+    \begin{align*}
+        \tau \sigma \tau^{-1} &= (a_1, a_2, ..., a_p)(a_i, a_{i + k}) \\
+        & \hspace{2.5em} (a_1, a_p, a_{p - 1}, ..., a_2) \\
+        &= (a_{i + 1}, a_{i + k + 1}), \text{ and so:} \\
+        (\tau^2) \sigma (\tau^2)^{-1} = \tau (\tau \sigma \tau^{-1}) \tau^{-1} &= (a_1, a_2, ..., a_p)(a_{i + 1}, a_{i + k + 1}) \\
+        & \hspace{2.5em} (a_1, a_p, a_{p - 1}, ..., a_2) \\
+        &= (a_{i + 2}, a_{i + k + 2}), \text{ and in general:} \\
+        (\tau^n) \sigma (\tau^n)^{-1} = \tau ((\tau^{n - 1}) \sigma (\tau^{n - 1})^{-1}) \tau^{-1} &= (a_1, a_2, ..., a_p)(a_{i + n - 1}, a_{i + k + n - 1}) \\
+        & \hspace{2.5em} (a_1, a_p, a_{p - 1}, ..., a_2) \\
+        &= (a_{i + n}, a_{i + k + n}),
+    \end{align*}
+    where all subscripts are taken mod $p$ if they are greater than $p$.
+
+
+    Next, we define a set:
+    \begin{align*}
+        \Sigma &= \{ (\tau^n)\sigma(\tau^n)^{-1} \mid 0 \leq n < p \} \\
+        &= \{ (a_j, a_{j + k}) \mid 1 \leq j \leq p \}.
+    \end{align*}
+    We claim that $\Sigma$ generates any transposition of the form $(a_j, a_{j + nk})$, where $1 \leq j \leq p$, $n \geq 1$. We will show this by strong induction on $n$.
+
+    The base case $n = 1$ is given by the construction of $\Sigma$, since it contains all transpositions of the form $(a_j, a_{j + k})$.
+
+    Next, suppose that $\Sigma$ can generate any transposition of the form $(a_j, a_{j + mk})$, where $1 \leq m < n$. Then:
+    \begin{equation*}
+        \underbrace{(a_j, a_{j + (n - 1)k})}_{m = n - 1} \underbrace{(a_{j + (n - 1)k}, a_{j + nk})}_{m = 1}\underbrace{(a_j, a_{j + (n - 1)k})}_{m = n - 1} = (a_j, a_{j + nk}),
+    \end{equation*}
+    which shows that we can generate any transposition of the form $(a_j, a_{j + nk})$.
+
+    Now since $p$ is prime, for any transposition $(a_j, a_{j + q})$, we can write $q = nk$ mod $p$ for some $n \geq 1$. Therefore $\Sigma$ can generate any transposition in $S_p$, and from the results of Exercise 3, it therefore generates all of $S_p$.
+\end{proof}
+
 \end{document}
