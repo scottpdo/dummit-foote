@@ -1,0 +1,39 @@
+\documentclass{article}
+
+\title{Dummit \& Foote Ch. 4.1: Group Actions and Permutation Representations}
+\author{Scott Donaldson}
+\date{Dec. 2023}
+\usepackage{amsmath, amsthm, amsfonts, amssymb, enumitem, tabu, tikz}
+
+\begin{document}
+
+\maketitle
+
+Let $G$ be a group and $A$ be a nonempty set.
+
+\section*{1. (12/24/23)}
+
+Let $G$ act on the set $A$. Prove that if $a, b \in A$ and $b = g \cdot a$ for some $g \in G$, then $G_b = gG_ag^{-1}$ ($G_a$ is the stabilizer of $a$). Deduce that if $G$ acts transitively on $A$ then the kernel of the action is $\cap_{g \in G}\hspace{0.25em}gG_ag^{-1}$.
+
+\begin{proof}
+    We will show first that $G_b$, the stabilizer of $b$, is contained in $gG_ag^{-1}$, and then show the converse, which proves that they are equal.
+
+    Let $x \in G_b$, so $x \cdot b = b$. Then:
+    \begin{align*}
+        x \cdot g \cdot a &= g \cdot a \text{ ($b = g \cdot a$)} \\
+        (gg^{-1}) \cdot (xg) \cdot a &= g \cdot a \text{ ($gg^{-1} = 1, 1 \cdot a = a$)} \\
+        g \cdot (g^{-1}xg) \cdot a &= g \cdot a \\
+        (g^{-1}xg) \cdot a &= a,
+    \end{align*}
+    which implies that $g^{-1}xg \in G_a$, and therefore $x \in gG_ag^{-1}$, so $G_b \subseteq gG_ag^{-1}$.
+
+    The converse, that $gG_ag^{-1} \subseteq G_b$, can be shown by following the above proof in reverse (that is, let $x \in gG_ag^{-1}$, so $g^{-1}xg \in G_a$, which implies that $(g^{-1}xg) \cdot a = a$, and each assertion holds from bottom to top). Since each is contained in the other, we have $G_b = gG_ag^{-1}$.
+
+    Now we already know that the kernel of the group action of $G$ on $A$ is the intersection of the stabilizers of all the elements of $A$, that is, $\cap_{b \in A}\hspace{0.25em}G_b$. If $G$ acts transitively on $A$, fixing $a \in A$, then for all $b \in A$, we can write $b = g \cdot a$ for some $g \in G$, which from above implies that $G_b = gG_ag^{-1}$. We deduce that the kernel can be expressed in terms of a fixed element $a$, namely:
+    \begin{equation*}
+        \cap_{b \in A}\hspace{0.25em}G_b = \cap_{b \in A}\hspace{0.25em}\underbrace{gG_ag^{-1}}_{b = g \cdot a} = \cap_{g \in G}\hspace{0.25em}gG_ag^{-1}.
+    \end{equation*}
+    We know that $\cap_{g \in G}\hspace{0.25em}gG_ag^{-1}$ intersects all of the same conjugates as does $\cap_{b \in A}$, since $G$ acts transitively on $A$. And, since $b = g \cdot a \Rightarrow G_b = gG_ag^{-1}$, it intersects no conjugates not represented by $G_b$ for all $b \in A$.
+\end{proof}
+
+\end{document}
