@@ -36,4 +36,40 @@ Let $G$ act on the set $A$. Prove that if $a, b \in A$ and $b = g \cdot a$ for s
     We know that $\cap_{g \in G}\hspace{0.25em}gG_ag^{-1}$ intersects all of the same conjugates as does $\cap_{b \in A}$, since $G$ acts transitively on $A$. And, since $b = g \cdot a \Rightarrow G_b = gG_ag^{-1}$, it intersects no conjugates not represented by $G_b$ for all $b \in A$.
 \end{proof}
 
+\section*{2. (1/2/24)}
+
+Let $G$ be a \emph{permutation group} on the set $A$ (i.e., $G \leq S_A$), let $\sigma \in G$ and let $a \in A$. Prove that $\sigma G_a \sigma^{-1} = G_{\sigma(a)}$. Deduce that if $G$ acts transitively on $A$ then
+\begin{equation*}
+    \bigcap_{\sigma \in G} \sigma G_a \sigma^{-1} = 1.
+\end{equation*}
+
+\begin{proof}
+    We first show that $\sigma G_a \sigma^{-1} \subseteq G_{\sigma(a)}$, and then show the converse. To begin, let $\tau \in G_a$ and consider $\sigma \tau \sigma^{-1} \in \sigma G_a \sigma^{-1}$. We note that:
+    \begin{equation*}
+        (\sigma \tau \sigma^{-1})(\sigma(a)) = (\sigma \tau \sigma^{-1} \sigma)(a) = (\sigma \tau)(a) = \underbrace{\sigma(\tau(a)) = \sigma(a)}_{\tau \in G_a \Rightarrow \tau(a) = a},
+    \end{equation*}
+    and so $\sigma \tau \sigma^{-1}$ stabilizes $\sigma(a)$, which implies that $\sigma G_a \sigma^{-1} \subseteq G_{\sigma(a)}$.
+
+    For the converse, let $\tau \in G$ and suppose that $\sigma \tau \sigma^{-1} \in G_{\sigma(a)}$. Then:
+    \begin{align*}
+        (\sigma \tau \sigma^{-1})(\sigma(a)) &= \sigma(a) \\
+        (\sigma \tau \sigma^{-1} \sigma)(a) &= \sigma(a) \\
+        (\sigma \tau)(a) &= \sigma(a) \\
+        \sigma(\tau(a)) &= \sigma(a) \\
+        \tau(a) &= a,
+    \end{align*}
+    so $\tau$ is in the stabilizer of $a$, which implies that $\sigma \tau \sigma^{-1} \in \sigma G_a \sigma^{-1}$, and so $G_{\sigma(a)} \subseteq \sigma G_a \sigma^{-1}$.
+    
+    This concludes the proof that $\sigma G_a \sigma^{-1} = G_{\sigma(a)}$.
+
+    Now if $G$ acts transitively on $A$, then there is only one orbit; that is, given some $a \in A$, for all $b \in A$, there is a $\sigma \in G$ such that $b = \sigma(a)$.
+
+    From above, we conclude:
+    \begin{equation*}
+        \bigcap_{\sigma \in G} \sigma G_a \sigma^{-1} = \bigcap_{\sigma \in G} G_{\sigma(a)} =
+        \bigcap_{a \in A} G_a \text{ (because $G$ acts transitively on $A$),}
+    \end{equation*}
+    and since the only permutation that fixes every element of $A$ is the identity, this intersection consists therefore only the identity permutation.
+\end{proof}
+
 \end{document}
