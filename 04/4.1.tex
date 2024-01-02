@@ -2,7 +2,7 @@
 
 \title{Dummit \& Foote Ch. 4.1: Group Actions and Permutation Representations}
 \author{Scott Donaldson}
-\date{Dec. 2023}
+\date{Dec. 2023 - Jan. 2024}
 \usepackage{amsmath, amsthm, amsfonts, amssymb, enumitem, tabu, tikz}
 
 \begin{document}
@@ -70,6 +70,28 @@ Let $G$ be a \emph{permutation group} on the set $A$ (i.e., $G \leq S_A$), let $
         \bigcap_{a \in A} G_a \text{ (because $G$ acts transitively on $A$),}
     \end{equation*}
     and since the only permutation that fixes every element of $A$ is the identity, this intersection consists therefore only the identity permutation.
+\end{proof}
+
+\section*{3. (1/2/24)}
+
+Assume that $G$ is an abelian, transitive subgroup of $S_A$. Show that $\sigma(a) \neq a$ for all $\sigma \in G - \{ 1 \}$ and all $a \in A$. Deduce that $|G| = |A|$. [Use the preceding exercise.]
+
+\begin{proof}
+    Suppose that $\sigma_1$ fixes $a$, so $\sigma_1(a) = a$, and let $\sigma_2(a) = b$. Then:
+    \begin{align*}
+        (\sigma_1 \circ \sigma_2)(a) = \sigma_1(\sigma_2(a)) &= \sigma_1(b), \text{ and } \\
+        (\sigma_2 \circ \sigma_1)(a) = \sigma_2(\sigma_1(a)) &= \sigma_2(a).
+    \end{align*}
+    Since $G$ is abelian, these must be equal, and so $\sigma_1(b) = \sigma_2(a) = b$. Then $\sigma_1$ also fixes $b$.
+    
+    Since $G$ is transitive, for every $b \in A$, there exists a $\sigma \in G$ such that $\sigma(b) = a$, which implies that $\sigma_1$ fixes every element of $A$ and is therefore the identity. Thus the identity is the only element of $G$ for which $\sigma(a) = a$; equivalently, $\sigma(a) \neq a$ for all $\sigma \in G - \{ 1 \}$ and all $a \in A$.
+
+    Now let $A = \{ 1, ..., n \}$. Since $G$ is transitive, it must contain at least $n$ permutations. For all $i \in A$, define $\sigma_i$ such that $\sigma_i(1) = i$ (with $\sigma_1$ the identity permutation). Suppose that $\tau$ is another permutation in $G$. Since $A$ only contains $n$ elements, we must have $\tau(1) = i$ for some $i \in A$, so $\tau(1) = \sigma_i(1)$. Then:
+    \begin{align*}
+        (\tau \circ \sigma_i)(1) = \tau(\sigma_i(1)) &= \tau(i), \text{ and } \\
+        (\sigma_i \circ \tau)(1) = \sigma_i(\tau(1)) &= \sigma_i(i).
+    \end{align*}
+    Since $G$ is abelian, these are equal, so $\tau(i) = \sigma_i(i)$. It follows that, if $j = \tau(i) = \sigma_i(i)$, then $\tau(j) = \sigma_i(j)$, and so on for every element which $\sigma_i$ permutes. Therefore $\tau = \sigma_i$, so $G$ contains exactly $n$ permutations. We conclude that $|G| = |A|$.
 \end{proof}
 
 \end{document}
