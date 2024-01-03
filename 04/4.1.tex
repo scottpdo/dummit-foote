@@ -94,4 +94,41 @@ Assume that $G$ is an abelian, transitive subgroup of $S_A$. Show that $\sigma(a
     Since $G$ is abelian, these are equal, so $\tau(i) = \sigma_i(i)$. It follows that, if $j = \tau(i) = \sigma_i(i)$, then $\tau(j) = \sigma_i(j)$, and so on for every element which $\sigma_i$ permutes. Therefore $\tau = \sigma_i$, so $G$ contains exactly $n$ permutations. We conclude that $|G| = |A|$.
 \end{proof}
 
+\section*{4. (1/3/24)}
+
+Let $S_3$ act on the set $\Omega$ of ordered pairs: $\{ (i, j) \mid 1 \leq i, j \leq 3 \}$ by $\sigma((i, j)) = (\sigma(i), \sigma(j))$. Find the orbits of $S_3$ on $\Omega$. For each $\sigma \in S_3$ find the cycle decomposition of $\sigma$ under this action (i.e., find its cycle decomposition when $\sigma$ is considered as an element of $S_9$ — first fix a labelling of these nine ordered pairs). For each orbit $\mathcal{O}$ of $S_3$ acting on these nine points pick some $a \in \mathcal{O}$ and find the stabilizer of $a$ in $S_3$.
+
+\begin{proof}[Solution]
+    The elements $(1, 1), (2, 2),$ and $(3, 3)$ all belong to the same orbit. We see that $(1\,2) \cdot (1, 1) = (2, 2)$ and $(2\,3) \cdot (2, 2) = (3, 3)$. Further, since for any $(i, i) \in \Omega$, the action of $\sigma \in S_3$ on it results in an element with the same coordinates, there is no $(i, j) \in \Omega$ with $i \neq j$ such that $\sigma((i, i)) = (i, j)$. Therefore these three elements constitute one orbit.
+
+    The other orbit consists of the remaining six elements. Beginning with $(1, 2)$, we have:
+    \begin{align*}
+        (1\,2\,3)(1, 2) &= (2, 3), \text{ then} \\
+        (1\,2\,3)(2, 3) &= (3, 1), \\
+        (1\,2)(3, 1) &= (3, 2), \\
+        (1\,2\,3)(3, 2) &= (1, 3), \text{ and finally} \\
+        (1\,2\,3)(1, 3) &= (2, 1).
+    \end{align*}
+    Conversely to the first orbit, for no $(i, j) \in \Omega$ with $i \neq j$ do we have $\sigma((i, j)) = (i, i)$. Thus these are the two disjoint orbits of $S_3$ on $\Omega$.
+
+    Next, let us label the elements of $\Omega$:
+    \begin{align*}
+        (1, 1) \rightarrow 1 & & (1, 2) \rightarrow 2 & & (1, 3) \rightarrow 3 \\
+        (2, 1) \rightarrow 4 & & (2, 2) \rightarrow 5 & & (2, 3) \rightarrow 6 \\
+        (3, 1) \rightarrow 7 & & (3, 2) \rightarrow 8 & & (3, 3) \rightarrow 9
+    \end{align*}
+    Then we can describe the cycle decomposition of each permutation of $S_3$ by how it acts on these elements:
+    \begin{align*}
+        1 &\rightarrow 1 \\
+        (1\,2) &\rightarrow (1\,5)(2\,4)(3\,6)(7\,8) \\
+        (1\,3) &\rightarrow (1\,9)(2\,8)(3\,7)(4\,6) \\
+        (2\,3) &\rightarrow (2\,3)(4\,7)(5\,9)(6\,8) \\
+        (1\,2\,3) &\rightarrow (1\,5\,9)(2\,6\,7)(3\,4\,8) \\
+        (1\,3\,2) &\rightarrow (1\,9\,5)(2\,7\,6)(3\,8\,4)
+    \end{align*}
+    For the first orbit, let us choose the point $(1, 1)$ and find its stabilizer. The permutations in $S_3$ that fix this element must fix 1. Obviously this includes the identity. Neither of the 3-cycles fix 1. Only one of the 2-cycles, $(2\,3)$, fixes 1. Therefore the stabilizer of $(1, 1)$ is the subgroup $\{ 1, (2\,3) \}$.
+
+    For the second orbit, we choose $(1, 2)$. Since all non-identity permutations of $S_3$ reassign either 1 or 2 (or both), the stabilizer consists of only the identity.
+\end{proof}
+
 \end{document}
