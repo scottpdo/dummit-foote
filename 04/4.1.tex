@@ -131,4 +131,64 @@ Let $S_3$ act on the set $\Omega$ of ordered pairs: $\{ (i, j) \mid 1 \leq i, j 
     For the second orbit, we choose $(1, 2)$. Since all non-identity permutations of $S_3$ reassign either 1 or 2 (or both), the stabilizer consists of only the identity.
 \end{proof}
 
+\section*{5. (1/3/24)}
+
+For each of parts (a) and (b) repeat the preceding exercise but with $S_3$ acting on the specified set:
+\begin{enumerate}[itemsep=0em,label=(\alph*)]
+    \item the set of 27 triples $\{ (i, j, k) \mid 1 \leq i, j, k \leq 3 \}$
+        \begin{itemize}[itemsep=0em]
+            \item The orbit of any point $(i, j, k)$ consists of those other points whose coordinates are equal if $i, j$, or $k$ are equal or not if they are not. For example, the orbit of $(1, 1, 2)$ contains all those points whose first and second coordinates are the same and whose third is different, that is:
+            \begin{equation*}
+                (1, 1, 3), (2, 2, 1), (2, 2, 3), (3, 3, 1), (3, 3, 2)
+            \end{equation*}
+            (It is simple to find a 2-cycle that acts on $(1, 1, 2)$ to send it to any other point in this orbit.)
+
+            For each point where at least one of the coordinates differs from the others (of the type $(i, i, j), (i, j, i), (j, i, i)$, or $(i, j, k)$), its orbit contains the 6 points of the same type. The three points $(1, 1, 1), (2, 2, 2)$, and $(3, 3, 3)$ are all in the same remaining orbit.
+            \item Next, we label the 27 triples:
+            \begin{align*}
+                (1, 1, 1) \rightarrow 1 & & (1, 1, 2) \rightarrow 2 & & (1, 1, 3) \rightarrow 3 & & (1, 2, 1) \rightarrow 4 \\
+                (1, 2, 2) \rightarrow 5 & & (1, 2, 3) \rightarrow 6 & & (1, 3, 1) \rightarrow 7 & & (1, 3, 2) \rightarrow 8 \\
+                (1, 3, 3) \rightarrow 9 & & (2, 1, 1) \rightarrow 10 & & (2, 1, 2) \rightarrow 11 & & (2, 1, 3) \rightarrow 12 \\
+                (2, 2, 1) \rightarrow 13 & & (2, 2, 2) \rightarrow 14 & & (2, 2, 3) \rightarrow 15 & & (2, 3, 1) \rightarrow 16 \\
+                (2, 3, 2) \rightarrow 17 & & (2, 3, 3) \rightarrow 18 & & (3, 1, 1) \rightarrow 19 & & (3, 1, 2) \rightarrow 20 \\
+                (3, 1, 3) \rightarrow 21 & & (3, 2, 1) \rightarrow 22 & & (3, 2, 2) \rightarrow 23 & & (3, 2, 3) \rightarrow 24 \\
+                (3, 3, 1) \rightarrow 25 & & (3, 3, 2) \rightarrow 26 & & (3, 3, 3) \rightarrow 27
+            \end{align*}
+            So we can describe each permutation in $S_3$ by how it acts on these elements:
+            \begin{align*}
+                1 &\rightarrow 1 \\
+                (1\,2) &\rightarrow (1\,14)(2\,13)(3\,15)(4\,11)(5\,10)(6\,12)(7\,17)\\ &\hspace{1.5em}(8\,16)(9\,18)(19\,23)(20\,22)(21\,24)(25\,26) \\
+                (1\,3) &\rightarrow (1\,27)(2\,26)(3\,25)(4\,24)(5\,23)(6\,22)(7\,21)\\ &\hspace{1.5em}(8\,20)(9\,19)(10\,18)(11\,17)(12\,16)(13\,15) \\
+                (2\,3) &\rightarrow (2\,3)(4\,7)(5\,9)(6\,8)(10\,19)(11\,21)(12\,20)\\ &\hspace{1.5em}(13\,25)(14\,27)(15\,26)(16\,22)(17\,24)(18\,23) \\
+                (1\,2\,3) &\rightarrow (1\,14\,27)(2\,15\,25)(3\,13\,26)(4\,17\,21)(5\,18\,19)\\ &\hspace{1.5em}(6\,16\,20)(7\,11\,24)(8\,12\,22)(9\,10\,23) \\
+                (1\,3\,2) &\rightarrow (1\,27\,14)(2\,25\,15)(3\,26\,13)(4\,21\,17)(5\,19\,18)\\ &\hspace{1.5em}(6\,20\,16)(7\,24\,11)(8\,22\,12)(9\,23\,10)
+            \end{align*}
+            \item Finally, for each orbit, we choose an element from it and find its stabilizer:
+            \begin{align*}
+                (1, 1, 1) \text{ has stabilizer } \{ 1, (2, 3) \}.
+            \end{align*}
+            For each remaining orbit, since an element from has at least two coordinates that are different, each non-identity element of $S_3$ reassigns it, so the stabilizer of all elements from the other orbits is simply the identity.
+        \end{itemize}
+    \item the set $\mathcal{P}(\{ 1, 2, 3 \}) - \{ \emptyset \}$ of all 7 nonempty subsets of $\{ 1, 2, 3 \}$.
+        \begin{itemize}[itemsep=0em]
+            \item There are three orbits, which partition the power set by how many elements each child set contains (ex. one orbit consists of the three singleton sets, namely $\{ \{1\}, \{2\}, \{3\} \}$).
+            \item We label each element:
+            \begin{align*}
+                \{ 1 \} \rightarrow 1 & & \{ 2 \} \rightarrow 2 & & \{ 3 \} \rightarrow 3 \\
+                \{ 1, 2 \} \rightarrow 4 & & \{ 1, 3 \} \rightarrow 5 & & \{ 2, 3 \} \rightarrow 6 \\
+                \{ 1, 2, 3 \} \rightarrow 7
+            \end{align*}
+            So we can describe each permutation in $S_3$ by how it acts on these elements:
+            \begin{align*}
+                1 &\rightarrow 1 \\
+                (1\,2) &\rightarrow (1\,2)(5\,6) \\
+                (1\,3) &\rightarrow (1\,3)(4\,6) \\
+                (2\,3) &\rightarrow (2\,3)(4\,5) \\
+                (1\,2\,3) &\rightarrow (1\,2\,3)(4\,6\,5) \\
+                (1\,3\,2) &\rightarrow (1\,3\,2)(4\,5\,6)
+            \end{align*}
+            \item Finally, for each orbit, we choose an element from it and find its stabilizer. In the orbit of singletons, the stabilizer of $\{ 1 \}$ is $\{ 1, (2\,3) \}$. In the orbit of doubles, the stabilizer of $\{ 1, 2 \}$ is $\{ 1, (1\,2) \}$. In the orbit that consists only of the triple $\{ 1, 2, 3 \}$, the stabilizer is all of $S_3$.
+        \end{itemize}
+\end{enumerate}
+
 \end{document}
