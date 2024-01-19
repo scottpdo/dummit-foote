@@ -191,4 +191,28 @@ For each of parts (a) and (b) repeat the preceding exercise but with $S_3$ actin
         \end{itemize}
 \end{enumerate}
 
+\section*{6. (1/18/24)}
+
+As in Exercise 12 of Section 2.2 let $R$ be the set of all polynomials with integer coefficients in the independent variables $x_1, x_2, x_3, x_4$ and let $S_4$ act on $R$ by permuting the indices of the four variables:
+\begin{equation*}
+    \sigma \cdot p(x_1, x_2, x_3, x_4) = p(x_{\sigma(1)}, x_{\sigma(2)}, x_{\sigma(3)}, x_{\sigma(4)})
+\end{equation*}
+for all $\sigma \in S_4$.
+
+\begin{enumerate}[itemsep=0em, label=(\alph*)]
+    \item Find the polynomials in the orbit of $S_4$ on $R$ containing $x_1 + x_2$ (recall from Exercise 12 in Section 2.2 that the stabilizer of this polynomial has order 4).
+        \begin{align*}
+            x_1 + x_2 & & x_1 + x_3 & & x_1 + x_4 \\
+            x_2 + x_3 & & x_2 + x_4 & & x_3 + x_4
+        \end{align*}
+    \item Find the polynomials in the orbit of $S_4$ on $R$ containing $x_1 x_2 + x_3 x_4$ (recall from Exercise 12 in Section 2.2 that hte stabilizer of this polynomial has order 8).
+        \begin{align*}
+            x_1 x_2 + x_3 x_4 & & x_1 x_3 + x_2 x_4 & & x_1 x_4 + x_2 x_3
+        \end{align*}
+    \item Find the polynomials in the orbit of $S_4$ on $R$ containing $(x_1 + x_2)(x_3 + x_4)$.
+        \begin{align*}
+            (x_1 + x_2)(x_3 + x_4) & & (x_1 + x_3)(x_2 + x_4) & & (x_1 + x_4)(x_2 + x_3)
+        \end{align*}
+\end{enumerate}
+
 \end{document}
