@@ -215,4 +215,30 @@ for all $\sigma \in S_4$.
         \end{align*}
 \end{enumerate}
 
+\section*{8. (1/19/24)}
+
+A transitive permutation group $G$ on a set $A$ is called \emph{doubly transitive} if for any (hence all) $a \in A$ the subgroup $G_a$ is transitive on the set $A - \{ a \}$.
+
+\begin{enumerate}[itemsep=0em, label=(\alph*)]
+    \item Prove that $S_n$ is doubly transitive on $\{ 1, 2, ..., n \}$ for all $n \geq 2$.
+        \begin{proof}
+            From Chapter 3.2, Exercise 15, the stabilizer of any element of $\{ 1, 2, ..., n \}$ in $S_n$ is isomorphic to $S_{n - 1}$ and consists of all the permutations (in particular, transpositions) of the remaining $n - 1$ elements. Therefore the stabilizer acts transitively on the remaining elements, and $S_n$ is thus doubly transitive.
+        \end{proof}
+    \item Prove that a doubly transitive group is primitive. Deduce that $D_8$ is not doubly transitive in its action on the 4 vertices of a square.
+        \begin{proof}
+            Let $G$ be doubly transitive on $A$. Suppose that $B \subseteq A$ is a block and $a, b \in B$.
+
+            Now suppose that $c \in A$ is not in the block $B$. Since $G$ is doubly transitive, $G_a$ acts transitively on $A - \{ a \}$. Therefore there exists $g \in G_a$ such that $c = g \cdot b$. However, since $g \in G_a$, we know that $g \cdot a = a \in B$, which implies that $g \cdot b$ also lies in $B$, contradicting $c = g \cdot b \notin B$. Then $c$ must \emph{also} lie in the block $B$, and so $B$ is all of $G$.
+
+            Since any block containing at least two elements must be the entire group, this proves that a doubly transitive group is primitive.
+
+            Next, suppose that $D_8$ acts on the 4 vertices of a square $1, 2, 3, 4$:
+            \begin{align*}
+                r \cdot 1 = 2 & & r \cdot 2 = 3 & & r \cdot 3 = 4 & & r \cdot 4 = 1 \\
+                s \cdot 1 = 1 & & s \cdot 2 = 4 & & s \cdot 3 = 3 & & s \cdot 4 = 2
+            \end{align*}
+            Then the stabilizer of 1 in $D_8$ — the subgroup $\langle s \rangle$ — is not transitive on $\{ 2, 3, 4 \}$, because there is no element $x \in \langle s \rangle$ such that $2 = x \cdot 3$ (in fact, 3 is a fixed point). Therefore $D_8$ is not doubly transitive in its action on the 4 vertices of a square.
+        \end{proof}
+\end{enumerate} 
+
 \end{document}
