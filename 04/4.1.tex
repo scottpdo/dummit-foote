@@ -215,6 +215,65 @@ for all $\sigma \in S_4$.
         \end{align*}
 \end{enumerate}
 
+\section*{7. (1/30/24)}
+
+Let $G$ be a transitive permutation group on the finite set $A$. A \emph{block} is a nonempty subset $B$ of $A$ such that for all $\sigma \in G$ either 
+\begin{equation*}
+    \sigma(B) = B \text{ or }\sigma(B) \cap B = \emptyset
+\end{equation*}
+(here $\sigma(B)$ is the set $\{ \sigma(b) \mid b \in B \}$).
+
+\begin{enumerate}[itemsep=0em, label=(\alph*)]
+    \item Prove that if $B$ is a block containing the element $a$ of $A$, then the set $G_B$ defined by $G_B = \{ \sigma \in G \mid \sigma(B) = B \}$ is a subgroup of $G$ containing $G_a$.
+        \begin{proof}
+            Let $\sigma_1, \sigma_2 \in G_B$. Then $\sigma_1(B) = \sigma_2(B) = B$. We also know that $\sigma_2^{-1}(B) = B$. It follows that:
+            \begin{equation*}
+                (\sigma_1 \circ \sigma_2^{-1})(B) = \sigma_1(\sigma_2^{-1}(B)) = \sigma_1(B) = B,
+            \end{equation*}
+            so by the subgroup criterion, $G_B \leq G$.
+
+            Next, for some $a \in B$, let $\tau \in G_a$, so $\tau(a) = a$. Since $B$ is a block, either $\tau(B) = B$ or else $\tau(B) \cap B = \emptyset$. Now $a \in B$ and $\tau(a) = a$. Therefore $\tau(a)$ lies in $B$, so the intersection of $\tau(B)$ and $B$ is not empty, which implies that $\tau(B) = B$. Therefore $\tau \in G_B$, and so $G_a \subseteq G_B$; since they are both subgroups, we have $G_a \leq G_B$.
+        \end{proof}
+    \item Show that if $B$ is a block and $\sigma_1(B), \sigma_2(B), ..., \sigma_n(B)$ are all the distinct images of $B$ under the elements of $G$, then these form a partition of $A$.
+        \begin{proof}
+            Let $b \in B$ and $\sigma, \tau \in G$. We consider the two cases:
+            \begin{enumerate}[itemsep=0em, label=(\roman*)]
+                \item Suppose $b \in \sigma(B)$. If $b \in \tau(B)$, then we have $\sigma(B) = \tau(B) = B$. Otherwise, $\sigma(B) = B$ and $\tau(B) \cap B = \emptyset$, so $\sigma(B)$ and $\tau(B)$ are also disjoint.
+                \item Suppose $b \notin \sigma(B)$. If $b \in \tau(B)$, then as above, $\sigma(B)$ and $\tau(B)$ are disjoint. If $b \notin \tau(B)$, then choose a $c \in \sigma(B)$, and as above, either $\sigma(B) = \tau(B)$ or they are disjoint.
+            \end{enumerate}
+            Therefore the images of $B$ form a partition of $A$.
+        \end{proof}
+    \item A (transitive) group $G$ on a set $A$ is said to be \emph{primitive} if the only blocks in $A$ are the trivial ones: the sets of size 1 and $A$ itself. Show that $S_4$ is primitive on $A = \{1, 2, 3, 4\}$. Show that $D_8$ is not primitive as a permutation group on the four vertices of a square.
+    \begin{proof}
+        Let $G = S_4$ act on $A = \{ 1, 2, 3, 4 \}$, and let $B$ be a block in $A$. Since blocks form a partition of sets, the order of $B$ must divide $A$ (must be 1, 2, or 4). Without loss of generality, let $4 \in B$. The stabilizer of 4, $G_4 \leq S_4$ is $S_3$ (from Chapter 3.2, Exercise 15). From part (a), $G_4 \leq G_B \leq G$, so the order of $G_B$ must be greater than or equal to 6 and must divide 24 (must be 6, 12, or 24). We consider these cases separately:
+        \begin{enumerate}[itemsep=0em, label=(\roman*)]
+            \item $|G_B| = 6$. Then $|G_4| = |G_B| = 6$, so $G_B = S_3$. Since $S_3$ contains all transpositions of 1, 2, and 3, it does not fix any of them, and so $B = \{ 4 \}$.
+            \item $|G_B| = 12$. We know that $G_4 = S_3 \leq G_B$. It can be verified that $\langle S_3, \sigma \rangle$ (where $\sigma \in S_4, \sigma \notin S_3$) is all of $S_4$. Therefore $|G_B|$ cannot have order 12.
+            \item $|G_B| = 24$. Then $G_B$ is all of $S_4$, and so $B$ must be all of $A$.
+        \end{enumerate}
+        Since $B$ must be a singleton or else all of $A$, $S_4$ is primitive on $A$.
+
+        Next, suppose that $D_8$ acts on the four vertices of a square 1, 2, 3, 4:
+        \begin{align*}
+            r \cdot 1 = 2 & & r \cdot 2 = 3 & & r \cdot 3 = 4 & & r \cdot 4 = 1 \\
+            s \cdot 1 = 1 & & s \cdot 2 = 4 & & s \cdot 3 = 3 & & s \cdot 4 = 2
+        \end{align*}
+        We claim that the subset $\{ 1, 3 \}$ is a block. We see that $r \cdot \{ 1, 3 \} = \{ 2, 4 \}$, and $s \cdot \{ 1, 3 \} = \{ 1, 3 \}$. So the generators of $D_8$ either assign $\{ 1, 3 \}$ to a disjoint set or keep it fixed. Then for any element $s^a r^b \in D_8$, we have:
+        \begin{equation*}
+            (s^a r^b) \cdot \{ 1, 3 \} = s^a \cdot (r^b \cdot \{ 1, 3 \}) =
+            \begin{cases}
+                s^a \cdot \{ 1, 3 \} = \{ 1, 3 \}  & \text{if } b \text{ is even} \\
+                s^a \cdot \{ 2, 4 \} = \{ 2, 4 \}  & \text{if } b \text{ is odd}
+            \end{cases}.
+        \end{equation*}
+        Therefore any element of $D_8$ acting on $\{ 1, 3 \}$ satisfies the conditions for it to be a block, and since its size is 2, it is not a trivial block. Therefore $D_8$ is not primitive on the four vertices of a square.
+    \end{proof}
+    \item Prove that the transitive group $G$ is primitive on $A$ if and only if for each $a \in A$, the only subgroups of $G$ containing $G_a$ are $G_a$ and $G$ (i.e., $G_a$ is a \emph{maximal} subgroup of $G$, cf. Exercise 16, Section 2.4). [Use part (a).]
+        \begin{proof}
+            
+        \end{proof}
+\end{enumerate}
+
 \section*{8. (1/19/24)}
 
 A transitive permutation group $G$ on a set $A$ is called \emph{doubly transitive} if for any (hence all) $a \in A$ the subgroup $G_a$ is transitive on the set $A - \{ a \}$.
@@ -232,13 +291,44 @@ A transitive permutation group $G$ on a set $A$ is called \emph{doubly transitiv
 
             Since any block containing at least two elements must be the entire group, this proves that a doubly transitive group is primitive.
 
-            Next, suppose that $D_8$ acts on the 4 vertices of a square $1, 2, 3, 4$:
-            \begin{align*}
-                r \cdot 1 = 2 & & r \cdot 2 = 3 & & r \cdot 3 = 4 & & r \cdot 4 = 1 \\
-                s \cdot 1 = 1 & & s \cdot 2 = 4 & & s \cdot 3 = 3 & & s \cdot 4 = 2
-            \end{align*}
-            Then the stabilizer of 1 in $D_8$ — the subgroup $\langle s \rangle$ — is not transitive on $\{ 2, 3, 4 \}$, because there is no element $x \in \langle s \rangle$ such that $2 = x \cdot 3$ (in fact, 3 is a fixed point). Therefore $D_8$ is not doubly transitive in its action on the 4 vertices of a square.
+            Next, suppose that $D_8$ acts on the 4 vertices of a square $1, 2, 3, 4$ as in part (c) of the previous exercise. Then the stabilizer of 1 in $D_8$ — the subgroup $\langle s \rangle$ — is not transitive on $\{ 2, 3, 4 \}$, because there is no element $x \in \langle s \rangle$ such that $2 = x \cdot 3$ (in fact, 3 is a fixed point). Therefore $D_8$ is not doubly transitive in its action on the 4 vertices of a square.
         \end{proof}
 \end{enumerate} 
+
+\section*{9. (2/6/24)}
+
+Assume $G$ acts transitively on the finite set $A$ and let $H$ be a normal subgroup of $G$. Let $\mathcal{O}_1, \mathcal{O}_2, ..., \mathcal{O}_r$ be the distinct orbits of $H$ on $A$.
+
+\begin{enumerate}[itemsep=0em, label=(\alph*)]
+    \item Prove that $G$ permutes the sets $\mathcal{O}_1, \mathcal{O}_2, ..., \mathcal{O}_r$ in the sense that for each $g \in G$ and each $i \in \{ 1, ..., r \}$ there is a $j$ such that $g\mathcal{O}_i = \mathcal{O}_j$, where $g\mathcal{O} = \{ g \cdot a \mid a \in \mathcal{O} \}$ (i.e., in the notation of Exercise 7 the sets $\mathcal{O}_1, \mathcal{O}_2, ..., \mathcal{O}_r$ are blocks). Prove that $G$ is transitive on $\{ \mathcal{O}_1, \mathcal{O}_2, ..., \mathcal{O}_r \}$. Deduce that all orbits of $H$ have the same cardinality.
+        \begin{proof}
+            Let $g \in G$, let $a \in \mathcal{O}_i$ for some $i \in \{ 1, ..., r \}$, and suppose that $g \cdot a \in \mathcal{O}_j$.
+
+            First, let $b \in \mathcal{O}_j$. Then there exists $h \in H$ such that $b = h \cdot g \cdot a$. This implies that:
+            \begin{align*}
+                b = h \cdot g \cdot a = (hg) \cdot a = g \cdot (g^{-1}hg) \cdot a.
+            \end{align*}
+            Now since $H \unlhd G$, we know that $g^{-1}hg \in H$, so $(g^{-1}hg) \cdot a$ lies in $\mathcal{O}_i$. Therefore $b = g \cdot c$ for some $c \in \mathcal{O}_i$, so $b \in g\mathcal{O}_i$, and $\mathcal{O}_j \subseteq g\mathcal{O}_i$.
+
+            Next, let $b = g \cdot c \in g\mathcal{O}_i$. There exists $h \in H$ such that $c = h \cdot a$, so $b = g \cdot h \cdot a$. Then:
+            \begin{align*}
+                b = g \cdot h \cdot a = (gh) \cdot a = (ghg^{-1}) \cdot g \cdot a.
+            \end{align*}
+            Now since $g \cdot a \in \mathcal{O}_j$, and $ghg^{-1} \in H$ acting on $g \cdot a$ gives a result that remains in the same orbit, we have $b \in \mathcal{O}_j$, and $g\mathcal{O}_i \subseteq \mathcal{O}_j$.
+
+            Thus for each $g \in G$ and each $i \in \{ 1, ..., r \}$ there is a $j$ such that $g\mathcal{O}_i = \mathcal{O}_j$. This further implies that all orbits of a normal subgroup have the same cardinality, since $g\mathcal{O}_i = \mathcal{O}_j$ implies that $|\mathcal{O}_i| = |\mathcal{O}_j|$.
+        \end{proof}
+    \item Prove that if $a \in \mathcal{O}_1$ then $|\mathcal{O}_1| = |H:H \cap G_a|$ and prove that \newline $r = |G:HG_a|$.
+        \begin{proof}
+            Note that $H \cap G_a$ consists of those elements of $H$ that are in the stabilizer of $a$ in $G$, that is, the subgroup of elements of $H$ that stabilize $a$, denoted $H_a$. From Proposition 2, the number of elements in any orbit of $H$ is $|H:H \cap G_a$.
+
+            Next, let $g \in G$, let $a \in \mathcal{O}_i$ and as in part (a) suppose that $g \cdot a \in \mathcal{O}_j$. Now let $x, y \in gHG_a$. So $x = gh_1g_1$ and $y = gh_2g_2$ for some $h_1, h_2 \in H$ and $g_1, g_2 \in G_a$. Then:
+            \begin{align*}
+                x \cdot a &= (gh_1g_1) \cdot a = (gh_1) \cdot g_1 \cdot a = (gh_1) \cdot a = g \cdot h_1 \cdot a, \text{ and} \\
+                y \cdot a &= (gh_2g_2) \cdot a = (gh_2) \cdot g_2 \cdot a = (gh_2) \cdot a = g \cdot h_2 \cdot a.
+            \end{align*}
+            Since $h_1 \cdot a$ and $h_2 \cdot a$ both lie in $\mathcal{O}_i$, we conclude that $x = g \cdot h_1 \cdot a$ and $y = g \cdot h_2 \cdot a$ both lie in $g\mathcal{O}_i = \mathcal{O}_j$. This shows that $r$, the number of distinct orbits of $H$ on $A$, is determined by the number of distinct left cosets of $HG_a$ in $G$, so $r = |G:HG_a|$.
+        \end{proof}
+\end{enumerate}
 
 \end{document}
