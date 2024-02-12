@@ -100,4 +100,37 @@ Use the left regular representation of $Q_8$ to produce two elements of $S_8$ wh
     Since the left regular representation of $Q_8$ in $S_8$ is a homomorphism, these two permutations generate a subgroup of $S_8$ isomorphic to $Q_8$.
 \end{proof}
 
+\section*{5. (2/12/24)}
+
+Let $r$ and $s$ be the usual generators for the dihedral group of order 8 and let $H = \langle s \rangle$. List the left cosets of $H$ in $D_8$ as $1H, rH, r^2H, r^3H$.
+\begin{enumerate}[label=(\alph*), itemsep=0em]
+    \item Label these cosets with the integers $1, 2, 3, 4$, respectively. Exhibit the image of each element of $D_8$ under the representation $\pi_H$ of $D_8$ into $S_4$ obtained from the action of $D_8$ by left multiplication on the set of 4 left cosets of $H$ in $D_8$. Deduce that this representation is faithful (i.e., the elements of $S_4$ obtained form a subgroup isomorphic to $D_8$).
+        \begin{align*}
+            1 &\mapsto 1 & s &\mapsto (2\,4) \\
+            r &\mapsto (1\,2\,3\,4) & sr &\mapsto (1\,4)(2\,3) \\
+            r^2 &\mapsto (1\,3)(2\,4) & sr^2 &\mapsto (1\,3) \\
+            r^3 &\mapsto (1\,4\,3\,2) & sr^3 &\mapsto (1\,2)(3\,4).
+        \end{align*}
+        Since each element of $D_8$ induces a unique permutation in $S_4$, the resulting image under the left regular representation is isomorphic to $D_8$, and so this representation is faithful.
+    \item Repeat part (a) with the list of cosets relabeled by the integers $1, 3, 2, 4$, respectively. Show that the permutations obtained from this labeling form a subgroup of $S_4$ that is different from the subgroup obtained in part (a).
+        \begin{align*}
+            1 &\mapsto 1 & s &\mapsto (3\,4) \\
+            r &\mapsto (1\,3\,2\,4) & sr &\mapsto (1\,4)(2\,3) \\
+            r^2 &\mapsto (1\,2)(3\,4) & sr^2 &\mapsto (1\,2) \\
+            r^3 &\mapsto (1\,4\,2\,3) & sr^3 &\mapsto (1\,3)(2\,4).
+        \end{align*}
+        Since the generators (the images of $r$ and $s$) of this subgroup of $S_4$ are different from those in part (a), this is a different subgroup from part (a).
+    \item Let $K = \langle sr \rangle$, list the cosets of $K$ in $D_8$ as $1K, rK, r^2K, r^3K$, and label these with the integers $1, 2, 3, 4$. Prove that, with respect to this labeling, the image of $D_8$ under the representation $\pi_K$ obtained from left multiplication on the cosets of $K$ is the same \emph{subgroup} of $S_4$ as in part (a) (even though the subgroups $H$ and $K$ are different and some of the elements of $D_8$ map to different permutations under the two homomorphisms).
+        \begin{proof}
+            Consider the images of the generators $r$ and $s$ under $\pi_K$:
+            \begin{align*}
+                r \cdot 1K &= rK & s \cdot 1K &= rK \\
+                r \cdot rK &= r^2K & s \cdot rK &= 1K \\
+                r \cdot r^2K &= r^3K & s \cdot r^2K &= r^3K \\
+                r \cdot r^3K &= 1K & s \cdot r^3K &= r^2K.
+            \end{align*}
+            So $r$ and $s$ map to $(1\,2\,3\,4)$ and $(1\,2)(3\,4) \in S_4$, respectively. These elements are both in the subgroup in part (a) above, and so they are the same subgroup, but the image of $s$ is different.
+        \end{proof}
+\end{enumerate}
+
 \end{document}
