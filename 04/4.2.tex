@@ -149,4 +149,28 @@ Let $r$ and $s$ be the usual generators for the dihedral group of order 8 and le
     The image of $D_8$ under $\pi_N$ consists of the four permutations $1, (1\,2)(3\,4), \newline (1\,3)(2\,4)$, and $(1\,4)(2\,3)$. From Ch. 2.5, Exercise 10, this is isomorphic to the Klein 4-group $V_4$.
 \end{proof}
 
+\section*{7. (2/15/24)}
+
+Let $Q_8$ be the quaternion group of order 8.
+
+\begin{enumerate}[label=(\alph*), itemsep=0em]
+    \item Prove that $Q_8$ is isomorphic to a subgroup of $S_8$.
+        \begin{proof}
+            From Exercise 4, $Q_8$ is isomorphic to
+            \begin{equation*}
+                \langle (1\,3\,2\,4)(5\,7\,6\,8), (1\,5\,2\,6)(3\,8\,4\,7) \rangle \in S_8.
+            \end{equation*}
+        \end{proof}
+    \item Prove that $Q_8$ is not isomorphic to a subgroup of $S_n$ for any $n \leq 7$.
+        \begin{proof}
+            Let $A$ be a set with $|A| = n \leq 7$, let $a \in A$, and let $\cdot$ be the action of $Q_8$ on $A$. We attempt to find a subgroup of $S_n$ that is isomorphic to $Q_8$ by considering the permutation representations of the elements of $Q_8$.
+            
+            Now if $i \cdot a = j \cdot a$, then the permutation representations $\sigma_i$ and $\sigma_j$ are equal to each other, and so $Q_8$ is not isomorphic to the resulting subgroup of $S_n$. Further (without loss of generality), if $i \cdot a = -i \cdot a$, then:
+            \begin{equation*}
+                i \cdot a = -i \cdot a \Rightarrow -i \cdot i \cdot a = -i \cdot -i \cdot a \Rightarrow a = -1 \cdot a,
+            \end{equation*}
+            and so the permutation representation of $-1$ is equal to the identity permutation, which implies that $Q_8$ is not isomorphic to the subgroup of $S_n$. Therefore the elements $\pm i, \pm j, \pm k$ must all assign $a$ to different elements. However, these 6 unique elements together with $a$ are at least all of $A$, and so we must have $-1 \cdot a = a$. Thus $Q_8$ is not isomorphic to a subgroup of $S_n$.
+        \end{proof}
+\end{enumerate}
+
 \end{document}
