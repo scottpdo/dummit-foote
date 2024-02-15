@@ -133,4 +133,20 @@ Let $r$ and $s$ be the usual generators for the dihedral group of order 8 and le
         \end{proof}
 \end{enumerate}
 
+\section*{6. (2/15/24)}
+
+Let $r$ and $s$ be the usual generators for the dihedral group of order 8 and let $N = \langle r^2 \rangle$. List the left cosets of $N$ in $D_8$ as $1N, rN, sN$, and $srN$. Label these cosets with the integers $1, 2, 3, 4$ respectively. Exhibit the image of each element of $D_8$ under the representation $\pi_N$ of $D_8$ into $S_4$ obtained from the action of $D_8$ by left multiplication on the set of 4 left cosets of $N$ in $D_8$. Deduce that this representation is not faithful and prove that $\pi_N(D_8)$ is isomorphic to the Klein 4-group.
+
+\begin{proof}[Solution]
+    \begin{align*}
+        1 &\mapsto 1 & s &\mapsto (1\,3)(2\,4) \\
+        r &\mapsto (1\,2)(3\,4) & sr &\mapsto (1\,4)(2\,3) \\
+        r^2 &\mapsto 1 & sr^2 &\mapsto (1\,3)(2\,4) \\
+        r^3 &\mapsto (1\,2)(3\,4) & sr^3 &\mapsto (1\,4)(2\,3).
+    \end{align*}
+    The left regular representation assigns 1 and $r^2$ to the identity permutation, so this action is not faithful.
+
+    The image of $D_8$ under $\pi_N$ consists of the four permutations $1, (1\,2)(3\,4), \newline (1\,3)(2\,4)$, and $(1\,4)(2\,3)$. From Ch. 2.5, Exercise 10, this is isomorphic to the Klein 4-group $V_4$.
+\end{proof}
+
 \end{document}
