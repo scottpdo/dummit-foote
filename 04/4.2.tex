@@ -173,4 +173,18 @@ Let $Q_8$ be the quaternion group of order 8.
         \end{proof}
 \end{enumerate}
 
+\section*{9. (2/16/24)}
+
+Prove that if $p$ is a prime and $G$ is a group of order $p^a$ for some $a \in \mathbb{Z}^+$, then every subgroup of index $p$ is normal in $G$. Deduce that every group of order $p^2$ has a normal subgroup of order $p$.
+
+\begin{proof}
+    Let $H$ be a subgroup of $G$ with $[G:H] = p$. Let $gH$ be the left coset of $H$ by some element $g \in G$.
+    
+    Suppose that, for some $n < p$, $g^n \in H$ and let $h = g^n$. Since $p$ is a prime, there exists a positive integer $k$ such that $kn = 1$ (mod $p$). Then $h^k = g^{kn} = g$, which implies that $g \in H$. We conclude that, if we restrict to $g \notin H$, then for all $n < p$, $g^n \notin H$. This implies that $\{ H, gH, g^2 H, ..., g^{p - 1} H \}$ is a set of $p$ distinct cosets of $H$. Because the index of $H$ in $G$ is $p$, this must be all the cosets of $H$ in $G$, and so $g^p \in H$.
+
+    Now by the operation defined on left cosets of $H$ by $aH \cdot bH = (ab)H$, we see that this is isomorphic to the cyclic group $Z_p$. We conclude by Theorem 6(d) of Chapter 3.1 that $H$ is normal in $G$.
+
+    Further, if $|G| = p^2$, then by Cauchy's Theorem it contains an element of order $p$ which generates a subgroup of order $p$. This subgroup has index $p^2/p = p$, and so from above, is a normal subgroup of order $p$.
+\end{proof}
+
 \end{document}
