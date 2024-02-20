@@ -187,4 +187,14 @@ Prove that if $p$ is a prime and $G$ is a group of order $p^a$ for some $a \in \
     Further, if $|G| = p^2$, then by Cauchy's Theorem it contains an element of order $p$ which generates a subgroup of order $p$. This subgroup has index $p^2/p = p$, and so from above, is a normal subgroup of order $p$.
 \end{proof}
 
+\section*{14. (2/20/24)}
+
+Let $G$ be a finite group of composite order $n$ with the property that $G$ has a subgroup of order $k$ for each positive integer $k$ dividing $n$. Prove that $G$ is not simple.
+
+\begin{proof}
+    By definition, a group $G$ is simple if it contains no proper normal subgroups other than 1 and $G$ itself. Therefore, it suffices to show that $G$ contains at least one proper normal subgroup.
+
+    Let $p$ be the smallest prime dividing $n$ and let $n = pk$. Then $G$ contains a subgroup of order $k$ that has index $n/k = p$. By Corollary 5, this subgroup is normal and, since it is a proper subgroup, $G$ is therefore not simple.
+\end{proof}
+
 \end{document}
