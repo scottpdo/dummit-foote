@@ -71,4 +71,47 @@ Find all the conjugacy classes and their sizes in the following groups:
         \end{gather*}
 \end{enumerate}
 
+\section*{4. (2/22/24)}
+
+Prove that if $S \subseteq G$ and $g \in G$ then $gN_g(S)g^{-1} = N_G(gSg^{-1})$ and $gC_g(S)g^{-1} = C_G(gSg^{-1})$.
+
+\begin{proof}
+    Let $x \in N_G(S)$. So $xsx^{-1} \in S$ for all $s \in S$. Then
+        \begin{align*}
+            gxsx^{-1}g^{-1} &\in gSg^{-1} \\
+            gxg^{-1}gsg^{-1}gx^{-1}g^{-1} &\in gSg^{-1} \\
+            (gxg^{-1})gsg^{-1}(gx^{-1}g^{-1}) &\in gSg^{-1} \\
+            (gxg^{-1})gsg^{-1}(gxg^{-1})^{-1} &\in gSg^{-1},
+        \end{align*}
+    which implies that $gxg^{-1} \in N_G(gSg^{-1})$, and so $gN_G(S)g^{-1} \subseteq N_G(gSg^{-1})$.
+
+    Conversely, let $x \in N_G(gSg^{-1})$. So $xgsg^{-1}x^{-1} \in gSg^{-1}$ for all $s \in S$. Then
+        \begin{align*}
+            xgsg^{-1}x^{-1} &\in gSg^{-1} \\
+            g^{-1}xgsg^{-1}x^{-1} &\in Sg^{-1} \\
+            g^{-1}xgsg^{-1}x^{-1}g &\in S \\
+            (g^{-1}xg)s(g^{-1}xg)^{-1} &\in S \\
+            g^{-1}xg &\in N_G(S) \\
+            x &\in gN_G(S)g^{-1},
+        \end{align*}
+    which shows that $N_G(gSg^{-1}) \subseteq gN_G(S)g^{-1}$. This proves that $N_G(gSg^{-1}) = gN_G(S)g^{-1}$.
+
+    Next, let $x \in C_G(S)$. So $xs = sx$ for all $s \in S$. Then
+        \begin{align*}
+            xs &= sx \\
+            gsxg^{-1} &= gsxg^{-1} \\
+            gsg^{-1}gxg^{-1} &= gsg^{-1}gxg^{-1} \\
+            (gsg^{-1})(gxg^{-1}) &= (gsg^{-1})(gxg^{-1}),
+        \end{align*}
+        and so $gxg^{-1} \in C_G(gSg^{-1})$, which implies that $gC_G(S)g^{-1} \subseteq C_G(gSg^{-1})$.
+    Finally, let $x \in C_G(gSg^{-1})$. So $x(gsg^{-1}) = (gsg^{-1})x$ for all $x \in S$. Then
+        \begin{align*}
+            xgsg^{-1} &= gsg^{-1}x \\
+            g^{-1}xgsg^{-1} &= sg^{-1}x \\
+            g^{-1}xgs &= sg^{-1}xg \\
+            (g^{-1}xg)s &= s(g^{-1}xg),
+        \end{align*}
+        which implies that $g^{-1}xg \in C_G(S)$, so $x \in gC_G(S)g^{-1}$. It follows that $C_G(gSg^{-1}) \subseteq gC_G(S)g^{-1}$, and therefore $gC_g(S)g^{-1} = C_G(gSg^{-1})$.
+\end{proof}
+
 \end{document}
