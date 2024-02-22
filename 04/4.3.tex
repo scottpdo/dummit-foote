@@ -1,0 +1,32 @@
+\documentclass{article}
+
+\title{Dummit \& Foote Ch. 4.3: Groups Acting on Themselves by Conjugation — The Class Equation}
+\author{Scott Donaldson}
+\date{Feb. 2024}
+\usepackage{amsmath, amsthm, amsfonts, amssymb, enumitem, tabu, tikz}
+
+\begin{document}
+
+\maketitle
+
+Let $G$ be a group.
+
+\section*{1. (2/22/24)}
+
+Suppose $G$ has a left action on a set $A$, denoted by $g \cdot a$ for all $g \in G$ and $a \in A$. Denote the corresponding right action on $A$ by $a \cdot g$. Prove that the (equivalence) relations $\sim$ and $\sim'$ defined by
+\begin{equation*}
+    a \sim b \text{ if and only if } a = g \cdot b \text{ for some } g \in G
+\end{equation*}
+and
+\begin{equation*}
+    a \sim' b \text{ if and only if } a = b \cdot g \text{ for some } g \in G
+\end{equation*}
+are the same relation (i.e., $a \sim b$ if and only $a \sim' b$).
+
+\begin{proof}
+    To show that $a \sim b$ implies $a \sim' b$, we must show that, given a $g \in G$ with $a = g \cdot b$, there exists an $h \in G$ such that $a = b \cdot h$. By definition, the corresponding right action of a left action is specified to be $g \cdot x = x \cdot g^{-1}$ for all $g \in G$, $x \in A$. Letting $h = g^{-1}$, we have found an element where $a = g \cdot b = b \cdot h$, and so $a \sim' b$.
+
+    The proof for $a \sim' b$ implies $a \sim b$ is identical, letting $h = g^{-1}$ but with $h$ acting on the left.
+\end{proof}
+
+\end{document}
