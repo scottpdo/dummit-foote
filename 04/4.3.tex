@@ -111,7 +111,26 @@ Prove that if $S \subseteq G$ and $g \in G$ then $gN_g(S)g^{-1} = N_G(gSg^{-1})$
             g^{-1}xgs &= sg^{-1}xg \\
             (g^{-1}xg)s &= s(g^{-1}xg),
         \end{align*}
-        which implies that $g^{-1}xg \in C_G(S)$, so $x \in gC_G(S)g^{-1}$. It follows that $C_G(gSg^{-1}) \subseteq gC_G(S)g^{-1}$, and therefore $gC_g(S)g^{-1} = C_G(gSg^{-1})$.
+        which implies that $g^{-1}xg \in C_G(S)$, so $x \in gC_G(S)g^{-1}$. It follows that \\ $C_G(gSg^{-1}) \subseteq gC_G(S)g^{-1}$, and therefore $gC_g(S)g^{-1} = C_G(gSg^{-1})$.
+\end{proof}
+
+% \section*{5. (2/26/24)}
+
+% If the center of $G$ is of index $n$, prove that every conjugacy class has at most $n$ elements.
+
+% \begin{proof}
+% \end{proof}
+
+\section*{13. (2/28/24)}
+
+Find all finite groups which have exactly two conjugacy classes.
+
+\begin{proof}
+    Let $G$ be a non-trivial finite group. Since the conjugacy class of $1$ is $\{ 1 \}$, if $G$ has exactly two conjugacy classes, then every other element in $G$ must have the same conjugacy class, namely $G - \{ 1 \}$.
+
+    From Proposition 6, for any $g \in G$, the number of conjugates of $g$ (i.e. the cardinality of the conjugacy class of $g$) is the index of the centralizer of $g$, $|G:C_G(g)|$. Therefore the size of the conjugacy class of $g$ must divide the order of $G$.
+
+    Let $|G| = n$. Then the size of the conjugacy class of $g$ is $|G - \{ 1 \} = n - 1$. This is only possible when $|G| = 2$, and so $G$ must be the unique group of order two.
 \end{proof}
 
 \end{document}
