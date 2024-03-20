@@ -378,4 +378,16 @@ Let $G$ be a finite group, let $H$ be a subgroup of $G$ and let $N \unlhd G$. Pr
     Therefore for all $h \in H$, we must have $h \in N$, and so $H \leq N$.
 \end{proof}
 
+\section*{21. (3/19/24)}
+
+Prove that $\mathbb{Q}$ has no proper subgroups of finite index. Deduce that $\mathbb{Q}/\mathbb{Z}$ has no proper subgroups of finite index.
+
+\begin{proof}
+    We will first prove the more general case that a divisible abelian group has no proper subgroups of finite index, and then deduce that both $\mathbb{Q}$ and $\mathbb{Q}/\mathbb{Z}$ have no proper subgroups of finite index.
+
+    Let $A$ be a divisible abelian group and let $B \leq A$. Since $A$ is abelian, all subgroups are normal, so the quotient group $A/B$ is well-defined. From Chapter 3.1, Exercise 15,  $A/B$ is also divisible. From Chapter 2.4, Exercise 19(b), no finite groups are divisible, so $|A:B| = |A/B| = \infty$.
+
+    Since $\mathbb{Q}$ and $\mathbb{Q}/\mathbb{Z}$ are both divisible abelian groups, they therefore have no proper subgroups of finite index.
+\end{proof}
+
 \end{document}
