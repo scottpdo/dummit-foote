@@ -378,6 +378,20 @@ Let $G$ be a finite group, let $H$ be a subgroup of $G$ and let $N \unlhd G$. Pr
     Therefore for all $h \in H$, we must have $h \in N$, and so $H \leq N$.
 \end{proof}
 
+\section*{20. (3/21/24)}
+
+If $A$ is an abelian group with $A \unlhd G$ and $B$ is any subgroup of $G$ prove that $A \cap B \unlhd AB$.
+
+\begin{proof}
+    Given $x \in A \cap B$, $g \in AB$, it suffices to show that $gxg^{-1} \in A \cap B$, or equivalenty that $gxg^{-1} \in A$ and $gxg^{-1} \in B$. Because $x \in A$ and $A \unlhd G$ (therefore $A \unlhd AB$) we already have $gxg^{-1} \in A$.
+
+    To show that $gxg^{-1}$ also lies in $B$, from Corollary 15, we note that since $B \leq N_G(A) = G$, $AB$ is a subgroup of $G$. And from Corollary 14, since $AB$ is a subgroup, it follows that $AB = BA$. Write $g = ba$ for some $a \in A, b \in B$. Then:
+    \begin{equation*}
+        gxg^{-1} = (ba)x(ba)^{-1} = baxa^{-1}b^{-1} = \underbrace{baa^{-1}xb^{-1}}_{A \text{ is abelian and $x \in A$}} = \underbrace{bxb^{-1} \in B}_\text{$x \in B$},
+    \end{equation*}
+    and so $gxg^{-1} \in B$. Therefore $gxg^{-1} \in A \cap B$ for all $x \in A \cap B$, $g \in AB$, and so $A \cap B \unlhd AB$.
+\end{proof}
+
 \section*{21. (3/19/24)}
 
 Prove that $\mathbb{Q}$ has no proper subgroups of finite index. Deduce that $\mathbb{Q}/\mathbb{Z}$ has no proper subgroups of finite index.
