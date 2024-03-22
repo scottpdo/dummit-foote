@@ -378,6 +378,18 @@ Let $G$ be a finite group, let $H$ be a subgroup of $G$ and let $N \unlhd G$. Pr
     Therefore for all $h \in H$, we must have $h \in N$, and so $H \leq N$.
 \end{proof}
 
+\section*{19. (3/22/24)}
+
+Prove that if $N$ is a normal subgroup of the finite group $G$ and $(|N|, |G:N|) = 1$ then $N$ is the unique subgroup of $G$ of order $|N|$.
+
+\begin{proof}
+    Suppose that $|N| = k$ and $|G| = mk$ with $k, m$ relatively prime. Let $A \leq G$ and suppose that $|A| = |N| = k$.
+
+    Since $A \leq N_G(N) = G$, $AN$ is a subgroup of $G$. Then $|AN|$ must divide $mk$. Since $m$ and $k$ are relatively prime, $|AN|$ divides only one of either $m$ or $k$. Also, since $N \leq AN \leq G$, $|N| = k$ divides $|AN|$. We cannot have $k$ dividing $|AN|$ and $|AN|$ dividing $m$, therefore $|AN|$ both divides and is divided by $k$, so it must be equal to $k$.
+
+    Now if there exists $a \in A$ such that $a \notin N$, then we would have $|AN| > k$. However, because $|AN| = k$, we must therefore have $A = N$. We conclude that $N$ is the unique subgroup of $G$ of order $k$.
+\end{proof}
+
 \section*{20. (3/21/24)}
 
 If $A$ is an abelian group with $A \unlhd G$ and $B$ is any subgroup of $G$ prove that $A \cap B \unlhd AB$.
