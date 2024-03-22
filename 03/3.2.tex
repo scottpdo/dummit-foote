@@ -416,4 +416,14 @@ Prove that $\mathbb{Q}$ has no proper subgroups of finite index. Deduce that $\m
     Since $\mathbb{Q}$ and $\mathbb{Q}/\mathbb{Z}$ are both divisible abelian groups, they therefore have no proper subgroups of finite index.
 \end{proof}
 
+\section*{22. (3/22/24)}
+
+Use Lagrange's Theorem in the multiplicative group $(\mathbb{Z}/n\mathbb{Z})^\times$ to prove \emph{Euler's Theorem}: $a^{\varphi(n)} \equiv 1 \mod n$ for every integer $a$ relatively prime to $n$, where $\varphi$ denote's Euler's $\varphi$-function.
+
+\begin{proof}
+    Given $n \geq 2$, the order of $(\mathbb{Z}/n\mathbb{Z})^\times$ is $\varphi(n)$, the number of positive integers less than or equal to $n$ and relatively prime to $n$.
+
+    Let $a \in \mathbb{Z}$ and consider $\overline{a} \in (\mathbb{Z}/n\mathbb{Z})^\times$. From Corollary 9, $\overline{a}^{|(\mathbb{Z}/n\mathbb{Z})^\times|} = \overline{a}^\varphi(n) = \overline{1}$. Therefore $a^{\varphi(n)} \equiv 1 \mod n$.
+\end{proof}
+
 \end{document}
