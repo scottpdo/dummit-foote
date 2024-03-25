@@ -426,4 +426,18 @@ Use Lagrange's Theorem in the multiplicative group $(\mathbb{Z}/n\mathbb{Z})^\ti
     Let $a \in \mathbb{Z}$ and consider $\overline{a} \in (\mathbb{Z}/n\mathbb{Z})^\times$. From Corollary 9, $\overline{a}^{|(\mathbb{Z}/n\mathbb{Z})^\times|} = \overline{a}^\varphi(n) = \overline{1}$. Therefore $a^{\varphi(n)} \equiv 1 \mod n$.
 \end{proof}
 
+\section*{23. (3/25/24)}
+
+Determine the last two digits of $3^{3^{100}}$. [Determine $3^{100} \text{ mod } \varphi(100)$ and use the previous exercise.]
+
+\begin{proof}[Solution]
+    First, we note that $\varphi(100)$ — the number of integers relatively prime to and less than 100 — is 40 (this includes all and only numbers ending in 1, 3, 7, or 9). Next, note that $3^1 = 3, 3^2 = 9, 3^3 = 27, \text{ and } 3^4 = 81 \equiv 1 \text{ mod } 40$. It follows that $3^{100} = 3^{25 \cdot 4} \equiv 1 \text{ mod } 40$; that is, $3^{100} = 40n + 1$ for some $n \in \mathbb{Z}^+$.
+
+    Now from the previous exercise, we know that $3^{\varphi(100)} = 3^{40} \equiv 1 \text{ mod } 100$. From above, we have $3^{100} \equiv 1 \text{ mod } 40$. Therefore:
+    \begin{equation*}
+        3^{3^{100}} = 3^{40n + 1} = 3^{40n} \cdot 3 \equiv (1 \cdot 3) \text{ mod } 100 = 3 \text{ mod } 100.
+    \end{equation*}
+    We conclude that $3^{3^{100}}$ ends in 03.
+\end{proof}
+
 \end{document}
