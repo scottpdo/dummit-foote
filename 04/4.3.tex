@@ -164,4 +164,33 @@ Find all finite groups which have exactly two conjugacy classes.
     Let $|G| = n$. Then the size of the conjugacy class of $g$ is $|G - \{ 1 \}| = n - 1$. This is only possible when $|G| = 2$, and so $G$ must be the unique group of order two.
 \end{proof}
 
+\section*{17. (3/25/24)}
+
+Let $A$ be a nonempty set and let $X$ be any subset of $A$. Let
+\begin{equation*}
+    F(X) = \{ a \in A \mid \sigma(a) = a \text{ for all } \sigma \in X \} \text{ — the \emph{fixed set} of } X.
+\end{equation*}
+Let $M(X) = A - F(X)$ be the elements which are \emph{moved} by some element of $X$. Let $D = \{ \sigma \in S_A \mid |M(\sigma)| < \infty \}$. Prove that $D$ is a normal subgroup of $S_A$.
+
+\begin{proof}
+    Let $\sigma \in D$. Then $M(\sigma)$ is a finite subset of $A$. Let $\tau \in S_A$ and consider $M(\tau \sigma \tau^{-1})$. If $|M(\tau \sigma \tau^{-1})|$ is also finite, then $\tau \in D$, and so $D \unlhd S_A$. Now $|M(\sigma)| = |A - F(\sigma)| = |A| - |F(\sigma)|$, and $|A|$ is constant. Therefore, by proving that $|F(\sigma)| = |F(\tau \sigma \tau^{-1})|$, it follows that $|M(\sigma)| = |M(\tau \sigma \tau^{-1})|$, which proves that $D \unlhd S_A$. We will now construct a bijection between $|F(\sigma)|$ and $|F(\tau \sigma \tau^{-1})|$.
+    
+    Let $\varphi: F(\sigma) \rightarrow F(\tau \sigma \tau^{-1})$ be defined by $\varphi(a) = \tau(a)$. The map $\varphi$ is well-defined, because:
+    \begin{equation*}
+        a \in F(\sigma) \Rightarrow a = \sigma(a) \Rightarrow \tau(a) = \tau(\sigma(a)) = (\tau \sigma \tau^{-1}) (\tau(a)),
+    \end{equation*}
+    which implies that $\varphi(a) = \tau(a) \in F(\tau \sigma \tau^{-1})$.
+
+    It is injective: Let $a, b \in F(\sigma)$ and suppose that $\varphi(a) = \varphi(b)$. Then $\tau(a) = \tau(b)$, and since $\tau$ is a permutation, by definition we have $a = b$.
+    
+    Finally, $\varphi$ is surjective. Let $b \in F(\tau \sigma \tau^{-1})$ (to show that there exists an $a \in F(\sigma)$ such that $\varphi(a) = b$). Let $a = \tau^{-1}(b)$. Then $b = \tau(a)$, so $\varphi(a) = b$. We show that $\sigma(a) = a$:
+    \begin{align*}
+        \tau \sigma \tau^{-1}(b) &= b \\
+        (\tau \sigma \tau^{-1})(\tau(a)) &= \tau(a) \\
+        \tau (\sigma(a)) &= \tau(a) \\
+        \sigma(a) &= a,
+    \end{align*}
+    which implies that $a \in F(\sigma)$, so $\varphi$ is surjective. Therefore $\varphi$ is a bijection between $F(\sigma)$ and $F(\tau \sigma \tau^{-1})$, which (as noted above), proves that $D$ is a normal subgroup of $S_A$.
+\end{proof}
+
 \end{document}
