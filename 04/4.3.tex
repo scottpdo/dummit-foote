@@ -193,4 +193,16 @@ Let $M(X) = A - F(X)$ be the elements which are \emph{moved} by some element of 
     which implies that $a \in F(\sigma)$, so $\varphi$ is surjective. Therefore $\varphi$ is a bijection between $F(\sigma)$ and $F(\tau \sigma \tau^{-1})$, which (as noted above), proves that $D$ is a normal subgroup of $S_A$.
 \end{proof}
 
+\section*{18. (3/25/24)}
+
+Let $A$ be a set, let $H$ be a subgroup of $S_A$ and let $F(H)$ be the fixed points of $H$ on $A$ as defined in the preceding exercise. Prove that if $\tau \in N_{S_A}(H)$ then $\tau$ stabilizes the set $F(H)$ and its complement $A - F(H)$.
+
+\begin{proof}
+    We wish to show that, if $\tau \in N_{S_A}(H)$, then for all $a \in F(H), b \in A - F(H)$, we have $\tau(a) \in F(H)$ and $\tau(b) \in A - F(H)$.
+
+    Let $\sigma \in H$ and let $a \in F(H), b \in A - F(H)$. Since $\tau$ is in the normalizer of $H$, so is its inverse $\tau^{-1}$. Then the conjugate of $\sigma$ by $\tau^{-1}$ fixes $a$, that is, $(\tau^{-1} \sigma \tau)(a) = a$. By left-multiplication, this gives $\sigma(\tau(a)) = \tau(a)$, so $\sigma$ fixes $\tau(a)$. Thus $\tau(a) \in F(H)$, so $\tau$ stabilizes $F(H)$.
+
+    Similarly for $b \in A - F(H)$, we know that $\sigma(b) \neq b$. Then $(\tau^{-1} \sigma \tau)(b) \neq b$, and so $\sigma(\tau(b)) \neq \tau(b)$, which implies that $\tau(b) \in A - F(H)$, and so $\tau$ also stabilizes $A - F(H)$.
+\end{proof}
+
 \end{document}
