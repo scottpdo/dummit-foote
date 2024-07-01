@@ -1,0 +1,42 @@
+\documentclass{article}
+
+\title{Dummit \& Foote Ch. 7.1: Introduction to Rings}
+\author{Scott Donaldson}
+\date{Jul. 2024}
+\usepackage{amsmath, amsthm, amsfonts, amssymb, enumitem, tabu, tikz}
+
+\begin{document}
+
+\maketitle
+
+Let $R$ be a ring with 1.
+
+\section*{1. (7/1/24)}
+
+Show that $(-1)^2 = 1$ in $\mathbb{R}$.
+
+\begin{proof}
+    We have:
+    \begin{align*}
+        (-1) + (-1)^2 = \underbrace{(-1)(1)}_{\text{identity}} + (-1)(-1) = \underbrace{(-1)(1 + (-1))}_{\text{distribution}} = (-1)\underbrace{(0)}_{\text{inverses}} = 0,
+    \end{align*}
+    and therefore, since $(-1) + (-1)^2 = 0$, $(-1)^2 = 1$.
+\end{proof}
+
+\section*{2. (7/1/24)}
+
+Prove that if $u$ is a unit in $R$ then so is $-u$.
+
+\begin{proof}
+    Recall that $u$ is a unit in $R$ if there exists some $v \in R$ such that $uv = vu = 1$.
+
+    Now:
+    \begin{align*}
+        (-u)(v) = -(uv) &= -1, \text{ which implies that} \\
+        (-u)(v)(-1) = (-1)^2 &= 1, \text{ so} \\
+        (-u)(-v) = 1,
+    \end{align*}
+    which implies that $-u$ is also a unit in $R$.
+\end{proof}
+
+\end{document}
