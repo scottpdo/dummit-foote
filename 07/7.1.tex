@@ -39,4 +39,18 @@ Prove that if $u$ is a unit in $R$ then so is $-u$.
     which implies that $-u$ is also a unit in $R$.
 \end{proof}
 
+\section*{7. (7/5/24)}
+
+The \emph{center} of a ring $R$ is $\{ z \in R \mid zr = rz \text{ for all } r \in R \}$ (i.e., is the set of all elements which commute with every element of $R$). Prove that the center of a ring is a subring that contains the identity. Prove that the center of a division ring is a field.
+
+\begin{proof}
+    Let $a, b \in R$ be in the center of $R$ and let $x \in R$. Then:
+    \begin{equation*}
+        (a - b)x = ax - bx = xa - xb = x(a - b),
+    \end{equation*}
+    so $a - b$ is in the center of $R$. And, since $a$ and $b$ both commute with $x$, we have $(ab)x = abx = xab = x(ab)$, so $ab$ lies in the center of $R$ as well. Since by definition 1 commutes with every element of $R$, the center of $R$ is a subring of $R$ containing the identity.
+
+    If $R$ is a division ring, then every element in its center (except 0) has a multiplicative inverse (is a unit). Every element in its center also commutes with every other element. A field is a commutative ring where every nonzero element is a unit; therefore the center of a division ring is a field.
+\end{proof}
+
 \end{document}
