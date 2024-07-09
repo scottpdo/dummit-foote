@@ -81,4 +81,19 @@ Describe the center of the Hamilton Quaternions $\mathbb{H}$. Prove that $\{ a +
     Consider the subset $\{ a + bi \mid a, b \in \mathbb{R} \}$. Let $a + bi, c + di$ be two elements of this subset. We see that $(a + bi) - (c + di) = (a - c) + (b - d)i$ and $(a + bi)(c + di) = ac + adi + bci + bdi^2 = (ac - bd) + (ad + bc)i$. Since this subset is closed under subtraction and multiplication, it is a subring of $\mathbb{H}$. However, since it includes elements with non-zero $i$ components, it is not contained in the center of $\mathbb{H}$.
 \end{proof}
 
+\section*{9. (7/9/24)}
+
+For a fixed element $a \in R$ define $C(a) = \{ r \in R \mid ra = ar \}$. Prove that $C(a)$ is a subring of $R$ containing $a$. Prove that the center of $R$ is the intersection of the subrings $C(a)$ over all $a \in R$.
+
+\begin{proof}
+    Let $a \in R$ and let $c, d \in C(a)$. Then:
+    \begin{align*}
+        (c - d)a = ca - da = ac - ad = a(c - d),& \text{ and } \\
+        (cd)a = cda = cad = acd = a(cd),&
+    \end{align*}
+    so $C(a)$ is a subring of $R$. Since elements commute with themselves, $a \in C(a)$.
+
+    Next, consider the intersection of all subrings $C(a)$ for $a \in R$, $\bigcap_{a \in R} C(a)$. Let $c \in \bigcap_{a \in R} C(a)$. Then $ca = ac$ for all $a \in R$, so $c$ is in the center of $R$. Conversely, if $c$ is in the center of $R$, then for all $a \in R$, $ca = ac$, and so $c \in \bigcap_{a \in R} C(a)$. Thus the center of $R$ is the intersection of the subrings $C(a)$ over all $a \in R$.
+\end{proof}
+
 \end{document}
