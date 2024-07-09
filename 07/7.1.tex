@@ -113,4 +113,18 @@ Prove that if $D$ is a division ring then $C(a)$ is a division ring for all $a \
     so $c^{-1} \in C(a)$. Since the multiplicative inverse of every element $c \in C(a)$ lies in $C(a)$, it is therefore a division ring.
 \end{proof}
 
+\section*{11. (7/9/24)}
+
+Prove that if $R$ is an integral domain and $x^2 = 1$ for some $x \in R$ then $x = \pm 1$.
+
+\begin{proof}
+    Recall that an integral domain is a commutative ring with identity $1 \neq 0$ and no zero divisors. Suppose that $x^2 = 1$ for some $x \in R$. Then:
+    \begin{align*}
+        x^2 &= 1 \\
+        x^2 + x &= x + 1 \\
+        x(x + 1) &= x + 1.
+    \end{align*}
+    By the cancellation property of integral domains (Proposition 2), either $x + 1 = 0$, which implies that $x = -1$, or else $x = 1$.
+\end{proof}
+
 \end{document}
