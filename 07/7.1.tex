@@ -53,4 +53,32 @@ The \emph{center} of a ring $R$ is $\{ z \in R \mid zr = rz \text{ for all } r \
     If $R$ is a division ring, then every element in its center (except 0) has a multiplicative inverse (is a unit). Every element in its center also commutes with every other element. A field is a commutative ring where every nonzero element is a unit; therefore the center of a division ring is a field.
 \end{proof}
 
+\section*{8. (7/9/24)}
+
+Describe the center of the Hamilton Quaternions $\mathbb{H}$. Prove that $\{ a + bi \mid a, b \in \mathbb{R} \}$ is a subring of $\mathbb{H}$ which is a field but is not contained in the center of $\mathbb{H}$.
+
+\begin{proof}
+    Let $a + bi + cj + dk$ ($a, b, c, d \in \mathbb{R}$) lie in the center of $\mathbb{H}$. It must commute with $i$ ($= 0 + 1i + 0j + 0k$). Then:
+    \begin{align*}
+        (a + bi + cj + dk)i &= ai + bi^2 + cji + dki \\
+        &= -b + ai + dj - ck, \text{ and } \\
+        i(a + bi + cj + dk) &= ai + bi^2 + cij + dik \\
+        &= -b + ai - dj + ck.
+    \end{align*}
+    If these are equal, then we have:
+    \begin{align*}
+        -b + ai + dj - ck &= -b + ai - dj + ck \\
+        dj - ck &= -dj + ck \\ 
+        2dj &= 2ck \\
+        dj &= ck,
+    \end{align*}
+    and since $c, d \in \mathbb{R}$, there are no non-zero values of $c, d$ such that $dj = ck$. Thus we must have $c = d = 0$.
+
+    Repeating the above steps for the product of $a + bi + cj + dk$ and $j$ or $k$, we see that $b$ must also be 0.
+
+    Now because real coefficients of $i, j, k$ commute, $a$ may take any value, and so the center of $\mathbb{H}$ consists of the real numbers (that is, quaternions of the form $a + 0i + 0j + 0k$).
+
+    Consider the subset $\{ a + bi \mid a, b \in \mathbb{R} \}$. Let $a + bi, c + di$ be two elements of this subset. We see that $(a + bi) - (c + di) = (a - c) + (b - d)i$ and $(a + bi)(c + di) = ac + adi + bci + bdi^2 = (ac - bd) + (ad + bc)i$. Since this subset is closed under subtraction and multiplication, it is a subring of $\mathbb{H}$. However, since it includes elements with non-zero $i$ components, it is not contained in the center of $\mathbb{H}$.
+\end{proof}
+
 \end{document}
