@@ -127,4 +127,12 @@ Prove that if $R$ is an integral domain and $x^2 = 1$ for some $x \in R$ then $x
     By the cancellation property of integral domains (Proposition 2), either $x + 1 = 0$, which implies that $x = -1$, or else $x = 1$.
 \end{proof}
 
+\section*{12. (7/17/24)}
+
+Prove that any subring of a field which contains the identity is an integral domain.
+
+\begin{proof}
+    Let $F$ be a field and let $R$ be a subring of $F$ containing 1. Since a field is a commutative division ring, every element of $F$ commutes multiplicatively with every other element, and so $R$ must also be commutative. Further, since every nonzero element of $F$ is a unit, and no element is both a unit and a zero divisor, $R$ contains no zero divisors. Therefore $R$ must be an integral domain.
+\end{proof}
+
 \end{document}
